@@ -1,0 +1,150 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "62552443993",
+    "raw_input": "0x441a3e7000000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000007ce66c50e2840000",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x94f28190b9bb2b346b9d9018e4ed099a768ea8d66516be12737401bac61692e2",
+    "max_fee_per_gas": "1000491",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "15760836",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 6585624,
+    "position": 1,
+    "max_priority_fee_per_gas": "1000151",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0xE9C19f32A8F1b3669088f52A03a2dd2b2aDA3505",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "62543",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xb20594fB14541316fD1b4FdF1Bb1BE16AE0d3BF7",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "Vault",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "32695536448494",
+    "method": "withdraw",
+    "fee": {
+      "type": "actual",
+      "value": "32758104653323"
+    },
+    "gas_limit": "218703",
+    "gas_price": "1000403",
+    "decoded_input": {
+      "method_call": "withdraw(uint256 _fund, uint256 _amount)",
+      "method_id": "441a3e70",
+      "parameters": [
+        {
+          "name": "_fund",
+          "type": "uint256",
+          "value": "3"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256",
+          "value": "9000000000000000000"
+        }
+      ]
+    },
+    "l1_gas_price": "737906345",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-04-26T06:16:51.000000Z",
+    "nonce": 4,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 21418538,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [],
+  "internal_transactions": [
+    {
+      "block_number": 21418538,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xb20594fB14541316fD1b4FdF1Bb1BE16AE0d3BF7",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Vault",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "169618",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-04-26T06:16:51.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE9C19f32A8F1b3669088f52A03a2dd2b2aDA3505",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x94f28190b9bb2b346b9d9018e4ed099a768ea8d66516be12737401bac61692e2",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "9000000000000000000"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x94f28190b9bb2b346b9d9018e4ed099a768ea8d66516be12737401bac61692e2",
+  "contract_address": "0xb20594fB14541316fD1b4FdF1Bb1BE16AE0d3BF7",
+  "contract_name": "Vault",
+  "contract_verified": true,
+  "implementations": []
+}

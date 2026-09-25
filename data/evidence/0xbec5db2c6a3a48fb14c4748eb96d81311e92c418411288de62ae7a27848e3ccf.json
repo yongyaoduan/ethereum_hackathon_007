@@ -1,0 +1,858 @@
+{
+  "transaction": {
+    "l1_gas_used": "7937",
+    "priority_fee": null,
+    "raw_input": "0x3dcd9793000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000004c000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000d4f6a0433062c0f20514f6477a2397a0716b8a13942fcf897e140baaa8aeba6211ea701fd396f7238d536dc2ee442527c1ab203db950d8ac5d75be4a2148e4e1101a48344a813e38ed94b943f223f0b8aa2fad1230307121e35ccbba38b6258800000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000120000000000000000000000000000000000000000000000000000000000000026000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000067b14b329aaf6f00000000000000000000000000000000000000000000000000000000019fd3bb28f200000000000000000000000000000000000000000000000000000000000000120000000000000000000000000000000000000000000000000000019fd3bb28700000000000000000000000000000000000000000000000000000000000000009e827cf6a5b4af4cfd7c56c96eb47712233305d9fd2699bfa7c2a6c7d70ba3b0eea4352c51a3f323a9f5f51b732c634ec89e869e5d81de91f4894b1dbeef0efbe24f54fc31afaab2df3941d8df5fcd20962640e5b942d72bcf2108dfcbbcea157decb0508e412b856ff6313d91e90db2798a2c9a45686c2349dfe3aae89f4c9c7f906481c0eae397c20846a64ab7213bca49ff93689570bb4142973fd9c50b1f66894272df2d6067e58426ee0d24c258956215c7a9087231d157e3f24c47128e2bf4dd5ae3364a554ffababd859d4cb6e913cbea885aef8359d27121b17b09938f5b0067be36a936eec8db4201364f1d6c0518558d55870e7ab50178fdf7bead17d270323f898168fe4377bced1eab3a17e83732494a5ce4577f27afd6111a6da0000000000000000000000000000000000000000000000000000000000000009000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+    "max_fee_per_gas": null,
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": null,
+    "type": 0,
+    "token_transfers_overflow": false,
+    "confirmations": 2195218,
+    "position": 1,
+    "max_priority_fee_per_gas": null,
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x1241f44BFA102ab7386C784959BAe3D0fB923734",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "334671",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x16f70cAD28dd621b0072B5A8a8c392970E87C3dD",
+      "implementations": [
+        {
+          "address_hash": "0x76f98f247a3CF0D1293605A868F78662B030c683",
+          "name": "SupraOraclePull"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "ERC1967Proxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "45548007417090",
+    "method": "verifyOracleProofV2",
+    "fee": {
+      "type": "actual",
+      "value": "167381382678417090"
+    },
+    "gas_limit": "347195",
+    "gas_price": "500001000000",
+    "decoded_input": {
+      "method_call": "verifyOracleProofV2(bytes _bytesProof)",
+      "method_id": "3dcd9793",
+      "parameters": [
+        {
+          "name": "_bytesProof",
+          "type": "bytes",
+          "value": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000d4f6a0433062c0f20514f6477a2397a0716b8a13942fcf897e140baaa8aeba6211ea701fd396f7238d536dc2ee442527c1ab203db950d8ac5d75be4a2148e4e1101a48344a813e38ed94b943f223f0b8aa2fad1230307121e35ccbba38b6258800000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000120000000000000000000000000000000000000000000000000000000000000026000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000067b14b329aaf6f00000000000000000000000000000000000000000000000000000000019fd3bb28f200000000000000000000000000000000000000000000000000000000000000120000000000000000000000000000000000000000000000000000019fd3bb28700000000000000000000000000000000000000000000000000000000000000009e827cf6a5b4af4cfd7c56c96eb47712233305d9fd2699bfa7c2a6c7d70ba3b0eea4352c51a3f323a9f5f51b732c634ec89e869e5d81de91f4894b1dbeef0efbe24f54fc31afaab2df3941d8df5fcd20962640e5b942d72bcf2108dfcbbcea157decb0508e412b856ff6313d91e90db2798a2c9a45686c2349dfe3aae89f4c9c7f906481c0eae397c20846a64ab7213bca49ff93689570bb4142973fd9c50b1f66894272df2d6067e58426ee0d24c258956215c7a9087231d157e3f24c47128e2bf4dd5ae3364a554ffababd859d4cb6e913cbea885aef8359d27121b17b09938f5b0067be36a936eec8db4201364f1d6c0518558d55870e7ab50178fdf7bead17d270323f898168fe4377bced1eab3a17e83732494a5ce4577f27afd6111a6da0000000000000000000000000000000000000000000000000000000000000009000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "l1_gas_price": "164940782",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "500000000000",
+    "timestamp": "2026-08-05T21:01:29.000000Z",
+    "nonce": 45513,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 25808277,
+    "has_error_in_internal_transactions": false,
+    "da_footprint_gas_scalar": "400"
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x16f70cAD28dd621b0072B5A8a8c392970E87C3dD",
+        "implementations": [
+          {
+            "address_hash": "0x76f98f247a3CF0D1293605A868F78662B030c683",
+            "name": "SupraOraclePull"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x30cb5eee1f2ae84f510781b0440f97113ce6ffcb2b9d059a576ef6f25a8325c9",
+      "block_number": 25808277,
+      "block_timestamp": "2026-08-05T21:01:29.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000067b14b329aaf6f000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001",
+      "decoded": {
+        "method_call": "PriceUpdate(uint256[] pairs, uint256[] prices, uint256[] updateMask)",
+        "method_id": "f77b9be2",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "pairs",
+            "type": "uint256[]",
+            "value": [
+              "1"
+            ]
+          },
+          {
+            "indexed": false,
+            "name": "prices",
+            "type": "uint256[]",
+            "value": [
+              "1912790000000000000000"
+            ]
+          },
+          {
+            "indexed": false,
+            "name": "updateMask",
+            "type": "uint256[]",
+            "value": [
+              "1"
+            ]
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xf77b9be227a199cb89ec5a0163ecdfe805c3f5c706b314c1962cd3e1ea506824",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x16f70cAD28dd621b0072B5A8a8c392970E87C3dD",
+        "implementations": [
+          {
+            "address_hash": "0x76f98f247a3CF0D1293605A868F78662B030c683",
+            "name": "SupraOraclePull"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "306065",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x76f98f247a3CF0D1293605A868F78662B030c683",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "SupraOraclePull",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x16f70cAD28dd621b0072B5A8a8c392970E87C3dD",
+        "implementations": [
+          {
+            "address_hash": "0x76f98f247a3CF0D1293605A868F78662B030c683",
+            "name": "SupraOraclePull"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "283752",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xbB37c65Aab92c41EC696c18600CABB4FC6309549",
+        "implementations": [
+          {
+            "address_hash": "0x02B70DDe7a8B0Ca5f2a1118Bb6e5C48EC0793944",
+            "name": "SupraSValueFeedVerifier"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xbB37c65Aab92c41EC696c18600CABB4FC6309549",
+        "implementations": [
+          {
+            "address_hash": "0x02B70DDe7a8B0Ca5f2a1118Bb6e5C48EC0793944",
+            "name": "SupraSValueFeedVerifier"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "274577",
+      "index": 3,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x02B70DDe7a8B0Ca5f2a1118Bb6e5C48EC0793944",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "SupraSValueFeedVerifier",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xbB37c65Aab92c41EC696c18600CABB4FC6309549",
+        "implementations": [
+          {
+            "address_hash": "0x02B70DDe7a8B0Ca5f2a1118Bb6e5C48EC0793944",
+            "name": "SupraSValueFeedVerifier"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "257021",
+      "index": 4,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000002",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": {
+          "tags": [
+            {
+              "meta": {},
+              "name": "Null: 0x000...002",
+              "ordinal": 10,
+              "slug": "null-0x000002",
+              "tagType": "name"
+            }
+          ]
+        },
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xbB37c65Aab92c41EC696c18600CABB4FC6309549",
+        "implementations": [
+          {
+            "address_hash": "0x02B70DDe7a8B0Ca5f2a1118Bb6e5C48EC0793944",
+            "name": "SupraSValueFeedVerifier"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "256345",
+      "index": 5,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000002",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": {
+          "tags": [
+            {
+              "meta": {},
+              "name": "Null: 0x000...002",
+              "ordinal": 10,
+              "slug": "null-0x000002",
+              "tagType": "name"
+            }
+          ]
+        },
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xbB37c65Aab92c41EC696c18600CABB4FC6309549",
+        "implementations": [
+          {
+            "address_hash": "0x02B70DDe7a8B0Ca5f2a1118Bb6e5C48EC0793944",
+            "name": "SupraSValueFeedVerifier"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "255733",
+      "index": 6,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000002",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": {
+          "tags": [
+            {
+              "meta": {},
+              "name": "Null: 0x000...002",
+              "ordinal": 10,
+              "slug": "null-0x000002",
+              "tagType": "name"
+            }
+          ]
+        },
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xbB37c65Aab92c41EC696c18600CABB4FC6309549",
+        "implementations": [
+          {
+            "address_hash": "0x02B70DDe7a8B0Ca5f2a1118Bb6e5C48EC0793944",
+            "name": "SupraSValueFeedVerifier"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "255115",
+      "index": 7,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000002",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": {
+          "tags": [
+            {
+              "meta": {},
+              "name": "Null: 0x000...002",
+              "ordinal": 10,
+              "slug": "null-0x000002",
+              "tagType": "name"
+            }
+          ]
+        },
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xbB37c65Aab92c41EC696c18600CABB4FC6309549",
+        "implementations": [
+          {
+            "address_hash": "0x02B70DDe7a8B0Ca5f2a1118Bb6e5C48EC0793944",
+            "name": "SupraSValueFeedVerifier"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "194643",
+      "index": 8,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000006",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xbB37c65Aab92c41EC696c18600CABB4FC6309549",
+        "implementations": [
+          {
+            "address_hash": "0x02B70DDe7a8B0Ca5f2a1118Bb6e5C48EC0793944",
+            "name": "SupraSValueFeedVerifier"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "113133",
+      "index": 9,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000008",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x16f70cAD28dd621b0072B5A8a8c392970E87C3dD",
+        "implementations": [
+          {
+            "address_hash": "0x76f98f247a3CF0D1293605A868F78662B030c683",
+            "name": "SupraOraclePull"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "26979",
+      "index": 10,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x58e158c74DF7Ad6396C0dcbadc4878faC9e93d57",
+        "implementations": [
+          {
+            "address_hash": "0xe86d7482FD25EC42cA562FdDfdCfb814d6c505C3",
+            "name": "SupraSValueFeedStorage"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x58e158c74DF7Ad6396C0dcbadc4878faC9e93d57",
+        "implementations": [
+          {
+            "address_hash": "0xe86d7482FD25EC42cA562FdDfdCfb814d6c505C3",
+            "name": "SupraSValueFeedStorage"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "21831",
+      "index": 11,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xe86d7482FD25EC42cA562FdDfdCfb814d6c505C3",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "SupraSValueFeedStorage",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x16f70cAD28dd621b0072B5A8a8c392970E87C3dD",
+        "implementations": [
+          {
+            "address_hash": "0x76f98f247a3CF0D1293605A868F78662B030c683",
+            "name": "SupraOraclePull"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "17414",
+      "index": 12,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x58e158c74DF7Ad6396C0dcbadc4878faC9e93d57",
+        "implementations": [
+          {
+            "address_hash": "0xe86d7482FD25EC42cA562FdDfdCfb814d6c505C3",
+            "name": "SupraSValueFeedStorage"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 25808277,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x58e158c74DF7Ad6396C0dcbadc4878faC9e93d57",
+        "implementations": [
+          {
+            "address_hash": "0xe86d7482FD25EC42cA562FdDfdCfb814d6c505C3",
+            "name": "SupraSValueFeedStorage"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "16842",
+      "index": 13,
+      "success": true,
+      "timestamp": "2026-08-05T21:01:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xe86d7482FD25EC42cA562FdDfdCfb814d6c505C3",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "SupraSValueFeedStorage",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0xbec5db2c6a3a48fb14c4748eb96d81311e92c418411288de62ae7a27848e3ccf",
+  "contract_address": "0x16f70cAD28dd621b0072B5A8a8c392970E87C3dD",
+  "contract_name": "ERC1967Proxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0x76f98f247a3CF0D1293605A868F78662B030c683",
+      "name": "SupraOraclePull"
+    }
+  ]
+}

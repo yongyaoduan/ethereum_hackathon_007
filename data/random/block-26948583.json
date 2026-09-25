@@ -1,0 +1,187 @@
+{
+  "block": 26948583,
+  "items": [
+    {
+      "priority_fee": null,
+      "raw_input": "0x3db6be2b01312d00ffffffff0000000000000004000000006a96710b00000000018ae8480000000000000000000000000000000000000000000000000000000004ca8cc800000000000000000000000000000000000000000000000000000000003ff3f005554040a49414679007175085a8f0185e8d5c5a2048aeb6b2a69f18db60e2c20000000000000000000000005e70713222faf60c9e9fb69240d06ae6d688563a0000000000000000000000000190",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x22a57e91026edcff6620dbd5457b4fec2a8f9df066ff6d0a3234f52c2c9e4f7c",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 126,
+      "token_transfers_overflow": null,
+      "confirmations": 1054756,
+      "position": 0,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xDeaDDEaDDeAdDeAdDEAdDEaddeAddEAdDEAd0001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": null,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "46278",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4200000000000000000000000000000000000015",
+        "implementations": [
+          {
+            "address_hash": "0x3Ba4007f5C922FBb33C454B41ea7a1f11E83df2C",
+            "name": null
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "0x3db6be2b",
+      "fee": {
+        "type": "actual",
+        "value": "0"
+      },
+      "gas_limit": "1000000",
+      "gas_price": "0",
+      "decoded_input": null,
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "500000000000",
+      "timestamp": "2026-09-01T06:31:41.000000Z",
+      "nonce": 26948584,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "op_stack_l1_attributes_transaction"
+      ],
+      "exchange_rate": null,
+      "block_number": 26948583,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x3161b7f60000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000b700000000000000000000000000000000000000000002045d8dd984682ab8043e000000000000000000000000000000000000000000000000000000000b022d9f0000000000000000000000000000000000000000000000000000000000000010",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x69b8abbdd60265aae586e51f0fb76b34cbbbe53f750eb7386c5b94647f647789",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 1054756,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x339d413CCEfD986b1B3647A9cfa9CBbE70A30749",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": null,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "38025",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x3c2269811836af69497E5F486A85D7316753cf62",
+        "implementations": [
+          {
+            "address_hash": "0x4EE2F9B7cf3A68966c370F3eb2C16613d3235245",
+            "name": "PriceFeed"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "OptimizedTransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "setPrice",
+      "fee": {
+        "type": "actual",
+        "value": "22819418005196628"
+      },
+      "gas_limit": "220976",
+      "gas_price": "600001200000",
+      "decoded_input": {
+        "method_call": "setPrice((uint32,(uint128,uint64,uint32))[] _price)",
+        "method_id": "3161b7f6",
+        "parameters": [
+          {
+            "name": "_price",
+            "type": "(uint32,(uint128,uint64,uint32))[]",
+            "value": [
+              [
+                "183",
+                [
+                  "2438466873706004140786750",
+                  "184692127",
+                  "16"
+                ]
+              ]
+            ]
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "500000000000",
+      "timestamp": "2026-09-01T06:31:41.000000Z",
+      "nonce": 14145,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call"
+      ],
+      "exchange_rate": null,
+      "block_number": 26948583,
+      "has_error_in_internal_transactions": false
+    }
+  ],
+  "pages": 1,
+  "complete": true
+}

@@ -1,0 +1,195 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "8879970000000",
+    "raw_input": "0xae60186b00000000000000000000000022c6470a22b595a07787a1fd3e6930471fe579c0",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x33257b751969cda4b4d9ac40a97987f3386e725871c829ebf65c4627c9e6ccf0",
+    "max_fee_per_gas": "1000010000000",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "443998500000000000",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 101882,
+    "position": 3,
+    "max_priority_fee_per_gas": "10000000",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0xa1c832ed74d1599686F6f9c5C6CC6960927D7431",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "887997",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x180c3C56D0a53E6ee6A8F4ee1228E78ca977Dc4B",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "SubAccountFactory",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "17629460703782",
+    "method": "createSubAccount",
+    "fee": {
+      "type": "actual",
+      "value": "444025009430703782"
+    },
+    "gas_limit": "896212",
+    "gas_price": "500010000000",
+    "decoded_input": {
+      "method_call": "createSubAccount(address userWallet)",
+      "method_id": "ae60186b",
+      "parameters": [
+        {
+          "name": "userWallet",
+          "type": "address",
+          "value": "0x22C6470A22B595a07787A1fd3e6930471FE579C0"
+        }
+      ]
+    },
+    "l1_gas_price": "315190253",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "500000000000",
+    "timestamp": "2026-09-23T08:42:11.000000Z",
+    "nonce": 404249,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 27902898,
+    "has_error_in_internal_transactions": false,
+    "da_footprint_gas_scalar": "400"
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x180c3C56D0a53E6ee6A8F4ee1228E78ca977Dc4B",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "SubAccountFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xa4b505958a5fda472dbeee193faedb75c20a1bd3a8d1107f3e1f4ecd1a1d8b79",
+      "block_number": 27902898,
+      "block_timestamp": "2026-09-23T08:42:11.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "SubAccountCreated(address indexed userWallet, address indexed subAccount)",
+        "method_id": "9b7cc85b",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "userWallet",
+            "type": "address",
+            "value": "0x22C6470A22B595a07787A1fd3e6930471FE579C0"
+          },
+          {
+            "indexed": true,
+            "name": "subAccount",
+            "type": "address",
+            "value": "0x40D6603Da5C64AA5055D04Fd0831983dEEd6Bdb7"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0x9b7cc85ba1f4f0b449fe5e8608b87d97445f6ba1ba714e07523d0bfd436a020f",
+        "0x00000000000000000000000022c6470a22b595a07787a1fd3e6930471fe579c0",
+        "0x00000000000000000000000040d6603da5c64aa5055d04fd0831983deed6bdb7",
+        null
+      ],
+      "transaction_hash": "0x33257b751969cda4b4d9ac40a97987f3386e725871c829ebf65c4627c9e6ccf0"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 27902898,
+      "created_contract": {
+        "ens_domain_name": null,
+        "hash": "0x40D6603Da5C64AA5055D04Fd0831983dEEd6Bdb7",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x180c3C56D0a53E6ee6A8F4ee1228E78ca977Dc4B",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "SubAccountFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "822558",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-09-23T08:42:11.000000Z",
+      "to": null,
+      "transaction_hash": "0x33257b751969cda4b4d9ac40a97987f3386e725871c829ebf65c4627c9e6ccf0",
+      "transaction_index": 3,
+      "type": "create2",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x33257b751969cda4b4d9ac40a97987f3386e725871c829ebf65c4627c9e6ccf0",
+  "contract_address": "0x180c3C56D0a53E6ee6A8F4ee1228E78ca977Dc4B",
+  "contract_name": "SubAccountFactory",
+  "contract_verified": true,
+  "implementations": []
+}

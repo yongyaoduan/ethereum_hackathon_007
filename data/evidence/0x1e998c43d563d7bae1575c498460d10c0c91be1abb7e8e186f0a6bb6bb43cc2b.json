@@ -1,0 +1,3321 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "2868354000000",
+    "raw_input": "0xd2a8607b0000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd0000000000000000000000000000000000000000000000056bc75e2d63100000",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+    "max_fee_per_gas": "1000302",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "722825208",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 3363266,
+    "position": 1,
+    "max_priority_fee_per_gas": "1000000",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "2868354",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+      "implementations": [
+        {
+          "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+          "name": "LendingPool"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "ERC1967Proxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "3826277407329",
+    "method": "supplyCollateral",
+    "fee": {
+      "type": "actual",
+      "value": "6695354232537"
+    },
+    "gas_limit": "2964450",
+    "gas_price": "1000252",
+    "decoded_input": {
+      "method_call": "supplyCollateral(address _user, uint256 _amount)",
+      "method_id": "d2a8607b",
+      "parameters": [
+        {
+          "name": "_user",
+          "type": "address",
+          "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256",
+          "value": "100000000000000000000"
+        }
+      ]
+    },
+    "l1_gas_price": "65585846",
+    "fhe_operations_count": 0,
+    "token_transfers": [
+      {
+        "block_hash": "0x68615fde8d124a9554b75994e85465c644b653b4cff466c1122cd96cf2c42881",
+        "block_number": 24640762,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 7,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+          "implementations": [],
+          "is_contract": true,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0xc3be8ab4CA0cefE3119A765b324bBDF54a16A65b",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "18",
+          "exchange_rate": null,
+          "holders_count": "3",
+          "icon_url": null,
+          "name": "Paboxo Mock WHSK",
+          "reputation": "ok",
+          "symbol": "pxWHSK",
+          "total_supply": "100000000000000000000000000",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "18",
+          "value": "100000000000000000000"
+        },
+        "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+        "type": "token_transfer"
+      }
+    ],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-07-09T20:24:19.000000Z",
+    "nonce": 191,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call",
+      "token_transfer"
+    ],
+    "exchange_rate": null,
+    "block_number": 24640762,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x4E64a31D7F7dB3636285e369699d1d09F3dB95A5",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x68615fde8d124a9554b75994e85465c644b653b4cff466c1122cd96cf2c42881",
+      "block_number": 24640762,
+      "block_timestamp": "2026-07-09T20:24:19.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000000ffffffffffffffff",
+      "decoded": {
+        "method_call": "Initialized(uint64 version)",
+        "method_id": "c7f505b2",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "version",
+            "type": "uint64",
+            "value": "18446744073709551615"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x68615fde8d124a9554b75994e85465c644b653b4cff466c1122cd96cf2c42881",
+      "block_number": 24640762,
+      "block_timestamp": "2026-07-09T20:24:19.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "Upgraded(address indexed implementation)",
+        "method_id": "bc7cd75a",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "implementation",
+            "type": "address",
+            "value": "0x4E64a31D7F7dB3636285e369699d1d09F3dB95A5"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0xbc7cd75a20ee27fd9adebab32041f755214dbc6bffa90cc0225b39da2e5c2d3b",
+        "0x0000000000000000000000004e64a31d7f7db3636285e369699d1d09f3db95a5",
+        null,
+        null
+      ],
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x68615fde8d124a9554b75994e85465c644b653b4cff466c1122cd96cf2c42881",
+      "block_number": 24640762,
+      "block_timestamp": "2026-07-09T20:24:19.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)",
+        "method_id": "2f878811",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "role",
+            "type": "bytes32",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "indexed": true,
+            "name": "account",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          },
+          {
+            "indexed": true,
+            "name": "sender",
+            "type": "address",
+            "value": "0x6Ab9c1AAf4f8172138086AA72be2AB8aA6579dbd"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd",
+        "0x0000000000000000000000006ab9c1aaf4f8172138086aa72be2ab8aa6579dbd"
+      ],
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x68615fde8d124a9554b75994e85465c644b653b4cff466c1122cd96cf2c42881",
+      "block_number": 24640762,
+      "block_timestamp": "2026-07-09T20:24:19.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)",
+        "method_id": "2f878811",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "role",
+            "type": "bytes32",
+            "value": "0xb19546dff01e856fb3f010c267a7b1c60363cf8a4664e21cc89c26224620214e"
+          },
+          {
+            "indexed": true,
+            "name": "account",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          },
+          {
+            "indexed": true,
+            "name": "sender",
+            "type": "address",
+            "value": "0x6Ab9c1AAf4f8172138086AA72be2AB8aA6579dbd"
+          }
+        ]
+      },
+      "index": 3,
+      "smart_contract": null,
+      "topics": [
+        "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+        "0xb19546dff01e856fb3f010c267a7b1c60363cf8a4664e21cc89c26224620214e",
+        "0x0000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd",
+        "0x0000000000000000000000006ab9c1aaf4f8172138086aa72be2ab8aa6579dbd"
+      ],
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x68615fde8d124a9554b75994e85465c644b653b4cff466c1122cd96cf2c42881",
+      "block_number": 24640762,
+      "block_timestamp": "2026-07-09T20:24:19.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)",
+        "method_id": "2f878811",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "role",
+            "type": "bytes32",
+            "value": "0x189ab7a9244df0848122154315af71fe140f3db0fe014031783b0946b8c9d2e3"
+          },
+          {
+            "indexed": true,
+            "name": "account",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          },
+          {
+            "indexed": true,
+            "name": "sender",
+            "type": "address",
+            "value": "0x6Ab9c1AAf4f8172138086AA72be2AB8aA6579dbd"
+          }
+        ]
+      },
+      "index": 4,
+      "smart_contract": null,
+      "topics": [
+        "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+        "0x189ab7a9244df0848122154315af71fe140f3db0fe014031783b0946b8c9d2e3",
+        "0x0000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd",
+        "0x0000000000000000000000006ab9c1aaf4f8172138086aa72be2ab8aa6579dbd"
+      ],
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x68615fde8d124a9554b75994e85465c644b653b4cff466c1122cd96cf2c42881",
+      "block_number": 24640762,
+      "block_timestamp": "2026-07-09T20:24:19.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "decoded": {
+        "method_call": "Initialized(uint64 version)",
+        "method_id": "c7f505b2",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "version",
+            "type": "uint64",
+            "value": "1"
+          }
+        ]
+      },
+      "index": 5,
+      "smart_contract": null,
+      "topics": [
+        "0xc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x290CAcb1bc6e35797Db6243a1C10C12F16d93370",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x68615fde8d124a9554b75994e85465c644b653b4cff466c1122cd96cf2c42881",
+      "block_number": 24640762,
+      "block_timestamp": "2026-07-09T20:24:19.000000Z",
+      "data": "0x000000000000000000000000b45693e9f28ceb47fc3c81b45535e3d808196406000000000000000000000000e2ee3ce542c887b8878fea3e7420f912b7b8c0cf0000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd0000000000000000000000000000000000000000000000000000000000000000",
+      "decoded": {
+        "method_call": "PositionCreated(address lendingPool, address lendingPoolRouter, address user, address position)",
+        "method_id": "393722ea",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "lendingPool",
+            "type": "address",
+            "value": "0xB45693e9F28ceb47fC3c81b45535e3D808196406"
+          },
+          {
+            "indexed": false,
+            "name": "lendingPoolRouter",
+            "type": "address",
+            "value": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF"
+          },
+          {
+            "indexed": false,
+            "name": "user",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          },
+          {
+            "indexed": false,
+            "name": "position",
+            "type": "address",
+            "value": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "index": 6,
+      "smart_contract": null,
+      "topics": [
+        "0x393722ea159d34e9a42fd32504465d1e8ac9acadd7aa127a3bcfa96fa634b761",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xc3be8ab4CA0cefE3119A765b324bBDF54a16A65b",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Paboxo Mock WHSK",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x68615fde8d124a9554b75994e85465c644b653b4cff466c1122cd96cf2c42881",
+      "block_number": 24640762,
+      "block_timestamp": "2026-07-09T20:24:19.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000056bc75e2d63100000",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "100000000000000000000"
+          }
+        ]
+      },
+      "index": 7,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x0000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd",
+        "0x000000000000000000000000e4d7349e9710cd622f5d7dba9d29f67a7a6ca396",
+        null
+      ],
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x68615fde8d124a9554b75994e85465c644b653b4cff466c1122cd96cf2c42881",
+      "block_number": 24640762,
+      "block_timestamp": "2026-07-09T20:24:19.000000Z",
+      "data": "0x000000000000000000000000e4d7349e9710cd622f5d7dba9d29f67a7a6ca3960000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd0000000000000000000000000000000000000000000000056bc75e2d63100000",
+      "decoded": {
+        "method_call": "SupplyCollateral(address positionAddress, address user, uint256 amount)",
+        "method_id": "cfe29c0d",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "positionAddress",
+            "type": "address",
+            "value": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396"
+          },
+          {
+            "indexed": false,
+            "name": "user",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "100000000000000000000"
+          }
+        ]
+      },
+      "index": 8,
+      "smart_contract": null,
+      "topics": [
+        "0xcfe29c0d43878d135a747227476edb81a1a255aea285b3aa301e9d5e616539fa",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2892052",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x82c3A4D947b3Eb919e418b97f73f6EB39D616996",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2834611",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2785550",
+      "index": 3,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2826576",
+      "index": 4,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2782071",
+      "index": 5,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2824970",
+      "index": 6,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2780490",
+      "index": 7,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2722403",
+      "index": 8,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2675099",
+      "index": 9,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "LendingPoolFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2712340",
+      "index": 10,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xa8e2E14AA272d360235B9444f8214bA5fa2A2888",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": {
+        "ens_domain_name": null,
+        "hash": "0x4E64a31D7F7dB3636285e369699d1d09F3dB95A5",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xa8e2E14AA272d360235B9444f8214bA5fa2A2888",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2635082",
+      "index": 11,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": null,
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "create",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "396839",
+      "index": 12,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "390301",
+      "index": 13,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "LendingPoolFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "390893",
+      "index": 14,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x6Ab9c1AAf4f8172138086AA72be2AB8aA6579dbd",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x6Ab9c1AAf4f8172138086AA72be2AB8aA6579dbd",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "352175",
+      "index": 15,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": null,
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "create",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "322634",
+      "index": 16,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4E64a31D7F7dB3636285e369699d1d09F3dB95A5",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "249518",
+      "index": 17,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "245282",
+      "index": 18,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x82c3A4D947b3Eb919e418b97f73f6EB39D616996",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "248255",
+      "index": 19,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "244039",
+      "index": 20,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "247055",
+      "index": 21,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "242858",
+      "index": 22,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "LendingPoolFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "219371",
+      "index": 23,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "215606",
+      "index": 24,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x82c3A4D947b3Eb919e418b97f73f6EB39D616996",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "218108",
+      "index": 25,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "214363",
+      "index": 26,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "216909",
+      "index": 27,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "213183",
+      "index": 28,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "LendingPoolFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "191222",
+      "index": 29,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "187897",
+      "index": 30,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x82c3A4D947b3Eb919e418b97f73f6EB39D616996",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "189959",
+      "index": 31,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "186654",
+      "index": 32,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "188759",
+      "index": 33,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "185472",
+      "index": 34,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "LendingPoolFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "119449",
+      "index": 35,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "117245",
+      "index": 36,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x82c3A4D947b3Eb919e418b97f73f6EB39D616996",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "118187",
+      "index": 37,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "116003",
+      "index": 38,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "92690",
+      "index": 39,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "90905",
+      "index": 40,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x82c3A4D947b3Eb919e418b97f73f6EB39D616996",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "91427",
+      "index": 41,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "89661",
+      "index": 42,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "112813",
+      "index": 43,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "110713",
+      "index": 44,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "111613",
+      "index": 45,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "109532",
+      "index": 46,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "LendingPoolFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "105598",
+      "index": 47,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x290CAcb1bc6e35797Db6243a1C10C12F16d93370",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x290CAcb1bc6e35797Db6243a1C10C12F16d93370",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "99163",
+      "index": 48,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x487b1e0177B3ac1ACA7e8c353ed0Df133593a8EB",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "93063",
+      "index": 49,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "91272",
+      "index": 50,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "84952",
+      "index": 51,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "83285",
+      "index": 52,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "83349",
+      "index": 53,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "81710",
+      "index": 54,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "79349",
+      "index": 55,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xc3be8ab4CA0cefE3119A765b324bBDF54a16A65b",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Paboxo Mock WHSK",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "46930",
+      "index": 56,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24640762,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE2eE3Ce542c887b8878fEa3E7420F912B7b8c0cF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "45857",
+      "index": 57,
+      "success": true,
+      "timestamp": "2026-07-09T20:24:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4897614ccfeEa2b20212A3C881b10be62bad4103",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [
+    {
+      "block_hash": "0x68615fde8d124a9554b75994e85465c644b653b4cff466c1122cd96cf2c42881",
+      "block_number": 24640762,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 7,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xe4d7349e9710cd622f5D7dba9D29F67a7A6cA396",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0xc3be8ab4CA0cefE3119A765b324bBDF54a16A65b",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "18",
+        "exchange_rate": null,
+        "holders_count": "3",
+        "icon_url": null,
+        "name": "Paboxo Mock WHSK",
+        "reputation": "ok",
+        "symbol": "pxWHSK",
+        "total_supply": "100000000000000000000000000",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "18",
+        "value": "100000000000000000000"
+      },
+      "transaction_hash": "0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+      "type": "token_transfer"
+    }
+  ],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x1e998c43d563d7bae1575c498460d10c0c91be1abb7e8e186f0a6bb6bb43cc2b",
+  "contract_address": "0xB45693e9F28ceb47fC3c81b45535e3D808196406",
+  "contract_name": "ERC1967Proxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+      "name": "LendingPool"
+    }
+  ]
+}

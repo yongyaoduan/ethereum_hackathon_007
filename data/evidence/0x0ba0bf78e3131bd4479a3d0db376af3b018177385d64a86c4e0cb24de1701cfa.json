@@ -1,0 +1,601 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "239318000000",
+    "raw_input": "0xef706adf0000000000000000000000000000000000000000000000000000000000000003",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x0ba0bf78e3131bd4479a3d0db376af3b018177385d64a86c4e0cb24de1701cfa",
+    "max_fee_per_gas": "1000252",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "60308136",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 19200115,
+    "position": 1,
+    "max_priority_fee_per_gas": "1000252",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x5017bC705AD769bB3AF1f89b45Aa2eA30900e1D4",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "239318",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+      "implementations": [
+        {
+          "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+          "name": "AsteroidXMarketplace"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "TransparentUpgradeableProxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "9496878221496",
+    "method": "cancelOffer",
+    "fee": {
+      "type": "actual",
+      "value": "9736256529632"
+    },
+    "gas_limit": "287307",
+    "gas_price": "1000252",
+    "decoded_input": {
+      "method_call": "cancelOffer(uint256 offerId)",
+      "method_id": "ef706adf",
+      "parameters": [
+        {
+          "name": "offerId",
+          "type": "uint256",
+          "value": "3"
+        }
+      ]
+    },
+    "l1_gas_price": "296777431",
+    "fhe_operations_count": 0,
+    "token_transfers": [
+      {
+        "block_hash": "0x5e8ff98c346a5dce1d7ef9232cf808a4e884edefeebca6616d40def8fa7d4643",
+        "block_number": 8804589,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0x693a2B542A85bff510fbB148522dD69465F557C9",
+          "implementations": [
+            {
+              "address_hash": "0x66105A0Bc6d970856EcEdf48fFCc6a3D2f09f7ae",
+              "name": "AsteroidXMarketplaceVault"
+            }
+          ],
+          "is_contract": true,
+          "is_scam": false,
+          "is_verified": true,
+          "metadata": null,
+          "name": "TransparentUpgradeableProxy",
+          "private_tags": [],
+          "proxy_type": "eip1967",
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 0,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0x5017bC705AD769bB3AF1f89b45Aa2eA30900e1D4",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "6",
+          "exchange_rate": null,
+          "holders_count": "5163",
+          "icon_url": "https://hyperindex.4everland.store/tether-usdt.png",
+          "name": "Tether USD",
+          "reputation": "ok",
+          "symbol": "USDT",
+          "total_supply": "1094276733314",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "6",
+          "value": "4000000"
+        },
+        "transaction_hash": "0x0ba0bf78e3131bd4479a3d0db376af3b018177385d64a86c4e0cb24de1701cfa",
+        "type": "token_transfer"
+      }
+    ],
+    "base_fee_per_gas": "252",
+    "timestamp": "2025-07-08T06:31:53.000000Z",
+    "nonce": 26,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call",
+      "token_transfer"
+    ],
+    "exchange_rate": null,
+    "block_number": 8804589,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "OptimismMintableERC20",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x5e8ff98c346a5dce1d7ef9232cf808a4e884edefeebca6616d40def8fa7d4643",
+      "block_number": 8804589,
+      "block_timestamp": "2025-07-08T06:31:53.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000000000000000003d0900",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0x693a2B542A85bff510fbB148522dD69465F557C9"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0x5017bC705AD769bB3AF1f89b45Aa2eA30900e1D4"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "4000000"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x000000000000000000000000693a2b542a85bff510fbb148522dd69465f557c9",
+        "0x0000000000000000000000005017bc705ad769bb3af1f89b45aa2ea30900e1d4",
+        null
+      ],
+      "transaction_hash": "0x0ba0bf78e3131bd4479a3d0db376af3b018177385d64a86c4e0cb24de1701cfa"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x693a2B542A85bff510fbB148522dD69465F557C9",
+        "implementations": [
+          {
+            "address_hash": "0x66105A0Bc6d970856EcEdf48fFCc6a3D2f09f7ae",
+            "name": "AsteroidXMarketplaceVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x5e8ff98c346a5dce1d7ef9232cf808a4e884edefeebca6616d40def8fa7d4643",
+      "block_number": 8804589,
+      "block_timestamp": "2025-07-08T06:31:53.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000000000000000003d0900",
+      "decoded": {
+        "method_call": "OfferFundsRefundedToBuyer(uint256 indexed offerId, address indexed buyer, uint256 amount)",
+        "method_id": "3355200f",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "offerId",
+            "type": "uint256",
+            "value": "3"
+          },
+          {
+            "indexed": true,
+            "name": "buyer",
+            "type": "address",
+            "value": "0x5017bC705AD769bB3AF1f89b45Aa2eA30900e1D4"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "4000000"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0x3355200f7efd5c5e210394647161071b892b50c1b775203bf5cea5ffb4786378",
+        "0x0000000000000000000000000000000000000000000000000000000000000003",
+        "0x0000000000000000000000005017bc705ad769bb3af1f89b45aa2ea30900e1d4",
+        null
+      ],
+      "transaction_hash": "0x0ba0bf78e3131bd4479a3d0db376af3b018177385d64a86c4e0cb24de1701cfa"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x5e8ff98c346a5dce1d7ef9232cf808a4e884edefeebca6616d40def8fa7d4643",
+      "block_number": 8804589,
+      "block_timestamp": "2025-07-08T06:31:53.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "OfferCancelled(uint256 indexed offerId)",
+        "method_id": "c28b4aed",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "offerId",
+            "type": "uint256",
+            "value": "3"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0xc28b4aed030bfacc245c0501326e1beb8c0ef0d60e4edc21067fdeb52da2a7aa",
+        "0x0000000000000000000000000000000000000000000000000000000000000003",
+        null,
+        null
+      ],
+      "transaction_hash": "0x0ba0bf78e3131bd4479a3d0db376af3b018177385d64a86c4e0cb24de1701cfa"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 8804589,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "257115",
+      "index": 1,
+      "success": true,
+      "timestamp": "2025-07-08T06:31:53.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x1ccf1d3Db6A7097492ec2677023477c5cAbCfAeA",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "AsteroidXMarketplace",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x0ba0bf78e3131bd4479a3d0db376af3b018177385d64a86c4e0cb24de1701cfa",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 8804589,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "192697",
+      "index": 2,
+      "success": true,
+      "timestamp": "2025-07-08T06:31:53.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x693a2B542A85bff510fbB148522dD69465F557C9",
+        "implementations": [
+          {
+            "address_hash": "0x66105A0Bc6d970856EcEdf48fFCc6a3D2f09f7ae",
+            "name": "AsteroidXMarketplaceVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x0ba0bf78e3131bd4479a3d0db376af3b018177385d64a86c4e0cb24de1701cfa",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 8804589,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x693a2B542A85bff510fbB148522dD69465F557C9",
+        "implementations": [
+          {
+            "address_hash": "0x66105A0Bc6d970856EcEdf48fFCc6a3D2f09f7ae",
+            "name": "AsteroidXMarketplaceVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "184842",
+      "index": 3,
+      "success": true,
+      "timestamp": "2025-07-08T06:31:53.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x66105A0Bc6d970856EcEdf48fFCc6a3D2f09f7ae",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "AsteroidXMarketplaceVault",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x0ba0bf78e3131bd4479a3d0db376af3b018177385d64a86c4e0cb24de1701cfa",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 8804589,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x693a2B542A85bff510fbB148522dD69465F557C9",
+        "implementations": [
+          {
+            "address_hash": "0x66105A0Bc6d970856EcEdf48fFCc6a3D2f09f7ae",
+            "name": "AsteroidXMarketplaceVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "171738",
+      "index": 4,
+      "success": true,
+      "timestamp": "2025-07-08T06:31:53.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "OptimismMintableERC20",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x0ba0bf78e3131bd4479a3d0db376af3b018177385d64a86c4e0cb24de1701cfa",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [
+    {
+      "block_hash": "0x5e8ff98c346a5dce1d7ef9232cf808a4e884edefeebca6616d40def8fa7d4643",
+      "block_number": 8804589,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x693a2B542A85bff510fbB148522dD69465F557C9",
+        "implementations": [
+          {
+            "address_hash": "0x66105A0Bc6d970856EcEdf48fFCc6a3D2f09f7ae",
+            "name": "AsteroidXMarketplaceVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 0,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5017bC705AD769bB3AF1f89b45Aa2eA30900e1D4",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "6",
+        "exchange_rate": null,
+        "holders_count": "5163",
+        "icon_url": "https://hyperindex.4everland.store/tether-usdt.png",
+        "name": "Tether USD",
+        "reputation": "ok",
+        "symbol": "USDT",
+        "total_supply": "1094276733314",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "6",
+        "value": "4000000"
+      },
+      "transaction_hash": "0x0ba0bf78e3131bd4479a3d0db376af3b018177385d64a86c4e0cb24de1701cfa",
+      "type": "token_transfer"
+    }
+  ],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x0ba0bf78e3131bd4479a3d0db376af3b018177385d64a86c4e0cb24de1701cfa",
+  "contract_address": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+  "contract_name": "TransparentUpgradeableProxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+      "name": "AsteroidXMarketplace"
+    }
+  ]
+}

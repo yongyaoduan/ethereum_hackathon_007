@@ -1,0 +1,40 @@
+{
+  "split_rule": "Existing exposed cases remain development; oldest case per method/contract-name group with >=3 candidates can join development if at least one held-out positive remains for every label in that case. Others held out.",
+  "limitations": "Shared protocol implementations across splits remain: limited HSK coverage prevents universal contract-family isolation. This is not a cross-protocol generalization estimate. Some singleton labels appear only in held-out set.",
+  "development_n": 36,
+  "held_out_n": 100,
+  "held_out_positive_counts": {
+    "add_liquidity": 5,
+    "create": 14,
+    "deploy": 18,
+    "deposit": 11,
+    "wrap": 11,
+    "refund": 1,
+    "mint": 5,
+    "borrow": 1,
+    "update_interest": 11,
+    "claim": 4,
+    "swap": 15,
+    "complete_withdrawal": 1,
+    "register": 1,
+    "remove_liquidity": 4,
+    "repay": 3,
+    "initiate_withdrawal": 2,
+    "unstake": 10,
+    "withdraw": 12,
+    "stake": 4,
+    "collateralize": 2,
+    "supply": 2,
+    "unwrap": 8,
+    "unlock": 5,
+    "de_collateralised": 2,
+    "cancel": 2,
+    "bridge": 2,
+    "approve": 1,
+    "lock": 1
+  },
+  "files": {
+    "development-diverse-v4.json": "110a6dd72ea93648f0485f97071dc6b142840a45ae52e1678b27a057472ba69e",
+    "coverage-final-v1.json": "7883f84850703ae826864cc3ec110045706d3ee543373f978e51e030a1d9b7b8"
+  }
+}

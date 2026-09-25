@@ -1,0 +1,509 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "115007159790",
+    "raw_input": "0xc464fe65000000000000000000000000c4d0d3748d8e975852ae1723a42b3370877d1da80000000000000000000000000000000000000000000c58be08ff1323e87cc000",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x0f95955c72e739a9b54a728e1761fae9dd21a8a1b54481e3a3fd23cb7faa611f",
+    "max_fee_per_gas": "1500466",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "19319580",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 15694952,
+    "position": 1,
+    "max_priority_fee_per_gas": "1500126",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x187FFc4efa67B262E385682eA510CC6Ef33985c2",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "76665",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x02D4707e39FcEa318E8C747141F045A1b6B89788",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "TokenFactory",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "5214847533496",
+    "method": "sellTokens",
+    "fee": {
+      "type": "actual",
+      "value": "5329874012866"
+    },
+    "gas_limit": "237987",
+    "gas_price": "1500378",
+    "decoded_input": {
+      "method_call": "sellTokens(address tokenAddress, uint256 amount)",
+      "method_id": "c464fe65",
+      "parameters": [
+        {
+          "name": "tokenAddress",
+          "type": "address",
+          "value": "0xC4D0D3748d8e975852ae1723A42b3370877D1Da8"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "value": "14926183615500000000000000"
+        }
+      ]
+    },
+    "l1_gas_price": "162963972",
+    "fhe_operations_count": 0,
+    "token_transfers": [
+      {
+        "block_hash": "0x0fcdd26bc5578df406c2b4e8ed36da6414ac744face8fb45d72a0dd02c25dc4d",
+        "block_number": 12309227,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0x187FFc4efa67B262E385682eA510CC6Ef33985c2",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 1,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0x02D4707e39FcEa318E8C747141F045A1b6B89788",
+          "implementations": [],
+          "is_contract": true,
+          "is_scam": false,
+          "is_verified": true,
+          "metadata": null,
+          "name": "TokenFactory",
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0xC4D0D3748d8e975852ae1723A42b3370877D1Da8",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "18",
+          "exchange_rate": null,
+          "holders_count": "43",
+          "icon_url": null,
+          "name": "Hdog",
+          "reputation": "ok",
+          "symbol": "HDOG",
+          "total_supply": "1000000000000000000000000000",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "18",
+          "value": "14926183615500000000000000"
+        },
+        "transaction_hash": "0x0f95955c72e739a9b54a728e1761fae9dd21a8a1b54481e3a3fd23cb7faa611f",
+        "type": "token_transfer"
+      }
+    ],
+    "base_fee_per_gas": "252",
+    "timestamp": "2025-09-27T09:33:09.000000Z",
+    "nonce": 14,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call",
+      "token_transfer"
+    ],
+    "exchange_rate": null,
+    "block_number": 12309227,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xC4D0D3748d8e975852ae1723A42b3370877D1Da8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Token",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x0fcdd26bc5578df406c2b4e8ed36da6414ac744face8fb45d72a0dd02c25dc4d",
+      "block_number": 12309227,
+      "block_timestamp": "2025-09-27T09:33:09.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000000211b78d41ac0",
+      "decoded": {
+        "method_call": "Approval(address indexed owner, address indexed spender, uint256 value)",
+        "method_id": "8c5be1e5",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "owner",
+            "type": "address",
+            "value": "0x187FFc4efa67B262E385682eA510CC6Ef33985c2"
+          },
+          {
+            "indexed": true,
+            "name": "spender",
+            "type": "address",
+            "value": "0x02D4707e39FcEa318E8C747141F045A1b6B89788"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "36401875000000"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+        "0x000000000000000000000000187ffc4efa67b262e385682ea510cc6ef33985c2",
+        "0x00000000000000000000000002d4707e39fcea318e8c747141f045a1b6b89788",
+        null
+      ],
+      "transaction_hash": "0x0f95955c72e739a9b54a728e1761fae9dd21a8a1b54481e3a3fd23cb7faa611f"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xC4D0D3748d8e975852ae1723A42b3370877D1Da8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Token",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x0fcdd26bc5578df406c2b4e8ed36da6414ac744face8fb45d72a0dd02c25dc4d",
+      "block_number": 12309227,
+      "block_timestamp": "2025-09-27T09:33:09.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000c58be08ff1323e87cc000",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0x187FFc4efa67B262E385682eA510CC6Ef33985c2"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0x02D4707e39FcEa318E8C747141F045A1b6B89788"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "14926183615500000000000000"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x000000000000000000000000187ffc4efa67b262e385682ea510cc6ef33985c2",
+        "0x00000000000000000000000002d4707e39fcea318e8c747141f045a1b6b89788",
+        null
+      ],
+      "transaction_hash": "0x0f95955c72e739a9b54a728e1761fae9dd21a8a1b54481e3a3fd23cb7faa611f"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 12309227,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x02D4707e39FcEa318E8C747141F045A1b6B89788",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TokenFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "207613",
+      "index": 1,
+      "success": true,
+      "timestamp": "2025-09-27T09:33:09.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xC4D0D3748d8e975852ae1723A42b3370877D1Da8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Token",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x0f95955c72e739a9b54a728e1761fae9dd21a8a1b54481e3a3fd23cb7faa611f",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 12309227,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x02D4707e39FcEa318E8C747141F045A1b6B89788",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TokenFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "183152",
+      "index": 2,
+      "success": true,
+      "timestamp": "2025-09-27T09:33:09.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xC4D0D3748d8e975852ae1723A42b3370877D1Da8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Token",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x0f95955c72e739a9b54a728e1761fae9dd21a8a1b54481e3a3fd23cb7faa611f",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 12309227,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x02D4707e39FcEa318E8C747141F045A1b6B89788",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TokenFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "182285",
+      "index": 3,
+      "success": true,
+      "timestamp": "2025-09-27T09:33:09.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xC4D0D3748d8e975852ae1723A42b3370877D1Da8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Token",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x0f95955c72e739a9b54a728e1761fae9dd21a8a1b54481e3a3fd23cb7faa611f",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 12309227,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x02D4707e39FcEa318E8C747141F045A1b6B89788",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TokenFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "158931",
+      "index": 4,
+      "success": true,
+      "timestamp": "2025-09-27T09:33:09.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x187FFc4efa67B262E385682eA510CC6Ef33985c2",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x0f95955c72e739a9b54a728e1761fae9dd21a8a1b54481e3a3fd23cb7faa611f",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "144346596270052265970"
+    }
+  ],
+  "token_transfers": [
+    {
+      "block_hash": "0x0fcdd26bc5578df406c2b4e8ed36da6414ac744face8fb45d72a0dd02c25dc4d",
+      "block_number": 12309227,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x187FFc4efa67B262E385682eA510CC6Ef33985c2",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 1,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x02D4707e39FcEa318E8C747141F045A1b6B89788",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TokenFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0xC4D0D3748d8e975852ae1723A42b3370877D1Da8",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "18",
+        "exchange_rate": null,
+        "holders_count": "43",
+        "icon_url": null,
+        "name": "Hdog",
+        "reputation": "ok",
+        "symbol": "HDOG",
+        "total_supply": "1000000000000000000000000000",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "18",
+        "value": "14926183615500000000000000"
+      },
+      "transaction_hash": "0x0f95955c72e739a9b54a728e1761fae9dd21a8a1b54481e3a3fd23cb7faa611f",
+      "type": "token_transfer"
+    }
+  ],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x0f95955c72e739a9b54a728e1761fae9dd21a8a1b54481e3a3fd23cb7faa611f",
+  "contract_address": "0x02D4707e39FcEa318E8C747141F045A1b6B89788",
+  "contract_name": "TokenFactory",
+  "contract_verified": true,
+  "implementations": []
+}

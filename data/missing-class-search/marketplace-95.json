@@ -1,0 +1,5188 @@
+{
+  "items": [
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000055a0000000000000000000000000000000000000000000000000000000000000003",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x026b7c6eadfd2639b383722c4542898daf526b4158699b729329598fa72703e8",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15075496,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x7EbC6b98b68f2452908b2B331CADecc5dAEF37b2",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "573496",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "16030118934488"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1370"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "3"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T17:49:43.000000Z",
+      "nonce": 10,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12928924,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebe79c000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xcc54ec2d35fe0040b2e13a34b39d4c9d4d91dfb10a82280b7865551b6dc77a89",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15075828,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xAFF7C6AdB98521EFcb9ed3579E89d543a52c93aD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "10465110962424"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "3"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760290716"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T17:38:39.000000Z",
+      "nonce": 9,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12928592,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000055e0000000000000000000000000000000000000000000000000000000000000001",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xb89dd585b2f10ae2fe419488dee67ea56d6f943184a8127d248fd65cf181a0f1",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15075954,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE39bD3B3A97cBA151C94ec929D275Bc10A31c20f",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "573496",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "12562149750488"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1374"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T17:34:27.000000Z",
+      "nonce": 7,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12928466,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000055f0000000000000000000000000000000000000000000000000000000000000002",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xb6504f3694f913bdf342b0b5072d45876fd6042dad7f07fb3828bd50c7a5ed4a",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15075964,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x1293Fa5Faa038db8f994Ff4f2cC5089918d93EBD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "573496",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "12562149750488"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1375"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T17:34:07.000000Z",
+      "nonce": 8,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12928456,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebe4b9000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x4205640c66f525e992925b6704bd43bd037ecc0b8893f45e0977eaa05c51fcf5",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15076197,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x740584277E05e23119a5434968982f4290329Ef9",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "542999",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "13243625743479"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760289977"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T17:26:21.000000Z",
+      "nonce": 9,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12928223,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005570000000000000000000000000000000000000000000000000000000000000002",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x9946962743c58d87d7c108859c1a2abfca9813cfc46ec8ee64ba6d89dbd91784",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15076360,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x84bC206FbA46D88b86e2B15C2ce4eE206188CbA4",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "573496",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "11317774646488"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1367"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T17:20:55.000000Z",
+      "nonce": 12,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12928060,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000055d0000000000000000000000000000000000000000000000000000000000000002",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xed22176712e3246f9b0e085a81c38618009e375fd985c6769bb5d42dc943fbcd",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15076371,
+      "position": 2,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xC847D0Fe635AF38802db3A4Ce2A8FA3d5d20C70A",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "573496",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "11826663702488"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1373"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T17:20:33.000000Z",
+      "nonce": 7,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12928049,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000055c0000000000000000000000000000000000000000000000000000000000000001",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x39d535770106960f4f522af1330e6e8d491d269030f6700ed1524617e51db8f7",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15076381,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x74a5ccbBe3A41f17a697ebD28dddDDE748C67243",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "556396",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "11873990849288"
+      },
+      "gas_limit": "737152",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1372"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T17:20:13.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12928039,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000055b0000000000000000000000000000000000000000000000000000000000000001",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xd860467bef1fa21f9f826bdd22b0b08fc8a4f4662b10caec26682417ed5a62c6",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15076392,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x956ccaBFa23f29213DE4f617294F91ebd97FeD9F",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "573496",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "12114567702488"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1371"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T17:19:51.000000Z",
+      "nonce": 12,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12928028,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebe1c5000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xb0642afdea34ff63f5e089f0d5542a956904a2e2ba97fd5439b0764f4cb831a0",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15076575,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xA4251Aad88069C4246bd163fa9793d9e1BdfA441",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "14662493981235"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760289221"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T17:13:45.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12927845,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e8000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000011d56e00000000000000000000000000000000000000000000000000000000068ebdcf0000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xb1b139f934a7f72bbda6c2272f64812dbad84207fb051006ef867f75b695ecea",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15077194,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x915d531F47e2158638EAD51E8fc78335339C661d",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "17783270603165"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "18700000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760287984"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:53:07.000000Z",
+      "nonce": 15,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12927226,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005590000000000000000000000000000000000000000000000000000000000000002",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x0c93f557731147d74ecf8c008f32a5ea5f69c08cd1c91388a13e3f7b489a8943",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15077262,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE532EF888EcB2F4e593eFA10340DbA8A4Ce1e6a4",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "556396",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "19485730977288"
+      },
+      "gas_limit": "737152",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1369"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:50:51.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12927158,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005510000000000000000000000000000000000000000000000000000000000000001",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xa9889bf408691246a87a067d538ba4d6243f0c4a3f830106dca6bec2db0127fb",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15077285,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xecD42f7578A51Ea10c772079e87c66c8b3261301",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "573496",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "18636809718488"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1361"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:50:05.000000Z",
+      "nonce": 13,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12927135,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005520000000000000000000000000000000000000000000000000000000000000002",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xefa54a82c8f5e5408bfbe803da073276336cf60b0d5a331d75a1c6f681f6766d",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15077298,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x956bd19365A127C95e00a6ac46EB86805B58EEA9",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "556396",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "18619705409288"
+      },
+      "gas_limit": "737152",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1362"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:49:39.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12927122,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005560000000000000000000000000000000000000000000000000000000000000003",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x58e31648779a60ae1c8ca119146fea76d9d451ba06d3762f952984820d18d458",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15077404,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x8913CD03C48d34d720A63E91Fff815d254ECa19C",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "578296",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "18972565296088"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1366"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "3"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:46:07.000000Z",
+      "nonce": 8,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12927016,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebdaaa000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xe948ce8cf50d86e933e3f7d3915cfb4a1dc633444172312a4a0c804608fb5ed7",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15077485,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xce292864Ca48DE5c1650f65522d69893143a936C",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "21612346017487"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760287402"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:43:25.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12926935,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebd6af000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xc0f366c6ade1112313ca51be804cebc6a367aaf1388025b37228eb15495e69a9",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15077993,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xCdbC06C3167dE59474E970eAf19766B9B39a85cE",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "542999",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "19029195900856"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760286383"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:26:29.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12926427,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e8000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000011edd800000000000000000000000000000000000000000000000000000000068ebd60f000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xdb5e479e194888a8bcfc9750d2402ab8725541e3315fa118115cb8334f5201f2",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15078074,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x7cA1f28B092B979F5C8d4928C8aCaF8563ffb949",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "16291132960811"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "18800000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760286223"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:23:47.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12926346,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebd58b000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xf2a30230c974a96d08c27cd15cbef567025fbf5c085ad374f6e281772d46eb76",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15078140,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x5a862Fb043AC23523263e3fd84AA99566EBa0545",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "15517134836110"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "3"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760286091"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:21:35.000000Z",
+      "nonce": 9,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12926280,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005530000000000000000000000000000000000000000000000000000000000000002",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xda04abc2c78ae7b6cdda972aa8402f994a096f299f98e24a933b507400976bfb",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15078164,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x523217ba591d7d1555E3eE4f2f301d1a96046E3f",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "561196",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "17488584218888"
+      },
+      "gas_limit": "737152",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1363"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:20:47.000000Z",
+      "nonce": 5,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12926256,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005540000000000000000000000000000000000000000000000000000000000000003",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x9dfacc41b8a6992f2393a90a77d4542a4a60373c721929fa1712847318d20207",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15078173,
+      "position": 2,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xC9bf3e0061Cc67EA8661263E09E7fe38d904ac0f",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "573496",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "18181179126488"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1364"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "3"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:20:29.000000Z",
+      "nonce": 7,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12926247,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e8000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000011edd800000000000000000000000000000000000000000000000000000000068ebd548000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x0b2fbafd366c9b29d3ca8f495e166c84847882148f9f746ba815db007e522df0",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15078173,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x3EDda30AcCd51e63758a2d475e5D5411C8035Ab0",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "18520720121017"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "18800000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760286024"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:20:29.000000Z",
+      "nonce": 9,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12926247,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005580000000000000000000000000000000000000000000000000000000000000001",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xdc0d1196a59abeae2e864e18ee6267c877c55b39ff68f0519e9cb98f97acda8d",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15078184,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xc99892C0789c9aD4E4AC60AC5108dCA67757B573",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "573496",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "18675545654488"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1368"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:20:07.000000Z",
+      "nonce": 10,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12926236,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005550000000000000000000000000000000000000000000000000000000000000001",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xdedcaec2281aef80ce27692863d5f8f6ac38ea3290817bb39d9271b457356393",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15078195,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xb5d363390D227f1F59d7cD2e2003e88158d40B50",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "556396",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "19220858785288"
+      },
+      "gas_limit": "737152",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1365"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:19:45.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12926225,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebd361000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xef38ab49f4931a2fd389ef7cecafc557594ad576eeeb35ac31edd11eba7f3a77",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15078416,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x7B51d12A5647B1E6Aeb7bC1f91C890705c43D65C",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "17245255427240"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760285537"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:12:23.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12926004,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e8000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000011edd800000000000000000000000000000000000000000000000000000000068ebd10c000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xe47983df9c5acc078c4b51207aaf02d09f4f2de7181d3fb3c5d710c6bc257bd1",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15078715,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x1293Fa5Faa038db8f994Ff4f2cC5089918d93EBD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "21421241929588"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "18800000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760284940"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T16:02:25.000000Z",
+      "nonce": 6,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12925705,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e8000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000011edd800000000000000000000000000000000000000000000000000000000068ebcf92000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x52c6ae10f74d3ea9b0b432a6ad79a04642e55933f68d5be0f145318424197bc3",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15078904,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x8199de010da3dC695b3956c2A56eA008eCBcaA04",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "23268059220555"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "3"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "18800000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760284562"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T15:56:07.000000Z",
+      "nonce": 14,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12925516,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebceef000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xb2ecb7582632bedf8bc31f8208c39c970ef6bc7ac4fc95899b7f7c9093c12eae",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15078986,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xAe98323F86e0cDa62b2698Fd1F45C61759ec4C45",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "23079060099990"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760284399"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T15:53:23.000000Z",
+      "nonce": 7,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12925434,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebce5c000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xa539f4b711c8a7b9a1ccae6930edef35b450801ad7b1d6f82471f7444d1047d8",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15079059,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x8913CD03C48d34d720A63E91Fff815d254ECa19C",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "24945511121030"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "3"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760284252"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T15:50:57.000000Z",
+      "nonce": 6,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12925361,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebcd0d000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xdd8606cc70d95ca63b6ef737070f6178c3d49c2d5a7dc95066b84dcaf4c9853d",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15079227,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x3618d39816454587C525EBbb4e3951525dB2539a",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "22913736189720"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760283917"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T15:45:21.000000Z",
+      "nonce": 11,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12925193,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebcad1000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x88e45bca6b02c81942fde4c46b879418b07086eb59d0d10d5c6c71ce331ae1c8",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15079513,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xB993afeb7872d61560C270DD7Da31c38eFd01150",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "24141057744893"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760283345"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T15:35:49.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12924907,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000054d0000000000000000000000000000000000000000000000000000000000000001",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x8d5c14f3c253920a78c895630c7be0dbdcb2f142dde1c343d2654fa13f97b8c6",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15079962,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xA9B9bA55CC62e572a68A1E1f94D774Ef1B2E8083",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "556396",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "36925232129288"
+      },
+      "gas_limit": "737152",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1357"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T15:20:51.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12924458,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000054f0000000000000000000000000000000000000000000000000000000000000002",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x963d17092d91a279588e6c8d477a3b8de674a0d40f45f49602c726f54b82a8e0",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15079972,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xf209099d2dE11336899d4BF47250FaFeB0Dfb78F",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "562793",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "35884789717332"
+      },
+      "gas_limit": "744950",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1359"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T15:20:31.000000Z",
+      "nonce": 9,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12924448,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005500000000000000000000000000000000000000000000000000000000000000002",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x87c5669c1a47feb3878b0145189aaa7dc8da9aef251f82058c832e69fe5a6fa9",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15079983,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xC12c321D0376a5e68C0412BF9dbc9c86887098b4",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "562793",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "37467138517332"
+      },
+      "gas_limit": "744950",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1360"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T15:20:09.000000Z",
+      "nonce": 9,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12924437,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000054e0000000000000000000000000000000000000000000000000000000000000001",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xe9b06c3dd2fbd6973ac6bb8f6ff2f02d4e877f000b44f1db95a5c4a1ae68272b",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15079994,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xCF08a97AC173b247118003200f491A13184aBb31",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "573496",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "37757912534488"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1358"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T15:19:47.000000Z",
+      "nonce": 10,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12924426,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebc709000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x15783c7d725af07e510e59b1229eacd8a5a602123e46973680937d3c9cfde366",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15079997,
+      "position": 2,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x332dD68BB42B429469273b2B72a57AA838A38761",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "38514222606540"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760282377"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T15:19:41.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12924423,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e8000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000011edd800000000000000000000000000000000000000000000000000000000068ebc1b8000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xde7d0e38a198b6d6b889263732188ced5c37db24fa1fbb9ce562c254c7077fec",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15080677,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x78D42C256a770928B0e54b552578eaA55e5c30C9",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "17673634885862"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "18800000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760281016"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T14:57:01.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12923743,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebbe3d000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x3a58e3f52bf9e60c798b090da238ad09389e44561554d5b22ff939a7bd740b66",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15081123,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x76376c2e584c63Dbb761896a60E9c2Bcb18F71FE",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "20746668649114"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760280125"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T14:42:09.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12923297,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e8000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000011bd0400000000000000000000000000000000000000000000000000000000068ebbc05000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xe630e32e5bf88dea0c9c6c7ba73e0c3140e48c2e7d6359e3f8dba3d6f5243aca",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15081407,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x83Ef45952C5adcD62697E5D7c3B07d5908C78254",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "23786368912018"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "18600000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760279557"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T14:32:41.000000Z",
+      "nonce": 8,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12923013,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000054c0000000000000000000000000000000000000000000000000000000000000002",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xd5b9234451d92e156fe3082da093b6145643cc54bbdf4de7309cea0539136e8a",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15081772,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x940005981F59168de54068d9cbd04E47d754b13b",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "562793",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "18920454901332"
+      },
+      "gas_limit": "744950",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1356"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T14:20:31.000000Z",
+      "nonce": 16,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12922648,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000054b0000000000000000000000000000000000000000000000000000000000000002",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xc8a6002b6ffbd0ce92b422ff154115dec7c985e5f0e33c1e78517b244f910b83",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15081782,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x14f9eFaB63D80C9869e6A344c2f70AB1006b2283",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "573496",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "18144788118488"
+      },
+      "gas_limit": "757998",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1355"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T14:20:11.000000Z",
+      "nonce": 10,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12922638,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f4000000000000000000000000000000000000000000000000000000000000054a0000000000000000000000000000000000000000000000000000000000000002",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xaad3700ef623141143e48c3e9c6acb07df62460c0bc2716b7dd4d30ba3fcf97b",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15081793,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x9cd79A5065702c771c1c4EDF0284e1067c51e595",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "556396",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "18889641537288"
+      },
+      "gas_limit": "737152",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1354"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T14:19:49.000000Z",
+      "nonce": 4,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12922627,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebb6b3000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xfd76f54dd177ddef38c3ba274f2874b483fb33ebfc56994a097a651890ac7d16",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15082088,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x6Ec6809962F7fE1FA568430973F8e2118eb35c57",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "20681301348970"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760278195"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T14:09:59.000000Z",
+      "nonce": 7,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12922332,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e8000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000011edd800000000000000000000000000000000000000000000000000000000068ebb327000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xa78c80eb14cdf3aa441a73cb8ed0200a8f973951cae67ca20636a53ea6566246",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15082542,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x77d427Ad593CBB756C8C89E83DD2e21d65ecAD9e",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "20194687730118"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "18800000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760277287"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T13:54:51.000000Z",
+      "nonce": 7,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12921878,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebaf66000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xd5534439162572fe07f925f521dd954390cb754ddc0aca9da049b73810e0f3bf",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15083022,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x614f21Bf3F6FfEa57A45ed43BdBE1eEA4786bf48",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "24771081876287"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760276326"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T13:38:51.000000Z",
+      "nonce": 15,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12921398,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e80000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000121eac00000000000000000000000000000000000000000000000000000000068ebace0000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x2381e600ed2b2f47307a58acb77c42e44b9e456cf2bb1325219a34a20d1e13f1",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15083345,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x302DF906bf4E01a49dE3832925B203386F27Ea4c",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "22185091130805"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "19000000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760275680"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T13:28:05.000000Z",
+      "nonce": 7,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12921075,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005490000000000000000000000000000000000000000000000000000000000000003",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x838cc99a1d8908b3bd088f3774e2e645bdba0d255adf3712d942f40b2a8faf12",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15083594,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x2e2500cBC054139A6611068cB7887046d11bB1E8",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "562793",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "23278218389332"
+      },
+      "gas_limit": "744950",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1353"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "3"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T13:19:47.000000Z",
+      "nonce": 7,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12920826,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x52b68b5100000000000000000000000000000000000000000000000000000000000003e8000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000012064200000000000000000000000000000000000000000000000000000000068eba580000000000000000000000000f1b50ed67a9e2cc94ad3c477779e2d4cbfff9029",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x0752f0081d9a7d0120fd4d94dfdf7c3edbf3b7842fe44f824eaac622e03d30b1",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15084289,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x42179BBd2B2A52d58DeDaFaa15048F55839932b0",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "538199",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "createListing",
+      "fee": {
+        "type": "actual",
+        "value": "28633102874993"
+      },
+      "gas_limit": "668157",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "createListing(uint256 tokenId, uint256 amount, uint256 pricePerToken, uint256 expirationTime, address paymentToken)",
+        "method_id": "52b68b51",
+        "parameters": [
+          {
+            "name": "tokenId",
+            "type": "uint256",
+            "value": "1000"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "3"
+          },
+          {
+            "name": "pricePerToken",
+            "type": "uint256",
+            "value": "18900000"
+          },
+          {
+            "name": "expirationTime",
+            "type": "uint256",
+            "value": "1760273792"
+          },
+          {
+            "name": "paymentToken",
+            "type": "address",
+            "value": "0xF1B50eD67A9e2CC94Ad3c477779E2d4cBfFf9029"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T12:56:37.000000Z",
+      "nonce": 6,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12920131,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005460000000000000000000000000000000000000000000000000000000000000003",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x8802a3a400ce95490bb3bba6d13decdc1723559ecec5f075dad00e755a518763",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15084499,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xC2DA1D706f7152Dce215aa50C870cE6a913AcCd0",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "562793",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "20101186837332"
+      },
+      "gas_limit": "744950",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1350"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "3"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T12:49:37.000000Z",
+      "nonce": 12,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12919921,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": null,
+      "raw_input": "0x00b395f400000000000000000000000000000000000000000000000000000000000005470000000000000000000000000000000000000000000000000000000000000001",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x6ab4efbe01ccb9e82fd8cff241c0f3dc0390e71a9994b52d2d5ac9f68f8020a3",
+      "max_fee_per_gas": null,
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": null,
+      "type": 0,
+      "token_transfers_overflow": null,
+      "confirmations": 15085371,
+      "position": 1,
+      "max_priority_fee_per_gas": null,
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x5Dc2Fd23105d04e7591145EB796D9912B9e8Abc7",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "562793",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x5d6C18a0f9E63B48a556394a6429dc5b035c9ec0",
+        "implementations": [
+          {
+            "address_hash": "0xb2662054EDaD8a8b1A4f3D8E187c9AE51D2EbeC8",
+            "name": "AsteroidXMarketplace"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "purchaseListing",
+      "fee": {
+        "type": "actual",
+        "value": "22741152021332"
+      },
+      "gas_limit": "744950",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "purchaseListing(uint256 listingId, uint256 amount)",
+        "method_id": "00b395f4",
+        "parameters": [
+          {
+            "name": "listingId",
+            "type": "uint256",
+            "value": "1351"
+          },
+          {
+            "name": "amount",
+            "type": "uint256",
+            "value": "1"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2025-10-11T12:20:33.000000Z",
+      "nonce": 7,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 12919049,
+      "has_error_in_internal_transactions": false
+    }
+  ],
+  "next_page_params": {
+    "index": 1,
+    "value": "0",
+    "hash": "0x6ab4efbe01ccb9e82fd8cff241c0f3dc0390e71a9994b52d2d5ac9f68f8020a3",
+    "inserted_at": "2025-10-11T12:20:33.619549Z",
+    "block_number": 12919049,
+    "fee": "22741152021332",
+    "items_count": 50
+  }
+}

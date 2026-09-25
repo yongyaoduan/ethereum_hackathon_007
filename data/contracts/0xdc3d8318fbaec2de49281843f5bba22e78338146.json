@@ -1,0 +1,78 @@
+{
+  "file_path": "contracts-forge/base/RubyscoreVote.sol",
+  "creation_status": "success",
+  "source_code": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.28;\n\ncontract RubyscoreVote {\n    fallback() external payable {}\n\n    function vote() external payable {}\n}\n",
+  "deployed_bytecode": "0x608060405260043610601f5760003560e01c8063632a9a52146022576020565b5b005b6028602a565b005b56fea26469706673582212200b267a30a8ab3cfb2d0c2e486ff686c95c62e8b584f7f92cedffe6613eebe7b964736f6c634300081c0033",
+  "optimization_enabled": false,
+  "verified_twin_address_hash": null,
+  "is_verified": true,
+  "compiler_settings": {
+    "evmVersion": "london",
+    "libraries": {},
+    "metadata": {
+      "appendCBOR": true,
+      "bytecodeHash": "ipfs",
+      "useLiteralContent": false
+    },
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "": [
+          "*"
+        ],
+        "*": [
+          "*"
+        ]
+      }
+    },
+    "remappings": [
+      "@openzeppelin/=node_modules/@openzeppelin/",
+      "eth-gas-reporter/=node_modules/eth-gas-reporter/",
+      "forge-std/=lib/forge-std/src/",
+      "hardhat-deploy/=node_modules/hardhat-deploy/",
+      "hardhat/=node_modules/hardhat/"
+    ],
+    "viaIR": false
+  },
+  "optimization_runs": null,
+  "sourcify_repo_url": null,
+  "decoded_constructor_args": null,
+  "compiler_version": "v0.8.28+commit.7893614a",
+  "is_verified_via_verifier_alliance": false,
+  "verified_at": "2025-08-14T14:19:26.620067Z",
+  "implementations": [],
+  "proxy_type": null,
+  "external_libraries": [],
+  "creation_bytecode": "0x6080604052348015600f57600080fd5b50606280601d6000396000f3fe608060405260043610601f5760003560e01c8063632a9a52146022576020565b5b005b6028602a565b005b56fea26469706673582212200b267a30a8ab3cfb2d0c2e486ff686c95c62e8b584f7f92cedffe6613eebe7b964736f6c634300081c0033",
+  "name": "RubyscoreVote",
+  "is_blueprint": false,
+  "license_type": "none",
+  "is_fully_verified": true,
+  "is_verified_via_eth_bytecode_db": false,
+  "language": "solidity",
+  "evm_version": "london",
+  "can_be_visualized_via_sol2uml": true,
+  "is_verified_via_sourcify": false,
+  "additional_sources": [],
+  "certified": false,
+  "conflicting_implementations": null,
+  "abi": [
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "inputs": [],
+      "name": "vote",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "is_changed_bytecode": false,
+  "is_partially_verified": false,
+  "constructor_args": null
+}

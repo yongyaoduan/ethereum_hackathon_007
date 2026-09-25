@@ -1,0 +1,990 @@
+{
+  "transaction": {
+    "l1_gas_used": "3949",
+    "priority_fee": "853318",
+    "raw_input": "0x881b3919000000000000000000000000000000000000000000000000000000000000016000000000000000000000000000000000000000000000000000000000000001c000000000000000000000000017959d38aaeaf117a8ef91127f4180927217dff500000000000000000000000017959d38aaeaf117a8ef91127f4180927217dff500000000000000000000000017959d38aaeaf117a8ef91127f4180927217dff5000000000000000000000000531e3a63ba5dbce8394dfb7907393beeec1b44c5000000000000000000000000531e3a63ba5dbce8394dfb7907393beeec1b44c5000000000000000000000000323e67be8a533405ceacea6c9eafa6bdb21f53c0000000000000000000000000323e67be8a533405ceacea6c9eafa6bdb21f53c000000000000000000000000025b1f2b5ead3aafad68c445314829296c0c1b92e000000000000000000000000169c30dee67f3e3e863443e8290fc267803836bf000000000000000000000000000000000000000000000000000000000000003447554f544149204a554e414e20484b44204d4f4e4559204d41524b45542046554e442028546f6b656e6973656420436c61737329000000000000000000000000000000000000000000000000000000000000000000000000000000000000000547484b4454000000000000000000000000000000000000000000000000000000",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366",
+    "max_fee_per_gas": "505",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "215036136",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 14704567,
+    "position": 2,
+    "max_priority_fee_per_gas": "1",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0xC16A55de09b0999b13E73dD93aeb6C443f1F6f7a",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "853318",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xF258D32D1F809B2110c830280ae0499115D8c15f",
+      "implementations": [
+        {
+          "address_hash": "0xF1C4a005bfb4190eCe18Cc23e89C5E022f6a283b",
+          "name": "ComplianceTokenFactory"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "TransparentUpgradeableProxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "9350049663752",
+    "method": "createComplianceToken",
+    "fee": {
+      "type": "actual",
+      "value": "9350265553206"
+    },
+    "gas_limit": "1178645",
+    "gas_price": "253",
+    "decoded_input": {
+      "method_call": "createComplianceToken(string name, string symbol, address admin, address chairman, address whitelister, address minterA, address minterB, address depositAddr, address withdrawAddr, address houseAddr, address deadAddr)",
+      "method_id": "881b3919",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "value": "GUOTAI JUNAN HKD MONEY MARKET FUND (Tokenised Class)"
+        },
+        {
+          "name": "symbol",
+          "type": "string",
+          "value": "GHKDT"
+        },
+        {
+          "name": "admin",
+          "type": "address",
+          "value": "0x17959d38aaEaF117a8eF91127f4180927217DFf5"
+        },
+        {
+          "name": "chairman",
+          "type": "address",
+          "value": "0x17959d38aaEaF117a8eF91127f4180927217DFf5"
+        },
+        {
+          "name": "whitelister",
+          "type": "address",
+          "value": "0x17959d38aaEaF117a8eF91127f4180927217DFf5"
+        },
+        {
+          "name": "minterA",
+          "type": "address",
+          "value": "0x531e3a63Ba5dbCe8394DFB7907393BEeeC1b44C5"
+        },
+        {
+          "name": "minterB",
+          "type": "address",
+          "value": "0x531e3a63Ba5dbCe8394DFB7907393BEeeC1b44C5"
+        },
+        {
+          "name": "depositAddr",
+          "type": "address",
+          "value": "0x323e67be8A533405CeAcEA6c9EafA6bdb21F53C0"
+        },
+        {
+          "name": "withdrawAddr",
+          "type": "address",
+          "value": "0x323e67be8A533405CeAcEA6c9EafA6bdb21F53C0"
+        },
+        {
+          "name": "houseAddr",
+          "type": "address",
+          "value": "0x25b1f2b5EAd3AaFAd68c445314829296C0C1b92e"
+        },
+        {
+          "name": "deadAddr",
+          "type": "address",
+          "value": "0x169C30DEE67F3e3e863443e8290fc267803836Bf"
+        }
+      ]
+    },
+    "l1_gas_price": "118370197",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2025-10-20T07:44:29.000000Z",
+    "nonce": 5,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 13299567,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "Upgraded(address indexed implementation)",
+        "method_id": "bc7cd75a",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "implementation",
+            "type": "address",
+            "value": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC"
+          }
+        ]
+      },
+      "index": 13,
+      "smart_contract": null,
+      "topics": [
+        "0xbc7cd75a20ee27fd9adebab32041f755214dbc6bffa90cc0225b39da2e5c2d3b",
+        "0x000000000000000000000000647d863ada77eafe57b8d6d7e898a358f47d9adc",
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "ChairmanUpdated(address indexed newChairman)",
+        "method_id": "8fdffc27",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "newChairman",
+            "type": "address",
+            "value": "0x17959d38aaEaF117a8eF91127f4180927217DFf5"
+          }
+        ]
+      },
+      "index": 14,
+      "smart_contract": null,
+      "topics": [
+        "0x8fdffc27223c99ebcea883efde71396f05ea0af01f7a8c47ded108a4ee0ff46c",
+        "0x00000000000000000000000017959d38aaeaf117a8ef91127f4180927217dff5",
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "WhitelisterUpdated(address indexed newWhitelister)",
+        "method_id": "78d4f4e6",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "newWhitelister",
+            "type": "address",
+            "value": "0x17959d38aaEaF117a8eF91127f4180927217DFf5"
+          }
+        ]
+      },
+      "index": 15,
+      "smart_contract": null,
+      "topics": [
+        "0x78d4f4e6da18469cfce14fc343a77b9e4accbb61d9b1807c8b0e04c8a49191f5",
+        "0x00000000000000000000000017959d38aaeaf117a8ef91127f4180927217dff5",
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "AddMinter(address indexed newMinter)",
+        "method_id": "16baa937",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "newMinter",
+            "type": "address",
+            "value": "0x531e3a63Ba5dbCe8394DFB7907393BEeeC1b44C5"
+          }
+        ]
+      },
+      "index": 16,
+      "smart_contract": null,
+      "topics": [
+        "0x16baa937b08d58713325f93ac58b8a9369a4359bbefb4957d6d9b402735722ab",
+        "0x000000000000000000000000531e3a63ba5dbce8394dfb7907393beeec1b44c5",
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "AddMinter(address indexed newMinter)",
+        "method_id": "16baa937",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "newMinter",
+            "type": "address",
+            "value": "0x531e3a63Ba5dbCe8394DFB7907393BEeeC1b44C5"
+          }
+        ]
+      },
+      "index": 17,
+      "smart_contract": null,
+      "topics": [
+        "0x16baa937b08d58713325f93ac58b8a9369a4359bbefb4957d6d9b402735722ab",
+        "0x000000000000000000000000531e3a63ba5dbce8394dfb7907393beeec1b44c5",
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "DepositAddrUpdated(address indexed newDepositAddr)",
+        "method_id": "cbee1e3c",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "newDepositAddr",
+            "type": "address",
+            "value": "0x323e67be8A533405CeAcEA6c9EafA6bdb21F53C0"
+          }
+        ]
+      },
+      "index": 18,
+      "smart_contract": null,
+      "topics": [
+        "0xcbee1e3c0635e93967d32a8b7026296624a3cc26a23ff72c872a055d79af9601",
+        "0x000000000000000000000000323e67be8a533405ceacea6c9eafa6bdb21f53c0",
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "WithdrawAddrUpdated(address indexed newWithdrawAddr)",
+        "method_id": "f7a7df35",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "newWithdrawAddr",
+            "type": "address",
+            "value": "0x323e67be8A533405CeAcEA6c9EafA6bdb21F53C0"
+          }
+        ]
+      },
+      "index": 19,
+      "smart_contract": null,
+      "topics": [
+        "0xf7a7df354420a069be4dbf4bb305216f9a5286a419e259790953cd4b1116e789",
+        "0x000000000000000000000000323e67be8a533405ceacea6c9eafa6bdb21f53c0",
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "HouseAddrUpdated(address indexed newHouseAddr)",
+        "method_id": "cef3887c",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "newHouseAddr",
+            "type": "address",
+            "value": "0x25b1f2b5EAd3AaFAd68c445314829296C0C1b92e"
+          }
+        ]
+      },
+      "index": 20,
+      "smart_contract": null,
+      "topics": [
+        "0xcef3887c66d67a13ab46d609e514926a8c2dfad17edeb17b32c325784275a8a7",
+        "0x00000000000000000000000025b1f2b5ead3aafad68c445314829296c0c1b92e",
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "DeadAddrUpdated(address indexed newDeadAddr)",
+        "method_id": "c31be777",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "newDeadAddr",
+            "type": "address",
+            "value": "0x169C30DEE67F3e3e863443e8290fc267803836Bf"
+          }
+        ]
+      },
+      "index": 21,
+      "smart_contract": null,
+      "topics": [
+        "0xc31be777980e7ec676698e62aafe9bf61602d19de2cd13759ab53fb76dcbac14",
+        "0x000000000000000000000000169c30dee67f3e3e863443e8290fc267803836bf",
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "decoded": {
+        "method_call": "Initialized(uint64 version)",
+        "method_id": "c7f505b2",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "version",
+            "type": "uint64",
+            "value": "1"
+          }
+        ]
+      },
+      "index": 22,
+      "smart_contract": null,
+      "topics": [
+        "0xc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x249401C0824d9f27B2F9A84fBA1d425B291901D2",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ProxyAdmin",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "OwnershipTransferred(address indexed previousOwner, address indexed newOwner)",
+        "method_id": "8be0079c",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "previousOwner",
+            "type": "address",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "indexed": true,
+            "name": "newOwner",
+            "type": "address",
+            "value": "0x17959d38aaEaF117a8eF91127f4180927217DFf5"
+          }
+        ]
+      },
+      "index": 23,
+      "smart_contract": null,
+      "topics": [
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x00000000000000000000000017959d38aaeaf117a8ef91127f4180927217dff5",
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000249401c0824d9f27b2f9a84fba1d425b291901d2",
+      "decoded": {
+        "method_call": "AdminChanged(address previousAdmin, address newAdmin)",
+        "method_id": "7e644d79",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "previousAdmin",
+            "type": "address",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "newAdmin",
+            "type": "address",
+            "value": "0x249401C0824d9f27B2F9A84fBA1d425B291901D2"
+          }
+        ]
+      },
+      "index": 24,
+      "smart_contract": null,
+      "topics": [
+        "0x7e644d79422f17c01e4894b5f4f588d331ebfa28653d42ae832dc59e38c9798f",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xF258D32D1F809B2110c830280ae0499115D8c15f",
+        "implementations": [
+          {
+            "address_hash": "0xF1C4a005bfb4190eCe18Cc23e89C5E022f6a283b",
+            "name": "ComplianceTokenFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xda3a57c787c6a85bc538324e5fae1003f3a35cabf82162ac0472b2debbb2b159",
+      "block_number": 13299567,
+      "block_timestamp": "2025-10-20T07:44:29.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000003447554f544149204a554e414e20484b44204d4f4e4559204d41524b45542046554e442028546f6b656e6973656420436c61737329000000000000000000000000000000000000000000000000000000000000000000000000000000000000000547484b4454000000000000000000000000000000000000000000000000000000",
+      "decoded": {
+        "method_call": "TokenCreated(address indexed token, string name, string symbol)",
+        "method_id": "ffc04f68",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "token",
+            "type": "address",
+            "value": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618"
+          },
+          {
+            "indexed": false,
+            "name": "name",
+            "type": "string",
+            "value": "GUOTAI JUNAN HKD MONEY MARKET FUND (Tokenised Class)"
+          },
+          {
+            "indexed": false,
+            "name": "symbol",
+            "type": "string",
+            "value": "GHKDT"
+          }
+        ]
+      },
+      "index": 25,
+      "smart_contract": null,
+      "topics": [
+        "0xffc04f682c7b287e4b552dacd4b833d7c33dc0549cd6da84388408e4830c0562",
+        "0x00000000000000000000000080deb9b5bd64d49581d6afc0facfc89384137618",
+        null,
+        null
+      ],
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 13299567,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF258D32D1F809B2110c830280ae0499115D8c15f",
+        "implementations": [
+          {
+            "address_hash": "0xF1C4a005bfb4190eCe18Cc23e89C5E022f6a283b",
+            "name": "ComplianceTokenFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1129795",
+      "index": 1,
+      "success": true,
+      "timestamp": "2025-10-20T07:44:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xF1C4a005bfb4190eCe18Cc23e89C5E022f6a283b",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ComplianceTokenFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366",
+      "transaction_index": 2,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 13299567,
+      "created_contract": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF258D32D1F809B2110c830280ae0499115D8c15f",
+        "implementations": [
+          {
+            "address_hash": "0xF1C4a005bfb4190eCe18Cc23e89C5E022f6a283b",
+            "name": "ComplianceTokenFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1073252",
+      "index": 2,
+      "success": true,
+      "timestamp": "2025-10-20T07:44:29.000000Z",
+      "to": null,
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366",
+      "transaction_index": 2,
+      "type": "create",
+      "value": "0"
+    },
+    {
+      "block_number": 13299567,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1029836",
+      "index": 3,
+      "success": true,
+      "timestamp": "2025-10-20T07:44:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ComplianceToken",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366",
+      "transaction_index": 2,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 13299567,
+      "created_contract": {
+        "ens_domain_name": null,
+        "hash": "0x249401C0824d9f27B2F9A84fBA1d425B291901D2",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ProxyAdmin",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x80Deb9B5Bd64d49581d6AFC0FaCFc89384137618",
+        "implementations": [
+          {
+            "address_hash": "0x647d863ada77eafe57b8d6d7e898A358f47D9adC",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TransparentUpgradeableProxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "722483",
+      "index": 4,
+      "success": true,
+      "timestamp": "2025-10-20T07:44:29.000000Z",
+      "to": null,
+      "transaction_hash": "0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366",
+      "transaction_index": 2,
+      "type": "create",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x077263ae0e8c3a93356123a4de6190581cbe90e3f58952686f4609326fca4366",
+  "contract_address": "0xF258D32D1F809B2110c830280ae0499115D8c15f",
+  "contract_name": "TransparentUpgradeableProxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0xF1C4a005bfb4190eCe18Cc23e89C5E022f6a283b",
+      "name": "ComplianceTokenFactory"
+    }
+  ]
+}

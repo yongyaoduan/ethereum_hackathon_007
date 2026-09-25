@@ -1,0 +1,293 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "51426000000",
+    "raw_input": "0xa9059cbb00000000000000000000000062a31cfdef43e8fda5228c88e43c6a9e2a1d8b3a0000000000000000000000000000000000000000000000004563918244f40000",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0xd5ef808bcf0179a81fbc7e90f191de879e6f2c839e99f8e2ced45b66f89aa9f1",
+    "max_fee_per_gas": "500001000000",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "25713000000000000",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 404529,
+    "position": 2,
+    "max_priority_fee_per_gas": "500001000000",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0xC859Ea8089c4BD580b2845EcF5f4B7d9FB8E7C54",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "51426",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "WHSK",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "3873993653450",
+    "method": "transfer",
+    "fee": {
+      "type": "actual",
+      "value": "25716925419653450"
+    },
+    "gas_limit": "51819",
+    "gas_price": "500001000000",
+    "decoded_input": {
+      "method_call": "transfer(address to, uint256 amount)",
+      "method_id": "a9059cbb",
+      "parameters": [
+        {
+          "name": "to",
+          "type": "address",
+          "value": "0x62a31CFdeF43E8fdA5228c88e43C6A9E2a1D8b3a"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "value": "5000000000000000000"
+        }
+      ]
+    },
+    "l1_gas_price": "64071374",
+    "fhe_operations_count": 0,
+    "token_transfers": [
+      {
+        "block_hash": "0x44c78c9bfbd675224815933b572e9cdf825170e4fa67549097fe7667491ea51e",
+        "block_number": 27598874,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0xC859Ea8089c4BD580b2845EcF5f4B7d9FB8E7C54",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 2,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0x62a31CFdeF43E8fdA5228c88e43C6A9E2a1D8b3a",
+          "implementations": [
+            {
+              "address_hash": "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+              "name": "GnosisSafeL2"
+            }
+          ],
+          "is_contract": true,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": "master_copy",
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "18",
+          "exchange_rate": null,
+          "holders_count": "281",
+          "icon_url": "https://s2.coinmarketcap.com/static/img/coins/64x64/33849.png",
+          "name": "Wrapped HSK",
+          "reputation": "ok",
+          "symbol": "WHSK",
+          "total_supply": "4997560182222561189455686",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "18",
+          "value": "5000000000000000000"
+        },
+        "transaction_hash": "0xd5ef808bcf0179a81fbc7e90f191de879e6f2c839e99f8e2ced45b66f89aa9f1",
+        "type": "token_transfer"
+      }
+    ],
+    "base_fee_per_gas": "500000000000",
+    "timestamp": "2026-09-16T07:48:03.000000Z",
+    "nonce": 114,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call",
+      "token_transfer"
+    ],
+    "exchange_rate": null,
+    "block_number": 27598874,
+    "has_error_in_internal_transactions": false,
+    "da_footprint_gas_scalar": "400"
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "WHSK",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x44c78c9bfbd675224815933b572e9cdf825170e4fa67549097fe7667491ea51e",
+      "block_number": 27598874,
+      "block_timestamp": "2026-09-16T07:48:03.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000004563918244f40000",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0xC859Ea8089c4BD580b2845EcF5f4B7d9FB8E7C54"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0x62a31CFdeF43E8fdA5228c88e43C6A9E2a1D8b3a"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "5000000000000000000"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x000000000000000000000000c859ea8089c4bd580b2845ecf5f4b7d9fb8e7c54",
+        "0x00000000000000000000000062a31cfdef43e8fda5228c88e43c6a9e2a1d8b3a",
+        null
+      ],
+      "transaction_hash": "0xd5ef808bcf0179a81fbc7e90f191de879e6f2c839e99f8e2ced45b66f89aa9f1"
+    }
+  ],
+  "internal_transactions": [],
+  "token_transfers": [
+    {
+      "block_hash": "0x44c78c9bfbd675224815933b572e9cdf825170e4fa67549097fe7667491ea51e",
+      "block_number": 27598874,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xC859Ea8089c4BD580b2845EcF5f4B7d9FB8E7C54",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 2,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x62a31CFdeF43E8fdA5228c88e43C6A9E2a1D8b3a",
+        "implementations": [
+          {
+            "address_hash": "0x3E5c63644E683549055b9Be8653de26E0B4CD36E",
+            "name": "GnosisSafeL2"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": "master_copy",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "18",
+        "exchange_rate": null,
+        "holders_count": "281",
+        "icon_url": "https://s2.coinmarketcap.com/static/img/coins/64x64/33849.png",
+        "name": "Wrapped HSK",
+        "reputation": "ok",
+        "symbol": "WHSK",
+        "total_supply": "4997560182222561189455686",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "18",
+        "value": "5000000000000000000"
+      },
+      "transaction_hash": "0xd5ef808bcf0179a81fbc7e90f191de879e6f2c839e99f8e2ced45b66f89aa9f1",
+      "type": "token_transfer"
+    }
+  ],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0xd5ef808bcf0179a81fbc7e90f191de879e6f2c839e99f8e2ced45b66f89aa9f1",
+  "contract_address": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+  "contract_name": "WHSK",
+  "contract_verified": true,
+  "implementations": []
+}

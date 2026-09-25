@@ -1,0 +1,161 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "46289000000",
+    "raw_input": "0x095ea7b3000000000000000000000000f2fd62c083f3bf324e99ce157d1a42d7eba77f1d00000000000000000000000000000000000000000000000000000000000003e8",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x815496dfafdab2ec60624aa27b97592b871e5a9092c2997db4e011985165b9a0",
+    "max_fee_per_gas": "1000252",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "11664828",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 18810162,
+    "position": 1,
+    "max_priority_fee_per_gas": "1000252",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x03DB22C204CdA695D387f43CfF7a4Be711933226",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "46289",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x1586E9A616B969e26f0712C504320a6800b5ce91",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "FactoryBurnMintERC20",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "100499142957496",
+    "method": "approve",
+    "fee": {
+      "type": "actual",
+      "value": "100545443622324"
+    },
+    "gas_limit": "46672",
+    "gas_price": "1000252",
+    "decoded_input": {
+      "method_call": "approve(address spender, uint256 amount)",
+      "method_id": "095ea7b3",
+      "parameters": [
+        {
+          "name": "spender",
+          "type": "address",
+          "value": "0xf2Fd62c083F3BF324e99ce157D1a42d7EbA77f1d"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "value": "1000"
+        }
+      ]
+    },
+    "l1_gas_price": "3140598204",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2025-07-17T06:39:09.000000Z",
+    "nonce": 4,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 9193607,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x1586E9A616B969e26f0712C504320a6800b5ce91",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "FactoryBurnMintERC20",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x21dac4cf4255acc532fb2c9f31d054d3c4b9cf066782a8449d1d726ba29ae6a2",
+      "block_number": 9193607,
+      "block_timestamp": "2025-07-17T06:39:09.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000000000000000000003e8",
+      "decoded": {
+        "method_call": "Approval(address indexed owner, address indexed spender, uint256 value)",
+        "method_id": "8c5be1e5",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "owner",
+            "type": "address",
+            "value": "0x03DB22C204CdA695D387f43CfF7a4Be711933226"
+          },
+          {
+            "indexed": true,
+            "name": "spender",
+            "type": "address",
+            "value": "0xf2Fd62c083F3BF324e99ce157D1a42d7EbA77f1d"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "1000"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+        "0x00000000000000000000000003db22c204cda695d387f43cff7a4be711933226",
+        "0x000000000000000000000000f2fd62c083f3bf324e99ce157d1a42d7eba77f1d",
+        null
+      ],
+      "transaction_hash": "0x815496dfafdab2ec60624aa27b97592b871e5a9092c2997db4e011985165b9a0"
+    }
+  ],
+  "internal_transactions": [],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x815496dfafdab2ec60624aa27b97592b871e5a9092c2997db4e011985165b9a0",
+  "contract_address": "0x1586E9A616B969e26f0712C504320a6800b5ce91",
+  "contract_name": "FactoryBurnMintERC20",
+  "contract_verified": true,
+  "implementations": []
+}

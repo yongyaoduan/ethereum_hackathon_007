@@ -1,0 +1,3782 @@
+[
+  {
+    "id": "0x0cf0299fe30586abf0e3da2044ebe8353f9556a828e7e647cb22736c4a731880",
+    "split": "development",
+    "expected": [
+      "withdraw",
+      "unwrap"
+    ],
+    "basis": "Verified WHSK withdraw burns WHSK and sends underlying HSK; successful receipt, Withdrawal + burn Transfer logs and native repayment trace. v1 permits Withdraw with Unwrap and excludes auxiliary Burn.",
+    "state": {
+      "chain_id": 177,
+      "transaction": {
+        "hash": "0x0cf0299fe30586abf0e3da2044ebe8353f9556a828e7e647cb22736c4a731880",
+        "block_number": 27740733,
+        "timestamp": "2026-09-19T14:36:41.000000Z",
+        "status": "ok",
+        "method": "withdraw",
+        "decoded_input": {
+          "method_call": "withdraw(uint256 amount)",
+          "method_id": "2e1a7d4d",
+          "parameters": [
+            {
+              "name": "amount",
+              "type": "uint256",
+              "value": "15000000000000000000000"
+            }
+          ]
+        },
+        "raw_input": "0x2e1a7d4d00000000000000000000000000000000000000000000032d26d12e980b600000",
+        "value": "0",
+        "transaction_types": [
+          "contract_call",
+          "token_transfer"
+        ]
+      },
+      "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+      "to": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+      "created_contract": null,
+      "pagination_complete": true,
+      "logs": [
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+            "method_id": "ddf252ad",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "from",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": true,
+                "name": "to",
+                "type": "address",
+                "value": "0x0000000000000000000000000000000000000000"
+              },
+              {
+                "indexed": false,
+                "name": "value",
+                "type": "uint256",
+                "value": "15000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x00000000000000000000000000000000000000000000032d26d12e980b600000",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            null
+          ]
+        },
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Withdrawal(address indexed src, uint256 wad)",
+            "method_id": "7fcf532c",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "src",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "wad",
+                "type": "uint256",
+                "value": "15000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x00000000000000000000000000000000000000000000032d26d12e980b600000",
+          "topics": [
+            "0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null,
+            null
+          ]
+        }
+      ],
+      "internal_calls": [
+        {
+          "from": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "to": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "value": "15000000000000000000000",
+          "type": "call",
+          "success": true,
+          "error": null,
+          "created_contract": null
+        }
+      ],
+      "token_transfers": [
+        {
+          "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "to": "0x0000000000000000000000000000000000000000",
+          "total": {
+            "decimals": "18",
+            "value": "15000000000000000000000"
+          },
+          "token": {
+            "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+            "name": "Wrapped HSK",
+            "symbol": "WHSK",
+            "decimals": "18",
+            "type": "ERC-20"
+          }
+        }
+      ],
+      "contracts": [
+        {
+          "address": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "name": "WHSK",
+          "verified": true,
+          "abi": [
+            {
+              "inputs": [],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Approval",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "dst",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Deposit",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Transfer",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "src",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Withdrawal",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                }
+              ],
+              "name": "allowance",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "approve",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decimals",
+              "outputs": [
+                {
+                  "internalType": "uint8",
+                  "name": "",
+                  "type": "uint8"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "subtractedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "decreaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "deposit",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "addedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "increaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "name",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "symbol",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transfer",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "withdraw",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "stateMutability": "payable",
+              "type": "receive"
+            }
+          ],
+          "source_code": "// SPDX-License-Identifier: GPL-3.0-or-later\npragma solidity 0.8.27;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n\ncontract WHSK is ERC20 {\n    constructor() ERC20(\"Wrapped HSK\", \"WHSK\") {}\n\n    receive() external payable {\n        deposit();\n    }\n\n    function deposit() public payable {\n        _mint(msg.sender, msg.value);\n        emit Deposit(msg.sender, msg.value);\n    }\n\n    function withdraw(uint256 amount) public {\n        require(balanceOf(msg.sender) >= amount, \"WHSK: Insufficient balance\");\n        _burn(msg.sender, amount);\n        payable(msg.sender).transfer(amount);\n        emit Withdrawal(msg.sender, amount);\n    }\n\n    function totalSupply() public view override returns (uint256) {\n        return address(this).balance;\n    }\n\n    event Deposit(address indexed dst, uint256 wad);\n    event Withdrawal(address indexed src, uint256 wad);\n}",
+          "source_truncated": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "0x3fa70f5211831b2e1b33fd4d7cfab6a1bb523786c1dbfc37009336e60db7200b",
+    "split": "development",
+    "expected": [
+      "withdraw",
+      "unwrap"
+    ],
+    "basis": "Verified WHSK withdraw burns WHSK and sends underlying HSK; successful receipt, Withdrawal + burn Transfer logs and native repayment trace. v1 permits Withdraw with Unwrap and excludes auxiliary Burn.",
+    "state": {
+      "chain_id": 177,
+      "transaction": {
+        "hash": "0x3fa70f5211831b2e1b33fd4d7cfab6a1bb523786c1dbfc37009336e60db7200b",
+        "block_number": 27697698,
+        "timestamp": "2026-09-18T14:42:11.000000Z",
+        "status": "ok",
+        "method": "withdraw",
+        "decoded_input": {
+          "method_call": "withdraw(uint256 amount)",
+          "method_id": "2e1a7d4d",
+          "parameters": [
+            {
+              "name": "amount",
+              "type": "uint256",
+              "value": "10000000000000000000000"
+            }
+          ]
+        },
+        "raw_input": "0x2e1a7d4d00000000000000000000000000000000000000000000021e19e0c9bab2400000",
+        "value": "0",
+        "transaction_types": [
+          "contract_call",
+          "token_transfer"
+        ]
+      },
+      "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+      "to": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+      "created_contract": null,
+      "pagination_complete": true,
+      "logs": [
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+            "method_id": "ddf252ad",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "from",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": true,
+                "name": "to",
+                "type": "address",
+                "value": "0x0000000000000000000000000000000000000000"
+              },
+              {
+                "indexed": false,
+                "name": "value",
+                "type": "uint256",
+                "value": "10000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x00000000000000000000000000000000000000000000021e19e0c9bab2400000",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            null
+          ]
+        },
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Withdrawal(address indexed src, uint256 wad)",
+            "method_id": "7fcf532c",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "src",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "wad",
+                "type": "uint256",
+                "value": "10000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x00000000000000000000000000000000000000000000021e19e0c9bab2400000",
+          "topics": [
+            "0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null,
+            null
+          ]
+        }
+      ],
+      "internal_calls": [
+        {
+          "from": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "to": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "value": "10000000000000000000000",
+          "type": "call",
+          "success": true,
+          "error": null,
+          "created_contract": null
+        }
+      ],
+      "token_transfers": [
+        {
+          "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "to": "0x0000000000000000000000000000000000000000",
+          "total": {
+            "decimals": "18",
+            "value": "10000000000000000000000"
+          },
+          "token": {
+            "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+            "name": "Wrapped HSK",
+            "symbol": "WHSK",
+            "decimals": "18",
+            "type": "ERC-20"
+          }
+        }
+      ],
+      "contracts": [
+        {
+          "address": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "name": "WHSK",
+          "verified": true,
+          "abi": [
+            {
+              "inputs": [],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Approval",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "dst",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Deposit",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Transfer",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "src",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Withdrawal",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                }
+              ],
+              "name": "allowance",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "approve",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decimals",
+              "outputs": [
+                {
+                  "internalType": "uint8",
+                  "name": "",
+                  "type": "uint8"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "subtractedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "decreaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "deposit",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "addedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "increaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "name",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "symbol",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transfer",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "withdraw",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "stateMutability": "payable",
+              "type": "receive"
+            }
+          ],
+          "source_code": "// SPDX-License-Identifier: GPL-3.0-or-later\npragma solidity 0.8.27;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n\ncontract WHSK is ERC20 {\n    constructor() ERC20(\"Wrapped HSK\", \"WHSK\") {}\n\n    receive() external payable {\n        deposit();\n    }\n\n    function deposit() public payable {\n        _mint(msg.sender, msg.value);\n        emit Deposit(msg.sender, msg.value);\n    }\n\n    function withdraw(uint256 amount) public {\n        require(balanceOf(msg.sender) >= amount, \"WHSK: Insufficient balance\");\n        _burn(msg.sender, amount);\n        payable(msg.sender).transfer(amount);\n        emit Withdrawal(msg.sender, amount);\n    }\n\n    function totalSupply() public view override returns (uint256) {\n        return address(this).balance;\n    }\n\n    event Deposit(address indexed dst, uint256 wad);\n    event Withdrawal(address indexed src, uint256 wad);\n}",
+          "source_truncated": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "0x51a8c7d5e169128e370768b16d4d6a8a80ad82da554702326ad93a911855fdf6",
+    "split": "development",
+    "expected": [
+      "withdraw",
+      "unwrap"
+    ],
+    "basis": "Verified WHSK withdraw burns WHSK and sends underlying HSK; successful receipt, Withdrawal + burn Transfer logs and native repayment trace. v1 permits Withdraw with Unwrap and excludes auxiliary Burn.",
+    "state": {
+      "chain_id": 177,
+      "transaction": {
+        "hash": "0x51a8c7d5e169128e370768b16d4d6a8a80ad82da554702326ad93a911855fdf6",
+        "block_number": 27701561,
+        "timestamp": "2026-09-18T16:50:57.000000Z",
+        "status": "ok",
+        "method": "withdraw",
+        "decoded_input": {
+          "method_call": "withdraw(uint256 amount)",
+          "method_id": "2e1a7d4d",
+          "parameters": [
+            {
+              "name": "amount",
+              "type": "uint256",
+              "value": "10000000000000000000000"
+            }
+          ]
+        },
+        "raw_input": "0x2e1a7d4d00000000000000000000000000000000000000000000021e19e0c9bab2400000",
+        "value": "0",
+        "transaction_types": [
+          "contract_call",
+          "token_transfer"
+        ]
+      },
+      "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+      "to": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+      "created_contract": null,
+      "pagination_complete": true,
+      "logs": [
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+            "method_id": "ddf252ad",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "from",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": true,
+                "name": "to",
+                "type": "address",
+                "value": "0x0000000000000000000000000000000000000000"
+              },
+              {
+                "indexed": false,
+                "name": "value",
+                "type": "uint256",
+                "value": "10000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x00000000000000000000000000000000000000000000021e19e0c9bab2400000",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            null
+          ]
+        },
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Withdrawal(address indexed src, uint256 wad)",
+            "method_id": "7fcf532c",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "src",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "wad",
+                "type": "uint256",
+                "value": "10000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x00000000000000000000000000000000000000000000021e19e0c9bab2400000",
+          "topics": [
+            "0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null,
+            null
+          ]
+        }
+      ],
+      "internal_calls": [
+        {
+          "from": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "to": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "value": "10000000000000000000000",
+          "type": "call",
+          "success": true,
+          "error": null,
+          "created_contract": null
+        }
+      ],
+      "token_transfers": [
+        {
+          "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "to": "0x0000000000000000000000000000000000000000",
+          "total": {
+            "decimals": "18",
+            "value": "10000000000000000000000"
+          },
+          "token": {
+            "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+            "name": "Wrapped HSK",
+            "symbol": "WHSK",
+            "decimals": "18",
+            "type": "ERC-20"
+          }
+        }
+      ],
+      "contracts": [
+        {
+          "address": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "name": "WHSK",
+          "verified": true,
+          "abi": [
+            {
+              "inputs": [],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Approval",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "dst",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Deposit",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Transfer",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "src",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Withdrawal",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                }
+              ],
+              "name": "allowance",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "approve",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decimals",
+              "outputs": [
+                {
+                  "internalType": "uint8",
+                  "name": "",
+                  "type": "uint8"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "subtractedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "decreaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "deposit",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "addedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "increaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "name",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "symbol",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transfer",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "withdraw",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "stateMutability": "payable",
+              "type": "receive"
+            }
+          ],
+          "source_code": "// SPDX-License-Identifier: GPL-3.0-or-later\npragma solidity 0.8.27;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n\ncontract WHSK is ERC20 {\n    constructor() ERC20(\"Wrapped HSK\", \"WHSK\") {}\n\n    receive() external payable {\n        deposit();\n    }\n\n    function deposit() public payable {\n        _mint(msg.sender, msg.value);\n        emit Deposit(msg.sender, msg.value);\n    }\n\n    function withdraw(uint256 amount) public {\n        require(balanceOf(msg.sender) >= amount, \"WHSK: Insufficient balance\");\n        _burn(msg.sender, amount);\n        payable(msg.sender).transfer(amount);\n        emit Withdrawal(msg.sender, amount);\n    }\n\n    function totalSupply() public view override returns (uint256) {\n        return address(this).balance;\n    }\n\n    event Deposit(address indexed dst, uint256 wad);\n    event Withdrawal(address indexed src, uint256 wad);\n}",
+          "source_truncated": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "0x5be539c0fccc0e60b2f7834c79dd68177b3c2d57047fb6ce28592a0bf22c52f1",
+    "split": "development",
+    "expected": [
+      "deposit",
+      "wrap"
+    ],
+    "basis": "Verified WHSK deposit mints exactly msg.value of WHSK for incoming HSK; successful receipt and Deposit + mint Transfer logs. v1 permits Deposit with Wrap and excludes auxiliary Mint.",
+    "state": {
+      "chain_id": 177,
+      "transaction": {
+        "hash": "0x5be539c0fccc0e60b2f7834c79dd68177b3c2d57047fb6ce28592a0bf22c52f1",
+        "block_number": 27894418,
+        "timestamp": "2026-09-23T03:59:31.000000Z",
+        "status": "ok",
+        "method": "deposit",
+        "decoded_input": {
+          "method_call": "deposit()",
+          "method_id": "d0e30db0",
+          "parameters": []
+        },
+        "raw_input": "0xd0e30db0",
+        "value": "8000000000000000000000",
+        "transaction_types": [
+          "coin_transfer",
+          "contract_call",
+          "token_transfer"
+        ]
+      },
+      "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+      "to": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+      "created_contract": null,
+      "pagination_complete": true,
+      "logs": [
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+            "method_id": "ddf252ad",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "from",
+                "type": "address",
+                "value": "0x0000000000000000000000000000000000000000"
+              },
+              {
+                "indexed": true,
+                "name": "to",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "value",
+                "type": "uint256",
+                "value": "8000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x0000000000000000000000000000000000000000000001b1ae4d6e2ef5000000",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null
+          ]
+        },
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Deposit(address indexed dst, uint256 wad)",
+            "method_id": "e1fffcc4",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "dst",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "wad",
+                "type": "uint256",
+                "value": "8000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x0000000000000000000000000000000000000000000001b1ae4d6e2ef5000000",
+          "topics": [
+            "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null,
+            null
+          ]
+        }
+      ],
+      "internal_calls": [],
+      "token_transfers": [
+        {
+          "from": "0x0000000000000000000000000000000000000000",
+          "to": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "total": {
+            "decimals": "18",
+            "value": "8000000000000000000000"
+          },
+          "token": {
+            "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+            "name": "Wrapped HSK",
+            "symbol": "WHSK",
+            "decimals": "18",
+            "type": "ERC-20"
+          }
+        }
+      ],
+      "contracts": [
+        {
+          "address": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "name": "WHSK",
+          "verified": true,
+          "abi": [
+            {
+              "inputs": [],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Approval",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "dst",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Deposit",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Transfer",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "src",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Withdrawal",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                }
+              ],
+              "name": "allowance",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "approve",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decimals",
+              "outputs": [
+                {
+                  "internalType": "uint8",
+                  "name": "",
+                  "type": "uint8"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "subtractedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "decreaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "deposit",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "addedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "increaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "name",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "symbol",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transfer",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "withdraw",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "stateMutability": "payable",
+              "type": "receive"
+            }
+          ],
+          "source_code": "// SPDX-License-Identifier: GPL-3.0-or-later\npragma solidity 0.8.27;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n\ncontract WHSK is ERC20 {\n    constructor() ERC20(\"Wrapped HSK\", \"WHSK\") {}\n\n    receive() external payable {\n        deposit();\n    }\n\n    function deposit() public payable {\n        _mint(msg.sender, msg.value);\n        emit Deposit(msg.sender, msg.value);\n    }\n\n    function withdraw(uint256 amount) public {\n        require(balanceOf(msg.sender) >= amount, \"WHSK: Insufficient balance\");\n        _burn(msg.sender, amount);\n        payable(msg.sender).transfer(amount);\n        emit Withdrawal(msg.sender, amount);\n    }\n\n    function totalSupply() public view override returns (uint256) {\n        return address(this).balance;\n    }\n\n    event Deposit(address indexed dst, uint256 wad);\n    event Withdrawal(address indexed src, uint256 wad);\n}",
+          "source_truncated": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "0x67972bed7287d048d49f47a2bcb702d3b24ceec0a8dd1962e0da8e68dd08f064",
+    "split": "development",
+    "expected": [
+      "withdraw",
+      "unwrap"
+    ],
+    "basis": "Verified WHSK withdraw burns WHSK and sends underlying HSK; successful receipt, Withdrawal + burn Transfer logs and native repayment trace. v1 permits Withdraw with Unwrap and excludes auxiliary Burn.",
+    "state": {
+      "chain_id": 177,
+      "transaction": {
+        "hash": "0x67972bed7287d048d49f47a2bcb702d3b24ceec0a8dd1962e0da8e68dd08f064",
+        "block_number": 27696807,
+        "timestamp": "2026-09-18T14:12:29.000000Z",
+        "status": "ok",
+        "method": "withdraw",
+        "decoded_input": {
+          "method_call": "withdraw(uint256 amount)",
+          "method_id": "2e1a7d4d",
+          "parameters": [
+            {
+              "name": "amount",
+              "type": "uint256",
+              "value": "8000000000000000000000"
+            }
+          ]
+        },
+        "raw_input": "0x2e1a7d4d0000000000000000000000000000000000000000000001b1ae4d6e2ef5000000",
+        "value": "0",
+        "transaction_types": [
+          "contract_call",
+          "token_transfer"
+        ]
+      },
+      "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+      "to": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+      "created_contract": null,
+      "pagination_complete": true,
+      "logs": [
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+            "method_id": "ddf252ad",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "from",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": true,
+                "name": "to",
+                "type": "address",
+                "value": "0x0000000000000000000000000000000000000000"
+              },
+              {
+                "indexed": false,
+                "name": "value",
+                "type": "uint256",
+                "value": "8000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x0000000000000000000000000000000000000000000001b1ae4d6e2ef5000000",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            null
+          ]
+        },
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Withdrawal(address indexed src, uint256 wad)",
+            "method_id": "7fcf532c",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "src",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "wad",
+                "type": "uint256",
+                "value": "8000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x0000000000000000000000000000000000000000000001b1ae4d6e2ef5000000",
+          "topics": [
+            "0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null,
+            null
+          ]
+        }
+      ],
+      "internal_calls": [
+        {
+          "from": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "to": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "value": "8000000000000000000000",
+          "type": "call",
+          "success": true,
+          "error": null,
+          "created_contract": null
+        }
+      ],
+      "token_transfers": [
+        {
+          "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "to": "0x0000000000000000000000000000000000000000",
+          "total": {
+            "decimals": "18",
+            "value": "8000000000000000000000"
+          },
+          "token": {
+            "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+            "name": "Wrapped HSK",
+            "symbol": "WHSK",
+            "decimals": "18",
+            "type": "ERC-20"
+          }
+        }
+      ],
+      "contracts": [
+        {
+          "address": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "name": "WHSK",
+          "verified": true,
+          "abi": [
+            {
+              "inputs": [],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Approval",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "dst",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Deposit",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Transfer",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "src",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Withdrawal",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                }
+              ],
+              "name": "allowance",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "approve",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decimals",
+              "outputs": [
+                {
+                  "internalType": "uint8",
+                  "name": "",
+                  "type": "uint8"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "subtractedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "decreaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "deposit",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "addedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "increaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "name",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "symbol",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transfer",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "withdraw",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "stateMutability": "payable",
+              "type": "receive"
+            }
+          ],
+          "source_code": "// SPDX-License-Identifier: GPL-3.0-or-later\npragma solidity 0.8.27;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n\ncontract WHSK is ERC20 {\n    constructor() ERC20(\"Wrapped HSK\", \"WHSK\") {}\n\n    receive() external payable {\n        deposit();\n    }\n\n    function deposit() public payable {\n        _mint(msg.sender, msg.value);\n        emit Deposit(msg.sender, msg.value);\n    }\n\n    function withdraw(uint256 amount) public {\n        require(balanceOf(msg.sender) >= amount, \"WHSK: Insufficient balance\");\n        _burn(msg.sender, amount);\n        payable(msg.sender).transfer(amount);\n        emit Withdrawal(msg.sender, amount);\n    }\n\n    function totalSupply() public view override returns (uint256) {\n        return address(this).balance;\n    }\n\n    event Deposit(address indexed dst, uint256 wad);\n    event Withdrawal(address indexed src, uint256 wad);\n}",
+          "source_truncated": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "0x86f76ad518ac43379dac7290db4ee2773ca4087ab924f8d2ad50ff890d00ef4d",
+    "split": "development",
+    "expected": [
+      "deposit",
+      "wrap"
+    ],
+    "basis": "Verified WHSK deposit mints exactly msg.value of WHSK for incoming HSK; successful receipt and Deposit + mint Transfer logs. v1 permits Deposit with Wrap and excludes auxiliary Mint.",
+    "state": {
+      "chain_id": 177,
+      "transaction": {
+        "hash": "0x86f76ad518ac43379dac7290db4ee2773ca4087ab924f8d2ad50ff890d00ef4d",
+        "block_number": 27916968,
+        "timestamp": "2026-09-23T16:31:11.000000Z",
+        "status": "ok",
+        "method": "deposit",
+        "decoded_input": {
+          "method_call": "deposit()",
+          "method_id": "d0e30db0",
+          "parameters": []
+        },
+        "raw_input": "0xd0e30db0",
+        "value": "9000000000000000000000",
+        "transaction_types": [
+          "coin_transfer",
+          "contract_call",
+          "token_transfer"
+        ]
+      },
+      "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+      "to": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+      "created_contract": null,
+      "pagination_complete": true,
+      "logs": [
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+            "method_id": "ddf252ad",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "from",
+                "type": "address",
+                "value": "0x0000000000000000000000000000000000000000"
+              },
+              {
+                "indexed": true,
+                "name": "to",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "value",
+                "type": "uint256",
+                "value": "9000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x0000000000000000000000000000000000000000000001e7e4171bf4d3a00000",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null
+          ]
+        },
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Deposit(address indexed dst, uint256 wad)",
+            "method_id": "e1fffcc4",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "dst",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "wad",
+                "type": "uint256",
+                "value": "9000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x0000000000000000000000000000000000000000000001e7e4171bf4d3a00000",
+          "topics": [
+            "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null,
+            null
+          ]
+        }
+      ],
+      "internal_calls": [],
+      "token_transfers": [
+        {
+          "from": "0x0000000000000000000000000000000000000000",
+          "to": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "total": {
+            "decimals": "18",
+            "value": "9000000000000000000000"
+          },
+          "token": {
+            "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+            "name": "Wrapped HSK",
+            "symbol": "WHSK",
+            "decimals": "18",
+            "type": "ERC-20"
+          }
+        }
+      ],
+      "contracts": [
+        {
+          "address": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "name": "WHSK",
+          "verified": true,
+          "abi": [
+            {
+              "inputs": [],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Approval",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "dst",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Deposit",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Transfer",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "src",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Withdrawal",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                }
+              ],
+              "name": "allowance",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "approve",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decimals",
+              "outputs": [
+                {
+                  "internalType": "uint8",
+                  "name": "",
+                  "type": "uint8"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "subtractedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "decreaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "deposit",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "addedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "increaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "name",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "symbol",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transfer",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "withdraw",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "stateMutability": "payable",
+              "type": "receive"
+            }
+          ],
+          "source_code": "// SPDX-License-Identifier: GPL-3.0-or-later\npragma solidity 0.8.27;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n\ncontract WHSK is ERC20 {\n    constructor() ERC20(\"Wrapped HSK\", \"WHSK\") {}\n\n    receive() external payable {\n        deposit();\n    }\n\n    function deposit() public payable {\n        _mint(msg.sender, msg.value);\n        emit Deposit(msg.sender, msg.value);\n    }\n\n    function withdraw(uint256 amount) public {\n        require(balanceOf(msg.sender) >= amount, \"WHSK: Insufficient balance\");\n        _burn(msg.sender, amount);\n        payable(msg.sender).transfer(amount);\n        emit Withdrawal(msg.sender, amount);\n    }\n\n    function totalSupply() public view override returns (uint256) {\n        return address(this).balance;\n    }\n\n    event Deposit(address indexed dst, uint256 wad);\n    event Withdrawal(address indexed src, uint256 wad);\n}",
+          "source_truncated": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "0xca33c0dae98d283d2583c2c2a2fe689116974890dcbb9e5cf7285da5001baa84",
+    "split": "development",
+    "expected": [
+      "deposit",
+      "wrap"
+    ],
+    "basis": "Verified WHSK deposit mints exactly msg.value of WHSK for incoming HSK; successful receipt and Deposit + mint Transfer logs. v1 permits Deposit with Wrap and excludes auxiliary Mint.",
+    "state": {
+      "chain_id": 177,
+      "transaction": {
+        "hash": "0xca33c0dae98d283d2583c2c2a2fe689116974890dcbb9e5cf7285da5001baa84",
+        "block_number": 27932513,
+        "timestamp": "2026-09-24T01:09:21.000000Z",
+        "status": "ok",
+        "method": "deposit",
+        "decoded_input": {
+          "method_call": "deposit()",
+          "method_id": "d0e30db0",
+          "parameters": []
+        },
+        "raw_input": "0xd0e30db0",
+        "value": "7000000000000000000000",
+        "transaction_types": [
+          "coin_transfer",
+          "contract_call",
+          "token_transfer"
+        ]
+      },
+      "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+      "to": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+      "created_contract": null,
+      "pagination_complete": true,
+      "logs": [
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+            "method_id": "ddf252ad",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "from",
+                "type": "address",
+                "value": "0x0000000000000000000000000000000000000000"
+              },
+              {
+                "indexed": true,
+                "name": "to",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "value",
+                "type": "uint256",
+                "value": "7000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x00000000000000000000000000000000000000000000017b7883c06916600000",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null
+          ]
+        },
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Deposit(address indexed dst, uint256 wad)",
+            "method_id": "e1fffcc4",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "dst",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "wad",
+                "type": "uint256",
+                "value": "7000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x00000000000000000000000000000000000000000000017b7883c06916600000",
+          "topics": [
+            "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null,
+            null
+          ]
+        }
+      ],
+      "internal_calls": [],
+      "token_transfers": [
+        {
+          "from": "0x0000000000000000000000000000000000000000",
+          "to": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "total": {
+            "decimals": "18",
+            "value": "7000000000000000000000"
+          },
+          "token": {
+            "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+            "name": "Wrapped HSK",
+            "symbol": "WHSK",
+            "decimals": "18",
+            "type": "ERC-20"
+          }
+        }
+      ],
+      "contracts": [
+        {
+          "address": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "name": "WHSK",
+          "verified": true,
+          "abi": [
+            {
+              "inputs": [],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Approval",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "dst",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Deposit",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Transfer",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "src",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Withdrawal",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                }
+              ],
+              "name": "allowance",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "approve",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decimals",
+              "outputs": [
+                {
+                  "internalType": "uint8",
+                  "name": "",
+                  "type": "uint8"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "subtractedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "decreaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "deposit",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "addedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "increaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "name",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "symbol",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transfer",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "withdraw",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "stateMutability": "payable",
+              "type": "receive"
+            }
+          ],
+          "source_code": "// SPDX-License-Identifier: GPL-3.0-or-later\npragma solidity 0.8.27;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n\ncontract WHSK is ERC20 {\n    constructor() ERC20(\"Wrapped HSK\", \"WHSK\") {}\n\n    receive() external payable {\n        deposit();\n    }\n\n    function deposit() public payable {\n        _mint(msg.sender, msg.value);\n        emit Deposit(msg.sender, msg.value);\n    }\n\n    function withdraw(uint256 amount) public {\n        require(balanceOf(msg.sender) >= amount, \"WHSK: Insufficient balance\");\n        _burn(msg.sender, amount);\n        payable(msg.sender).transfer(amount);\n        emit Withdrawal(msg.sender, amount);\n    }\n\n    function totalSupply() public view override returns (uint256) {\n        return address(this).balance;\n    }\n\n    event Deposit(address indexed dst, uint256 wad);\n    event Withdrawal(address indexed src, uint256 wad);\n}",
+          "source_truncated": false
+        }
+      ]
+    }
+  },
+  {
+    "id": "0xd2736304e85f21d165f16efcfccaa9a7a9817110f66370e2377840ba1fce9905",
+    "split": "development",
+    "expected": [
+      "deposit",
+      "wrap"
+    ],
+    "basis": "Verified WHSK deposit mints exactly msg.value of WHSK for incoming HSK; successful receipt and Deposit + mint Transfer logs. v1 permits Deposit with Wrap and excludes auxiliary Mint.",
+    "state": {
+      "chain_id": 177,
+      "transaction": {
+        "hash": "0xd2736304e85f21d165f16efcfccaa9a7a9817110f66370e2377840ba1fce9905",
+        "block_number": 27916852,
+        "timestamp": "2026-09-23T16:27:19.000000Z",
+        "status": "ok",
+        "method": "deposit",
+        "decoded_input": {
+          "method_call": "deposit()",
+          "method_id": "d0e30db0",
+          "parameters": []
+        },
+        "raw_input": "0xd0e30db0",
+        "value": "7000000000000000000000",
+        "transaction_types": [
+          "coin_transfer",
+          "contract_call",
+          "token_transfer"
+        ]
+      },
+      "from": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+      "to": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+      "created_contract": null,
+      "pagination_complete": true,
+      "logs": [
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+            "method_id": "ddf252ad",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "from",
+                "type": "address",
+                "value": "0x0000000000000000000000000000000000000000"
+              },
+              {
+                "indexed": true,
+                "name": "to",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "value",
+                "type": "uint256",
+                "value": "7000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x00000000000000000000000000000000000000000000017b7883c06916600000",
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null
+          ]
+        },
+        {
+          "emitter": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "decoded": {
+            "method_call": "Deposit(address indexed dst, uint256 wad)",
+            "method_id": "e1fffcc4",
+            "parameters": [
+              {
+                "indexed": true,
+                "name": "dst",
+                "type": "address",
+                "value": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8"
+              },
+              {
+                "indexed": false,
+                "name": "wad",
+                "type": "uint256",
+                "value": "7000000000000000000000"
+              }
+            ]
+          },
+          "data": "0x00000000000000000000000000000000000000000000017b7883c06916600000",
+          "topics": [
+            "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c",
+            "0x00000000000000000000000000326804fe6148bf5ce218db6cbb285c4627a4b8",
+            null,
+            null
+          ]
+        }
+      ],
+      "internal_calls": [],
+      "token_transfers": [
+        {
+          "from": "0x0000000000000000000000000000000000000000",
+          "to": "0x00326804fe6148BF5cE218dB6cBB285C4627A4b8",
+          "total": {
+            "decimals": "18",
+            "value": "7000000000000000000000"
+          },
+          "token": {
+            "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+            "name": "Wrapped HSK",
+            "symbol": "WHSK",
+            "decimals": "18",
+            "type": "ERC-20"
+          }
+        }
+      ],
+      "contracts": [
+        {
+          "address": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "name": "WHSK",
+          "verified": true,
+          "abi": [
+            {
+              "inputs": [],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Approval",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "dst",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Deposit",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "value",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Transfer",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "src",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "uint256",
+                  "name": "wad",
+                  "type": "uint256"
+                }
+              ],
+              "name": "Withdrawal",
+              "type": "event"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                }
+              ],
+              "name": "allowance",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "approve",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "account",
+                  "type": "address"
+                }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "decimals",
+              "outputs": [
+                {
+                  "internalType": "uint8",
+                  "name": "",
+                  "type": "uint8"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "subtractedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "decreaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "deposit",
+              "outputs": [],
+              "stateMutability": "payable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "spender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "addedValue",
+                  "type": "uint256"
+                }
+              ],
+              "name": "increaseAllowance",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "name",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "symbol",
+              "outputs": [
+                {
+                  "internalType": "string",
+                  "name": "",
+                  "type": "string"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transfer",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "from",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "to",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                }
+              ],
+              "name": "withdraw",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "stateMutability": "payable",
+              "type": "receive"
+            }
+          ],
+          "source_code": "// SPDX-License-Identifier: GPL-3.0-or-later\npragma solidity 0.8.27;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n\ncontract WHSK is ERC20 {\n    constructor() ERC20(\"Wrapped HSK\", \"WHSK\") {}\n\n    receive() external payable {\n        deposit();\n    }\n\n    function deposit() public payable {\n        _mint(msg.sender, msg.value);\n        emit Deposit(msg.sender, msg.value);\n    }\n\n    function withdraw(uint256 amount) public {\n        require(balanceOf(msg.sender) >= amount, \"WHSK: Insufficient balance\");\n        _burn(msg.sender, amount);\n        payable(msg.sender).transfer(amount);\n        emit Withdrawal(msg.sender, amount);\n    }\n\n    function totalSupply() public view override returns (uint256) {\n        return address(this).balance;\n    }\n\n    event Deposit(address indexed dst, uint256 wad);\n    event Withdrawal(address indexed src, uint256 wad);\n}",
+          "source_truncated": false
+        }
+      ]
+    }
+  }
+]

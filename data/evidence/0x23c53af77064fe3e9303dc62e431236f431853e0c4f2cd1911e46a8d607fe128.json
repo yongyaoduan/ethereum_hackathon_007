@@ -1,0 +1,935 @@
+{
+  "transaction": {
+    "l1_gas_used": "1968",
+    "priority_fee": "1341280000000",
+    "raw_input": "0x5a4d5311000000000000000000000000c22f6e7974b543ad2612c590202a5366d261078500000000000000000000000000000000000000000000943b1377290cbd800000000000000000000000000000000000000000000000000014b2d0378d11d3cd70000000000000000000000000cbf340596c0c85cd737397fe81aa0e30f4dcb534",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+    "max_fee_per_gas": "1000340",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "338002560",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 18752525,
+    "position": 1,
+    "max_priority_fee_per_gas": "1000000",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0xcBf340596c0C85Cd737397fe81Aa0e30F4dcB534",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "1341280",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xc5a076cad94176c2996B32d8466Be1cE757FAa27",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "MCV2_Bond",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "327192444697439",
+    "method": "burn",
+    "fee": {
+      "type": "actual",
+      "value": "328534062699999"
+    },
+    "gas_limit": "4059276",
+    "gas_price": "1000252",
+    "decoded_input": {
+      "method_call": "burn(address token, uint256 tokensToBurn, uint256 minRefund, address receiver)",
+      "method_id": "5a4d5311",
+      "parameters": [
+        {
+          "name": "token",
+          "type": "address",
+          "value": "0xC22F6e7974B543aD2612c590202A5366D2610785"
+        },
+        {
+          "name": "tokensToBurn",
+          "type": "uint256",
+          "value": "700000000000000000000000"
+        },
+        {
+          "name": "minRefund",
+          "type": "uint256",
+          "value": "381819741087127031152"
+        },
+        {
+          "name": "receiver",
+          "type": "address",
+          "value": "0xcBf340596c0C85Cd737397fe81Aa0e30F4dcB534"
+        }
+      ]
+    },
+    "l1_gas_price": "8310019132",
+    "fhe_operations_count": 0,
+    "token_transfers": [
+      {
+        "block_hash": "0x6eaa13cb990ef437300d2a743079b2eb4e5ccd73d9ba35605b9f518435c39481",
+        "block_number": 9251571,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0xcBf340596c0C85Cd737397fe81Aa0e30F4dcB534",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 0,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0x0000000000000000000000000000000000000000",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": {
+            "tags": [
+              {
+                "meta": {},
+                "name": "Null: 0x000...000",
+                "ordinal": 10,
+                "slug": "null-0x000000",
+                "tagType": "name"
+              },
+              {
+                "meta": {},
+                "name": "Metamask User",
+                "ordinal": 0,
+                "slug": "metamask-user",
+                "tagType": "generic"
+              },
+              {
+                "meta": {},
+                "name": "Imtoken User",
+                "ordinal": 0,
+                "slug": "imtoken-user",
+                "tagType": "generic"
+              },
+              {
+                "meta": {},
+                "name": "Miner",
+                "ordinal": 0,
+                "slug": "miner",
+                "tagType": "generic"
+              }
+            ]
+          },
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0xC22F6e7974B543aD2612c590202A5366D2610785",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "18",
+          "exchange_rate": null,
+          "holders_count": "1233",
+          "icon_url": null,
+          "name": "HASHED",
+          "reputation": "ok",
+          "symbol": "HASHED",
+          "total_supply": "16425770767709984455952670",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "18",
+          "value": "700000000000000000000000"
+        },
+        "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+        "type": "token_burning"
+      },
+      {
+        "block_hash": "0x6eaa13cb990ef437300d2a743079b2eb4e5ccd73d9ba35605b9f518435c39481",
+        "block_number": 9251571,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0xc5a076cad94176c2996B32d8466Be1cE757FAa27",
+          "implementations": [],
+          "is_contract": true,
+          "is_scam": false,
+          "is_verified": true,
+          "metadata": null,
+          "name": "MCV2_Bond",
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 1,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0xcBf340596c0C85Cd737397fe81Aa0e30F4dcB534",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "18",
+          "exchange_rate": null,
+          "holders_count": "281",
+          "icon_url": "https://s2.coinmarketcap.com/static/img/coins/64x64/33849.png",
+          "name": "Wrapped HSK",
+          "reputation": "ok",
+          "symbol": "WHSK",
+          "total_supply": "4997560182222561189455686",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "18",
+          "value": "381819741087127031152"
+        },
+        "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+        "type": "token_transfer"
+      }
+    ],
+    "base_fee_per_gas": "252",
+    "timestamp": "2025-07-18T14:51:17.000000Z",
+    "nonce": 10,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call",
+      "token_transfer"
+    ],
+    "exchange_rate": null,
+    "block_number": 9251571,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xC22F6e7974B543aD2612c590202A5366D2610785",
+        "implementations": [
+          {
+            "address_hash": "0xAa70bC79fD1cB4a6FBA717018351F0C3c64B79Df",
+            "name": "MCV2_Token"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HASHED",
+        "private_tags": [],
+        "proxy_type": "eip1167",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x6eaa13cb990ef437300d2a743079b2eb4e5ccd73d9ba35605b9f518435c39481",
+      "block_number": 9251571,
+      "block_timestamp": "2025-07-18T14:51:17.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000943b1377290cbd800000",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0xcBf340596c0C85Cd737397fe81Aa0e30F4dcB534"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "700000000000000000000000"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x000000000000000000000000cbf340596c0c85cd737397fe81aa0e30f4dcb534",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        null
+      ],
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "WHSK",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x6eaa13cb990ef437300d2a743079b2eb4e5ccd73d9ba35605b9f518435c39481",
+      "block_number": 9251571,
+      "block_timestamp": "2025-07-18T14:51:17.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000014b2d0378d11d3cd70",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0xc5a076cad94176c2996B32d8466Be1cE757FAa27"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0xcBf340596c0C85Cd737397fe81Aa0e30F4dcB534"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "381819741087127031152"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x000000000000000000000000c5a076cad94176c2996b32d8466be1ce757faa27",
+        "0x000000000000000000000000cbf340596c0c85cd737397fe81aa0e30f4dcb534",
+        null
+      ],
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xc5a076cad94176c2996B32d8466Be1cE757FAa27",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MCV2_Bond",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x6eaa13cb990ef437300d2a743079b2eb4e5ccd73d9ba35605b9f518435c39481",
+      "block_number": 9251571,
+      "block_timestamp": "2025-07-18T14:51:17.000000Z",
+      "data": "0x000000000000000000000000cbf340596c0c85cd737397fe81aa0e30f4dcb53400000000000000000000000000000000000000000000943b1377290cbd800000000000000000000000000000000000000000000000000014b2d0378d11d3cd70",
+      "decoded": {
+        "method_call": "Burn(address indexed token, address indexed user, address receiver, uint256 amountBurned, address indexed reserveToken, uint256 refundAmount)",
+        "method_id": "80a56de6",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "token",
+            "type": "address",
+            "value": "0xC22F6e7974B543aD2612c590202A5366D2610785"
+          },
+          {
+            "indexed": true,
+            "name": "user",
+            "type": "address",
+            "value": "0xcBf340596c0C85Cd737397fe81Aa0e30F4dcB534"
+          },
+          {
+            "indexed": false,
+            "name": "receiver",
+            "type": "address",
+            "value": "0xcBf340596c0C85Cd737397fe81Aa0e30F4dcB534"
+          },
+          {
+            "indexed": false,
+            "name": "amountBurned",
+            "type": "uint256",
+            "value": "700000000000000000000000"
+          },
+          {
+            "indexed": true,
+            "name": "reserveToken",
+            "type": "address",
+            "value": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1"
+          },
+          {
+            "indexed": false,
+            "name": "refundAmount",
+            "type": "uint256",
+            "value": "381819741087127031152"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0x80a56de61873550ae491e454783a8dfc9d08a6f8bdace0887eabd4315c4b9da8",
+        "0x000000000000000000000000c22f6e7974b543ad2612c590202a5366d2610785",
+        "0x000000000000000000000000cbf340596c0c85cd737397fe81aa0e30f4dcb534",
+        "0x000000000000000000000000b210d2120d57b758ee163cffb43e73728c471cf1"
+      ],
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 9251571,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xc5a076cad94176c2996B32d8466Be1cE757FAa27",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MCV2_Bond",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2818936",
+      "index": 1,
+      "success": true,
+      "timestamp": "2025-07-18T14:51:17.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xC22F6e7974B543aD2612c590202A5366D2610785",
+        "implementations": [
+          {
+            "address_hash": "0xAa70bC79fD1cB4a6FBA717018351F0C3c64B79Df",
+            "name": "MCV2_Token"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HASHED",
+        "private_tags": [],
+        "proxy_type": "eip1167",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 9251571,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xC22F6e7974B543aD2612c590202A5366D2610785",
+        "implementations": [
+          {
+            "address_hash": "0xAa70bC79fD1cB4a6FBA717018351F0C3c64B79Df",
+            "name": "MCV2_Token"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HASHED",
+        "private_tags": [],
+        "proxy_type": "eip1167",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2772302",
+      "index": 2,
+      "success": true,
+      "timestamp": "2025-07-18T14:51:17.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xAa70bC79fD1cB4a6FBA717018351F0C3c64B79Df",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MCV2_Token",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 9251571,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xc5a076cad94176c2996B32d8466Be1cE757FAa27",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MCV2_Bond",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2813632",
+      "index": 3,
+      "success": true,
+      "timestamp": "2025-07-18T14:51:17.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xC22F6e7974B543aD2612c590202A5366D2610785",
+        "implementations": [
+          {
+            "address_hash": "0xAa70bC79fD1cB4a6FBA717018351F0C3c64B79Df",
+            "name": "MCV2_Token"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HASHED",
+        "private_tags": [],
+        "proxy_type": "eip1167",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 9251571,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xC22F6e7974B543aD2612c590202A5366D2610785",
+        "implementations": [
+          {
+            "address_hash": "0xAa70bC79fD1cB4a6FBA717018351F0C3c64B79Df",
+            "name": "MCV2_Token"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HASHED",
+        "private_tags": [],
+        "proxy_type": "eip1167",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2769542",
+      "index": 4,
+      "success": true,
+      "timestamp": "2025-07-18T14:51:17.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xAa70bC79fD1cB4a6FBA717018351F0C3c64B79Df",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MCV2_Token",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 9251571,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xc5a076cad94176c2996B32d8466Be1cE757FAa27",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MCV2_Bond",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2746055",
+      "index": 5,
+      "success": true,
+      "timestamp": "2025-07-18T14:51:17.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xC22F6e7974B543aD2612c590202A5366D2610785",
+        "implementations": [
+          {
+            "address_hash": "0xAa70bC79fD1cB4a6FBA717018351F0C3c64B79Df",
+            "name": "MCV2_Token"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HASHED",
+        "private_tags": [],
+        "proxy_type": "eip1167",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 9251571,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xC22F6e7974B543aD2612c590202A5366D2610785",
+        "implementations": [
+          {
+            "address_hash": "0xAa70bC79fD1cB4a6FBA717018351F0C3c64B79Df",
+            "name": "MCV2_Token"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HASHED",
+        "private_tags": [],
+        "proxy_type": "eip1167",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2703009",
+      "index": 6,
+      "success": true,
+      "timestamp": "2025-07-18T14:51:17.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xAa70bC79fD1cB4a6FBA717018351F0C3c64B79Df",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MCV2_Token",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 9251571,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xc5a076cad94176c2996B32d8466Be1cE757FAa27",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MCV2_Bond",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2708312",
+      "index": 7,
+      "success": true,
+      "timestamp": "2025-07-18T14:51:17.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "WHSK",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [
+    {
+      "block_hash": "0x6eaa13cb990ef437300d2a743079b2eb4e5ccd73d9ba35605b9f518435c39481",
+      "block_number": 9251571,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xcBf340596c0C85Cd737397fe81Aa0e30F4dcB534",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 0,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000000",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": {
+          "tags": [
+            {
+              "meta": {},
+              "name": "Null: 0x000...000",
+              "ordinal": 10,
+              "slug": "null-0x000000",
+              "tagType": "name"
+            },
+            {
+              "meta": {},
+              "name": "Metamask User",
+              "ordinal": 0,
+              "slug": "metamask-user",
+              "tagType": "generic"
+            },
+            {
+              "meta": {},
+              "name": "Imtoken User",
+              "ordinal": 0,
+              "slug": "imtoken-user",
+              "tagType": "generic"
+            },
+            {
+              "meta": {},
+              "name": "Miner",
+              "ordinal": 0,
+              "slug": "miner",
+              "tagType": "generic"
+            }
+          ]
+        },
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0xC22F6e7974B543aD2612c590202A5366D2610785",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "18",
+        "exchange_rate": null,
+        "holders_count": "1233",
+        "icon_url": null,
+        "name": "HASHED",
+        "reputation": "ok",
+        "symbol": "HASHED",
+        "total_supply": "16425770767709984455952670",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "18",
+        "value": "700000000000000000000000"
+      },
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+      "type": "token_burning"
+    },
+    {
+      "block_hash": "0x6eaa13cb990ef437300d2a743079b2eb4e5ccd73d9ba35605b9f518435c39481",
+      "block_number": 9251571,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xc5a076cad94176c2996B32d8466Be1cE757FAa27",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MCV2_Bond",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 1,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xcBf340596c0C85Cd737397fe81Aa0e30F4dcB534",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "18",
+        "exchange_rate": null,
+        "holders_count": "281",
+        "icon_url": "https://s2.coinmarketcap.com/static/img/coins/64x64/33849.png",
+        "name": "Wrapped HSK",
+        "reputation": "ok",
+        "symbol": "WHSK",
+        "total_supply": "4997560182222561189455686",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "18",
+        "value": "381819741087127031152"
+      },
+      "transaction_hash": "0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+      "type": "token_transfer"
+    }
+  ],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x23c53af77064fe3e9303dc62e431236f431853e0c4f2cd1911e46a8d607fe128",
+  "contract_address": "0xc5a076cad94176c2996B32d8466Be1cE757FAa27",
+  "contract_name": "MCV2_Bond",
+  "contract_verified": true,
+  "implementations": []
+}

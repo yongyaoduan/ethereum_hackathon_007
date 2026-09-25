@@ -1,0 +1,418 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "67996000000",
+    "raw_input": "0x3ccfd60b",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0xc4ce2285f8630ce802b30068eba2eee1615ca304276b9422b8536917307c13b9",
+    "max_fee_per_gas": "1000252",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "17134992",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 5333148,
+    "position": 1,
+    "max_priority_fee_per_gas": "1000252",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0xfCb42db392E6641fFA057f143aCe1953759f708f",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "67996",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x4200000000000000000000000000000000000011",
+      "implementations": [
+        {
+          "address_hash": "0x059b5230b111cc9D61C62E17142F8FA4BDd25Ca5",
+          "name": "SequencerFeeVault"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "Proxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "5117034006927",
+    "method": "withdraw",
+    "fee": {
+      "type": "actual",
+      "value": "5185047141919"
+    },
+    "gas_limit": "68849",
+    "gas_price": "1000252",
+    "decoded_input": {
+      "method_call": "withdraw()",
+      "method_id": "3ccfd60b",
+      "parameters": []
+    },
+    "l1_gas_price": "96803546",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-05-25T06:05:41.000000Z",
+    "nonce": 18,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 22671003,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x4200000000000000000000000000000000000011",
+        "implementations": [
+          {
+            "address_hash": "0x059b5230b111cc9D61C62E17142F8FA4BDd25Ca5",
+            "name": "SequencerFeeVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xd3fd14c90d1928d27ab7c4322a4f1474f44d3b339fbdeccb55a8bc8698ec5cf5",
+      "block_number": 22671003,
+      "block_timestamp": "2026-05-25T06:05:41.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000042f13bffed7db67cf9000000000000000000000000e9d87622269c6490d776be2f6ab5dcc9ecf76fde000000000000000000000000fcb42db392e6641ffa057f143ace1953759f708f",
+      "decoded": {
+        "method_call": "Withdrawal(uint256 value, address to, address from)",
+        "method_id": "c8a211cc",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "1234867877447078411513"
+          },
+          {
+            "indexed": false,
+            "name": "to",
+            "type": "address",
+            "value": "0xE9d87622269C6490D776Be2F6AB5dcC9ECF76fDe"
+          },
+          {
+            "indexed": false,
+            "name": "from",
+            "type": "address",
+            "value": "0xfCb42db392E6641fFA057f143aCe1953759f708f"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xc8a211cc64b6ed1b50595a9fcb1932b6d1e5a6e8ef15b60e5b1f988ea9086bba",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0xc4ce2285f8630ce802b30068eba2eee1615ca304276b9422b8536917307c13b9"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x4200000000000000000000000000000000000011",
+        "implementations": [
+          {
+            "address_hash": "0x059b5230b111cc9D61C62E17142F8FA4BDd25Ca5",
+            "name": "SequencerFeeVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xd3fd14c90d1928d27ab7c4322a4f1474f44d3b339fbdeccb55a8bc8698ec5cf5",
+      "block_number": 22671003,
+      "block_timestamp": "2026-05-25T06:05:41.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000042f13bffed7db67cf9000000000000000000000000e9d87622269c6490d776be2f6ab5dcc9ecf76fde000000000000000000000000fcb42db392e6641ffa057f143ace1953759f708f0000000000000000000000000000000000000000000000000000000000000001",
+      "decoded": {
+        "method_call": "Withdrawal(uint256 value, address to, address from, uint8 withdrawalNetwork)",
+        "method_id": "38e04cbe",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "1234867877447078411513"
+          },
+          {
+            "indexed": false,
+            "name": "to",
+            "type": "address",
+            "value": "0xE9d87622269C6490D776Be2F6AB5dcC9ECF76fDe"
+          },
+          {
+            "indexed": false,
+            "name": "from",
+            "type": "address",
+            "value": "0xfCb42db392E6641fFA057f143aCe1953759f708f"
+          },
+          {
+            "indexed": false,
+            "name": "withdrawalNetwork",
+            "type": "uint8",
+            "value": "1"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0x38e04cbeb8c10f8f568618aa75be0f10b6729b8b4237743b4de20cbcde2839ee",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0xc4ce2285f8630ce802b30068eba2eee1615ca304276b9422b8536917307c13b9"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xE9d87622269C6490D776Be2F6AB5dcC9ECF76fDe",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "NXVProxy",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xd3fd14c90d1928d27ab7c4322a4f1474f44d3b339fbdeccb55a8bc8698ec5cf5",
+      "block_number": 22671003,
+      "block_timestamp": "2026-05-25T06:05:41.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000042f13bffed7db67cf9",
+      "decoded": {
+        "method_call": "NXVReceived(address indexed sender, uint256 value)",
+        "method_id": "b579d5e9",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "sender",
+            "type": "address",
+            "value": "0x4200000000000000000000000000000000000011"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "1234867877447078411513"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0xb579d5e9630db6e8409986db5b19920dd5a5701b3aafbe98b6414b2af2de1296",
+        "0x0000000000000000000000004200000000000000000000000000000000000011",
+        null,
+        null
+      ],
+      "transaction_hash": "0xc4ce2285f8630ce802b30068eba2eee1615ca304276b9422b8536917307c13b9"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 22671003,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x4200000000000000000000000000000000000011",
+        "implementations": [
+          {
+            "address_hash": "0x059b5230b111cc9D61C62E17142F8FA4BDd25Ca5",
+            "name": "SequencerFeeVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "42192",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-05-25T06:05:41.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x059b5230b111cc9D61C62E17142F8FA4BDd25Ca5",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "SequencerFeeVault",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc4ce2285f8630ce802b30068eba2eee1615ca304276b9422b8536917307c13b9",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 22671003,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x4200000000000000000000000000000000000011",
+        "implementations": [
+          {
+            "address_hash": "0x059b5230b111cc9D61C62E17142F8FA4BDd25Ca5",
+            "name": "SequencerFeeVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "6676",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-05-25T06:05:41.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE9d87622269C6490D776Be2F6AB5dcC9ECF76fDe",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "NXVProxy",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc4ce2285f8630ce802b30068eba2eee1615ca304276b9422b8536917307c13b9",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "1234867877447078411513"
+    },
+    {
+      "block_number": 22671003,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xE9d87622269C6490D776Be2F6AB5dcC9ECF76fDe",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "NXVProxy",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1867",
+      "index": 3,
+      "success": true,
+      "timestamp": "2026-05-25T06:05:41.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x1A98fF10C297f4aD46fC743AF8E5D2b406efDe4e",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "NXV",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc4ce2285f8630ce802b30068eba2eee1615ca304276b9422b8536917307c13b9",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "1234867877447078411513"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0xc4ce2285f8630ce802b30068eba2eee1615ca304276b9422b8536917307c13b9",
+  "contract_address": "0x4200000000000000000000000000000000000011",
+  "contract_name": "Proxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0x059b5230b111cc9D61C62E17142F8FA4BDd25Ca5",
+      "name": "SequencerFeeVault"
+    }
+  ]
+}

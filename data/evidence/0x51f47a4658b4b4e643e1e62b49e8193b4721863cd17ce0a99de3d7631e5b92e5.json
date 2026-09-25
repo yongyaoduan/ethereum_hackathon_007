@@ -1,0 +1,151 @@
+{
+  "transaction": {
+    "l1_gas_used": "0",
+    "priority_fee": null,
+    "raw_input": "0x440a5e2001312d00ffffffff0000000000000005000000006a60f0c700000000018676ec000000000000000000000000000000000000000000000000000000000f57e4ad0000000000000000000000000000000000000000000000000000000001027601e60353aed432cc452435489a74c6a77b3648874e714a60179ea783d8bafece010000000000000000000000005e70713222faf60c9e9fb69240d06ae6d688563a",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x51f47a4658b4b4e643e1e62b49e8193b4721863cd17ce0a99de3d7631e5b92e5",
+    "max_fee_per_gas": null,
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": null,
+    "type": 126,
+    "token_transfers_overflow": false,
+    "confirmations": 2809394,
+    "position": 0,
+    "max_priority_fee_per_gas": null,
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0xDeaDDEaDDeAdDeAdDEAdDEaddeAddEAdDEAd0001",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "43950",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x4200000000000000000000000000000000000015",
+      "implementations": [
+        {
+          "address_hash": "0x3Ba4007f5C922FBb33C454B41ea7a1f11E83df2C",
+          "name": null
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "Proxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "0",
+    "method": "0x440a5e20",
+    "fee": {
+      "type": "actual",
+      "value": "0"
+    },
+    "gas_limit": "1000000",
+    "gas_price": "0",
+    "decoded_input": null,
+    "l1_gas_price": "0",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-07-22T16:34:19.000000Z",
+    "nonce": 25195461,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call",
+      "op_stack_l1_attributes_transaction"
+    ],
+    "exchange_rate": null,
+    "block_number": 25195462,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [],
+  "internal_transactions": [
+    {
+      "block_number": 25195462,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x4200000000000000000000000000000000000015",
+        "implementations": [
+          {
+            "address_hash": "0x3Ba4007f5C922FBb33C454B41ea7a1f11E83df2C",
+            "name": null
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "957242",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-07-22T16:34:19.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xc0d3C0D3C0D3c0D3C0D3C0d3C0D3c0D3c0d30015",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "L1Block",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x51f47a4658b4b4e643e1e62b49e8193b4721863cd17ce0a99de3d7631e5b92e5",
+      "transaction_index": 0,
+      "type": "delegatecall",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x51f47a4658b4b4e643e1e62b49e8193b4721863cd17ce0a99de3d7631e5b92e5",
+  "contract_address": "0x4200000000000000000000000000000000000015",
+  "contract_name": "Proxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0x3Ba4007f5C922FBb33C454B41ea7a1f11E83df2C",
+      "name": null
+    }
+  ]
+}

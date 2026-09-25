@@ -1,0 +1,684 @@
+{
+  "transaction": {
+    "l1_gas_used": "9102",
+    "priority_fee": "127860",
+    "raw_input": "0xb1dc65a400018d746a517d4cfcbd43ff515458e4969f75b54c9985e6329c6a5e47543af20000000000000000000000000000000000000000000000000000000003ef3f015205beeb1c8b4f4ffca362e657ff8467df3f78eee9160e535ab9b31c9587be8500000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000000380000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001a000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000033d343f77863cab8000000000000000000000000000044da6f0c00000000000000000000054cbac5000000000000000000000000000000000000000000000000dda641cfe44aff8200000000000000000000000000002ea6f69000000000000000000004334e65eb0000000000000000000000000000000000000000000000000000000000000006ea4b41bca35a559fa113f3c7a540bb1492e956c332351b6e96cdf488deeda9d2f8d729bc9cda3466b6a5eecb0850bfc807a94564c6f38de625ac271cd21e27f698847b29a25f36df5ad8a20842ac66fc5e13923e589b1018f87040acb20f3e85f1293fcea96a84a00cd128e1d4dff6b7675a31510c95f679576a4d48944adeb4059c526ae7c3d5c87296784995f48b2da34c791afc5ce3f99792eb3f24e6cbac14ad0038c0f2be4748327e41b79a29ef676676fe1b06401a5a3f31056205dffb000000000000000000000000000000000000000000000000000000000000000623a7326435856e91b333df62a564cc4e078de45b54a0111fd968638295b599e421f9d95fa525c02949317f85b310b015cd3c434182bedb4fc1e6157f00bfe7f3668308ceee1ac2e8754c9f5cd32e8d0577a209b438840a2361ad4e0b6689981352948b889d055e0a141beb3d5daa298b68b2fadea3703194ecab6f784b5b370e6768b4adcebc75ac9e7bc22f1a3b7b77ddd553cfb718f5859a48fe2e1d44757d4d63179a3aa4181bb066b8af7339bc322974c4174a86330c3f2f784c175bda41",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f",
+    "max_fee_per_gas": "404",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "32220720",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 3556325,
+    "position": 1,
+    "max_priority_fee_per_gas": "1",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x8223421d0C41663ae5E8C68013e772a3A1D3Bd62",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "127860",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xBa06f184949Ce3779B70cD2548fae42ba7649Cfb",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "CommitStore",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "22709207810325",
+    "method": "transmit",
+    "fee": {
+      "type": "actual",
+      "value": "22709240158905"
+    },
+    "gas_limit": "8000000",
+    "gas_price": "253",
+    "decoded_input": {
+      "method_call": "transmit(bytes32[3] reportContext, bytes report, bytes32[] rs, bytes32[] ss, bytes32 rawVs)",
+      "method_id": "b1dc65a4",
+      "parameters": [
+        {
+          "name": "reportContext",
+          "type": "bytes32[3]",
+          "value": [
+            "0x00018d746a517d4cfcbd43ff515458e4969f75b54c9985e6329c6a5e47543af2",
+            "0x0000000000000000000000000000000000000000000000000000000003ef3f01",
+            "0x5205beeb1c8b4f4ffca362e657ff8467df3f78eee9160e535ab9b31c9587be85"
+          ]
+        },
+        {
+          "name": "report",
+          "type": "bytes",
+          "value": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000033d343f77863cab8000000000000000000000000000044da6f0c00000000000000000000054cbac5000000000000000000000000000000000000000000000000dda641cfe44aff8200000000000000000000000000002ea6f69000000000000000000004334e65eb"
+        },
+        {
+          "name": "rs",
+          "type": "bytes32[]",
+          "value": [
+            "0xea4b41bca35a559fa113f3c7a540bb1492e956c332351b6e96cdf488deeda9d2",
+            "0xf8d729bc9cda3466b6a5eecb0850bfc807a94564c6f38de625ac271cd21e27f6",
+            "0x98847b29a25f36df5ad8a20842ac66fc5e13923e589b1018f87040acb20f3e85",
+            "0xf1293fcea96a84a00cd128e1d4dff6b7675a31510c95f679576a4d48944adeb4",
+            "0x059c526ae7c3d5c87296784995f48b2da34c791afc5ce3f99792eb3f24e6cbac",
+            "0x14ad0038c0f2be4748327e41b79a29ef676676fe1b06401a5a3f31056205dffb"
+          ]
+        },
+        {
+          "name": "ss",
+          "type": "bytes32[]",
+          "value": [
+            "0x23a7326435856e91b333df62a564cc4e078de45b54a0111fd968638295b599e4",
+            "0x21f9d95fa525c02949317f85b310b015cd3c434182bedb4fc1e6157f00bfe7f3",
+            "0x668308ceee1ac2e8754c9f5cd32e8d0577a209b438840a2361ad4e0b66899813",
+            "0x52948b889d055e0a141beb3d5daa298b68b2fadea3703194ecab6f784b5b370e",
+            "0x6768b4adcebc75ac9e7bc22f1a3b7b77ddd553cfb718f5859a48fe2e1d44757d",
+            "0x4d63179a3aa4181bb066b8af7339bc322974c4174a86330c3f2f784c175bda41"
+          ]
+        },
+        {
+          "name": "rawVs",
+          "type": "bytes32",
+          "value": "0x0001000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "l1_gas_price": "70521408",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-07-05T08:51:47.000000Z",
+    "nonce": 6068,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 24447186,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xBF9907F1360352b18B536C78d9C2E3Bb6e409bcF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "PriceRegistry",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x5164aed16ecd30cd730454dbcf38950f4e60e2f7184de6a14a409694813942aa",
+      "block_number": 24447186,
+      "block_timestamp": "2026-07-05T08:51:47.000000Z",
+      "data": "0x000000000000000000000000000044da6f0c00000000000000000000054cbac5000000000000000000000000000000000000000000000000000000006a4a1b23",
+      "decoded": {
+        "method_call": "UsdPerUnitGasUpdated(uint64 indexed destChain, uint256 value, uint256 timestamp)",
+        "method_id": "dd84a3fa",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "destChain",
+            "type": "uint64",
+            "value": "3734403246176062136"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "5997964605963555785085264695541993652927173"
+          },
+          {
+            "indexed": false,
+            "name": "timestamp",
+            "type": "uint256",
+            "value": "1783241507"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xdd84a3fa9ef9409f550d54d6affec7e9c480c878c6ab27b78912a03e1b371c6e",
+        "0x00000000000000000000000000000000000000000000000033d343f77863cab8",
+        null,
+        null
+      ],
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xBF9907F1360352b18B536C78d9C2E3Bb6e409bcF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "PriceRegistry",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x5164aed16ecd30cd730454dbcf38950f4e60e2f7184de6a14a409694813942aa",
+      "block_number": 24447186,
+      "block_timestamp": "2026-07-05T08:51:47.000000Z",
+      "data": "0x00000000000000000000000000002ea6f69000000000000000000004334e65eb000000000000000000000000000000000000000000000000000000006a4a1b23",
+      "decoded": {
+        "method_call": "UsdPerUnitGasUpdated(uint64 indexed destChain, uint256 value, uint256 timestamp)",
+        "method_id": "dd84a3fa",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "destChain",
+            "type": "uint64",
+            "value": "15971525489660198786"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "4063979763547557848999532406878494394312171"
+          },
+          {
+            "indexed": false,
+            "name": "timestamp",
+            "type": "uint256",
+            "value": "1783241507"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0xdd84a3fa9ef9409f550d54d6affec7e9c480c878c6ab27b78912a03e1b371c6e",
+        "0x000000000000000000000000000000000000000000000000dda641cfe44aff82",
+        null,
+        null
+      ],
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xBa06f184949Ce3779B70cD2548fae42ba7649Cfb",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "CommitStore",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x5164aed16ecd30cd730454dbcf38950f4e60e2f7184de6a14a409694813942aa",
+      "block_number": 24447186,
+      "block_timestamp": "2026-07-05T08:51:47.000000Z",
+      "data": "0x00018d746a517d4cfcbd43ff515458e4969f75b54c9985e6329c6a5e47543af2000000000000000000000000000000000000000000000000000000000003ef3f",
+      "decoded": {
+        "method_call": "Transmitted(bytes32 configDigest, uint32 epoch)",
+        "method_id": "b04e63db",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "configDigest",
+            "type": "bytes32",
+            "value": "0x00018d746a517d4cfcbd43ff515458e4969f75b54c9985e6329c6a5e47543af2"
+          },
+          {
+            "indexed": false,
+            "name": "epoch",
+            "type": "uint32",
+            "value": "257855"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0xb04e63db38c49950639fa09d29872f21f5d49d614f3a969d8adf3d4b52e41a62",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 24447186,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xBa06f184949Ce3779B70cD2548fae42ba7649Cfb",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "CommitStore",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "7838193",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-07-05T08:51:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x59F168858472c5ECC217588678F6c378951Bd524",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ARMProxy",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24447186,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x59F168858472c5ECC217588678F6c378951Bd524",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ARMProxy",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "7710773",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-07-05T08:51:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x1120Acb9E0dDdE9d4b959D29a9FCCD068b3bABCb",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "RMN",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 24447186,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xBa06f184949Ce3779B70cD2548fae42ba7649Cfb",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "CommitStore",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "7819486",
+      "index": 3,
+      "success": true,
+      "timestamp": "2026-07-05T08:51:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xBF9907F1360352b18B536C78d9C2E3Bb6e409bcF",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "PriceRegistry",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 24447186,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xBa06f184949Ce3779B70cD2548fae42ba7649Cfb",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "CommitStore",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "7785013",
+      "index": 4,
+      "success": true,
+      "timestamp": "2026-07-05T08:51:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24447186,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xBa06f184949Ce3779B70cD2548fae42ba7649Cfb",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "CommitStore",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "7778956",
+      "index": 5,
+      "success": true,
+      "timestamp": "2026-07-05T08:51:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24447186,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xBa06f184949Ce3779B70cD2548fae42ba7649Cfb",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "CommitStore",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "7772899",
+      "index": 6,
+      "success": true,
+      "timestamp": "2026-07-05T08:51:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24447186,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xBa06f184949Ce3779B70cD2548fae42ba7649Cfb",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "CommitStore",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "7766843",
+      "index": 7,
+      "success": true,
+      "timestamp": "2026-07-05T08:51:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24447186,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xBa06f184949Ce3779B70cD2548fae42ba7649Cfb",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "CommitStore",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "7760786",
+      "index": 8,
+      "success": true,
+      "timestamp": "2026-07-05T08:51:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24447186,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xBa06f184949Ce3779B70cD2548fae42ba7649Cfb",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "CommitStore",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "7754730",
+      "index": 9,
+      "success": true,
+      "timestamp": "2026-07-05T08:51:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x88c714587e9c330f1acadafec6b3ed82e8273c6055fa8a784879541823bd433f",
+  "contract_address": "0xBa06f184949Ce3779B70cD2548fae42ba7649Cfb",
+  "contract_name": "CommitStore",
+  "contract_verified": true,
+  "implementations": []
+}

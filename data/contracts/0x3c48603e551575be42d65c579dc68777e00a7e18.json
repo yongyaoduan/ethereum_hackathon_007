@@ -1,0 +1,1498 @@
+{
+  "file_path": "contracts/implementation/HSKStaking.sol",
+  "creation_status": "success",
+  "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.27;\nimport \"@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol\";\nimport \"@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol\";\n\nimport \"./StakingStorage.sol\";\nimport \"../constants/StakingConstants.sol\";\nimport \"../interfaces/IStake.sol\";\nimport \"../interfaces/IPenaltyPool.sol\";\n\n/**\n * @title HSKStaking\n * @dev Main staking contract for HSK token\n * Implements staking functionality with fixed 365-day lock period\n * Reward rate is configurable at deployment (e.g., 800 for 8% APY, 1600 for 16% APY)\n * Features include:\n * - Upgradeable proxy pattern (Transparent Proxy)\n * - Whitelist system for access control\n * - Emergency withdrawal mechanism\n * - Automatic reward calculation and distribution\n * - Pause functionality\n */\ncontract HSKStaking is \n    IStaking, \n    StakingStorage,\n    StakingConstants,\n    ReentrancyGuardUpgradeable, \n    PausableUpgradeable \n{\n    event Received(address indexed sender, uint256 amount);\n    event WhitelistStatusChanged(address indexed user, bool status);\n    event StakeStartTimeUpdated(uint256 oldStartTime, uint256 newStartTime);\n    event StakeEndTimeUpdated(uint256 oldEndTime, uint256 newEndTime);\n    event MinStakeAmountUpdated(uint256 oldAmount, uint256 newAmount);\n    event MaxTotalStakedUpdated(uint256 oldAmount, uint256 newAmount);\n    event EmergencyModeEnabled(address indexed operator, uint256 timestamp);\n    event WhitelistModeChanged(bool oldMode, bool newMode);\n    event PenaltyPoolContractUpdated(address indexed oldContract, address indexed newContract);\n    event PenaltyDeposited(uint256 penaltyAmount, uint256 timestamp);\n    // RewardRateUpdated event is defined in StakingStorage.sol (inherited)\n    error AlreadyUnstaked();\n    error StillLocked();\n    error NoReward();\n    error PositionNotFound();\n    error NotWhitelisted();\n\n    modifier validPosition(uint256 positionId) {\n        if (positions[positionId].owner != msg.sender) revert PositionNotFound();\n        _;\n    }\n\n    modifier whitelistCheck() {\n        if (onlyWhitelistCanStake && !whitelisted[msg.sender]) {\n            revert NotWhitelisted();\n        }\n        _;\n    }\n\n    modifier whenNotEmergency() {\n        require(!emergencyMode, \"Contract is in emergency mode\");\n        _;\n    }\n\n    /// @custom:oz-upgrades-unsafe-allow constructor\n    constructor() {\n        _disableInitializers();\n    }\n\n    /**\n     * @dev Initializes the contract with custom settings\n     * Sets up initial staking parameters with configurable whitelist mode\n     * @param _minStakeAmount Minimum stake amount (in wei)\n     * @param _rewardRate Annual reward rate in basis points (800 for 8%, 1600 for 16%)\n     * @param _stakeStartTime Timestamp when staking begins\n     * @param _stakeEndTime Timestamp when staking ends\n     * @param _whitelistMode Enable whitelist mode (false for Normal Staking, true for Premium Staking)\n     * @param _maxTotalStaked Maximum total staked amount (in wei, 0 means no limit)\n     * @param _penaltyPoolContract Address of the penalty pool contract\n     */\n    function initialize(\n        uint256 _minStakeAmount,\n        uint256 _rewardRate,\n        uint256 _stakeStartTime,\n        uint256 _stakeEndTime,\n        bool _whitelistMode,\n        uint256 _maxTotalStaked,\n        address _penaltyPoolContract\n    ) external initializer {\n        require(_stakeStartTime > 0, \"Invalid start time\");\n        require(_stakeEndTime > _stakeStartTime, \"End time must be after start time\");\n        \n        __ReentrancyGuard_init();\n        __Pausable_init();\n        __StakingStorage_init(msg.sender, _minStakeAmount, _rewardRate, _whitelistMode, _maxTotalStaked, _penaltyPoolContract);\n        \n        stakeStartTime = _stakeStartTime;\n        stakeEndTime = _stakeEndTime;\n    }\n\n    // ==================== EXTERNAL USER FUNCTIONS ====================\n\n    function stake() external \n        payable \n        nonReentrant \n        whenNotPaused \n        whitelistCheck\n        whenNotEmergency\n        returns (uint256) \n    {\n        require(block.timestamp >= stakeStartTime, \"Staking has not started yet\");\n        require(block.timestamp < stakeEndTime, \"Staking period has ended\");\n\n        uint256 amount = msg.value;\n        require(amount >= minStakeAmount, \"Amount below minimum\");\n\n        if (maxTotalStaked > 0) {\n            require(totalStaked + amount <= maxTotalStaked, \"Max total staked exceeded\");\n        }\n\n        uint256 potentialReward = _calculateReward(\n            amount,\n            LOCK_PERIOD,\n            rewardRate\n        );\n\n        totalPendingRewards += potentialReward;\n\n        uint256 positionId = nextPositionId++;\n        \n        positions[positionId] = Position({\n            positionId: positionId,\n            owner: msg.sender,\n            amount: amount,\n            stakedAt: block.timestamp,\n            lastRewardAt: block.timestamp,\n            isUnstaked: false,\n            isCompletedStake: false\n        });\n        \n        userPositions[msg.sender].push(positionId);\n        totalStaked += amount;\n\n        emit PositionCreated(\n            msg.sender,\n            positionId,\n            amount,\n            LOCK_PERIOD,\n            block.timestamp\n        );\n\n        return positionId;\n    }\n\n    function unstake(\n        uint256 positionId\n    ) external override nonReentrant whenNotPaused whenNotEmergency validPosition(positionId) {\n        Position storage position = positions[positionId];\n        \n        if (position.isUnstaked) revert AlreadyUnstaked();\n        if (block.timestamp < position.stakedAt + LOCK_PERIOD) revert StillLocked();\n        // Prevent unstake if early unstake has been requested - user must complete early unstake instead\n        require(earlyUnstakeRequestTime[positionId] == 0, \"Early unstake requested, use completeEarlyUnstake\");\n\n        uint256 reward = _updateReward(positionId);\n        uint256 amount = position.amount;\n        uint256 totalPayout = amount + reward;\n\n        position.isUnstaked = true;\n        position.isCompletedStake = true;  // Mark as completed full staking period\n        totalStaked -= amount;\n\n        emit RewardClaimed(msg.sender, positionId, reward, block.timestamp);\n        emit PositionUnstaked(msg.sender, positionId, amount, block.timestamp);\n\n        (bool success, ) = msg.sender.call{value: totalPayout}(\"\");\n        require(success, \"Transfer failed\");\n    }\n\n    function claimReward(\n        uint256 positionId\n    ) external override nonReentrant whenNotPaused whenNotEmergency validPosition(positionId) returns (uint256) {\n        Position storage position = positions[positionId];\n        \n        require(earlyUnstakeRequestTime[positionId] == 0, \"Early unstake already requested\");\n        \n        uint256 reward = _updateReward(positionId);\n        \n        if (reward == 0) revert NoReward();\n\n        // Record total claimed rewards\n        claimedRewards[positionId] += reward;\n\n        (bool success, ) = msg.sender.call{value: reward}(\"\");\n        require(success, \"Reward transfer failed\");\n        \n        emit RewardClaimed(msg.sender, positionId, reward, block.timestamp);\n\n        return reward;\n    }\n\n    function pendingReward(\n        uint256 positionId\n    ) external view override returns (uint256) {\n        if (emergencyMode) return 0;\n        \n        Position memory position = positions[positionId];\n        return _calculatePendingReward(position);\n    }\n\n    function getUserPositionIds(address user) external view returns (uint256[] memory) {\n        return userPositions[user];\n    }\n\n    function calculatePotentialReward(uint256 amount) external view returns (uint256) {\n        return _calculateReward(amount, LOCK_PERIOD, rewardRate);\n    }\n\n    /**\n     * @dev Request early unstake for a position\n     * User can request early unstake during lock period, but must wait 7 days before completing\n     * @param positionId The position ID to request early unstake for\n     */\n    function requestEarlyUnstake(uint256 positionId) external override nonReentrant whenNotPaused whenNotEmergency validPosition(positionId) {\n        Position storage position = positions[positionId];\n        \n        if (position.isUnstaked) revert AlreadyUnstaked();\n        // Must be within lock period to request early exit\n        require(block.timestamp < position.stakedAt + LOCK_PERIOD, \"Lock period already ended\");\n        // Cannot request twice\n        require(earlyUnstakeRequestTime[positionId] == 0, \"Early unstake already requested\");\n\n        earlyUnstakeRequestTime[positionId] = block.timestamp;\n        \n        emit EarlyUnstakeRequested(msg.sender, positionId, block.timestamp);\n    }\n\n    /**\n     * @dev Complete early unstake after 7-day waiting period\n     * User loses 50% of rewards, which goes to penalty pool\n     * If user has claimed more than 50% of rewards, excess is deducted from principal\n     * @param positionId The position ID to complete early unstake for\n     */\n    function completeEarlyUnstake(uint256 positionId) external override nonReentrant whenNotPaused whenNotEmergency validPosition(positionId) {\n        Position storage position = positions[positionId];\n        \n        if (position.isUnstaked) revert AlreadyUnstaked();\n        \n        uint256 requestTime = earlyUnstakeRequestTime[positionId];\n        require(requestTime > 0, \"Early unstake not requested\");\n        require(block.timestamp >= requestTime + EARLY_UNLOCK_PERIOD, \"Waiting period not completed\");\n        \n        // From the moment of requesting early unstake, no new rewards are generated\n        uint256 totalTimeElapsed = requestTime - position.stakedAt;\n        uint256 totalReward = _calculateReward(position.amount, totalTimeElapsed, rewardRate);\n        \n        // Calculate allowed reward (user retains this percentage of total reward)\n        uint256 allowedReward = (totalReward * EARLY_UNSTAKE_REWARD_RETAIN_RATE) / BASIS_POINTS;\n        \n        // Calculate claimed rewards\n        uint256 claimed = claimedRewards[positionId];\n        \n        // Calculate amount to deduct from principal (if claimed exceeds allowed)\n        uint256 excessClaimed = claimed > allowedReward ? claimed - allowedReward : 0;\n        \n        // Calculate penalty amount (goes to penalty pool)\n        uint256 penalty = totalReward - allowedReward;\n        \n        // Calculate actual return amount\n        uint256 principalReturn = position.amount;\n        if (excessClaimed > 0) {\n            require(principalReturn >= excessClaimed, \"Insufficient principal to deduct\");\n            principalReturn -= excessClaimed;\n        }\n        \n        uint256 rewardReturn = allowedReward > claimed ? allowedReward - claimed : 0;\n        \n        uint256 unclaimedPenalty = penalty - excessClaimed;\n        \n        // Calculate total reward pool needed and update in one go to avoid double-checking\n        uint256 totalRewardPoolNeeded = rewardReturn + unclaimedPenalty;\n        if (totalRewardPoolNeeded > 0) {\n            require(rewardPoolBalance >= totalRewardPoolNeeded, \"Insufficient reward pool\");\n            rewardPoolBalance -= totalRewardPoolNeeded;\n        }\n        \n        uint256 lockEndTime = position.stakedAt + LOCK_PERIOD;\n        uint256 timeLeftFromRequest = lockEndTime - requestTime;\n        uint256 reservedReward = _calculateReward(position.amount, timeLeftFromRequest, rewardRate);\n        totalPendingRewards -= reservedReward;\n        // Fix: Deduct settled rewards from totalPendingRewards to prevent accounting error\n        if (totalRewardPoolNeeded > 0) {\n            totalPendingRewards -= totalRewardPoolNeeded;\n        }\n        \n        position.isUnstaked = true;\n        totalStaked -= position.amount;\n        delete earlyUnstakeRequestTime[positionId];\n        \n        if (unclaimedPenalty > 0) {\n            IPenaltyPool(penaltyPoolContract).deposit{value: unclaimedPenalty}();\n            emit PenaltyDeposited(unclaimedPenalty, block.timestamp);\n        }\n        \n        if (excessClaimed > 0) {\n            IPenaltyPool(penaltyPoolContract).deposit{value: excessClaimed}();\n            emit PenaltyDeposited(excessClaimed, block.timestamp);\n        } \n        \n        uint256 totalReturn = principalReturn + rewardReturn;\n        \n        emit EarlyUnstakeCompleted(\n            msg.sender,\n            positionId,\n            principalReturn,\n            rewardReturn,\n            penalty,\n            block.timestamp\n        );\n        emit PositionUnstaked(msg.sender, positionId, principalReturn, block.timestamp);\n        \n        (bool success, ) = msg.sender.call{value: totalReturn}(\"\");\n        require(success, \"Transfer failed\");\n    }\n\n\n    function emergencyWithdraw(uint256 positionId) external nonReentrant {\n        require(emergencyMode, \"Not in emergency mode\");\n        \n        Position storage position = positions[positionId];\n        require(position.owner == msg.sender, \"Not position owner\");\n        require(!position.isUnstaked, \"Position already unstaked\");\n\n        uint256 amount = position.amount;\n        \n        uint256 lockEndTime = position.stakedAt + LOCK_PERIOD;\n        uint256 timeElapsed = lockEndTime > position.lastRewardAt \n            ? lockEndTime - position.lastRewardAt \n            : 0;\n\n        uint256 reservedReward = _calculateReward(\n            position.amount,\n            timeElapsed,\n            rewardRate\n        );\n        \n        unchecked {\n            if (totalPendingRewards >= reservedReward) {\n                totalPendingRewards -= reservedReward;\n            } else {\n                // Force to zero to prevent underflow, accounting error is acceptable in emergency\n                totalPendingRewards = 0;\n            }\n        }\n        \n        position.isUnstaked = true;\n        totalStaked -= amount;\n\n        (bool success, ) = msg.sender.call{value: amount}(\"\");\n        require(success, \"Emergency withdraw failed\");\n        \n        emit EmergencyWithdrawn(msg.sender, positionId, amount, block.timestamp);\n    }\n\n    // ==================== EXTERNAL SETTER FUNCTIONS ====================\n\n    function setMinStakeAmount(uint256 newAmount) external onlyOwner whenNotEmergency {\n        uint256 oldAmount = minStakeAmount;\n        minStakeAmount = newAmount;\n        emit MinStakeAmountUpdated(oldAmount, newAmount);\n    }\n\n    function setMaxTotalStaked(uint256 newAmount) external onlyOwner {\n        uint256 oldAmount = maxTotalStaked;\n        maxTotalStaked = newAmount;\n        emit MaxTotalStakedUpdated(oldAmount, newAmount);\n    }\n\n    /**\n     * @dev Set reward rate (APY)\n     * Only owner can call this\n     * @param newRewardRate New reward rate in basis points (e.g., 513 for 5.13%, 500 for 5%)\n     */\n    function setRewardRate(uint256 newRewardRate) external onlyOwner whenNotEmergency {\n        require(newRewardRate > 0 && newRewardRate <= 10000, \"Invalid reward rate\");\n        \n        uint256 oldRate = rewardRate;\n        rewardRate = newRewardRate;\n        emit RewardRateUpdated(oldRate, newRewardRate);\n    }\n\n    function setStakeStartTime(uint256 newStartTime) external onlyOwner {\n        require(newStartTime > 0, \"Invalid start time\");\n        require(newStartTime < stakeEndTime, \"Start time must be before end time\");\n        \n        uint256 oldStartTime = stakeStartTime;\n        stakeStartTime = newStartTime;\n        emit StakeStartTimeUpdated(oldStartTime, newStartTime);\n    }\n\n    function setStakeEndTime(uint256 newEndTime) external onlyOwner {\n        require(newEndTime > block.timestamp, \"End time must be in future\");\n        require(newEndTime > stakeStartTime, \"End time must be after start time\");\n        \n        uint256 oldEndTime = stakeEndTime;\n        stakeEndTime = newEndTime;\n        emit StakeEndTimeUpdated(oldEndTime, newEndTime);\n    }\n\n    function setWhitelistOnlyMode(bool enabled) external onlyOwner {\n        bool oldMode = onlyWhitelistCanStake;\n        onlyWhitelistCanStake = enabled;\n        emit WhitelistModeChanged(oldMode, enabled);\n    }\n\n    /**\n     * @dev Update penalty pool contract address\n     * Only owner can call this (for contract upgrades or migrations)\n     * @param newContract New penalty pool contract address\n     */\n    function setPenaltyPoolContract(address newContract) external onlyOwner whenNotEmergency {\n        require(newContract != address(0), \"Invalid penalty pool address\");\n        \n        address oldContract = penaltyPoolContract;\n        penaltyPoolContract = newContract;\n        \n        emit PenaltyPoolContractUpdated(oldContract, newContract);\n    }\n\n    // ==================== EXTERNAL ADMIN FUNCTIONS ====================\n\n    function pause() external onlyOwner {\n        _pause();\n        emit StakingPaused(msg.sender, block.timestamp);\n    }\n\n    function unpause() external onlyOwner {\n        _unpause();\n        emit StakingUnpaused(msg.sender, block.timestamp);\n    }\n\n    function enableEmergencyMode() external onlyOwner {\n        emergencyMode = true;\n        emit EmergencyModeEnabled(msg.sender, block.timestamp);\n    }\n\n    function updateWhitelistBatch(address[] calldata users, bool status) \n        external \n        onlyOwner \n    {\n        uint256 length = users.length;\n        require(length <= 100, \"Batch too large\");\n        \n        for (uint256 i = 0; i < length;) {\n            if (whitelisted[users[i]] != status) {\n                whitelisted[users[i]] = status;\n                emit WhitelistStatusChanged(users[i], status);\n            }\n            unchecked { ++i; }\n        }\n    }\n\n    function updateRewardPool() external payable onlyOwner {\n        rewardPoolBalance += msg.value;\n        emit RewardPoolUpdated(rewardPoolBalance);\n    }\n\n    function withdrawExcessRewardPool(uint256 amount) external onlyOwner {\n        require(rewardPoolBalance >= totalPendingRewards, \"Insufficient reward pool\");\n        uint256 excess = rewardPoolBalance - totalPendingRewards;\n        require(amount <= excess, \"Cannot withdraw required rewards\");\n        \n        rewardPoolBalance -= amount;\n        (bool success, ) = msg.sender.call{value: amount}(\"\");\n        require(success, \"Withdrawal failed\");\n        emit RewardPoolUpdated(rewardPoolBalance);\n    }\n\n    // ==================== INTERNAL FUNCTIONS ====================\n\n    function _calculateTimeElapsed(Position memory position) \n        internal \n        view \n        returns (uint256) \n    {\n        uint256 lockEndTime = position.stakedAt + LOCK_PERIOD;\n        \n        // If early unstake has been requested, stop calculating rewards at request time\n        uint256 requestTime = earlyUnstakeRequestTime[position.positionId];\n        uint256 endTime = requestTime > 0 \n            ? requestTime \n            : (block.timestamp < lockEndTime ? block.timestamp : lockEndTime);\n        \n        return endTime > position.lastRewardAt ? endTime - position.lastRewardAt : 0;\n    }\n\n    function _calculateReward(\n        uint256 amount,\n        uint256 timeElapsed,\n        uint256 _rewardRate\n    ) internal pure returns (uint256 reward) {\n        if (amount == 0 || timeElapsed == 0 || _rewardRate == 0) {\n            return 0;\n        }\n        \n        // Direct calculation since timeElapsed <= 365 days (always < 1 year)\n        uint256 annualRate = (_rewardRate * PRECISION) / BASIS_POINTS;\n        uint256 timeRatio = (timeElapsed * PRECISION) / SECONDS_PER_YEAR;\n        uint256 totalReward = (amount * annualRate * timeRatio) / (PRECISION * PRECISION);\n        \n        return totalReward;\n    }\n\n    function _updateReward(\n        uint256 positionId\n    ) internal returns (uint256 reward) {\n        if (emergencyMode) return 0;\n\n        Position storage position = positions[positionId];\n        if (position.isUnstaked) return 0;\n\n        uint256 timeElapsed = _calculateTimeElapsed(position);\n\n        reward = _calculateReward(\n            position.amount, \n            timeElapsed, \n            rewardRate\n        );\n        \n        if (reward > 0) {\n            require(rewardPoolBalance >= reward, \"Insufficient reward pool\");\n            rewardPoolBalance -= reward;\n            totalPendingRewards -= reward;\n            \n            emit RewardPoolUpdated(rewardPoolBalance);\n        }\n\n        // Update lastRewardAt\n        uint256 lockEndTime = position.stakedAt + LOCK_PERIOD;\n        uint256 currentTime = block.timestamp;\n        position.lastRewardAt = currentTime > lockEndTime ? lockEndTime : currentTime;\n    }\n\n    function _calculatePendingReward(\n        Position memory position\n    ) internal view returns (uint256) {\n        if (position.isUnstaked) return 0;\n        \n        uint256 timeElapsed = _calculateTimeElapsed(position);\n\n        return _calculateReward(\n            position.amount,\n            timeElapsed,\n            rewardRate\n        );\n    }\n\n    receive() external payable {\n        rewardPoolBalance += msg.value;\n        emit Received(msg.sender, msg.value);\n        emit RewardPoolUpdated(rewardPoolBalance);\n    }\n}\n",
+  "deployed_bytecode": "0x608080604052600436101561006e575b50361561001a575f80fd5b5f516020612b725f395f51905f526020610036346008546125d6565b806008556040513481527f88a5966d370b9919b20f3e2c13ff65706f196a4e32cc2c12bf57088f88525874833392a2604051908152a1005b5f905f3560e01c9081630905f56014612397575080630cd635c91461229e57806312f7086c146122805780631820cabb146109645780631d4c7dc5146121b957806320281a981461218f57806324d2480614611c805780632e17de7814611a8e5780633a4b66f1146117325780633f4ba83a146116865780635312ea8e1461144257806357c26ba4146113ec5780635a68c154146113ce5780635c0ef3fa146112555780635c975abb146112265780635e1b4d99146111cf5780636da16d5c146111a5578063715018a6146111265780637419f19014611108578063747cfc3a1461105857806379ba5097146110085780637a5c08ae14610fea5780637b0a47ee14610fcc5780637f73f5f414610f59578063817b1cd214610f3b5780638456cb5914610e9c578063899346c714610e7e5780638da5cb5b14610e4957806399fbab8814610dcd5780639e447fc614610d4a578063aa30c23314610d2d578063aaf5eb6814610d0a578063ab2bce1a14610cee578063ab6a8b0214610cb0578063ae169a5014610b5e578063b8d289be14610b35578063c5b1c7d014610ae0578063cc1b63d514610a24578063d936547e146109e5578063dbef3fcf146109bb578063e1f1c4a71461099e578063e30c397814610969578063e6a69ab814610964578063eb4af04514610901578063ec1371f2146108e3578063eddf75701461082e578063f188768414610811578063f2fde38b1461078b578063f4cb890b1461047d578063f76314e91461045a578063f85fb1641461043c578063fafcca8c1461041e5763fd9e94f90361000f573461041b57602036600319011261041b576004356102d96127d5565b6102e161280d565b6102f060ff600654161561258a565b808252600460205260408220600101546001600160a01b0316330361040c5780825260046020526040822060ff6005820154166103fd57600301546301e1338081018091116103e9574210156103a457808252600f6020526103566040832054156126f0565b808252600f6020524260408320556040514281527febd30d7e2de7f627be0ffc413b236a1bdf2310768eda8696ce51cb74dce8c0dd60203392a360015f516020612b525f395f51905f525580f35b60405162461bcd60e51b815260206004820152601960248201527f4c6f636b20706572696f6420616c726561647920656e646564000000000000006044820152606490fd5b634e487b7160e01b83526011600452602483fd5b636c18a98960e11b8352600483fd5b636ec9be1160e01b8252600482fd5b80fd5b503461041b578060031936011261041b576020600b54604051908152f35b503461041b578060031936011261041b57602060405162093a808152f35b503461041b578060031936011261041b57602060ff600c54166040519015158152f35b503461041b5760e036600319011261041b5760043560243560443560643591608435908115158092036107875760c4356001600160a01b0381169190829003610783575f516020612b925f395f51905f52549560ff8760401c16159667ffffffffffffffff81168015908161077b575b6001149081610771575b159081610768575b506107595767ffffffffffffffff1981166001175f516020612b925f395f51905f52558761072d575b5061053485151561273c565b61053f858711612658565b610547612ae6565b61054f612ae6565b60015f516020612b525f395f51905f5255610568612ae6565b610570612ae6565b33156106e85780156106a35781151580610697575b61058e906126ae565b82156106485761059c612ae6565b6105a4612ae6565b6105ad33612a1c565b8755600355600160025560a435600d556bffffffffffffffffffffffff60a01b601054161760105560ff8019600c5416911617600c55600a55600b556105f05780f35b68ff0000000000000000195f516020612b925f395f51905f5254165f516020612b925f395f51905f52557fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2602060405160018152a180f35b60405162461bcd60e51b815260206004820152602160248201527f5374616b696e6753746f726167653a207a65726f2070656e616c747920706f6f6044820152601b60fa1b6064820152608490fd5b50612710821115610585565b60405162461bcd60e51b815260206004820152601860248201527f496e76616c6964206d696e207374616b6520616d6f756e7400000000000000006044820152606490fd5b60405162461bcd60e51b815260206004820152601a60248201527f5374616b696e6753746f726167653a207a65726f206f776e65720000000000006044820152606490fd5b68ffffffffffffffffff191668010000000000000001175f516020612b925f395f51905f52555f610528565b63f92ee8a960e01b8952600489fd5b9050155f6104ff565b303b1591506104f7565b8991506104ed565b8680fd5b8580fd5b503461041b57602036600319011261041b576107a56123d4565b6107ad61277d565b5f516020612bb25f395f51905f5280546001600160a01b0319166001600160a01b039283169081179091555f516020612b125f395f51905f52549091167f38d16b8cac22d99fc7c124b9cd0de2d3fa1faef420bfe791d8c362d765e227008380a380f35b503461041b578060031936011261041b5760209054604051908152f35b503461041b57602036600319011261041b576001600160a01b036108506123d4565b168152600560205260408120604051908160208254918281520190819285526020852090855b8181106108cd575050508261088c91038361249c565b604051928392602084019060208552518091526040840192915b8181106108b4575050500390f35b82518452859450602093840193909201916001016108a6565b8254845260209093019260019283019201610876565b503461041b578060031936011261041b576020600754604051908152f35b503461041b57602036600319011261041b577fca0542093af2ac14ccf6e52b6e1a131c7e2825fb3b51139bf1dd8186a1339e95604060043561094161277d565b61095060ff600654161561258a565b83549080855582519182526020820152a180f35b6123b6565b503461041b578060031936011261041b575f516020612bb25f395f51905f52546040516001600160a01b039091168152602090f35b503461041b578060031936011261041b5760206040516127108152f35b503461041b57602036600319011261041b5760206109dd600354600435612834565b604051908152f35b503461041b57602036600319011261041b5760209060ff906040906001600160a01b03610a106123d4565b168152600984522054166040519015158152f35b503461041b57602036600319011261041b57600435610a4161277d565b610a4c81151561273c565b600b54811015610a905760407fe188f709d8a22a4242c53503fb07552f298aeb26e6587cb8f40816a57630469591600a549080600a5582519182526020820152a180f35b60405162461bcd60e51b815260206004820152602260248201527f53746172742074696d65206d757374206265206265666f726520656e642074696044820152616d6560f01b6064820152608490fd5b503461041b578060031936011261041b57610af961277d565b600160ff1960065416176006556040514281527f86e6259fbf164140d541a86ff1a2a0606fa80f77ed47ca4748ca84810358afcb60203392a280f35b503461041b578060031936011261041b576010546040516001600160a01b039091168152602090f35b503461041b57602036600319011261041b5760043590610b7c6127d5565b610b8461280d565b610b9360ff600654161561258a565b818152600460205260408120600101546001600160a01b03163303610ca157818152600f6020526040812054610bc990156126f0565b610bd28261295c565b908115610c9257828152600e60205260408120610bf08382546125d6565b905580808084335af1610c016124be565b5015610c545760209160405182815242848201527f812be816db82c66cd18ca8457005cd84689642d8ac4d38599cc6af444a2dc72a60403392a360015f516020612b525f395f51905f5255604051908152f35b60405162461bcd60e51b815260206004820152601660248201527514995dd85c99081d1c985b9cd9995c8819985a5b195960521b6044820152606490fd5b63374c934360e11b8152600490fd5b636ec9be1160e01b8152600490fd5b508060031936011261041b57610cc461277d565b5f516020612b725f395f51905f526020610ce0346008546125d6565b80600855604051908152a180f35b503461041b578060031936011261041b57602060405160128152f35b503461041b578060031936011261041b576020604051670de0b6b3a76400008152f35b503461041b578060031936011261041b5760206040516113888152f35b503461041b57602036600319011261041b577fc390a98ace15a7bb6bab611eedfdbb2685043b241a869420043cdfb23ccfee506040600435610d8a61277d565b610d9960ff600654161561258a565b80151580610dc1575b610dab906126ae565b600354908060035582519182526020820152a180f35b50612710811115610da2565b503461041b57602036600319011261041b57604060e091600435815260046020522060ff81549160018060a01b0360018201541690600281015460038201549060056004840154930154936040519687526020870152604086015260608501526080840152818116151560a084015260081c16151560c0820152f35b503461041b578060031936011261041b575f516020612b125f395f51905f52546040516001600160a01b039091168152602090f35b503461041b578060031936011261041b576020600254604051908152f35b503461041b578060031936011261041b57610eb561277d565b610ebd61280d565b600160ff195f516020612b325f395f51905f525416175f516020612b325f395f51905f52557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a2586020604051338152a16040514281527f256910c06b67f0167a9e42db4b9d766ac2eb6c2151ca5bfee80937cdb293d78a60203392a280f35b503461041b578060031936011261041b576020600154604051908152f35b503461041b57602036600319011261041b57600435801515809103610fc85760407f846450d1fc5e913c38a0ce9f5320c83762876730d3cc52126239d766078a27ce91610fa461277d565b600c549060ff811660ff19831617600c5560ff83519216151582526020820152a180f35b5080fd5b503461041b578060031936011261041b576020600354604051908152f35b503461041b578060031936011261041b576020600854604051908152f35b503461041b578060031936011261041b575f516020612bb25f395f51905f5254336001600160a01b03909116036110455761104233612a1c565b80f35b63118cdaa760e01b815233600452602490fd5b503461041b57602036600319011261041b5760043561107561277d565b428111156110c35760407eb0b5d614202bbc0e0b82f7fc4b4d1463f5a6603fb779ad54a1499064047707916110ad600a548211612658565b600b549080600b5582519182526020820152a180f35b60405162461bcd60e51b815260206004820152601a60248201527f456e642074696d65206d75737420626520696e206675747572650000000000006044820152606490fd5b503461041b578060031936011261041b576020600a54604051908152f35b503461041b578060031936011261041b5761113f61277d565b5f516020612bb25f395f51905f5280546001600160a01b03199081169091555f516020612b125f395f51905f528054918216905581906001600160a01b03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08280a380f35b503461041b57602036600319011261041b5760406020916004358152600f83522054604051908152f35b503461041b57604036600319011261041b576111e96123d4565b6001600160a01b031681526005602052604081208054602435929083101561041b57602061121784846123ea565b90549060031b1c604051908152f35b503461041b578060031936011261041b57602060ff5f516020612b325f395f51905f5254166040519015158152f35b503461041b57604036600319011261041b5760043567ffffffffffffffff8111610fc85736602382011215610fc85780600401359067ffffffffffffffff82116113ca576024810190602436918460051b0101116113ca5760243591821515918284036113c6576112c461277d565b6064821161138f57845b8281106112d9578580f35b6001906001600160a01b036112f76112f2838787612634565b612644565b16875260096020528460ff604089205416151503611316575b016112ce565b818060a01b0361132a6112f2838787612634565b168752600960205261134b86604089209060ff801983541691151516179055565b818060a01b0361135f6112f2838787612634565b167f8daaf060c3306c38e068a75c054bf96ecd85a3db1252712c4d93632744c42e0d6020604051888152a2611310565b60405162461bcd60e51b815260206004820152600f60248201526e426174636820746f6f206c6172676560881b6044820152606490fd5b8480fd5b8280fd5b503461041b578060031936011261041b576020600d54604051908152f35b503461041b57602036600319011261041b577f636f936387c12923171863485a5599a33129aaac089807a8d7746f904d53bc1f604060043561142c61277d565b600d549080600d5582519182526020820152a180f35b503461041b57602036600319011261041b5760043561145f6127d5565b60ff60065416156116495780825260046020526040822060018101546001600160a01b0316330361160f576005810160ff8154166115ca576002820154916003810154906301e1338082018092116115b6576004015490818111156115ab576114d5916114cb9161245f565b60035490846128bb565b60075481116115a157600754036007555b600160ff198254161790556114fd8160015461245f565b6001558280808084335af16115106124be565b501561155c576040519081524260208201527f45df01186fed55abc3ac9cfa82408e10553b9b93a8f0c0b4c2965a7bedb267ec60403392a360015f516020612b525f395f51905f525580f35b60405162461bcd60e51b815260206004820152601960248201527f456d657267656e6379207769746864726177206661696c6564000000000000006044820152606490fd5b50836007556114e6565b50506114d5846114cb565b634e487b7160e01b86526011600452602486fd5b60405162461bcd60e51b815260206004820152601960248201527f506f736974696f6e20616c726561647920756e7374616b6564000000000000006044820152606490fd5b60405162461bcd60e51b81526020600482015260126024820152712737ba103837b9b4ba34b7b71037bbb732b960711b6044820152606490fd5b60405162461bcd60e51b81526020600482015260156024820152744e6f7420696e20656d657267656e6379206d6f646560581b6044820152606490fd5b503461041b578060031936011261041b5761169f61277d565b5f516020612b325f395f51905f525460ff8116156117235760ff19165f516020612b325f395f51905f52557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa6020604051338152a16040514281527f8cc793e6a5897cb74020ea799628f88bc1dcdc85917d87f1345f33fa881f754b60203392a280f35b638dfc202b60e01b8252600482fd5b508060031936011261041b576117466127d5565b61174e61280d565b60ff600c541680611a77575b611a685761176d60ff600654161561258a565b600a544210611a2357600b544210156119de57805434106119a257600d5480611946575b506117a96117a160035434612834565b6007546125d6565b6007556002545f19811461193257600181016002556040516117ca8161246c565b8181526020810133815261185e6005604084019334855260608101428152608082019042825260a083019689885260c08401968a8852898b52600460205260408b2094518555600185019060018060a01b039051166bffffffffffffffffffffffff60a01b8254161790555160028401555160038301555160048201550192511515839060ff801983541691151516179055565b51815461ff00191690151560081b61ff00161790553382526005602052604082208054926801000000000000000084101561191e5750826118a69160016020950181556123ea565b81549060031b9083821b915f19901b19161790556118c6346001546125d6565b600155806040513481526301e13380848201524260408201527f037a51f308bffa1811b7db6ec701b1d1ba493e6fa3cb1fcec4167f3ea1183db360603392a360015f516020612b525f395f51905f5255604051908152f35b634e487b7160e01b81526041600452602490fd5b634e487b7160e01b82526011600452602482fd5b611952346001546125d6565b1161195d575f611791565b60405162461bcd60e51b815260206004820152601960248201527f4d617820746f74616c207374616b6564206578636565646564000000000000006044820152606490fd5b60405162461bcd60e51b8152602060048201526014602482015273416d6f756e742062656c6f77206d696e696d756d60601b6044820152606490fd5b60405162461bcd60e51b815260206004820152601860248201527f5374616b696e6720706572696f642068617320656e64656400000000000000006044820152606490fd5b60405162461bcd60e51b815260206004820152601b60248201527f5374616b696e6720686173206e6f7420737461727465642079657400000000006044820152606490fd5b630b094f2760e31b8152600490fd5b50338152600960205260ff6040822054161561175a565b503461041b57602036600319011261041b57600435611aab6127d5565b611ab361280d565b611ac260ff600654161561258a565b808252600460205260408220600101546001600160a01b0316330361040c578082526004602052604082206005810160ff815416611c715760038201546301e133808101809111611c5d574210611c4e57828452600f6020526040842054611bef578380809392858294816002611b3b611bdb9a61295c565b92015491611b4981846125d6565b9461010161ffff19825416179055611b638360015461245f565b6001556040519081524260208201527f812be816db82c66cd18ca8457005cd84689642d8ac4d38599cc6af444a2dc72a60403392a36040519081524260208201527f3ff5d92f4a9e211f1b90950ab368cb14f7755425cfbcb14ec546777e5da856bc60403392a3335af1611bd56124be565b506125f6565b60015f516020612b525f395f51905f525580f35b60405162461bcd60e51b815260206004820152603160248201527f4561726c7920756e7374616b65207265717565737465642c2075736520636f6d604482015270706c6574654561726c79556e7374616b6560781b6064820152608490fd5b636100d92960e11b8452600484fd5b634e487b7160e01b85526011600452602485fd5b636c18a98960e11b8452600484fd5b50346120295760203660031901126120295760043590611c9e6127d5565b611ca661280d565b611cb560ff600654161561258a565b5f828152600460205260409020600101546001600160a01b0316330361218057815f52600460205260405f20600581019260ff84541661217157805f52600f60205260405f205493841561212c5762093a8085018086116120405742106120e757600383016002611d2782548861245f565b9401938454611d3a6003548093836128bb565b916113888302838104611388148415171561204057612710900496865f52600e60205260405f2054958887115f146120dc57611d8089611d7a818a61245f565b9661245f565b988497861515958661207d575b508082111561207457611d9f9161245f565b955b611dab868b61245f565b9b611db68d896125d6565b908115159283612054575b54906301e13380820180921161204057611e1496611de5611dec92611df49461245f565b87546128bb565b60075461245f565b918260075561202d575b5050600160ff198254161790555460015461245f565b600155845f52600f6020525f604081205587611f70575b869750959495611ec8575b50611bdb948383869584611e4d88979688976125d6565b9460405191848352602083015260408201524260608201527f73f17f7c8048f21a148ed883b418e75b0efeca3848408c648774fffe751b2a8260803392a36040519081524260208201527f3ff5d92f4a9e211f1b90950ab368cb14f7755425cfbcb14ec546777e5da856bc60403392a3335af1611bd56124be565b6010546001600160a01b0316803b1561078757858291600460405180948193630d0e30db60e41b83525af18015611f6557611f48575b509483859493859485947f6f5e3e724735979977f7fae4212b781ded3d05618cdbe6233a82d842016756366040611bdb9b8151908152426020820152a19450509350935094611e36565b611f58868092989395969861249c565b6113c6579492915f611efe565b6040513d88823e3d90fd5b6010546001600160a01b0316803b15612029575f8991600460405180948193630d0e30db60e41b83525af1801561201e57611fe3575b507f6f5e3e724735979977f7fae4212b781ded3d05618cdbe6233a82d84201675636604088998199989951908152426020820152a1959495611e2b565b6040989697505f611ff39161249c565b7f6f5e3e724735979977f7fae4212b781ded3d05618cdbe6233a82d842016756365f97969850611fa6565b6040513d5f823e3d90fd5b5f80fd5b6120369161245f565b6007555f80611dfe565b634e487b7160e01b5f52601160045260245ffd5b61206c8360085461206782821015612413565b61245f565b600855611dc1565b50505f95611da1565b90985086811061209857866120919161245f565b975f611d8d565b606460405162461bcd60e51b815260206004820152602060248201527f496e73756666696369656e74207072696e636970616c20746f206465647563746044820152fd5b611d80895f9661245f565b60405162461bcd60e51b815260206004820152601c60248201527f57616974696e6720706572696f64206e6f7420636f6d706c65746564000000006044820152606490fd5b60405162461bcd60e51b815260206004820152601b60248201527f4561726c7920756e7374616b65206e6f742072657175657374656400000000006044820152606490fd5b636c18a98960e11b5f5260045ffd5b636ec9be1160e01b5f5260045ffd5b34612029576020366003190112612029576004355f52600e602052602060405f2054604051908152f35b34612029576020366003190112612029576121d26123d4565b6121da61277d565b6121e960ff600654161561258a565b6001600160a01b0316801561223b57601080546001600160a01b0319811683179091556001600160a01b03167f7add6a1f39389613632904b26dad3ec52ad66cfbb8d9d8083984ca1b656222125f80a3005b60405162461bcd60e51b815260206004820152601c60248201527f496e76616c69642070656e616c747920706f6f6c2061646472657373000000006044820152606490fd5b346120295760203660031901126120295760206109dd60043561255d565b34612029576020366003190112612029576004356122ba61277d565b6008546122d56007546122cf81841015612413565b8261245f565b8211612353575f80836122ea8295839561245f565b600855335af16122f86124be565b501561231a575f516020612b725f395f51905f526020600854604051908152a1005b60405162461bcd60e51b815260206004820152601160248201527015da5d1a191c985dd85b0819985a5b1959607a1b6044820152606490fd5b606460405162461bcd60e51b815260206004820152602060248201527f43616e6e6f7420776974686472617720726571756972656420726577617264736044820152fd5b34612029575f3660031901126120295760209060ff6006541615158152f35b34612029575f3660031901126120295760206040516301e133808152f35b600435906001600160a01b038216820361202957565b80548210156123ff575f5260205f2001905f90565b634e487b7160e01b5f52603260045260245ffd5b1561241a57565b60405162461bcd60e51b815260206004820152601860248201527f496e73756666696369656e742072657761726420706f6f6c00000000000000006044820152606490fd5b9190820391821161204057565b60e0810190811067ffffffffffffffff82111761248857604052565b634e487b7160e01b5f52604160045260245ffd5b90601f8019910116810190811067ffffffffffffffff82111761248857604052565b3d156124f8573d9067ffffffffffffffff821161248857604051916124ed601f8201601f19166020018461249c565b82523d5f602084013e565b606090565b9060405161250a8161246c565b60c060ff600583958054855260018060a01b0360018201541660208601526002810154604086015260038101546060860152600481015460808601520154818116151560a085015260081c161515910152565b60ff60065416612585575f52600460205261258261257d60405f206124fd565b6127b0565b90565b505f90565b1561259157565b60405162461bcd60e51b815260206004820152601d60248201527f436f6e747261637420697320696e20656d657267656e6379206d6f64650000006044820152606490fd5b9190820180921161204057565b8181029291811591840414171561204057565b156125fd57565b60405162461bcd60e51b815260206004820152600f60248201526e151c985b9cd9995c8819985a5b1959608a1b6044820152606490fd5b91908110156123ff5760051b0190565b356001600160a01b03811681036120295790565b1561265f57565b60405162461bcd60e51b815260206004820152602160248201527f456e642074696d65206d7573742062652061667465722073746172742074696d6044820152606560f81b6064820152608490fd5b156126b557565b60405162461bcd60e51b8152602060048201526013602482015272496e76616c696420726577617264207261746560681b6044820152606490fd5b156126f757565b60405162461bcd60e51b815260206004820152601f60248201527f4561726c7920756e7374616b6520616c726561647920726571756573746564006044820152606490fd5b1561274357565b60405162461bcd60e51b8152602060048201526012602482015271496e76616c69642073746172742074696d6560701b6044820152606490fd5b5f516020612b125f395f51905f52546001600160a01b0316330361279d57565b63118cdaa760e01b5f523360045260245ffd5b60a0810151612585578060406127c861258293612a87565b91015190600354916128bb565b60025f516020612b525f395f51905f5254146127fe5760025f516020612b525f395f51905f5255565b633ee5aeb560e01b5f5260045ffd5b60ff5f516020612b325f395f51905f52541661282557565b63d93c066560e01b5f5260045ffd5b801580156128b4575b80156128ac575b6128a657670de0b6b3a7640000820291808304670de0b6b3a76400001490151715612040576127106128779204906125e3565b670de0b6b3a764000090818102918183041490151715612040576ec097ce7bc90715b34b9f1000000000900490565b50505f90565b508115612844565b505f61283d565b909181158015612954575b801561294c575b61294557670de0b6b3a7640000810290808204670de0b6b3a7640000149015171561204057670de0b6b3a7640000830292808404670de0b6b3a764000014901517156120405761293c612941926127106301e133806ec097ce7bc90715b34b9f100000000096049304906125e3565b6125e3565b0490565b5050505f90565b5080156128cd565b5082156128c6565b60ff60065416612585575f52600460205260405f209060ff600583015416612a17576129a161299261298d846124fd565b612a87565b600284015490600354916128bb565b91826129d5575b60038101546301e133808101809111612040578042115f146129cc57600490910155565b50600442910155565b5f516020612b725f395f51905f5260206129f88560085461206782821015612413565b80600855612a088660075461245f565b600755604051908152a16129a8565b5f9150565b5f516020612bb25f395f51905f5280546001600160a01b03199081169091555f516020612b125f395f51905f5280549182166001600160a01b0393841690811790915591167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e05f80a3565b60608101516301e1338081018091116120405781515f908152600f60205260409020548015612ac95760809150915b0151808211156128a6576125829161245f565b508042105f14612ade57506080425b91612ab6565b608090612ad8565b60ff5f516020612b925f395f51905f525460401c1615612b0257565b631afcd79f60e31b5f5260045ffdfe9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300cd5ed15c6e187e77e9aee88184c21f4f2182ab5827cb3b7e07fbedcd63f033009b779b17422d0df92223018b32b4d1fa46e071723d6817e2486d003becc55f001ef37ab665f7c977b577275d7a49e72cd18d1143eccd1112f1198e4a39d1428cf0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00237e158222e3e6968b72b9db0d8043aacf074ad9f650f0d1606b4d82ee432c00a264697066735822122030c26e0e40efff9b204139d263a2d753af7c09341f5e53c40697a35d49eaa5fb64736f6c634300081b0033",
+  "optimization_enabled": true,
+  "verified_twin_address_hash": null,
+  "is_verified": true,
+  "compiler_settings": {
+    "evmVersion": "prague",
+    "libraries": {},
+    "metadata": {
+      "appendCBOR": true,
+      "bytecodeHash": "ipfs",
+      "useLiteralContent": false
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "": [
+          "*"
+        ],
+        "*": [
+          "*"
+        ]
+      }
+    },
+    "remappings": [
+      "@openzeppelin/=node_modules/@openzeppelin/",
+      "hardhat/=node_modules/hardhat/"
+    ],
+    "viaIR": true
+  },
+  "optimization_runs": 200,
+  "sourcify_repo_url": null,
+  "decoded_constructor_args": null,
+  "compiler_version": "v0.8.27+commit.40a35a09",
+  "is_verified_via_verifier_alliance": false,
+  "verified_at": "2025-12-11T06:53:22.727458Z",
+  "implementations": [],
+  "proxy_type": null,
+  "external_libraries": [],
+  "creation_bytecode": "0x6080806040523460aa575f516020612cb65f395f51905f525460ff8160401c16609b576002600160401b03196001600160401b038216016049575b604051612c0790816100af8239f35b6001600160401b0319166001600160401b039081175f516020612cb65f395f51905f525581527fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d290602090a15f80603a565b63f92ee8a960e01b5f5260045ffd5b5f80fdfe608080604052600436101561006e575b50361561001a575f80fd5b5f516020612b725f395f51905f526020610036346008546125d6565b806008556040513481527f88a5966d370b9919b20f3e2c13ff65706f196a4e32cc2c12bf57088f88525874833392a2604051908152a1005b5f905f3560e01c9081630905f56014612397575080630cd635c91461229e57806312f7086c146122805780631820cabb146109645780631d4c7dc5146121b957806320281a981461218f57806324d2480614611c805780632e17de7814611a8e5780633a4b66f1146117325780633f4ba83a146116865780635312ea8e1461144257806357c26ba4146113ec5780635a68c154146113ce5780635c0ef3fa146112555780635c975abb146112265780635e1b4d99146111cf5780636da16d5c146111a5578063715018a6146111265780637419f19014611108578063747cfc3a1461105857806379ba5097146110085780637a5c08ae14610fea5780637b0a47ee14610fcc5780637f73f5f414610f59578063817b1cd214610f3b5780638456cb5914610e9c578063899346c714610e7e5780638da5cb5b14610e4957806399fbab8814610dcd5780639e447fc614610d4a578063aa30c23314610d2d578063aaf5eb6814610d0a578063ab2bce1a14610cee578063ab6a8b0214610cb0578063ae169a5014610b5e578063b8d289be14610b35578063c5b1c7d014610ae0578063cc1b63d514610a24578063d936547e146109e5578063dbef3fcf146109bb578063e1f1c4a71461099e578063e30c397814610969578063e6a69ab814610964578063eb4af04514610901578063ec1371f2146108e3578063eddf75701461082e578063f188768414610811578063f2fde38b1461078b578063f4cb890b1461047d578063f76314e91461045a578063f85fb1641461043c578063fafcca8c1461041e5763fd9e94f90361000f573461041b57602036600319011261041b576004356102d96127d5565b6102e161280d565b6102f060ff600654161561258a565b808252600460205260408220600101546001600160a01b0316330361040c5780825260046020526040822060ff6005820154166103fd57600301546301e1338081018091116103e9574210156103a457808252600f6020526103566040832054156126f0565b808252600f6020524260408320556040514281527febd30d7e2de7f627be0ffc413b236a1bdf2310768eda8696ce51cb74dce8c0dd60203392a360015f516020612b525f395f51905f525580f35b60405162461bcd60e51b815260206004820152601960248201527f4c6f636b20706572696f6420616c726561647920656e646564000000000000006044820152606490fd5b634e487b7160e01b83526011600452602483fd5b636c18a98960e11b8352600483fd5b636ec9be1160e01b8252600482fd5b80fd5b503461041b578060031936011261041b576020600b54604051908152f35b503461041b578060031936011261041b57602060405162093a808152f35b503461041b578060031936011261041b57602060ff600c54166040519015158152f35b503461041b5760e036600319011261041b5760043560243560443560643591608435908115158092036107875760c4356001600160a01b0381169190829003610783575f516020612b925f395f51905f52549560ff8760401c16159667ffffffffffffffff81168015908161077b575b6001149081610771575b159081610768575b506107595767ffffffffffffffff1981166001175f516020612b925f395f51905f52558761072d575b5061053485151561273c565b61053f858711612658565b610547612ae6565b61054f612ae6565b60015f516020612b525f395f51905f5255610568612ae6565b610570612ae6565b33156106e85780156106a35781151580610697575b61058e906126ae565b82156106485761059c612ae6565b6105a4612ae6565b6105ad33612a1c565b8755600355600160025560a435600d556bffffffffffffffffffffffff60a01b601054161760105560ff8019600c5416911617600c55600a55600b556105f05780f35b68ff0000000000000000195f516020612b925f395f51905f5254165f516020612b925f395f51905f52557fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2602060405160018152a180f35b60405162461bcd60e51b815260206004820152602160248201527f5374616b696e6753746f726167653a207a65726f2070656e616c747920706f6f6044820152601b60fa1b6064820152608490fd5b50612710821115610585565b60405162461bcd60e51b815260206004820152601860248201527f496e76616c6964206d696e207374616b6520616d6f756e7400000000000000006044820152606490fd5b60405162461bcd60e51b815260206004820152601a60248201527f5374616b696e6753746f726167653a207a65726f206f776e65720000000000006044820152606490fd5b68ffffffffffffffffff191668010000000000000001175f516020612b925f395f51905f52555f610528565b63f92ee8a960e01b8952600489fd5b9050155f6104ff565b303b1591506104f7565b8991506104ed565b8680fd5b8580fd5b503461041b57602036600319011261041b576107a56123d4565b6107ad61277d565b5f516020612bb25f395f51905f5280546001600160a01b0319166001600160a01b039283169081179091555f516020612b125f395f51905f52549091167f38d16b8cac22d99fc7c124b9cd0de2d3fa1faef420bfe791d8c362d765e227008380a380f35b503461041b578060031936011261041b5760209054604051908152f35b503461041b57602036600319011261041b576001600160a01b036108506123d4565b168152600560205260408120604051908160208254918281520190819285526020852090855b8181106108cd575050508261088c91038361249c565b604051928392602084019060208552518091526040840192915b8181106108b4575050500390f35b82518452859450602093840193909201916001016108a6565b8254845260209093019260019283019201610876565b503461041b578060031936011261041b576020600754604051908152f35b503461041b57602036600319011261041b577fca0542093af2ac14ccf6e52b6e1a131c7e2825fb3b51139bf1dd8186a1339e95604060043561094161277d565b61095060ff600654161561258a565b83549080855582519182526020820152a180f35b6123b6565b503461041b578060031936011261041b575f516020612bb25f395f51905f52546040516001600160a01b039091168152602090f35b503461041b578060031936011261041b5760206040516127108152f35b503461041b57602036600319011261041b5760206109dd600354600435612834565b604051908152f35b503461041b57602036600319011261041b5760209060ff906040906001600160a01b03610a106123d4565b168152600984522054166040519015158152f35b503461041b57602036600319011261041b57600435610a4161277d565b610a4c81151561273c565b600b54811015610a905760407fe188f709d8a22a4242c53503fb07552f298aeb26e6587cb8f40816a57630469591600a549080600a5582519182526020820152a180f35b60405162461bcd60e51b815260206004820152602260248201527f53746172742074696d65206d757374206265206265666f726520656e642074696044820152616d6560f01b6064820152608490fd5b503461041b578060031936011261041b57610af961277d565b600160ff1960065416176006556040514281527f86e6259fbf164140d541a86ff1a2a0606fa80f77ed47ca4748ca84810358afcb60203392a280f35b503461041b578060031936011261041b576010546040516001600160a01b039091168152602090f35b503461041b57602036600319011261041b5760043590610b7c6127d5565b610b8461280d565b610b9360ff600654161561258a565b818152600460205260408120600101546001600160a01b03163303610ca157818152600f6020526040812054610bc990156126f0565b610bd28261295c565b908115610c9257828152600e60205260408120610bf08382546125d6565b905580808084335af1610c016124be565b5015610c545760209160405182815242848201527f812be816db82c66cd18ca8457005cd84689642d8ac4d38599cc6af444a2dc72a60403392a360015f516020612b525f395f51905f5255604051908152f35b60405162461bcd60e51b815260206004820152601660248201527514995dd85c99081d1c985b9cd9995c8819985a5b195960521b6044820152606490fd5b63374c934360e11b8152600490fd5b636ec9be1160e01b8152600490fd5b508060031936011261041b57610cc461277d565b5f516020612b725f395f51905f526020610ce0346008546125d6565b80600855604051908152a180f35b503461041b578060031936011261041b57602060405160128152f35b503461041b578060031936011261041b576020604051670de0b6b3a76400008152f35b503461041b578060031936011261041b5760206040516113888152f35b503461041b57602036600319011261041b577fc390a98ace15a7bb6bab611eedfdbb2685043b241a869420043cdfb23ccfee506040600435610d8a61277d565b610d9960ff600654161561258a565b80151580610dc1575b610dab906126ae565b600354908060035582519182526020820152a180f35b50612710811115610da2565b503461041b57602036600319011261041b57604060e091600435815260046020522060ff81549160018060a01b0360018201541690600281015460038201549060056004840154930154936040519687526020870152604086015260608501526080840152818116151560a084015260081c16151560c0820152f35b503461041b578060031936011261041b575f516020612b125f395f51905f52546040516001600160a01b039091168152602090f35b503461041b578060031936011261041b576020600254604051908152f35b503461041b578060031936011261041b57610eb561277d565b610ebd61280d565b600160ff195f516020612b325f395f51905f525416175f516020612b325f395f51905f52557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a2586020604051338152a16040514281527f256910c06b67f0167a9e42db4b9d766ac2eb6c2151ca5bfee80937cdb293d78a60203392a280f35b503461041b578060031936011261041b576020600154604051908152f35b503461041b57602036600319011261041b57600435801515809103610fc85760407f846450d1fc5e913c38a0ce9f5320c83762876730d3cc52126239d766078a27ce91610fa461277d565b600c549060ff811660ff19831617600c5560ff83519216151582526020820152a180f35b5080fd5b503461041b578060031936011261041b576020600354604051908152f35b503461041b578060031936011261041b576020600854604051908152f35b503461041b578060031936011261041b575f516020612bb25f395f51905f5254336001600160a01b03909116036110455761104233612a1c565b80f35b63118cdaa760e01b815233600452602490fd5b503461041b57602036600319011261041b5760043561107561277d565b428111156110c35760407eb0b5d614202bbc0e0b82f7fc4b4d1463f5a6603fb779ad54a1499064047707916110ad600a548211612658565b600b549080600b5582519182526020820152a180f35b60405162461bcd60e51b815260206004820152601a60248201527f456e642074696d65206d75737420626520696e206675747572650000000000006044820152606490fd5b503461041b578060031936011261041b576020600a54604051908152f35b503461041b578060031936011261041b5761113f61277d565b5f516020612bb25f395f51905f5280546001600160a01b03199081169091555f516020612b125f395f51905f528054918216905581906001600160a01b03167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e08280a380f35b503461041b57602036600319011261041b5760406020916004358152600f83522054604051908152f35b503461041b57604036600319011261041b576111e96123d4565b6001600160a01b031681526005602052604081208054602435929083101561041b57602061121784846123ea565b90549060031b1c604051908152f35b503461041b578060031936011261041b57602060ff5f516020612b325f395f51905f5254166040519015158152f35b503461041b57604036600319011261041b5760043567ffffffffffffffff8111610fc85736602382011215610fc85780600401359067ffffffffffffffff82116113ca576024810190602436918460051b0101116113ca5760243591821515918284036113c6576112c461277d565b6064821161138f57845b8281106112d9578580f35b6001906001600160a01b036112f76112f2838787612634565b612644565b16875260096020528460ff604089205416151503611316575b016112ce565b818060a01b0361132a6112f2838787612634565b168752600960205261134b86604089209060ff801983541691151516179055565b818060a01b0361135f6112f2838787612634565b167f8daaf060c3306c38e068a75c054bf96ecd85a3db1252712c4d93632744c42e0d6020604051888152a2611310565b60405162461bcd60e51b815260206004820152600f60248201526e426174636820746f6f206c6172676560881b6044820152606490fd5b8480fd5b8280fd5b503461041b578060031936011261041b576020600d54604051908152f35b503461041b57602036600319011261041b577f636f936387c12923171863485a5599a33129aaac089807a8d7746f904d53bc1f604060043561142c61277d565b600d549080600d5582519182526020820152a180f35b503461041b57602036600319011261041b5760043561145f6127d5565b60ff60065416156116495780825260046020526040822060018101546001600160a01b0316330361160f576005810160ff8154166115ca576002820154916003810154906301e1338082018092116115b6576004015490818111156115ab576114d5916114cb9161245f565b60035490846128bb565b60075481116115a157600754036007555b600160ff198254161790556114fd8160015461245f565b6001558280808084335af16115106124be565b501561155c576040519081524260208201527f45df01186fed55abc3ac9cfa82408e10553b9b93a8f0c0b4c2965a7bedb267ec60403392a360015f516020612b525f395f51905f525580f35b60405162461bcd60e51b815260206004820152601960248201527f456d657267656e6379207769746864726177206661696c6564000000000000006044820152606490fd5b50836007556114e6565b50506114d5846114cb565b634e487b7160e01b86526011600452602486fd5b60405162461bcd60e51b815260206004820152601960248201527f506f736974696f6e20616c726561647920756e7374616b6564000000000000006044820152606490fd5b60405162461bcd60e51b81526020600482015260126024820152712737ba103837b9b4ba34b7b71037bbb732b960711b6044820152606490fd5b60405162461bcd60e51b81526020600482015260156024820152744e6f7420696e20656d657267656e6379206d6f646560581b6044820152606490fd5b503461041b578060031936011261041b5761169f61277d565b5f516020612b325f395f51905f525460ff8116156117235760ff19165f516020612b325f395f51905f52557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa6020604051338152a16040514281527f8cc793e6a5897cb74020ea799628f88bc1dcdc85917d87f1345f33fa881f754b60203392a280f35b638dfc202b60e01b8252600482fd5b508060031936011261041b576117466127d5565b61174e61280d565b60ff600c541680611a77575b611a685761176d60ff600654161561258a565b600a544210611a2357600b544210156119de57805434106119a257600d5480611946575b506117a96117a160035434612834565b6007546125d6565b6007556002545f19811461193257600181016002556040516117ca8161246c565b8181526020810133815261185e6005604084019334855260608101428152608082019042825260a083019689885260c08401968a8852898b52600460205260408b2094518555600185019060018060a01b039051166bffffffffffffffffffffffff60a01b8254161790555160028401555160038301555160048201550192511515839060ff801983541691151516179055565b51815461ff00191690151560081b61ff00161790553382526005602052604082208054926801000000000000000084101561191e5750826118a69160016020950181556123ea565b81549060031b9083821b915f19901b19161790556118c6346001546125d6565b600155806040513481526301e13380848201524260408201527f037a51f308bffa1811b7db6ec701b1d1ba493e6fa3cb1fcec4167f3ea1183db360603392a360015f516020612b525f395f51905f5255604051908152f35b634e487b7160e01b81526041600452602490fd5b634e487b7160e01b82526011600452602482fd5b611952346001546125d6565b1161195d575f611791565b60405162461bcd60e51b815260206004820152601960248201527f4d617820746f74616c207374616b6564206578636565646564000000000000006044820152606490fd5b60405162461bcd60e51b8152602060048201526014602482015273416d6f756e742062656c6f77206d696e696d756d60601b6044820152606490fd5b60405162461bcd60e51b815260206004820152601860248201527f5374616b696e6720706572696f642068617320656e64656400000000000000006044820152606490fd5b60405162461bcd60e51b815260206004820152601b60248201527f5374616b696e6720686173206e6f7420737461727465642079657400000000006044820152606490fd5b630b094f2760e31b8152600490fd5b50338152600960205260ff6040822054161561175a565b503461041b57602036600319011261041b57600435611aab6127d5565b611ab361280d565b611ac260ff600654161561258a565b808252600460205260408220600101546001600160a01b0316330361040c578082526004602052604082206005810160ff815416611c715760038201546301e133808101809111611c5d574210611c4e57828452600f6020526040842054611bef578380809392858294816002611b3b611bdb9a61295c565b92015491611b4981846125d6565b9461010161ffff19825416179055611b638360015461245f565b6001556040519081524260208201527f812be816db82c66cd18ca8457005cd84689642d8ac4d38599cc6af444a2dc72a60403392a36040519081524260208201527f3ff5d92f4a9e211f1b90950ab368cb14f7755425cfbcb14ec546777e5da856bc60403392a3335af1611bd56124be565b506125f6565b60015f516020612b525f395f51905f525580f35b60405162461bcd60e51b815260206004820152603160248201527f4561726c7920756e7374616b65207265717565737465642c2075736520636f6d604482015270706c6574654561726c79556e7374616b6560781b6064820152608490fd5b636100d92960e11b8452600484fd5b634e487b7160e01b85526011600452602485fd5b636c18a98960e11b8452600484fd5b50346120295760203660031901126120295760043590611c9e6127d5565b611ca661280d565b611cb560ff600654161561258a565b5f828152600460205260409020600101546001600160a01b0316330361218057815f52600460205260405f20600581019260ff84541661217157805f52600f60205260405f205493841561212c5762093a8085018086116120405742106120e757600383016002611d2782548861245f565b9401938454611d3a6003548093836128bb565b916113888302838104611388148415171561204057612710900496865f52600e60205260405f2054958887115f146120dc57611d8089611d7a818a61245f565b9661245f565b988497861515958661207d575b508082111561207457611d9f9161245f565b955b611dab868b61245f565b9b611db68d896125d6565b908115159283612054575b54906301e13380820180921161204057611e1496611de5611dec92611df49461245f565b87546128bb565b60075461245f565b918260075561202d575b5050600160ff198254161790555460015461245f565b600155845f52600f6020525f604081205587611f70575b869750959495611ec8575b50611bdb948383869584611e4d88979688976125d6565b9460405191848352602083015260408201524260608201527f73f17f7c8048f21a148ed883b418e75b0efeca3848408c648774fffe751b2a8260803392a36040519081524260208201527f3ff5d92f4a9e211f1b90950ab368cb14f7755425cfbcb14ec546777e5da856bc60403392a3335af1611bd56124be565b6010546001600160a01b0316803b1561078757858291600460405180948193630d0e30db60e41b83525af18015611f6557611f48575b509483859493859485947f6f5e3e724735979977f7fae4212b781ded3d05618cdbe6233a82d842016756366040611bdb9b8151908152426020820152a19450509350935094611e36565b611f58868092989395969861249c565b6113c6579492915f611efe565b6040513d88823e3d90fd5b6010546001600160a01b0316803b15612029575f8991600460405180948193630d0e30db60e41b83525af1801561201e57611fe3575b507f6f5e3e724735979977f7fae4212b781ded3d05618cdbe6233a82d84201675636604088998199989951908152426020820152a1959495611e2b565b6040989697505f611ff39161249c565b7f6f5e3e724735979977f7fae4212b781ded3d05618cdbe6233a82d842016756365f97969850611fa6565b6040513d5f823e3d90fd5b5f80fd5b6120369161245f565b6007555f80611dfe565b634e487b7160e01b5f52601160045260245ffd5b61206c8360085461206782821015612413565b61245f565b600855611dc1565b50505f95611da1565b90985086811061209857866120919161245f565b975f611d8d565b606460405162461bcd60e51b815260206004820152602060248201527f496e73756666696369656e74207072696e636970616c20746f206465647563746044820152fd5b611d80895f9661245f565b60405162461bcd60e51b815260206004820152601c60248201527f57616974696e6720706572696f64206e6f7420636f6d706c65746564000000006044820152606490fd5b60405162461bcd60e51b815260206004820152601b60248201527f4561726c7920756e7374616b65206e6f742072657175657374656400000000006044820152606490fd5b636c18a98960e11b5f5260045ffd5b636ec9be1160e01b5f5260045ffd5b34612029576020366003190112612029576004355f52600e602052602060405f2054604051908152f35b34612029576020366003190112612029576121d26123d4565b6121da61277d565b6121e960ff600654161561258a565b6001600160a01b0316801561223b57601080546001600160a01b0319811683179091556001600160a01b03167f7add6a1f39389613632904b26dad3ec52ad66cfbb8d9d8083984ca1b656222125f80a3005b60405162461bcd60e51b815260206004820152601c60248201527f496e76616c69642070656e616c747920706f6f6c2061646472657373000000006044820152606490fd5b346120295760203660031901126120295760206109dd60043561255d565b34612029576020366003190112612029576004356122ba61277d565b6008546122d56007546122cf81841015612413565b8261245f565b8211612353575f80836122ea8295839561245f565b600855335af16122f86124be565b501561231a575f516020612b725f395f51905f526020600854604051908152a1005b60405162461bcd60e51b815260206004820152601160248201527015da5d1a191c985dd85b0819985a5b1959607a1b6044820152606490fd5b606460405162461bcd60e51b815260206004820152602060248201527f43616e6e6f7420776974686472617720726571756972656420726577617264736044820152fd5b34612029575f3660031901126120295760209060ff6006541615158152f35b34612029575f3660031901126120295760206040516301e133808152f35b600435906001600160a01b038216820361202957565b80548210156123ff575f5260205f2001905f90565b634e487b7160e01b5f52603260045260245ffd5b1561241a57565b60405162461bcd60e51b815260206004820152601860248201527f496e73756666696369656e742072657761726420706f6f6c00000000000000006044820152606490fd5b9190820391821161204057565b60e0810190811067ffffffffffffffff82111761248857604052565b634e487b7160e01b5f52604160045260245ffd5b90601f8019910116810190811067ffffffffffffffff82111761248857604052565b3d156124f8573d9067ffffffffffffffff821161248857604051916124ed601f8201601f19166020018461249c565b82523d5f602084013e565b606090565b9060405161250a8161246c565b60c060ff600583958054855260018060a01b0360018201541660208601526002810154604086015260038101546060860152600481015460808601520154818116151560a085015260081c161515910152565b60ff60065416612585575f52600460205261258261257d60405f206124fd565b6127b0565b90565b505f90565b1561259157565b60405162461bcd60e51b815260206004820152601d60248201527f436f6e747261637420697320696e20656d657267656e6379206d6f64650000006044820152606490fd5b9190820180921161204057565b8181029291811591840414171561204057565b156125fd57565b60405162461bcd60e51b815260206004820152600f60248201526e151c985b9cd9995c8819985a5b1959608a1b6044820152606490fd5b91908110156123ff5760051b0190565b356001600160a01b03811681036120295790565b1561265f57565b60405162461bcd60e51b815260206004820152602160248201527f456e642074696d65206d7573742062652061667465722073746172742074696d6044820152606560f81b6064820152608490fd5b156126b557565b60405162461bcd60e51b8152602060048201526013602482015272496e76616c696420726577617264207261746560681b6044820152606490fd5b156126f757565b60405162461bcd60e51b815260206004820152601f60248201527f4561726c7920756e7374616b6520616c726561647920726571756573746564006044820152606490fd5b1561274357565b60405162461bcd60e51b8152602060048201526012602482015271496e76616c69642073746172742074696d6560701b6044820152606490fd5b5f516020612b125f395f51905f52546001600160a01b0316330361279d57565b63118cdaa760e01b5f523360045260245ffd5b60a0810151612585578060406127c861258293612a87565b91015190600354916128bb565b60025f516020612b525f395f51905f5254146127fe5760025f516020612b525f395f51905f5255565b633ee5aeb560e01b5f5260045ffd5b60ff5f516020612b325f395f51905f52541661282557565b63d93c066560e01b5f5260045ffd5b801580156128b4575b80156128ac575b6128a657670de0b6b3a7640000820291808304670de0b6b3a76400001490151715612040576127106128779204906125e3565b670de0b6b3a764000090818102918183041490151715612040576ec097ce7bc90715b34b9f1000000000900490565b50505f90565b508115612844565b505f61283d565b909181158015612954575b801561294c575b61294557670de0b6b3a7640000810290808204670de0b6b3a7640000149015171561204057670de0b6b3a7640000830292808404670de0b6b3a764000014901517156120405761293c612941926127106301e133806ec097ce7bc90715b34b9f100000000096049304906125e3565b6125e3565b0490565b5050505f90565b5080156128cd565b5082156128c6565b60ff60065416612585575f52600460205260405f209060ff600583015416612a17576129a161299261298d846124fd565b612a87565b600284015490600354916128bb565b91826129d5575b60038101546301e133808101809111612040578042115f146129cc57600490910155565b50600442910155565b5f516020612b725f395f51905f5260206129f88560085461206782821015612413565b80600855612a088660075461245f565b600755604051908152a16129a8565b5f9150565b5f516020612bb25f395f51905f5280546001600160a01b03199081169091555f516020612b125f395f51905f5280549182166001600160a01b0393841690811790915591167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e05f80a3565b60608101516301e1338081018091116120405781515f908152600f60205260409020548015612ac95760809150915b0151808211156128a6576125829161245f565b508042105f14612ade57506080425b91612ab6565b608090612ad8565b60ff5f516020612b925f395f51905f525460401c1615612b0257565b631afcd79f60e31b5f5260045ffdfe9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300cd5ed15c6e187e77e9aee88184c21f4f2182ab5827cb3b7e07fbedcd63f033009b779b17422d0df92223018b32b4d1fa46e071723d6817e2486d003becc55f001ef37ab665f7c977b577275d7a49e72cd18d1143eccd1112f1198e4a39d1428cf0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00237e158222e3e6968b72b9db0d8043aacf074ad9f650f0d1606b4d82ee432c00a264697066735822122030c26e0e40efff9b204139d263a2d753af7c09341f5e53c40697a35d49eaa5fb64736f6c634300081b0033f0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00",
+  "name": "HSKStaking",
+  "is_blueprint": false,
+  "license_type": "none",
+  "is_fully_verified": false,
+  "is_verified_via_eth_bytecode_db": true,
+  "language": "solidity",
+  "evm_version": "prague",
+  "can_be_visualized_via_sol2uml": true,
+  "is_verified_via_sourcify": false,
+  "additional_sources": [
+    {
+      "file_path": "contracts/constants/StakingConstants.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.27;\n\n/**\n * @title StakingConstants\n * @dev Contract containing constants for staking system\n * These constants can be inherited or referenced by other contracts\n */\ncontract StakingConstants {\n    uint256 public constant SECONDS_PER_YEAR = 365 days;\n    uint256 public constant BASIS_POINTS = 10000; // 100% = 10000\n    uint256 public constant PRECISION = 1e18;\n    uint256 public constant LOCK_PERIOD = 365 days;\n    uint256 public constant HSK_DECIMALS = 18; // HSK token decimals\n    uint256 public constant EARLY_UNLOCK_PERIOD = 7 days;  // Early unlock waiting period\n    uint256 public constant EARLY_UNSTAKE_REWARD_RETAIN_RATE = 5000;  // Early unstake reward retain rate (50% = 5000 basis points, user retains 50% of rewards)\n}\n\n"
+    },
+    {
+      "file_path": "contracts/implementation/StakingStorage.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.27;\n\nimport \"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\";\nimport \"@openzeppelin/contracts-upgradeable/access/Ownable2StepUpgradeable.sol\";\nimport \"../interfaces/IStake.sol\";\n\n/**\n * @title StakingStorage\n * @dev Defines the storage layout for the staking contract\n * This contract contains all state variables used in the staking system\n * and handles their initialization\n */\nabstract contract StakingStorage is Initializable, Ownable2StepUpgradeable {\n    uint256 public minStakeAmount;\n    uint256 public totalStaked;\n    uint256 public nextPositionId;\n    uint256 public rewardRate;\n    \n    mapping(uint256 => IStaking.Position) public positions;\n    mapping(address => uint256[]) public userPositions;\n    \n    bool public emergencyMode;\n    \n    uint256 public totalPendingRewards;\n    uint256 public rewardPoolBalance;\n    \n    mapping(address => bool) public whitelisted;\n    \n    uint256 public stakeStartTime;\n    uint256 public stakeEndTime;\n    bool public onlyWhitelistCanStake;\n    \n    uint256 public maxTotalStaked;\n    \n    // Early unstake related storage\n\n    mapping(uint256 => uint256) public claimedRewards;  // positionId => Total claimed rewards\n    mapping(uint256 => uint256) public earlyUnstakeRequestTime;  // positionId => Early unstake request time (0 means not requested)\n    \n    address public penaltyPoolContract;          // Penalty pool contract address\n    \n    uint256[50] private __gap;\n\n    event RewardPoolUpdated(uint256 newBalance);\n    event RewardRateUpdated(uint256 oldRate, uint256 newRate);\n\n    /**\n     * @dev Initializes the storage contract with basic settings\n     * @param _owner Address of the contract owner\n     * @param _minStakeAmount Minimum stake amount (in wei)\n     * @param _rewardRate Annual reward rate in basis points (800 for 8%, 1600 for 16%)\n     * @param _whitelistMode Enable whitelist mode (true for Premium, false for Normal)\n     * @param _maxTotalStaked Maximum total staked amount (in wei, 0 means no limit)\n     * @param _penaltyPoolContract Address of the penalty pool contract\n     */\n    function __StakingStorage_init(\n        address _owner,\n        uint256 _minStakeAmount,\n        uint256 _rewardRate,\n        bool _whitelistMode,\n        uint256 _maxTotalStaked,\n        address _penaltyPoolContract\n    ) internal onlyInitializing {\n        require(_owner != address(0), \"StakingStorage: zero owner\");\n        require(_minStakeAmount > 0, \"Invalid min stake amount\");\n        require(_rewardRate > 0 && _rewardRate <= 10000, \"Invalid reward rate\");\n        require(_penaltyPoolContract != address(0), \"StakingStorage: zero penalty pool\");\n        \n        __Ownable_init(_owner);\n        \n        minStakeAmount = _minStakeAmount;\n        rewardRate = _rewardRate;\n        nextPositionId = 1;\n        maxTotalStaked = _maxTotalStaked;\n        penaltyPoolContract = _penaltyPoolContract;\n\n        stakeStartTime = type(uint256).max;\n        stakeEndTime = type(uint256).max;\n        onlyWhitelistCanStake = _whitelistMode;\n    }\n}\n"
+    },
+    {
+      "file_path": "contracts/interfaces/IPenaltyPool.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.27;\n\n/**\n * @title IPenaltyPool\n * @dev Interface for the penalty pool contract\n */\ninterface IPenaltyPool {\n    event PenaltyDeposited(address indexed depositor, uint256 amount, uint256 timestamp);\n    event PenaltyWithdrawn(address indexed to, uint256 amount, uint256 timestamp);\n    event AuthorizedDepositorUpdated(address indexed oldDepositor, address indexed newDepositor);\n    \n    function deposit() external payable;\n    function withdraw(address payable to, uint256 amount) external;\n}\n"
+    },
+    {
+      "file_path": "contracts/interfaces/IStake.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.27;\n\ninterface IStaking {\n    struct Position {\n        uint256 positionId;      // Position ID\n        address owner;           // Position owner\n        uint256 amount;          // Staked amount\n        uint256 stakedAt;        // Timestamp when staked\n        uint256 lastRewardAt;    // Last reward claim timestamp\n        bool isUnstaked;         // Whether position is unstaked\n        bool isCompletedStake;   // Whether position completed full staking period (via unstake)\n    }\n\n    function stake() external payable returns (uint256 positionId);\n\n    function unstake(uint256 positionId) external;\n\n    function claimReward(uint256 positionId) external returns (uint256 reward);\n\n    function pendingReward(uint256 positionId) external view returns (uint256 reward);\n\n    function getUserPositionIds(address user) external view returns (uint256[] memory);\n\n    function calculatePotentialReward(uint256 amount) external view returns (uint256);\n\n    function requestEarlyUnstake(uint256 positionId) external;\n\n    function completeEarlyUnstake(uint256 positionId) external;\n\n    event PositionCreated(\n        address indexed user,\n        uint256 indexed positionId,\n        uint256 amount,\n        uint256 lockPeriod,\n        uint256 timestamp\n    );\n\n    event PositionUnstaked(\n        address indexed user,\n        uint256 indexed positionId,\n        uint256 amount,\n        uint256 timestamp\n    );\n\n    event RewardClaimed(\n        address indexed user,\n        uint256 indexed positionId,\n        uint256 amount,\n        uint256 timestamp\n    );\n\n    event StakingPaused(address indexed operator, uint256 timestamp);\n\n    event StakingUnpaused(address indexed operator, uint256 timestamp);\n\n    event EmergencyWithdrawn(\n        address indexed user,\n        uint256 indexed positionId,\n        uint256 amount,\n        uint256 timestamp\n    );\n\n    event EarlyUnstakeRequested(\n        address indexed user,\n        uint256 indexed positionId,\n        uint256 timestamp\n    );\n\n    event EarlyUnstakeCompleted(\n        address indexed user,\n        uint256 indexed positionId,\n        uint256 principal,\n        uint256 reward,\n        uint256 penalty,\n        uint256 timestamp\n    );\n}"
+    },
+    {
+      "file_path": "node_modules/@openzeppelin/contracts-upgradeable/access/Ownable2StepUpgradeable.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.1.0) (access/Ownable2Step.sol)\n\npragma solidity ^0.8.20;\n\nimport {OwnableUpgradeable} from \"./OwnableUpgradeable.sol\";\nimport {Initializable} from \"../proxy/utils/Initializable.sol\";\n\n/**\n * @dev Contract module which provides access control mechanism, where\n * there is an account (an owner) that can be granted exclusive access to\n * specific functions.\n *\n * This extension of the {Ownable} contract includes a two-step mechanism to transfer\n * ownership, where the new owner must call {acceptOwnership} in order to replace the\n * old one. This can help prevent common mistakes, such as transfers of ownership to\n * incorrect accounts, or to contracts that are unable to interact with the\n * permission system.\n *\n * The initial owner is specified at deployment time in the constructor for `Ownable`. This\n * can later be changed with {transferOwnership} and {acceptOwnership}.\n *\n * This module is used through inheritance. It will make available all functions\n * from parent (Ownable).\n */\nabstract contract Ownable2StepUpgradeable is Initializable, OwnableUpgradeable {\n    /// @custom:storage-location erc7201:openzeppelin.storage.Ownable2Step\n    struct Ownable2StepStorage {\n        address _pendingOwner;\n    }\n\n    // keccak256(abi.encode(uint256(keccak256(\"openzeppelin.storage.Ownable2Step\")) - 1)) & ~bytes32(uint256(0xff))\n    bytes32 private constant Ownable2StepStorageLocation = 0x237e158222e3e6968b72b9db0d8043aacf074ad9f650f0d1606b4d82ee432c00;\n\n    function _getOwnable2StepStorage() private pure returns (Ownable2StepStorage storage $) {\n        assembly {\n            $.slot := Ownable2StepStorageLocation\n        }\n    }\n\n    event OwnershipTransferStarted(address indexed previousOwner, address indexed newOwner);\n\n    function __Ownable2Step_init() internal onlyInitializing {\n    }\n\n    function __Ownable2Step_init_unchained() internal onlyInitializing {\n    }\n    /**\n     * @dev Returns the address of the pending owner.\n     */\n    function pendingOwner() public view virtual returns (address) {\n        Ownable2StepStorage storage $ = _getOwnable2StepStorage();\n        return $._pendingOwner;\n    }\n\n    /**\n     * @dev Starts the ownership transfer of the contract to a new account. Replaces the pending transfer if there is one.\n     * Can only be called by the current owner.\n     *\n     * Setting `newOwner` to the zero address is allowed; this can be used to cancel an initiated ownership transfer.\n     */\n    function transferOwnership(address newOwner) public virtual override onlyOwner {\n        Ownable2StepStorage storage $ = _getOwnable2StepStorage();\n        $._pendingOwner = newOwner;\n        emit OwnershipTransferStarted(owner(), newOwner);\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`) and deletes any pending owner.\n     * Internal function without access restriction.\n     */\n    function _transferOwnership(address newOwner) internal virtual override {\n        Ownable2StepStorage storage $ = _getOwnable2StepStorage();\n        delete $._pendingOwner;\n        super._transferOwnership(newOwner);\n    }\n\n    /**\n     * @dev The new owner accepts the ownership transfer.\n     */\n    function acceptOwnership() public virtual {\n        address sender = _msgSender();\n        if (pendingOwner() != sender) {\n            revert OwnableUnauthorizedAccount(sender);\n        }\n        _transferOwnership(sender);\n    }\n}\n"
+    },
+    {
+      "file_path": "node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\n\npragma solidity ^0.8.20;\n\nimport {ContextUpgradeable} from \"../utils/ContextUpgradeable.sol\";\nimport {Initializable} from \"../proxy/utils/Initializable.sol\";\n\n/**\n * @dev Contract module which provides a basic access control mechanism, where\n * there is an account (an owner) that can be granted exclusive access to\n * specific functions.\n *\n * The initial owner is set to the address provided by the deployer. This can\n * later be changed with {transferOwnership}.\n *\n * This module is used through inheritance. It will make available the modifier\n * `onlyOwner`, which can be applied to your functions to restrict their use to\n * the owner.\n */\nabstract contract OwnableUpgradeable is Initializable, ContextUpgradeable {\n    /// @custom:storage-location erc7201:openzeppelin.storage.Ownable\n    struct OwnableStorage {\n        address _owner;\n    }\n\n    // keccak256(abi.encode(uint256(keccak256(\"openzeppelin.storage.Ownable\")) - 1)) & ~bytes32(uint256(0xff))\n    bytes32 private constant OwnableStorageLocation = 0x9016d09d72d40fdae2fd8ceac6b6234c7706214fd39c1cd1e609a0528c199300;\n\n    function _getOwnableStorage() private pure returns (OwnableStorage storage $) {\n        assembly {\n            $.slot := OwnableStorageLocation\n        }\n    }\n\n    /**\n     * @dev The caller account is not authorized to perform an operation.\n     */\n    error OwnableUnauthorizedAccount(address account);\n\n    /**\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\n     */\n    error OwnableInvalidOwner(address owner);\n\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n    /**\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\n     */\n    function __Ownable_init(address initialOwner) internal onlyInitializing {\n        __Ownable_init_unchained(initialOwner);\n    }\n\n    function __Ownable_init_unchained(address initialOwner) internal onlyInitializing {\n        if (initialOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(initialOwner);\n    }\n\n    /**\n     * @dev Throws if called by any account other than the owner.\n     */\n    modifier onlyOwner() {\n        _checkOwner();\n        _;\n    }\n\n    /**\n     * @dev Returns the address of the current owner.\n     */\n    function owner() public view virtual returns (address) {\n        OwnableStorage storage $ = _getOwnableStorage();\n        return $._owner;\n    }\n\n    /**\n     * @dev Throws if the sender is not the owner.\n     */\n    function _checkOwner() internal view virtual {\n        if (owner() != _msgSender()) {\n            revert OwnableUnauthorizedAccount(_msgSender());\n        }\n    }\n\n    /**\n     * @dev Leaves the contract without owner. It will not be possible to call\n     * `onlyOwner` functions. Can only be called by the current owner.\n     *\n     * NOTE: Renouncing ownership will leave the contract without an owner,\n     * thereby disabling any functionality that is only available to the owner.\n     */\n    function renounceOwnership() public virtual onlyOwner {\n        _transferOwnership(address(0));\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Can only be called by the current owner.\n     */\n    function transferOwnership(address newOwner) public virtual onlyOwner {\n        if (newOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(newOwner);\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Internal function without access restriction.\n     */\n    function _transferOwnership(address newOwner) internal virtual {\n        OwnableStorage storage $ = _getOwnableStorage();\n        address oldOwner = $._owner;\n        $._owner = newOwner;\n        emit OwnershipTransferred(oldOwner, newOwner);\n    }\n}\n"
+    },
+    {
+      "file_path": "node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.3.0) (proxy/utils/Initializable.sol)\n\npragma solidity ^0.8.20;\n\n/**\n * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed\n * behind a proxy. Since proxied contracts do not make use of a constructor, it's common to move constructor logic to an\n * external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer\n * function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.\n *\n * The initialization functions use a version number. Once a version number is used, it is consumed and cannot be\n * reused. This mechanism prevents re-execution of each \"step\" but allows the creation of new initialization steps in\n * case an upgrade adds a module that needs to be initialized.\n *\n * For example:\n *\n * [.hljs-theme-light.nopadding]\n * ```solidity\n * contract MyToken is ERC20Upgradeable {\n *     function initialize() initializer public {\n *         __ERC20_init(\"MyToken\", \"MTK\");\n *     }\n * }\n *\n * contract MyTokenV2 is MyToken, ERC20PermitUpgradeable {\n *     function initializeV2() reinitializer(2) public {\n *         __ERC20Permit_init(\"MyToken\");\n *     }\n * }\n * ```\n *\n * TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as\n * possible by providing the encoded function call as the `_data` argument to {ERC1967Proxy-constructor}.\n *\n * CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure\n * that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.\n *\n * [CAUTION]\n * ====\n * Avoid leaving a contract uninitialized.\n *\n * An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation\n * contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke\n * the {_disableInitializers} function in the constructor to automatically lock it when it is deployed:\n *\n * [.hljs-theme-light.nopadding]\n * ```\n * /// @custom:oz-upgrades-unsafe-allow constructor\n * constructor() {\n *     _disableInitializers();\n * }\n * ```\n * ====\n */\nabstract contract Initializable {\n    /**\n     * @dev Storage of the initializable contract.\n     *\n     * It's implemented on a custom ERC-7201 namespace to reduce the risk of storage collisions\n     * when using with upgradeable contracts.\n     *\n     * @custom:storage-location erc7201:openzeppelin.storage.Initializable\n     */\n    struct InitializableStorage {\n        /**\n         * @dev Indicates that the contract has been initialized.\n         */\n        uint64 _initialized;\n        /**\n         * @dev Indicates that the contract is in the process of being initialized.\n         */\n        bool _initializing;\n    }\n\n    // keccak256(abi.encode(uint256(keccak256(\"openzeppelin.storage.Initializable\")) - 1)) & ~bytes32(uint256(0xff))\n    bytes32 private constant INITIALIZABLE_STORAGE = 0xf0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00;\n\n    /**\n     * @dev The contract is already initialized.\n     */\n    error InvalidInitialization();\n\n    /**\n     * @dev The contract is not initializing.\n     */\n    error NotInitializing();\n\n    /**\n     * @dev Triggered when the contract has been initialized or reinitialized.\n     */\n    event Initialized(uint64 version);\n\n    /**\n     * @dev A modifier that defines a protected initializer function that can be invoked at most once. In its scope,\n     * `onlyInitializing` functions can be used to initialize parent contracts.\n     *\n     * Similar to `reinitializer(1)`, except that in the context of a constructor an `initializer` may be invoked any\n     * number of times. This behavior in the constructor can be useful during testing and is not expected to be used in\n     * production.\n     *\n     * Emits an {Initialized} event.\n     */\n    modifier initializer() {\n        // solhint-disable-next-line var-name-mixedcase\n        InitializableStorage storage $ = _getInitializableStorage();\n\n        // Cache values to avoid duplicated sloads\n        bool isTopLevelCall = !$._initializing;\n        uint64 initialized = $._initialized;\n\n        // Allowed calls:\n        // - initialSetup: the contract is not in the initializing state and no previous version was\n        //                 initialized\n        // - construction: the contract is initialized at version 1 (no reinitialization) and the\n        //                 current contract is just being deployed\n        bool initialSetup = initialized == 0 && isTopLevelCall;\n        bool construction = initialized == 1 && address(this).code.length == 0;\n\n        if (!initialSetup && !construction) {\n            revert InvalidInitialization();\n        }\n        $._initialized = 1;\n        if (isTopLevelCall) {\n            $._initializing = true;\n        }\n        _;\n        if (isTopLevelCall) {\n            $._initializing = false;\n            emit Initialized(1);\n        }\n    }\n\n    /**\n     * @dev A modifier that defines a protected reinitializer function that can be invoked at most once, and only if the\n     * contract hasn't been initialized to a greater version before. In its scope, `onlyInitializing` functions can be\n     * used to initialize parent contracts.\n     *\n     * A reinitializer may be used after the original initialization step. This is essential to configure modules that\n     * are added through upgrades and that require initialization.\n     *\n     * When `version` is 1, this modifier is similar to `initializer`, except that functions marked with `reinitializer`\n     * cannot be nested. If one is invoked in the context of another, execution will revert.\n     *\n     * Note that versions can jump in increments greater than 1; this implies that if multiple reinitializers coexist in\n     * a contract, executing them in the right order is up to the developer or operator.\n     *\n     * WARNING: Setting the version to 2**64 - 1 will prevent any future reinitialization.\n     *\n     * Emits an {Initialized} event.\n     */\n    modifier reinitializer(uint64 version) {\n        // solhint-disable-next-line var-name-mixedcase\n        InitializableStorage storage $ = _getInitializableStorage();\n\n        if ($._initializing || $._initialized >= version) {\n            revert InvalidInitialization();\n        }\n        $._initialized = version;\n        $._initializing = true;\n        _;\n        $._initializing = false;\n        emit Initialized(version);\n    }\n\n    /**\n     * @dev Modifier to protect an initialization function so that it can only be invoked by functions with the\n     * {initializer} and {reinitializer} modifiers, directly or indirectly.\n     */\n    modifier onlyInitializing() {\n        _checkInitializing();\n        _;\n    }\n\n    /**\n     * @dev Reverts if the contract is not in an initializing state. See {onlyInitializing}.\n     */\n    function _checkInitializing() internal view virtual {\n        if (!_isInitializing()) {\n            revert NotInitializing();\n        }\n    }\n\n    /**\n     * @dev Locks the contract, preventing any future reinitialization. This cannot be part of an initializer call.\n     * Calling this in the constructor of a contract will prevent that contract from being initialized or reinitialized\n     * to any version. It is recommended to use this to lock implementation contracts that are designed to be called\n     * through proxies.\n     *\n     * Emits an {Initialized} event the first time it is successfully executed.\n     */\n    function _disableInitializers() internal virtual {\n        // solhint-disable-next-line var-name-mixedcase\n        InitializableStorage storage $ = _getInitializableStorage();\n\n        if ($._initializing) {\n            revert InvalidInitialization();\n        }\n        if ($._initialized != type(uint64).max) {\n            $._initialized = type(uint64).max;\n            emit Initialized(type(uint64).max);\n        }\n    }\n\n    /**\n     * @dev Returns the highest version that has been initialized. See {reinitializer}.\n     */\n    function _getInitializedVersion() internal view returns (uint64) {\n        return _getInitializableStorage()._initialized;\n    }\n\n    /**\n     * @dev Returns `true` if the contract is currently initializing. See {onlyInitializing}.\n     */\n    function _isInitializing() internal view returns (bool) {\n        return _getInitializableStorage()._initializing;\n    }\n\n    /**\n     * @dev Pointer to storage slot. Allows integrators to override it with a custom storage location.\n     *\n     * NOTE: Consider following the ERC-7201 formula to derive storage locations.\n     */\n    function _initializableStorageSlot() internal pure virtual returns (bytes32) {\n        return INITIALIZABLE_STORAGE;\n    }\n\n    /**\n     * @dev Returns a pointer to the storage namespace.\n     */\n    // solhint-disable-next-line var-name-mixedcase\n    function _getInitializableStorage() private pure returns (InitializableStorage storage $) {\n        bytes32 slot = _initializableStorageSlot();\n        assembly {\n            $.slot := slot\n        }\n    }\n}\n"
+    },
+    {
+      "file_path": "node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\n\npragma solidity ^0.8.20;\nimport {Initializable} from \"../proxy/utils/Initializable.sol\";\n\n/**\n * @dev Provides information about the current execution context, including the\n * sender of the transaction and its data. While these are generally available\n * via msg.sender and msg.data, they should not be accessed in such a direct\n * manner, since when dealing with meta-transactions the account sending and\n * paying for execution may not be the actual sender (as far as an application\n * is concerned).\n *\n * This contract is only required for intermediate, library-like contracts.\n */\nabstract contract ContextUpgradeable is Initializable {\n    function __Context_init() internal onlyInitializing {\n    }\n\n    function __Context_init_unchained() internal onlyInitializing {\n    }\n    function _msgSender() internal view virtual returns (address) {\n        return msg.sender;\n    }\n\n    function _msgData() internal view virtual returns (bytes calldata) {\n        return msg.data;\n    }\n\n    function _contextSuffixLength() internal view virtual returns (uint256) {\n        return 0;\n    }\n}\n"
+    },
+    {
+      "file_path": "node_modules/@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.3.0) (utils/Pausable.sol)\n\npragma solidity ^0.8.20;\n\nimport {ContextUpgradeable} from \"../utils/ContextUpgradeable.sol\";\nimport {Initializable} from \"../proxy/utils/Initializable.sol\";\n\n/**\n * @dev Contract module which allows children to implement an emergency stop\n * mechanism that can be triggered by an authorized account.\n *\n * This module is used through inheritance. It will make available the\n * modifiers `whenNotPaused` and `whenPaused`, which can be applied to\n * the functions of your contract. Note that they will not be pausable by\n * simply including this module, only once the modifiers are put in place.\n */\nabstract contract PausableUpgradeable is Initializable, ContextUpgradeable {\n    /// @custom:storage-location erc7201:openzeppelin.storage.Pausable\n    struct PausableStorage {\n        bool _paused;\n    }\n\n    // keccak256(abi.encode(uint256(keccak256(\"openzeppelin.storage.Pausable\")) - 1)) & ~bytes32(uint256(0xff))\n    bytes32 private constant PausableStorageLocation = 0xcd5ed15c6e187e77e9aee88184c21f4f2182ab5827cb3b7e07fbedcd63f03300;\n\n    function _getPausableStorage() private pure returns (PausableStorage storage $) {\n        assembly {\n            $.slot := PausableStorageLocation\n        }\n    }\n\n    /**\n     * @dev Emitted when the pause is triggered by `account`.\n     */\n    event Paused(address account);\n\n    /**\n     * @dev Emitted when the pause is lifted by `account`.\n     */\n    event Unpaused(address account);\n\n    /**\n     * @dev The operation failed because the contract is paused.\n     */\n    error EnforcedPause();\n\n    /**\n     * @dev The operation failed because the contract is not paused.\n     */\n    error ExpectedPause();\n\n    /**\n     * @dev Modifier to make a function callable only when the contract is not paused.\n     *\n     * Requirements:\n     *\n     * - The contract must not be paused.\n     */\n    modifier whenNotPaused() {\n        _requireNotPaused();\n        _;\n    }\n\n    /**\n     * @dev Modifier to make a function callable only when the contract is paused.\n     *\n     * Requirements:\n     *\n     * - The contract must be paused.\n     */\n    modifier whenPaused() {\n        _requirePaused();\n        _;\n    }\n\n    function __Pausable_init() internal onlyInitializing {\n    }\n\n    function __Pausable_init_unchained() internal onlyInitializing {\n    }\n    /**\n     * @dev Returns true if the contract is paused, and false otherwise.\n     */\n    function paused() public view virtual returns (bool) {\n        PausableStorage storage $ = _getPausableStorage();\n        return $._paused;\n    }\n\n    /**\n     * @dev Throws if the contract is paused.\n     */\n    function _requireNotPaused() internal view virtual {\n        if (paused()) {\n            revert EnforcedPause();\n        }\n    }\n\n    /**\n     * @dev Throws if the contract is not paused.\n     */\n    function _requirePaused() internal view virtual {\n        if (!paused()) {\n            revert ExpectedPause();\n        }\n    }\n\n    /**\n     * @dev Triggers stopped state.\n     *\n     * Requirements:\n     *\n     * - The contract must not be paused.\n     */\n    function _pause() internal virtual whenNotPaused {\n        PausableStorage storage $ = _getPausableStorage();\n        $._paused = true;\n        emit Paused(_msgSender());\n    }\n\n    /**\n     * @dev Returns to normal state.\n     *\n     * Requirements:\n     *\n     * - The contract must be paused.\n     */\n    function _unpause() internal virtual whenPaused {\n        PausableStorage storage $ = _getPausableStorage();\n        $._paused = false;\n        emit Unpaused(_msgSender());\n    }\n}\n"
+    },
+    {
+      "file_path": "node_modules/@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.1.0) (utils/ReentrancyGuard.sol)\n\npragma solidity ^0.8.20;\nimport {Initializable} from \"../proxy/utils/Initializable.sol\";\n\n/**\n * @dev Contract module that helps prevent reentrant calls to a function.\n *\n * Inheriting from `ReentrancyGuard` will make the {nonReentrant} modifier\n * available, which can be applied to functions to make sure there are no nested\n * (reentrant) calls to them.\n *\n * Note that because there is a single `nonReentrant` guard, functions marked as\n * `nonReentrant` may not call one another. This can be worked around by making\n * those functions `private`, and then adding `external` `nonReentrant` entry\n * points to them.\n *\n * TIP: If EIP-1153 (transient storage) is available on the chain you're deploying at,\n * consider using {ReentrancyGuardTransient} instead.\n *\n * TIP: If you would like to learn more about reentrancy and alternative ways\n * to protect against it, check out our blog post\n * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].\n */\nabstract contract ReentrancyGuardUpgradeable is Initializable {\n    // Booleans are more expensive than uint256 or any type that takes up a full\n    // word because each write operation emits an extra SLOAD to first read the\n    // slot's contents, replace the bits taken up by the boolean, and then write\n    // back. This is the compiler's defense against contract upgrades and\n    // pointer aliasing, and it cannot be disabled.\n\n    // The values being non-zero value makes deployment a bit more expensive,\n    // but in exchange the refund on every call to nonReentrant will be lower in\n    // amount. Since refunds are capped to a percentage of the total\n    // transaction's gas, it is best to keep them low in cases like this one, to\n    // increase the likelihood of the full refund coming into effect.\n    uint256 private constant NOT_ENTERED = 1;\n    uint256 private constant ENTERED = 2;\n\n    /// @custom:storage-location erc7201:openzeppelin.storage.ReentrancyGuard\n    struct ReentrancyGuardStorage {\n        uint256 _status;\n    }\n\n    // keccak256(abi.encode(uint256(keccak256(\"openzeppelin.storage.ReentrancyGuard\")) - 1)) & ~bytes32(uint256(0xff))\n    bytes32 private constant ReentrancyGuardStorageLocation = 0x9b779b17422d0df92223018b32b4d1fa46e071723d6817e2486d003becc55f00;\n\n    function _getReentrancyGuardStorage() private pure returns (ReentrancyGuardStorage storage $) {\n        assembly {\n            $.slot := ReentrancyGuardStorageLocation\n        }\n    }\n\n    /**\n     * @dev Unauthorized reentrant call.\n     */\n    error ReentrancyGuardReentrantCall();\n\n    function __ReentrancyGuard_init() internal onlyInitializing {\n        __ReentrancyGuard_init_unchained();\n    }\n\n    function __ReentrancyGuard_init_unchained() internal onlyInitializing {\n        ReentrancyGuardStorage storage $ = _getReentrancyGuardStorage();\n        $._status = NOT_ENTERED;\n    }\n\n    /**\n     * @dev Prevents a contract from calling itself, directly or indirectly.\n     * Calling a `nonReentrant` function from another `nonReentrant`\n     * function is not supported. It is possible to prevent this from happening\n     * by making the `nonReentrant` function external, and making it call a\n     * `private` function that does the actual work.\n     */\n    modifier nonReentrant() {\n        _nonReentrantBefore();\n        _;\n        _nonReentrantAfter();\n    }\n\n    function _nonReentrantBefore() private {\n        ReentrancyGuardStorage storage $ = _getReentrancyGuardStorage();\n        // On the first call to nonReentrant, _status will be NOT_ENTERED\n        if ($._status == ENTERED) {\n            revert ReentrancyGuardReentrantCall();\n        }\n\n        // Any calls to nonReentrant after this point will fail\n        $._status = ENTERED;\n    }\n\n    function _nonReentrantAfter() private {\n        ReentrancyGuardStorage storage $ = _getReentrancyGuardStorage();\n        // By storing the original value once again, a refund is triggered (see\n        // https://eips.ethereum.org/EIPS/eip-2200)\n        $._status = NOT_ENTERED;\n    }\n\n    /**\n     * @dev Returns true if the reentrancy guard is currently set to \"entered\", which indicates there is a\n     * `nonReentrant` function in the call stack.\n     */\n    function _reentrancyGuardEntered() internal view returns (bool) {\n        ReentrancyGuardStorage storage $ = _getReentrancyGuardStorage();\n        return $._status == ENTERED;\n    }\n}\n"
+    }
+  ],
+  "certified": false,
+  "conflicting_implementations": null,
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "AlreadyUnstaked",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "EnforcedPause",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ExpectedPause",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidInitialization",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NoReward",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotInitializing",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotWhitelisted",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "PositionNotFound",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ReentrancyGuardReentrantCall",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "StillLocked",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "principal",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "reward",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "penalty",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "EarlyUnstakeCompleted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "EarlyUnstakeRequested",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "EmergencyModeEnabled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "EmergencyWithdrawn",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "version",
+          "type": "uint64"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "oldAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "MaxTotalStakedUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "oldAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "MinStakeAmountUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferStarted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "penaltyAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "PenaltyDeposited",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "oldContract",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newContract",
+          "type": "address"
+        }
+      ],
+      "name": "PenaltyPoolContractUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "lockPeriod",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "PositionCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "PositionUnstaked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Received",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardClaimed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newBalance",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardPoolUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "oldRate",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newRate",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardRateUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "oldEndTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newEndTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "StakeEndTimeUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "oldStartTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newStartTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "StakeStartTimeUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "StakingPaused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "StakingUnpaused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "oldMode",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "newMode",
+          "type": "bool"
+        }
+      ],
+      "name": "WhitelistModeChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "status",
+          "type": "bool"
+        }
+      ],
+      "name": "WhitelistStatusChanged",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "BASIS_POINTS",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "EARLY_UNLOCK_PERIOD",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "EARLY_UNSTAKE_REWARD_RETAIN_RATE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "HSK_DECIMALS",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "LOCK_PERIOD",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PRECISION",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "SECONDS_PER_YEAR",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "acceptOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "calculatePotentialReward",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "claimReward",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "claimedRewards",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "completeEarlyUnstake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "earlyUnstakeRequestTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "emergencyMode",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "emergencyWithdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "enableEmergencyMode",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getUserPositionIds",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_minStakeAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_rewardRate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_stakeStartTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_stakeEndTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "_whitelistMode",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_maxTotalStaked",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_penaltyPoolContract",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "maxTotalStaked",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "minStakeAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nextPositionId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "onlyWhitelistCanStake",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "penaltyPoolContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pendingOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "pendingReward",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "positions",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "stakedAt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "lastRewardAt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isUnstaked",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isCompletedStake",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "requestEarlyUnstake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardPoolBalance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rewardRate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMaxTotalStaked",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMinStakeAmount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newContract",
+          "type": "address"
+        }
+      ],
+      "name": "setPenaltyPoolContract",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newRewardRate",
+          "type": "uint256"
+        }
+      ],
+      "name": "setRewardRate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newEndTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "setStakeEndTime",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newStartTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "setStakeStartTime",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "enabled",
+          "type": "bool"
+        }
+      ],
+      "name": "setWhitelistOnlyMode",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stake",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stakeEndTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stakeStartTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalPendingRewards",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalStaked",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unpause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "positionId",
+          "type": "uint256"
+        }
+      ],
+      "name": "unstake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "updateRewardPool",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "users",
+          "type": "address[]"
+        },
+        {
+          "internalType": "bool",
+          "name": "status",
+          "type": "bool"
+        }
+      ],
+      "name": "updateWhitelistBatch",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userPositions",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "whitelisted",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdrawExcessRewardPool",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "is_changed_bytecode": false,
+  "is_partially_verified": true,
+  "constructor_args": null
+}

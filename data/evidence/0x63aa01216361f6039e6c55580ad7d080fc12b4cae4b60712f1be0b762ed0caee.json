@@ -1,0 +1,385 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": null,
+    "raw_input": "0x0efe6a8b00000000000000000000000038907cc4e615d3c7bdcbc9910c050260bbc836e50000000000000000000000000000000000000000000000000000000002faf080000000000000000000000000000000000000000000000000000000003b9aca00",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x63aa01216361f6039e6c55580ad7d080fc12b4cae4b60712f1be0b762ed0caee",
+    "max_fee_per_gas": null,
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": null,
+    "type": 0,
+    "token_transfers_overflow": false,
+    "confirmations": 5999215,
+    "position": 1,
+    "max_priority_fee_per_gas": null,
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0xce220d9eD9527f9997c8045844210637F3A42fb3",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "134705",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x65A3Ae0e4787856CfcDdE505015c5CC3d5560212",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "IssuerBond",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "6456603672814",
+    "method": "deposit",
+    "fee": {
+      "type": "actual",
+      "value": "7803653672814"
+    },
+    "gas_limit": "140194",
+    "gas_price": "10000000",
+    "decoded_input": {
+      "method_call": "deposit(address tokenAddress, uint256 usdtAmount, uint256 marketCap)",
+      "method_id": "0efe6a8b",
+      "parameters": [
+        {
+          "name": "tokenAddress",
+          "type": "address",
+          "value": "0x38907cC4E615D3C7BDCBC9910C050260bBC836E5"
+        },
+        {
+          "name": "usdtAmount",
+          "type": "uint256",
+          "value": "50000000"
+        },
+        {
+          "name": "marketCap",
+          "type": "uint256",
+          "value": "1000000000"
+        }
+      ]
+    },
+    "l1_gas_price": "115184230",
+    "fhe_operations_count": 0,
+    "token_transfers": [
+      {
+        "block_hash": "0x4a5ca4bf5e0e4c33de6de7aa6e24eb0e3961e844a08cea54ca497ec2b80bdafa",
+        "block_number": 22004687,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0xce220d9eD9527f9997c8045844210637F3A42fb3",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 0,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0x65A3Ae0e4787856CfcDdE505015c5CC3d5560212",
+          "implementations": [],
+          "is_contract": true,
+          "is_scam": false,
+          "is_verified": true,
+          "metadata": null,
+          "name": "IssuerBond",
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0x38907cC4E615D3C7BDCBC9910C050260bBC836E5",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "6",
+          "exchange_rate": null,
+          "holders_count": "4",
+          "icon_url": null,
+          "name": "CoverFi Stablecoin",
+          "reputation": "ok",
+          "symbol": "cfUSD",
+          "total_supply": "46000000000",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "6",
+          "value": "50000000"
+        },
+        "transaction_hash": "0x63aa01216361f6039e6c55580ad7d080fc12b4cae4b60712f1be0b762ed0caee",
+        "type": "token_transfer"
+      }
+    ],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-05-09T19:55:09.000000Z",
+    "nonce": 55,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call",
+      "token_transfer"
+    ],
+    "exchange_rate": null,
+    "block_number": 22004687,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x38907cC4E615D3C7BDCBC9910C050260bBC836E5",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "CoverFiStablecoin",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x4a5ca4bf5e0e4c33de6de7aa6e24eb0e3961e844a08cea54ca497ec2b80bdafa",
+      "block_number": 22004687,
+      "block_timestamp": "2026-05-09T19:55:09.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000000000002faf080",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0xce220d9eD9527f9997c8045844210637F3A42fb3"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0x65A3Ae0e4787856CfcDdE505015c5CC3d5560212"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "50000000"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x000000000000000000000000ce220d9ed9527f9997c8045844210637f3a42fb3",
+        "0x00000000000000000000000065a3ae0e4787856cfcdde505015c5cc3d5560212",
+        null
+      ],
+      "transaction_hash": "0x63aa01216361f6039e6c55580ad7d080fc12b4cae4b60712f1be0b762ed0caee"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x65A3Ae0e4787856CfcDdE505015c5CC3d5560212",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "IssuerBond",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x4a5ca4bf5e0e4c33de6de7aa6e24eb0e3961e844a08cea54ca497ec2b80bdafa",
+      "block_number": 22004687,
+      "block_timestamp": "2026-05-09T19:55:09.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000000000002faf080000000000000000000000000000000000000000000000000000000003b9aca00",
+      "decoded": {
+        "method_call": "BondDeposited(address indexed tokenAddress, uint256 amount, uint256 marketCap)",
+        "method_id": "53709ba3",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "tokenAddress",
+            "type": "address",
+            "value": "0x38907cC4E615D3C7BDCBC9910C050260bBC836E5"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "50000000"
+          },
+          {
+            "indexed": false,
+            "name": "marketCap",
+            "type": "uint256",
+            "value": "1000000000"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0x53709ba3cdfc6888ee4e1f05692566dfc3446e917fd4402db50e328307e6b393",
+        "0x00000000000000000000000038907cc4e615d3c7bdcbc9910c050260bbc836e5",
+        null,
+        null
+      ],
+      "transaction_hash": "0x63aa01216361f6039e6c55580ad7d080fc12b4cae4b60712f1be0b762ed0caee"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 22004687,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x65A3Ae0e4787856CfcDdE505015c5CC3d5560212",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "IssuerBond",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "104087",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-05-09T19:55:09.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x38907cC4E615D3C7BDCBC9910C050260bBC836E5",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "CoverFiStablecoin",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x63aa01216361f6039e6c55580ad7d080fc12b4cae4b60712f1be0b762ed0caee",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [
+    {
+      "block_hash": "0x4a5ca4bf5e0e4c33de6de7aa6e24eb0e3961e844a08cea54ca497ec2b80bdafa",
+      "block_number": 22004687,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xce220d9eD9527f9997c8045844210637F3A42fb3",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 0,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x65A3Ae0e4787856CfcDdE505015c5CC3d5560212",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "IssuerBond",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0x38907cC4E615D3C7BDCBC9910C050260bBC836E5",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "6",
+        "exchange_rate": null,
+        "holders_count": "4",
+        "icon_url": null,
+        "name": "CoverFi Stablecoin",
+        "reputation": "ok",
+        "symbol": "cfUSD",
+        "total_supply": "46000000000",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "6",
+        "value": "50000000"
+      },
+      "transaction_hash": "0x63aa01216361f6039e6c55580ad7d080fc12b4cae4b60712f1be0b762ed0caee",
+      "type": "token_transfer"
+    }
+  ],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x63aa01216361f6039e6c55580ad7d080fc12b4cae4b60712f1be0b762ed0caee",
+  "contract_address": "0x65A3Ae0e4787856CfcDdE505015c5CC3d5560212",
+  "contract_name": "IssuerBond",
+  "contract_verified": true,
+  "implementations": []
+}

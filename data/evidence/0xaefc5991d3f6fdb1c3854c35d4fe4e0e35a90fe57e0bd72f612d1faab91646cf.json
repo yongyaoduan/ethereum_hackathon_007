@@ -1,0 +1,419 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "277449",
+    "raw_input": "0x584ba2f100000000000000000000000003dac9899f5153fbd9c5eefef8e8b46d7f3426ca",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0xaefc5991d3f6fdb1c3854c35d4fe4e0e35a90fe57e0bd72f612d1faab91646cf",
+    "max_fee_per_gas": "505",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "69917148",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 3471635,
+    "position": 1,
+    "max_priority_fee_per_gas": "1",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x03dAC9899f5153fBd9c5EeFEf8E8B46D7f3426CA",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "277449",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x7FE22d41d5E3775bD8B3b5c445dEe6d41a456d50",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "TegataFactory",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "5123868849373",
+    "method": "registerMerchant",
+    "fee": {
+      "type": "actual",
+      "value": "5123939043970"
+    },
+    "gas_limit": "405769",
+    "gas_price": "253",
+    "decoded_input": {
+      "method_call": "registerMerchant(address payoutAddress)",
+      "method_id": "584ba2f1",
+      "parameters": [
+        {
+          "name": "payoutAddress",
+          "type": "address",
+          "value": "0x03dAC9899f5153fBd9c5EeFEf8E8B46D7f3426CA"
+        }
+      ]
+    },
+    "l1_gas_price": "88901472",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-07-07T08:10:05.000000Z",
+    "nonce": 7,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 24532335,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xA1Ddd81bC073BE10c71907ae27ce042c9E7427aD",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x61ca1c96c9af7325a1cb237e8bedf63176e9aaa695fc29ae752f9dc41e038787",
+      "block_number": 24532335,
+      "block_timestamp": "2026-07-07T08:10:05.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "decoded": {
+        "method_call": "Initialized(uint64 version)",
+        "method_id": "c7f505b2",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "version",
+            "type": "uint64",
+            "value": "1"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0xaefc5991d3f6fdb1c3854c35d4fe4e0e35a90fe57e0bd72f612d1faab91646cf"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x150EDf6D38B8C691889b4381Ac2B908E99695365",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "RevenueRegistry",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x61ca1c96c9af7325a1cb237e8bedf63176e9aaa695fc29ae752f9dc41e038787",
+      "block_number": 24532335,
+      "block_timestamp": "2026-07-07T08:10:05.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "MerchantRegistered(address indexed merchant, address indexed wrapper)",
+        "method_id": "5279479d",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "merchant",
+            "type": "address",
+            "value": "0x03dAC9899f5153fBd9c5EeFEf8E8B46D7f3426CA"
+          },
+          {
+            "indexed": true,
+            "name": "wrapper",
+            "type": "address",
+            "value": "0xA1Ddd81bC073BE10c71907ae27ce042c9E7427aD"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0x5279479dfe30a6e77c7e2920ac5dc774f863f301001473d1164f1e84c1bd0f0a",
+        "0x00000000000000000000000003dac9899f5153fbd9c5eefef8e8b46d7f3426ca",
+        "0x000000000000000000000000a1ddd81bc073be10c71907ae27ce042c9e7427ad",
+        null
+      ],
+      "transaction_hash": "0xaefc5991d3f6fdb1c3854c35d4fe4e0e35a90fe57e0bd72f612d1faab91646cf"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x7FE22d41d5E3775bD8B3b5c445dEe6d41a456d50",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TegataFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x61ca1c96c9af7325a1cb237e8bedf63176e9aaa695fc29ae752f9dc41e038787",
+      "block_number": 24532335,
+      "block_timestamp": "2026-07-07T08:10:05.000000Z",
+      "data": "0x00000000000000000000000003dac9899f5153fbd9c5eefef8e8b46d7f3426ca",
+      "decoded": {
+        "method_call": "MerchantRegistered(address indexed merchant, address indexed wrapper, address payoutAddress)",
+        "method_id": "22a233b4",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "merchant",
+            "type": "address",
+            "value": "0x03dAC9899f5153fBd9c5EeFEf8E8B46D7f3426CA"
+          },
+          {
+            "indexed": true,
+            "name": "wrapper",
+            "type": "address",
+            "value": "0xA1Ddd81bC073BE10c71907ae27ce042c9E7427aD"
+          },
+          {
+            "indexed": false,
+            "name": "payoutAddress",
+            "type": "address",
+            "value": "0x03dAC9899f5153fBd9c5EeFEf8E8B46D7f3426CA"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0x22a233b4d65d3d98c6524ce6fb21adf7d9b17960e710c09d9eb1dda677dccc4b",
+        "0x00000000000000000000000003dac9899f5153fbd9c5eefef8e8b46d7f3426ca",
+        "0x000000000000000000000000a1ddd81bc073be10c71907ae27ce042c9e7427ad",
+        null
+      ],
+      "transaction_hash": "0xaefc5991d3f6fdb1c3854c35d4fe4e0e35a90fe57e0bd72f612d1faab91646cf"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 24532335,
+      "created_contract": {
+        "ens_domain_name": null,
+        "hash": "0xA1Ddd81bC073BE10c71907ae27ce042c9E7427aD",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x7FE22d41d5E3775bD8B3b5c445dEe6d41a456d50",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TegataFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "346359",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-07-07T08:10:05.000000Z",
+      "to": null,
+      "transaction_hash": "0xaefc5991d3f6fdb1c3854c35d4fe4e0e35a90fe57e0bd72f612d1faab91646cf",
+      "transaction_index": 1,
+      "type": "create",
+      "value": "0"
+    },
+    {
+      "block_number": 24532335,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x7FE22d41d5E3775bD8B3b5c445dEe6d41a456d50",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TegataFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "336940",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-07-07T08:10:05.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xA1Ddd81bC073BE10c71907ae27ce042c9E7427aD",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xaefc5991d3f6fdb1c3854c35d4fe4e0e35a90fe57e0bd72f612d1faab91646cf",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 24532335,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xA1Ddd81bC073BE10c71907ae27ce042c9E7427aD",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "329051",
+      "index": 3,
+      "success": true,
+      "timestamp": "2026-07-07T08:10:05.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xF765636f4c57cb66A0C986A5e4917382038F73af",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "SettlementWrapper",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xaefc5991d3f6fdb1c3854c35d4fe4e0e35a90fe57e0bd72f612d1faab91646cf",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24532335,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x7FE22d41d5E3775bD8B3b5c445dEe6d41a456d50",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "TegataFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "176251",
+      "index": 4,
+      "success": true,
+      "timestamp": "2026-07-07T08:10:05.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x150EDf6D38B8C691889b4381Ac2B908E99695365",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "RevenueRegistry",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xaefc5991d3f6fdb1c3854c35d4fe4e0e35a90fe57e0bd72f612d1faab91646cf",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0xaefc5991d3f6fdb1c3854c35d4fe4e0e35a90fe57e0bd72f612d1faab91646cf",
+  "contract_address": "0x7FE22d41d5E3775bD8B3b5c445dEe6d41a456d50",
+  "contract_name": "TegataFactory",
+  "contract_verified": true,
+  "implementations": []
+}

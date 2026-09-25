@@ -1,0 +1,434 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": null,
+    "raw_input": "0x2e17de780000000000000000000000000000000000000000000000000000000000000003",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x60c56dd2413e60e455cd58a5220f6743cd1a9ba8901cdceb9d168b1785cce417",
+    "max_fee_per_gas": null,
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": null,
+    "type": 0,
+    "token_transfers_overflow": false,
+    "confirmations": 3641758,
+    "position": 1,
+    "max_priority_fee_per_gas": null,
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x1B26c694eC1a51f7d1dF36541C1CE6cd571931CF",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "97632",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xfc060Fe89951e3179d62E4131d9DD9992965CC04",
+      "implementations": [
+        {
+          "address_hash": "0x7a09dD728Be346DC8F82fc15b3eFD7768eeD42Af",
+          "name": "Layer2Staking"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "ERC1967Proxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "5947153399819",
+    "method": "unstake",
+    "fee": {
+      "type": "actual",
+      "value": "6044930578603"
+    },
+    "gas_limit": "130890",
+    "gas_price": "1001487",
+    "decoded_input": {
+      "method_call": "unstake(uint256 positionId)",
+      "method_id": "2e17de78",
+      "parameters": [
+        {
+          "name": "positionId",
+          "type": "uint256",
+          "value": "3"
+        }
+      ]
+    },
+    "l1_gas_price": "100259120",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-07-03T09:44:13.000000Z",
+    "nonce": 2,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 24362359,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xfc060Fe89951e3179d62E4131d9DD9992965CC04",
+        "implementations": [
+          {
+            "address_hash": "0x7a09dD728Be346DC8F82fc15b3eFD7768eeD42Af",
+            "name": "Layer2Staking"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xaba0ee30256cd2c0b0082e6b3e4ea661509fe956b7532c2e045837ebd5698608",
+      "block_number": 24362359,
+      "block_timestamp": "2026-07-03T09:44:13.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000004ac558a8a73594a55b8",
+      "decoded": {
+        "method_call": "RewardPoolUpdated(uint256 newBalance)",
+        "method_id": "1ef37ab6",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "newBalance",
+            "type": "uint256",
+            "value": "22068469803424657593784"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0x1ef37ab665f7c977b577275d7a49e72cd18d1143eccd1112f1198e4a39d1428c",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0x60c56dd2413e60e455cd58a5220f6743cd1a9ba8901cdceb9d168b1785cce417"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xfc060Fe89951e3179d62E4131d9DD9992965CC04",
+        "implementations": [
+          {
+            "address_hash": "0x7a09dD728Be346DC8F82fc15b3eFD7768eeD42Af",
+            "name": "Layer2Staking"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xaba0ee30256cd2c0b0082e6b3e4ea661509fe956b7532c2e045837ebd5698608",
+      "block_number": 24362359,
+      "block_timestamp": "2026-07-03T09:44:13.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000349a08a5926185b4e08000000000000000000000000000000000000000000000000000000006a47846d",
+      "decoded": {
+        "method_call": "RewardClaimed(address indexed user, uint256 indexed positionId, uint256 amount, uint256 timestamp)",
+        "method_id": "812be816",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "user",
+            "type": "address",
+            "value": "0x1B26c694eC1a51f7d1dF36541C1CE6cd571931CF"
+          },
+          {
+            "indexed": true,
+            "name": "positionId",
+            "type": "uint256",
+            "value": "3"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "15525279922602739715592"
+          },
+          {
+            "indexed": false,
+            "name": "timestamp",
+            "type": "uint256",
+            "value": "1783071853"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0x812be816db82c66cd18ca8457005cd84689642d8ac4d38599cc6af444a2dc72a",
+        "0x0000000000000000000000001b26c694ec1a51f7d1df36541c1ce6cd571931cf",
+        "0x0000000000000000000000000000000000000000000000000000000000000003",
+        null
+      ],
+      "transaction_hash": "0x60c56dd2413e60e455cd58a5220f6743cd1a9ba8901cdceb9d168b1785cce417"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xfc060Fe89951e3179d62E4131d9DD9992965CC04",
+        "implementations": [
+          {
+            "address_hash": "0x7a09dD728Be346DC8F82fc15b3eFD7768eeD42Af",
+            "name": "Layer2Staking"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xaba0ee30256cd2c0b0082e6b3e4ea661509fe956b7532c2e045837ebd5698608",
+      "block_number": 24362359,
+      "block_timestamp": "2026-07-03T09:44:13.000000Z",
+      "data": "0x000000000000000000000000000000000000000000001a3a9ee40bc9ceea8000000000000000000000000000000000000000000000000000000000006a47846d",
+      "decoded": {
+        "method_call": "PositionUnstaked(address indexed user, uint256 indexed positionId, uint256 amount, uint256 timestamp)",
+        "method_id": "3ff5d92f",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "user",
+            "type": "address",
+            "value": "0x1B26c694eC1a51f7d1dF36541C1CE6cd571931CF"
+          },
+          {
+            "indexed": true,
+            "name": "positionId",
+            "type": "uint256",
+            "value": "3"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "123862889000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "timestamp",
+            "type": "uint256",
+            "value": "1783071853"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0x3ff5d92f4a9e211f1b90950ab368cb14f7755425cfbcb14ec546777e5da856bc",
+        "0x0000000000000000000000001b26c694ec1a51f7d1df36541c1ce6cd571931cf",
+        "0x0000000000000000000000000000000000000000000000000000000000000003",
+        null
+      ],
+      "transaction_hash": "0x60c56dd2413e60e455cd58a5220f6743cd1a9ba8901cdceb9d168b1785cce417"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 24362359,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xfc060Fe89951e3179d62E4131d9DD9992965CC04",
+        "implementations": [
+          {
+            "address_hash": "0x7a09dD728Be346DC8F82fc15b3eFD7768eeD42Af",
+            "name": "Layer2Staking"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "103196",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-07-03T09:44:13.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x7a09dD728Be346DC8F82fc15b3eFD7768eeD42Af",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Layer2Staking",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x60c56dd2413e60e455cd58a5220f6743cd1a9ba8901cdceb9d168b1785cce417",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24362359,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xfc060Fe89951e3179d62E4131d9DD9992965CC04",
+        "implementations": [
+          {
+            "address_hash": "0x7a09dD728Be346DC8F82fc15b3eFD7768eeD42Af",
+            "name": "Layer2Staking"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "70708",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-07-03T09:44:13.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xbDd954d1Af60fAcA58849267e3a50CF2805174c0",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x60c56dd2413e60e455cd58a5220f6743cd1a9ba8901cdceb9d168b1785cce417",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 24362359,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xfc060Fe89951e3179d62E4131d9DD9992965CC04",
+        "implementations": [
+          {
+            "address_hash": "0x7a09dD728Be346DC8F82fc15b3eFD7768eeD42Af",
+            "name": "Layer2Staking"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "14471",
+      "index": 3,
+      "success": true,
+      "timestamp": "2026-07-03T09:44:13.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x1B26c694eC1a51f7d1dF36541C1CE6cd571931CF",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x60c56dd2413e60e455cd58a5220f6743cd1a9ba8901cdceb9d168b1785cce417",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "139388168922602739715592"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x60c56dd2413e60e455cd58a5220f6743cd1a9ba8901cdceb9d168b1785cce417",
+  "contract_address": "0xfc060Fe89951e3179d62E4131d9DD9992965CC04",
+  "contract_name": "ERC1967Proxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0x7a09dD728Be346DC8F82fc15b3eFD7768eeD42Af",
+      "name": "Layer2Staking"
+    }
+  ]
+}

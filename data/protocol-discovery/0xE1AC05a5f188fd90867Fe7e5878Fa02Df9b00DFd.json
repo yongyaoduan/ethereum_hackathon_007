@@ -1,0 +1,963 @@
+{
+  "items": [
+    {
+      "priority_fee": "37944",
+      "raw_input": "0x4f1ef286000000000000000000000000fb0dd9c99350dcb1ae54449b1a346dad8b9011ae00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x12532fe4bb693c732f9eedd3dca91f2a4ed5920d65e16c9b71346c540c64247f",
+      "max_fee_per_gas": "505",
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": "9561888",
+      "type": 2,
+      "token_transfers_overflow": null,
+      "confirmations": 3286326,
+      "position": 16,
+      "max_priority_fee_per_gas": "1",
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "37944",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE1AC05a5f188fd90867Fe7e5878Fa02Df9b00DFd",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "upgradeToAndCall",
+      "fee": {
+        "type": "actual",
+        "value": "13843724708453"
+      },
+      "gas_limit": "52409",
+      "gas_price": "253",
+      "decoded_input": {
+        "method_call": "upgradeToAndCall(address newImplementation, bytes data)",
+        "method_id": "4f1ef286",
+        "parameters": [
+          {
+            "name": "newImplementation",
+            "type": "address",
+            "value": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae"
+          },
+          {
+            "name": "data",
+            "type": "bytes",
+            "value": "0x"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2026-07-11T14:57:33.000000Z",
+      "nonce": 512,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call"
+      ],
+      "exchange_rate": null,
+      "block_number": 24717359,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": "106931000000",
+      "raw_input": "0x68fc0c9a0000000000000000000000000000000000000000000000056bc75e2d631000000000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x87acfd562631fd166faf1f5898e9497646a8c1d0a2e67dc4f12a4f2e7b38e20a",
+      "max_fee_per_gas": "1000302",
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": "26946612",
+      "type": 2,
+      "token_transfers_overflow": null,
+      "confirmations": 3361931,
+      "position": 1,
+      "max_priority_fee_per_gas": "1000000",
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "106931",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE1AC05a5f188fd90867Fe7e5878Fa02Df9b00DFd",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "withdrawLiquidity",
+      "fee": {
+        "type": "actual",
+        "value": "5503173000240"
+      },
+      "gas_limit": "136158",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "withdrawLiquidity(uint256 _shares, address _onBehalf)",
+        "method_id": "68fc0c9a",
+        "parameters": [
+          {
+            "name": "_shares",
+            "type": "uint256",
+            "value": "100000000000000000000"
+          },
+          {
+            "name": "_onBehalf",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2026-07-09T20:57:23.000000Z",
+      "nonce": 225,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 24641754,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": "126189000000",
+      "raw_input": "0x0af504cc00000000000000000000000000000000000000000000000579a814e10a7400000000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x2f500de9dffa410c9636ecfba455b5b71db14317efc184d6e4df2d05374f9169",
+      "max_fee_per_gas": "1000302",
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": "31799628",
+      "type": 2,
+      "token_transfers_overflow": null,
+      "confirmations": 3361936,
+      "position": 1,
+      "max_priority_fee_per_gas": "1000000",
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "126189",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE1AC05a5f188fd90867Fe7e5878Fa02Df9b00DFd",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "withdrawCollateral",
+      "fee": {
+        "type": "actual",
+        "value": "5513636413253"
+      },
+      "gas_limit": "141093",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "withdrawCollateral(uint256 _amount, address _onBehalf)",
+        "method_id": "0af504cc",
+        "parameters": [
+          {
+            "name": "_amount",
+            "type": "uint256",
+            "value": "101000000000000000000"
+          },
+          {
+            "name": "_onBehalf",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2026-07-09T20:57:13.000000Z",
+      "nonce": 224,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 24641749,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": "79326000000",
+      "raw_input": "0xd2a8607b0000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd0000000000000000000000000000000000000000000000056bc75e2d63100000",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x76d27bc962bdec7927825fcfc04ca31687f15e0d617c4a0ffe475e3a729bd28e",
+      "max_fee_per_gas": "1000302",
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": "19990152",
+      "type": 2,
+      "token_transfers_overflow": null,
+      "confirmations": 3361941,
+      "position": 1,
+      "max_priority_fee_per_gas": "1000000",
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "79326",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE1AC05a5f188fd90867Fe7e5878Fa02Df9b00DFd",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "supplyCollateral",
+      "fee": {
+        "type": "actual",
+        "value": "5334838512849"
+      },
+      "gas_limit": "85766",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "supplyCollateral(address _user, uint256 _amount)",
+        "method_id": "d2a8607b",
+        "parameters": [
+          {
+            "name": "_user",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          },
+          {
+            "name": "_amount",
+            "type": "uint256",
+            "value": "100000000000000000000"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2026-07-09T20:57:03.000000Z",
+      "nonce": 223,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 24641744,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": "196040000000",
+      "raw_input": "0xb39e37710000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd0000000000000000000000000000000000000000000000000000000005f5e100",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x179a582dab71132df8dbabb01117731717e57da8de9e3d7874012189345a4585",
+      "max_fee_per_gas": "1000302",
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": "49402080",
+      "type": 2,
+      "token_transfers_overflow": null,
+      "confirmations": 3361945,
+      "position": 1,
+      "max_priority_fee_per_gas": "1000000",
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "196040",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE1AC05a5f188fd90867Fe7e5878Fa02Df9b00DFd",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "supplyLiquidity",
+      "fee": {
+        "type": "actual",
+        "value": "5451581924777"
+      },
+      "gas_limit": "207177",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "supplyLiquidity(address _user, uint256 _amount)",
+        "method_id": "b39e3771",
+        "parameters": [
+          {
+            "name": "_user",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          },
+          {
+            "name": "_amount",
+            "type": "uint256",
+            "value": "100000000"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2026-07-09T20:56:55.000000Z",
+      "nonce": 222,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 24641740,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": "106943000000",
+      "raw_input": "0x68fc0c9a0000000000000000000000000000000000000000000015326e8f3f78599000000000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xbe896024c67f95d3b77d6fc566ca7d32d85f8bc6c18b52ceeb5b54542b8aec62",
+      "max_fee_per_gas": "1000302",
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": "26949636",
+      "type": 2,
+      "token_transfers_overflow": null,
+      "confirmations": 3362425,
+      "position": 1,
+      "max_priority_fee_per_gas": "1000000",
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "106943",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE1AC05a5f188fd90867Fe7e5878Fa02Df9b00DFd",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "withdrawLiquidity",
+      "fee": {
+        "type": "actual",
+        "value": "6549775334237"
+      },
+      "gas_limit": "136170",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "withdrawLiquidity(uint256 _shares, address _onBehalf)",
+        "method_id": "68fc0c9a",
+        "parameters": [
+          {
+            "name": "_shares",
+            "type": "uint256",
+            "value": "100100000000000000000000"
+          },
+          {
+            "name": "_onBehalf",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2026-07-09T20:40:55.000000Z",
+      "nonce": 209,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 24641260,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": "130989000000",
+      "raw_input": "0x0af504cc0000000000000000000000000000000000000000000000056bc75e2d631000000000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x725b274325d5ae4b29fcbfdf474bede03d91ef710e2ac44cd2012b1248367fcc",
+      "max_fee_per_gas": "1000302",
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": "33009228",
+      "type": 2,
+      "token_transfers_overflow": null,
+      "confirmations": 3362430,
+      "position": 1,
+      "max_priority_fee_per_gas": "1000000",
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "130989",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE1AC05a5f188fd90867Fe7e5878Fa02Df9b00DFd",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "withdrawCollateral",
+      "fee": {
+        "type": "actual",
+        "value": "6573827393829"
+      },
+      "gas_limit": "141093",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "withdrawCollateral(uint256 _amount, address _onBehalf)",
+        "method_id": "0af504cc",
+        "parameters": [
+          {
+            "name": "_amount",
+            "type": "uint256",
+            "value": "100000000000000000000"
+          },
+          {
+            "name": "_onBehalf",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2026-07-09T20:40:45.000000Z",
+      "nonce": 208,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 24641255,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": "79326000000",
+      "raw_input": "0xd2a8607b0000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd0000000000000000000000000000000000000000000000056bc75e2d63100000",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0xf7cfc61cfd203559d714258cbc00328b855b7e49fbb73d497e601cd2fad79923",
+      "max_fee_per_gas": "1000302",
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": "19990152",
+      "type": 2,
+      "token_transfers_overflow": null,
+      "confirmations": 3362436,
+      "position": 1,
+      "max_priority_fee_per_gas": "1000000",
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "79326",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE1AC05a5f188fd90867Fe7e5878Fa02Df9b00DFd",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "supplyCollateral",
+      "fee": {
+        "type": "actual",
+        "value": "6933455662753"
+      },
+      "gas_limit": "85766",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "supplyCollateral(address _user, uint256 _amount)",
+        "method_id": "d2a8607b",
+        "parameters": [
+          {
+            "name": "_user",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          },
+          {
+            "name": "_amount",
+            "type": "uint256",
+            "value": "100000000000000000000"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2026-07-09T20:40:33.000000Z",
+      "nonce": 207,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 24641249,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": "119886000000",
+      "raw_input": "0xb39e37710000000000000000000000000ece75f3c36f7df2136dac7633165dbff53de3cd0000000000000000000000000000000000000000000000000000000005f5e100",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x6334064d9cc9065b97384ee194bafad30f499f2fc0c003e33aa9c2868580b789",
+      "max_fee_per_gas": "1000302",
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": "30211272",
+      "type": 2,
+      "token_transfers_overflow": null,
+      "confirmations": 3362439,
+      "position": 1,
+      "max_priority_fee_per_gas": "1000000",
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "119886",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE1AC05a5f188fd90867Fe7e5878Fa02Df9b00DFd",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "supplyLiquidity",
+      "fee": {
+        "type": "actual",
+        "value": "7157974185227"
+      },
+      "gas_limit": "129814",
+      "gas_price": "1000252",
+      "decoded_input": {
+        "method_call": "supplyLiquidity(address _user, uint256 _amount)",
+        "method_id": "b39e3771",
+        "parameters": [
+          {
+            "name": "_user",
+            "type": "address",
+            "value": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD"
+          },
+          {
+            "name": "_amount",
+            "type": "uint256",
+            "value": "100000000"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2026-07-09T20:40:27.000000Z",
+      "nonce": 206,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call",
+        "token_transfer"
+      ],
+      "exchange_rate": null,
+      "block_number": 24641246,
+      "has_error_in_internal_transactions": false
+    },
+    {
+      "priority_fee": "37944",
+      "raw_input": "0x4f1ef28600000000000000000000000082c3a4d947b3eb919e418b97f73f6eb39d61699600000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000",
+      "is_pending_update": false,
+      "result": "success",
+      "hash": "0x1a3d19e7a490c31f043855ef1042a34343f006c678f27e266dd394c16083cd39",
+      "max_fee_per_gas": "505",
+      "revert_reason": null,
+      "confirmation_duration": [
+        0,
+        2000.0
+      ],
+      "transaction_burnt_fee": "9561888",
+      "type": 2,
+      "token_transfers_overflow": null,
+      "confirmations": 3505201,
+      "position": 1,
+      "max_priority_fee_per_gas": "1",
+      "transaction_tag": null,
+      "created_contract": null,
+      "value": "0",
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_used": "37944",
+      "status": "ok",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xE1AC05a5f188fd90867Fe7e5878Fa02Df9b00DFd",
+        "implementations": [
+          {
+            "address_hash": "0xFb0dd9c99350dCB1aE54449B1a346daD8b9011ae",
+            "name": "LendingPool"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "authorization_list": [],
+      "method": "upgradeToAndCall",
+      "fee": {
+        "type": "actual",
+        "value": "9410393864328"
+      },
+      "gas_limit": "52409",
+      "gas_price": "253",
+      "decoded_input": {
+        "method_call": "upgradeToAndCall(address newImplementation, bytes data)",
+        "method_id": "4f1ef286",
+        "parameters": [
+          {
+            "name": "newImplementation",
+            "type": "address",
+            "value": "0x82c3A4D947b3Eb919e418b97f73f6EB39D616996"
+          },
+          {
+            "name": "data",
+            "type": "bytes",
+            "value": "0x"
+          }
+        ]
+      },
+      "fhe_operations_count": 0,
+      "token_transfers": null,
+      "base_fee_per_gas": "252",
+      "timestamp": "2026-07-06T13:21:43.000000Z",
+      "nonce": 101,
+      "historic_exchange_rate": null,
+      "transaction_types": [
+        "contract_call"
+      ],
+      "exchange_rate": null,
+      "block_number": 24498484,
+      "has_error_in_internal_transactions": false
+    }
+  ],
+  "next_page_params": null
+}

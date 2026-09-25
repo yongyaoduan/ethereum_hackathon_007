@@ -1,0 +1,476 @@
+{
+  "transaction": {
+    "l1_gas_used": "0",
+    "priority_fee": null,
+    "raw_input": "0x3ccfd60b",
+    "is_pending_update": false,
+    "op_withdrawals": [
+      {
+        "l1_transaction_hash": null,
+        "msg_data": "0x",
+        "msg_gas_limit": "400000",
+        "msg_nonce_raw": "1766847064778384329583297500742918515827483896875618958121606201292619777",
+        "msg_sender_address_hash": "0x420000000000000000000000000000000000001a",
+        "msg_target_address_hash": "0xda84ae74a3cd862be7c920a96c42eb79a01a505c",
+        "msg_value": "90816140121041887988",
+        "nonce": 1,
+        "portal_contract_address_hash": "0xe7aa79b59cac06f9706d896a047feb9d3bda8bd3",
+        "status": "Ready for relay"
+      }
+    ],
+    "result": "success",
+    "hash": "0xc142add5789cf72ac09e5208c85efa501e5799442227752de6a3b4ac587672ba",
+    "max_fee_per_gas": null,
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": null,
+    "type": 126,
+    "token_transfers_overflow": false,
+    "confirmations": 27344894,
+    "position": 1,
+    "max_priority_fee_per_gas": null,
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x4c3305606253a1DBB3db76951593422332B3a09e",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "99005",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x420000000000000000000000000000000000001A",
+      "implementations": [
+        {
+          "address_hash": "0xBAab3dAbd75340517E05EA9c333b22506F9E6617",
+          "name": "L1FeeVault"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "Proxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "0",
+    "method": "withdraw",
+    "fee": {
+      "type": "actual",
+      "value": "0"
+    },
+    "gas_limit": "200000",
+    "gas_price": "0",
+    "decoded_input": {
+      "method_call": "withdraw()",
+      "method_id": "3ccfd60b",
+      "parameters": []
+    },
+    "l1_gas_price": "0",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2024-12-31T17:21:07.000000Z",
+    "nonce": 0,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 659266,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x420000000000000000000000000000000000001A",
+        "implementations": [
+          {
+            "address_hash": "0xBAab3dAbd75340517E05EA9c333b22506F9E6617",
+            "name": "L1FeeVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x39e7269a899f76cf64b81d0b2042780cb468d02c6ed1376e662f601686375858",
+      "block_number": 659266,
+      "block_timestamp": "2024-12-31T17:21:07.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000004ec53be468acd62f4000000000000000000000000da84ae74a3cd862be7c920a96c42eb79a01a505c0000000000000000000000004c3305606253a1dbb3db76951593422332b3a09e",
+      "decoded": {
+        "method_call": "Withdrawal(uint256 value, address to, address from)",
+        "method_id": "c8a211cc",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "90816140121041887988"
+          },
+          {
+            "indexed": false,
+            "name": "to",
+            "type": "address",
+            "value": "0xda84ae74A3CD862Be7c920a96C42Eb79a01A505C"
+          },
+          {
+            "indexed": false,
+            "name": "from",
+            "type": "address",
+            "value": "0x4c3305606253a1DBB3db76951593422332B3a09e"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xc8a211cc64b6ed1b50595a9fcb1932b6d1e5a6e8ef15b60e5b1f988ea9086bba",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0xc142add5789cf72ac09e5208c85efa501e5799442227752de6a3b4ac587672ba"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x420000000000000000000000000000000000001A",
+        "implementations": [
+          {
+            "address_hash": "0xBAab3dAbd75340517E05EA9c333b22506F9E6617",
+            "name": "L1FeeVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x39e7269a899f76cf64b81d0b2042780cb468d02c6ed1376e662f601686375858",
+      "block_number": 659266,
+      "block_timestamp": "2024-12-31T17:21:07.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000004ec53be468acd62f4000000000000000000000000da84ae74a3cd862be7c920a96c42eb79a01a505c0000000000000000000000004c3305606253a1dbb3db76951593422332b3a09e0000000000000000000000000000000000000000000000000000000000000000",
+      "decoded": {
+        "method_call": "Withdrawal(uint256 value, address to, address from, uint8 withdrawalNetwork)",
+        "method_id": "38e04cbe",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "90816140121041887988"
+          },
+          {
+            "indexed": false,
+            "name": "to",
+            "type": "address",
+            "value": "0xda84ae74A3CD862Be7c920a96C42Eb79a01A505C"
+          },
+          {
+            "indexed": false,
+            "name": "from",
+            "type": "address",
+            "value": "0x4c3305606253a1DBB3db76951593422332B3a09e"
+          },
+          {
+            "indexed": false,
+            "name": "withdrawalNetwork",
+            "type": "uint8",
+            "value": "0"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0x38e04cbeb8c10f8f568618aa75be0f10b6729b8b4237743b4de20cbcde2839ee",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0xc142add5789cf72ac09e5208c85efa501e5799442227752de6a3b4ac587672ba"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x4200000000000000000000000000000000000016",
+        "implementations": [
+          {
+            "address_hash": "0xC0D3C0d3C0d3c0d3C0d3C0D3c0D3c0d3c0D30016",
+            "name": "L2ToL1MessagePasser"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x39e7269a899f76cf64b81d0b2042780cb468d02c6ed1376e662f601686375858",
+      "block_number": 659266,
+      "block_timestamp": "2024-12-31T17:21:07.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000004ec53be468acd62f40000000000000000000000000000000000000000000000000000000000061a800000000000000000000000000000000000000000000000000000000000000080be569c2c7b912c8b79683ca46d09230ffcb5d6e29ba77477e3a8ffd163501a420000000000000000000000000000000000000000000000000000000000000000",
+      "decoded": {
+        "method_call": "MessagePassed(uint256 indexed nonce, address indexed sender, address indexed target, uint256 value, uint256 gasLimit, bytes data, bytes32 withdrawalHash)",
+        "method_id": "02a52367",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "nonce",
+            "type": "uint256",
+            "value": "1766847064778384329583297500742918515827483896875618958121606201292619777"
+          },
+          {
+            "indexed": true,
+            "name": "sender",
+            "type": "address",
+            "value": "0x420000000000000000000000000000000000001A"
+          },
+          {
+            "indexed": true,
+            "name": "target",
+            "type": "address",
+            "value": "0xda84ae74A3CD862Be7c920a96C42Eb79a01A505C"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "90816140121041887988"
+          },
+          {
+            "indexed": false,
+            "name": "gasLimit",
+            "type": "uint256",
+            "value": "400000"
+          },
+          {
+            "indexed": false,
+            "name": "data",
+            "type": "bytes",
+            "value": "0x"
+          },
+          {
+            "indexed": false,
+            "name": "withdrawalHash",
+            "type": "bytes32",
+            "value": "0xbe569c2c7b912c8b79683ca46d09230ffcb5d6e29ba77477e3a8ffd163501a42"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0x02a52367d10742d8032712c1bb8e0144ff1ec5ffda1ed7d70bb05a2744955054",
+        "0x0001000000000000000000000000000000000000000000000000000000000001",
+        "0x000000000000000000000000420000000000000000000000000000000000001a",
+        "0x000000000000000000000000da84ae74a3cd862be7c920a96c42eb79a01a505c"
+      ],
+      "transaction_hash": "0xc142add5789cf72ac09e5208c85efa501e5799442227752de6a3b4ac587672ba"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 659266,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x420000000000000000000000000000000000001A",
+        "implementations": [
+          {
+            "address_hash": "0xBAab3dAbd75340517E05EA9c333b22506F9E6617",
+            "name": "L1FeeVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "171294",
+      "index": 1,
+      "success": true,
+      "timestamp": "2024-12-31T17:21:07.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xc0D3c0D3C0d3c0d3c0d3C0d3c0d3C0d3C0D3001A",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc142add5789cf72ac09e5208c85efa501e5799442227752de6a3b4ac587672ba",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 659266,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x420000000000000000000000000000000000001A",
+        "implementations": [
+          {
+            "address_hash": "0xBAab3dAbd75340517E05EA9c333b22506F9E6617",
+            "name": "L1FeeVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "133594",
+      "index": 2,
+      "success": true,
+      "timestamp": "2024-12-31T17:21:07.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4200000000000000000000000000000000000016",
+        "implementations": [
+          {
+            "address_hash": "0xC0D3C0d3C0d3c0d3C0d3C0D3c0D3c0d3c0D30016",
+            "name": "L2ToL1MessagePasser"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc142add5789cf72ac09e5208c85efa501e5799442227752de6a3b4ac587672ba",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "90816140121041887988"
+    },
+    {
+      "block_number": 659266,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x4200000000000000000000000000000000000016",
+        "implementations": [
+          {
+            "address_hash": "0xC0D3C0d3C0d3c0d3C0d3C0D3c0D3c0d3c0D30016",
+            "name": "L2ToL1MessagePasser"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "126622",
+      "index": 3,
+      "success": true,
+      "timestamp": "2024-12-31T17:21:07.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xC0D3C0d3C0d3c0d3C0d3C0D3c0D3c0d3c0D30016",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "L2ToL1MessagePasser",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc142add5789cf72ac09e5208c85efa501e5799442227752de6a3b4ac587672ba",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "90816140121041887988"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0xc142add5789cf72ac09e5208c85efa501e5799442227752de6a3b4ac587672ba",
+  "contract_address": "0x420000000000000000000000000000000000001A",
+  "contract_name": "Proxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0xBAab3dAbd75340517E05EA9c333b22506F9E6617",
+      "name": "L1FeeVault"
+    }
+  ]
+}

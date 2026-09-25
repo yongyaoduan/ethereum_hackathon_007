@@ -1,0 +1,225 @@
+{
+  "transaction": {
+    "l1_gas_used": "1727",
+    "priority_fee": null,
+    "raw_input": "0xdd1faaef0000000000000000000000000000000000000000000000000c7d713b49da00000000000000000000000000000000000000000000000000000000000097343dfe0000000000000000000000000000000000000000000000000000000001e3da5f0000000000000000000000000000000000000000000000000000000ec41a0ddf0000000000000000000000000000000000000000000000003782dace9d900000000000000000000000000000000000000000000000000000000002e24d16b5a8",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0xdad2f66565e4e596db8a7a2e339198be03ecfff2fdf2feb10828458ae46fbbd7",
+    "max_fee_per_gas": null,
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": null,
+    "type": 0,
+    "token_transfers_overflow": false,
+    "confirmations": 5192224,
+    "position": 1,
+    "max_priority_fee_per_gas": null,
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0xC159039B9accEE8539Da5c950F3490257e40B34a",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "802555",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xfBa3d8f0aAAf6eB72622d191B54239D0bb5916BE",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "EulerIRMAdaptiveCurveFactory",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "9819630991938",
+    "method": "deploy",
+    "fee": {
+      "type": "actual",
+      "value": "10823077546763"
+    },
+    "gas_limit": "1173736",
+    "gas_price": "1250315",
+    "decoded_input": {
+      "method_call": "deploy(int256 _TARGET_UTILIZATION, int256 _INITIAL_RATE_AT_TARGET, int256 _MIN_RATE_AT_TARGET, int256 _MAX_RATE_AT_TARGET, int256 _CURVE_STEEPNESS, int256 _ADJUSTMENT_SPEED)",
+      "method_id": "dd1faaef",
+      "parameters": [
+        {
+          "name": "_TARGET_UTILIZATION",
+          "type": "int256",
+          "value": "900000000000000000"
+        },
+        {
+          "name": "_INITIAL_RATE_AT_TARGET",
+          "type": "int256",
+          "value": "2536783358"
+        },
+        {
+          "name": "_MIN_RATE_AT_TARGET",
+          "type": "int256",
+          "value": "31709791"
+        },
+        {
+          "name": "_MAX_RATE_AT_TARGET",
+          "type": "int256",
+          "value": "63419583967"
+        },
+        {
+          "name": "_CURVE_STEEPNESS",
+          "type": "int256",
+          "value": "4000000000000000000"
+        },
+        {
+          "name": "_ADJUSTMENT_SPEED",
+          "type": "int256",
+          "value": "3170979198376"
+        }
+      ]
+    },
+    "l1_gas_price": "160535269",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-05-28T12:14:45.000000Z",
+    "nonce": 63,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 22811675,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xfBa3d8f0aAAf6eB72622d191B54239D0bb5916BE",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "EulerIRMAdaptiveCurveFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xaab1f0cc38e91c82cbab4d880c9494713e0dbfc3dcb26c1e3bd78c4f2ba12445",
+      "block_number": 22811675,
+      "block_timestamp": "2026-05-28T12:14:45.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000000000000006a1831b5",
+      "decoded": {
+        "method_call": "ContractDeployed(address indexed deployedContract, address indexed deployer, uint256 deployedAt)",
+        "method_id": "ac4ce915",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "deployedContract",
+            "type": "address",
+            "value": "0x5F506BB54168436DEa71F2Af0f4e57292A209D39"
+          },
+          {
+            "indexed": true,
+            "name": "deployer",
+            "type": "address",
+            "value": "0xC159039B9accEE8539Da5c950F3490257e40B34a"
+          },
+          {
+            "indexed": false,
+            "name": "deployedAt",
+            "type": "uint256",
+            "value": "1779970485"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xac4ce915ef22753b636e57aac5ae5fdd9d13d782ae5bf6dbcda15e29f95386c1",
+        "0x0000000000000000000000005f506bb54168436dea71f2af0f4e57292a209d39",
+        "0x000000000000000000000000c159039b9accee8539da5c950f3490257e40b34a",
+        null
+      ],
+      "transaction_hash": "0xdad2f66565e4e596db8a7a2e339198be03ecfff2fdf2feb10828458ae46fbbd7"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 22811675,
+      "created_contract": {
+        "ens_domain_name": null,
+        "hash": "0x5F506BB54168436DEa71F2Af0f4e57292A209D39",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "IRMAdaptiveCurve",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xfBa3d8f0aAAf6eB72622d191B54239D0bb5916BE",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "EulerIRMAdaptiveCurveFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1100401",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-05-28T12:14:45.000000Z",
+      "to": null,
+      "transaction_hash": "0xdad2f66565e4e596db8a7a2e339198be03ecfff2fdf2feb10828458ae46fbbd7",
+      "transaction_index": 1,
+      "type": "create",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0xdad2f66565e4e596db8a7a2e339198be03ecfff2fdf2feb10828458ae46fbbd7",
+  "contract_address": "0xfBa3d8f0aAAf6eB72622d191B54239D0bb5916BE",
+  "contract_name": "EulerIRMAdaptiveCurveFactory",
+  "contract_verified": true,
+  "implementations": []
+}

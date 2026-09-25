@@ -1,0 +1,597 @@
+{
+  "transaction": {
+    "l1_gas_used": "7268",
+    "priority_fee": "249056000000",
+    "raw_input": "0x37b8edf40000000000000000000000000000000000000000000000000931ffe802a74600000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000001200000000000000000000000004ec012b136736730cca849f8c4aae339611df2bc0000000000000000000000000000000000000000000000000de0b6b3a7640000000000000000000000000000000000000000000000000000016345785d8a0000000000000000000000000000203e7f98513b713712ee15e8c8e7d8d460547be300000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000931ffed1526fcc000000000000000000000000000000000000000000000000000000000000000030000000000000000000000000915e8a61e4578e25bb0c1d3d7a3cf6cee5246640000000000000000000000000000000000000000000000000000000000000014000000000000000000000000258673247216c14798beeb85e7ab8bd9470305a100000000000000000000000000000000000000000000000000000000000000140000000000000000000000006e2b56556d0a45ef2ad0d8b5b2d4374849478bde00000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000016000000000000000000000000000000000000000000000000000000000000000419e9def08cdf80213c558bb6f58b5bf4ef5c73f2cc433da23ffa3771ae1657df200233cdbdc00a18ba7017c8f66e4ef5fe63cb0be315e007d85325d7d4667389e1b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000041cb65c3416b7416173864c646c6529794e96e58ac2bcb18a7db8227be984c75034004df1409ee318db7807909e1bd4806434fc6a7704292371da6e408afa2d2cf1b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000415c99b6b84dbe0ccda4cf3a355d4ab13f67a1d5de8ea1c91c5986c34221dec96c5ff202a909ee1537e2c0bb094ce16abf20df5e25559a37fd2d080f3f11e90cda1b00000000000000000000000000000000000000000000000000000000000000",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0xc7633fd2d4f0c177d144b23ea3bb0085346a61105748d59b2c812b691c342a1c",
+    "max_fee_per_gas": "1500001500000",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "124528000000000000",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 1339449,
+    "position": 1,
+    "max_priority_fee_per_gas": "1000000",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x9232214A5BEFdC674B87ec4f30348a1d7B32446E",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "249056",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xF105063609CBd63977d9C2BeE0142c10Fe3D27e8",
+      "implementations": [
+        {
+          "address_hash": "0x9634eB59E37592BA2A346827447d65B606446E7A",
+          "name": "AssetVault"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "ERC1967Proxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "37153166256514",
+    "method": "requestWithdraw",
+    "fee": {
+      "type": "actual",
+      "value": "124565402222256514"
+    },
+    "gas_limit": "516380",
+    "gas_price": "500001000000",
+    "decoded_input": {
+      "method_call": "requestWithdraw(uint256 withdrawalId, bool isForcePending, (address,uint256)[] validators, (address,uint256,uint256,address) action, bytes[] validatorSignatures, uint256 nonce)",
+      "method_id": "37b8edf4",
+      "parameters": [
+        {
+          "name": "withdrawalId",
+          "type": "uint256",
+          "value": "662591992142185984"
+        },
+        {
+          "name": "isForcePending",
+          "type": "bool",
+          "value": "true"
+        },
+        {
+          "name": "validators",
+          "type": "(address,uint256)[]",
+          "value": [
+            [
+              "0x0915e8a61e4578E25bB0C1d3d7a3cF6CEE524664",
+              "20"
+            ],
+            [
+              "0x258673247216C14798BEEB85e7ab8bd9470305a1",
+              "20"
+            ],
+            [
+              "0x6E2B56556d0a45EF2aD0D8B5b2D4374849478Bde",
+              "20"
+            ]
+          ]
+        },
+        {
+          "name": "action",
+          "type": "(address,uint256,uint256,address)",
+          "value": [
+            "0x4ec012B136736730cCa849f8C4aAe339611DF2bC",
+            "1000000000000000000",
+            "100000000000000000",
+            "0x203e7F98513B713712EE15E8C8e7d8d460547be3"
+          ]
+        },
+        {
+          "name": "validatorSignatures",
+          "type": "bytes[]",
+          "value": [
+            "0x9e9def08cdf80213c558bb6f58b5bf4ef5c73f2cc433da23ffa3771ae1657df200233cdbdc00a18ba7017c8f66e4ef5fe63cb0be315e007d85325d7d4667389e1b",
+            "0xcb65c3416b7416173864c646c6529794e96e58ac2bcb18a7db8227be984c75034004df1409ee318db7807909e1bd4806434fc6a7704292371da6e408afa2d2cf1b",
+            "0x5c99b6b84dbe0ccda4cf3a355d4ab13f67a1d5de8ea1c91c5986c34221dec96c5ff202a909ee1537e2c0bb094ce16abf20df5e25559a37fd2d080f3f11e90cda1b"
+          ]
+        },
+        {
+          "name": "nonce",
+          "type": "uint256",
+          "value": "662592013927382208"
+        }
+      ]
+    },
+    "l1_gas_price": "140997755",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "500000000000",
+    "timestamp": "2026-08-25T16:44:11.000000Z",
+    "nonce": 0,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 26664558,
+    "has_error_in_internal_transactions": false,
+    "da_footprint_gas_scalar": "400"
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xF105063609CBd63977d9C2BeE0142c10Fe3D27e8",
+        "implementations": [
+          {
+            "address_hash": "0x9634eB59E37592BA2A346827447d65B606446E7A",
+            "name": "AssetVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xbbdbdf71a368259057e8f3c00214a28c1f8b1d3484d5997d7a03731c459a4dc1",
+      "block_number": 26664558,
+      "block_timestamp": "2026-08-25T16:44:11.000000Z",
+      "data": "0x0000000000000000000000004ec012b136736730cca849f8c4aae339611df2bc000000000000000000000000000000000000000000000000045938b534800000000000000000000000000000000000000000000000000000243ef8144d37c000",
+      "decoded": {
+        "method_call": "WithdrawHotAmountRefilled(address token, uint256 refillAmount, uint256 usedWithdrawHotAmount)",
+        "method_id": "79cd03c5",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "token",
+            "type": "address",
+            "value": "0x4ec012B136736730cCa849f8C4aAe339611DF2bC"
+          },
+          {
+            "indexed": false,
+            "name": "refillAmount",
+            "type": "uint256",
+            "value": "313344000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "usedWithdrawHotAmount",
+            "type": "uint256",
+            "value": "2611797600000000000"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0x79cd03c5e4aa3fc31f3257c6ffe8d72b55f7bb3afc2758d93e396549dd268b03",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0xc7633fd2d4f0c177d144b23ea3bb0085346a61105748d59b2c812b691c342a1c"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xF105063609CBd63977d9C2BeE0142c10Fe3D27e8",
+        "implementations": [
+          {
+            "address_hash": "0x9634eB59E37592BA2A346827447d65B606446E7A",
+            "name": "AssetVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xbbdbdf71a368259057e8f3c00214a28c1f8b1d3484d5997d7a03731c459a4dc1",
+      "block_number": 26664558,
+      "block_timestamp": "2026-08-25T16:44:11.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000931ffe802a746000000000000000000000000004ec012b136736730cca849f8c4aae339611df2bc0000000000000000000000000000000000000000000000000de0b6b3a7640000000000000000000000000000000000000000000000000000016345785d8a0000000000000000000000000000203e7f98513b713712ee15e8c8e7d8d460547be3000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000931ffed1526fcc0",
+      "decoded": {
+        "method_call": "WithdrawalAdded(uint256 withdrawalId, address token, uint256 amount, uint256 fee, address receiver, bool isPending, bool isForcePending, uint256 nonce)",
+        "method_id": "731460a7",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "withdrawalId",
+            "type": "uint256",
+            "value": "662591992142185984"
+          },
+          {
+            "indexed": false,
+            "name": "token",
+            "type": "address",
+            "value": "0x4ec012B136736730cCa849f8C4aAe339611DF2bC"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "1000000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "fee",
+            "type": "uint256",
+            "value": "100000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "receiver",
+            "type": "address",
+            "value": "0x203e7F98513B713712EE15E8C8e7d8d460547be3"
+          },
+          {
+            "indexed": false,
+            "name": "isPending",
+            "type": "bool",
+            "value": "true"
+          },
+          {
+            "indexed": false,
+            "name": "isForcePending",
+            "type": "bool",
+            "value": "true"
+          },
+          {
+            "indexed": false,
+            "name": "nonce",
+            "type": "uint256",
+            "value": "662592013927382208"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0x731460a77cb4c10004423c5a964ac266e4d1a760b11735f42cecdd78af0b473f",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0xc7633fd2d4f0c177d144b23ea3bb0085346a61105748d59b2c812b691c342a1c"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 26664558,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF105063609CBd63977d9C2BeE0142c10Fe3D27e8",
+        "implementations": [
+          {
+            "address_hash": "0x9634eB59E37592BA2A346827447d65B606446E7A",
+            "name": "AssetVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "474636",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-08-25T16:44:11.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x9634eB59E37592BA2A346827447d65B606446E7A",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "AssetVault",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc7633fd2d4f0c177d144b23ea3bb0085346a61105748d59b2c812b691c342a1c",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 26664558,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF105063609CBd63977d9C2BeE0142c10Fe3D27e8",
+        "implementations": [
+          {
+            "address_hash": "0x9634eB59E37592BA2A346827447d65B606446E7A",
+            "name": "AssetVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "426910",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-08-25T16:44:11.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4ec012B136736730cCa849f8C4aAe339611DF2bC",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MockStockToken",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc7633fd2d4f0c177d144b23ea3bb0085346a61105748d59b2c812b691c342a1c",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 26664558,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF105063609CBd63977d9C2BeE0142c10Fe3D27e8",
+        "implementations": [
+          {
+            "address_hash": "0x9634eB59E37592BA2A346827447d65B606446E7A",
+            "name": "AssetVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "407006",
+      "index": 3,
+      "success": true,
+      "timestamp": "2026-08-25T16:44:11.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x4ec012B136736730cCa849f8C4aAe339611DF2bC",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MockStockToken",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc7633fd2d4f0c177d144b23ea3bb0085346a61105748d59b2c812b691c342a1c",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 26664558,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF105063609CBd63977d9C2BeE0142c10Fe3D27e8",
+        "implementations": [
+          {
+            "address_hash": "0x9634eB59E37592BA2A346827447d65B606446E7A",
+            "name": "AssetVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "399404",
+      "index": 4,
+      "success": true,
+      "timestamp": "2026-08-25T16:44:11.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc7633fd2d4f0c177d144b23ea3bb0085346a61105748d59b2c812b691c342a1c",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 26664558,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF105063609CBd63977d9C2BeE0142c10Fe3D27e8",
+        "implementations": [
+          {
+            "address_hash": "0x9634eB59E37592BA2A346827447d65B606446E7A",
+            "name": "AssetVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "394752",
+      "index": 5,
+      "success": true,
+      "timestamp": "2026-08-25T16:44:11.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc7633fd2d4f0c177d144b23ea3bb0085346a61105748d59b2c812b691c342a1c",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 26664558,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF105063609CBd63977d9C2BeE0142c10Fe3D27e8",
+        "implementations": [
+          {
+            "address_hash": "0x9634eB59E37592BA2A346827447d65B606446E7A",
+            "name": "AssetVault"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "390099",
+      "index": 6,
+      "success": true,
+      "timestamp": "2026-08-25T16:44:11.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xc7633fd2d4f0c177d144b23ea3bb0085346a61105748d59b2c812b691c342a1c",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0xc7633fd2d4f0c177d144b23ea3bb0085346a61105748d59b2c812b691c342a1c",
+  "contract_address": "0xF105063609CBd63977d9C2BeE0142c10Fe3D27e8",
+  "contract_name": "ERC1967Proxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0x9634eB59E37592BA2A346827447d65B606446E7A",
+      "name": "AssetVault"
+    }
+  ]
+}

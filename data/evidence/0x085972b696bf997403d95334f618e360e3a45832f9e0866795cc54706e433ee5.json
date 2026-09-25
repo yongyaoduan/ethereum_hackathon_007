@@ -1,0 +1,266 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": null,
+    "raw_input": "0xdd4670640000000000000000000000000000000000000000000000000000000000000001",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "execution reverted",
+    "hash": "0x085972b696bf997403d95334f618e360e3a45832f9e0866795cc54706e433ee5",
+    "max_fee_per_gas": null,
+    "revert_reason": {
+      "method_call": "Error(string reason)",
+      "method_id": "08c379a0",
+      "parameters": [
+        {
+          "name": "reason",
+          "type": "string",
+          "value": "Insufficient supply limit."
+        }
+      ]
+    },
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": null,
+    "type": 0,
+    "token_transfers_overflow": false,
+    "confirmations": 6619155,
+    "position": 1,
+    "max_priority_fee_per_gas": null,
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x28a2ee463E35Ba4Fab161D358cE1dA24B5DAF922",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "280134",
+    "status": "error",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x3ebB244A3bDd17e2752540AcA0160687F76b71e7",
+      "implementations": [
+        {
+          "address_hash": "0x2DA61Ed1002fd67a229ba31DeD0Af7dbE37C55a0",
+          "name": "EarnHSK_StakeATT"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "ERC1967Proxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "10784526274652",
+    "method": "lock",
+    "fee": {
+      "type": "actual",
+      "value": "11064730868420"
+    },
+    "gas_limit": "1200000",
+    "gas_price": "1000252",
+    "decoded_input": {
+      "method_call": "lock(uint256 ruleId)",
+      "method_id": "dd467064",
+      "parameters": [
+        {
+          "name": "ruleId",
+          "type": "uint256",
+          "value": "1"
+        }
+      ]
+    },
+    "l1_gas_price": "227207232",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-04-25T11:31:45.000000Z",
+    "nonce": 24,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 21384785,
+    "has_error_in_internal_transactions": true
+  },
+  "logs": [],
+  "internal_transactions": [
+    {
+      "block_number": 21384785,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x3ebB244A3bDd17e2752540AcA0160687F76b71e7",
+        "implementations": [
+          {
+            "address_hash": "0x2DA61Ed1002fd67a229ba31DeD0Af7dbE37C55a0",
+            "name": "EarnHSK_StakeATT"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1155602",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-04-25T11:31:45.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x2DA61Ed1002fd67a229ba31DeD0Af7dbE37C55a0",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "EarnHSK_StakeATT",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x085972b696bf997403d95334f618e360e3a45832f9e0866795cc54706e433ee5",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 21384785,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x3ebB244A3bDd17e2752540AcA0160687F76b71e7",
+        "implementations": [
+          {
+            "address_hash": "0x2DA61Ed1002fd67a229ba31DeD0Af7dbE37C55a0",
+            "name": "EarnHSK_StakeATT"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1109261",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-04-25T11:31:45.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xFE8F766464A665B3CF882F6314AF9DEe68E44331",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "AttToken",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x085972b696bf997403d95334f618e360e3a45832f9e0866795cc54706e433ee5",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 21384785,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x3ebB244A3bDd17e2752540AcA0160687F76b71e7",
+        "implementations": [
+          {
+            "address_hash": "0x2DA61Ed1002fd67a229ba31DeD0Af7dbE37C55a0",
+            "name": "EarnHSK_StakeATT"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1087876",
+      "index": 3,
+      "success": true,
+      "timestamp": "2026-04-25T11:31:45.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xFE8F766464A665B3CF882F6314AF9DEe68E44331",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "AttToken",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x085972b696bf997403d95334f618e360e3a45832f9e0866795cc54706e433ee5",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x085972b696bf997403d95334f618e360e3a45832f9e0866795cc54706e433ee5",
+  "contract_address": "0x3ebB244A3bDd17e2752540AcA0160687F76b71e7",
+  "contract_name": "ERC1967Proxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0x2DA61Ed1002fd67a229ba31DeD0Af7dbE37C55a0",
+      "name": "EarnHSK_StakeATT"
+    }
+  ]
+}

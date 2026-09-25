@@ -1,0 +1,313 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "80948000000",
+    "raw_input": "0xae169a500000000000000000000000000000000000000000000000000000000000000151",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0xf002161681fa924b02ef4cb31529d7ff39b80aa602664dd50b8d15475dc9b60c",
+    "max_fee_per_gas": "500001000000",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "40474000000000000",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 2105296,
+    "position": 1,
+    "max_priority_fee_per_gas": "500001000000",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x2021F6D201e327Bf4638074cD3E74816d4112F09",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "80948",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x259e47500394aab24b49B001329f252cf7154A27",
+      "implementations": [
+        {
+          "address_hash": "0x3c48603E551575BE42d65c579Dc68777E00a7E18",
+          "name": "HSKStaking"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "3216357059866",
+    "method": "claimReward",
+    "fee": {
+      "type": "actual",
+      "value": "40477297305059866"
+    },
+    "gas_limit": "87413",
+    "gas_price": "500001000000",
+    "decoded_input": {
+      "method_call": "claimReward(uint256 arg0)",
+      "method_id": "ae169a50",
+      "parameters": [
+        {
+          "name": "arg0",
+          "type": "uint256",
+          "value": "337"
+        }
+      ]
+    },
+    "l1_gas_price": "57715245",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "500000000000",
+    "timestamp": "2026-08-07T23:11:09.000000Z",
+    "nonce": 103,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 25898567,
+    "has_error_in_internal_transactions": false,
+    "da_footprint_gas_scalar": "400"
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x259e47500394aab24b49B001329f252cf7154A27",
+        "implementations": [
+          {
+            "address_hash": "0x3c48603E551575BE42d65c579Dc68777E00a7E18",
+            "name": "HSKStaking"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x38765ec12cc98aa97aa2a2bafb40ee1d878c93087365a71a6ea0dc204e55b6ea",
+      "block_number": 25898567,
+      "block_timestamp": "2026-08-07T23:11:09.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000117a72626d71113140d2",
+      "decoded": {
+        "method_call": "RewardPoolUpdated(uint256 newBalance)",
+        "method_id": "1ef37ab6",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "newBalance",
+            "type": "uint256",
+            "value": "82538975256376962531538"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0x1ef37ab665f7c977b577275d7a49e72cd18d1143eccd1112f1198e4a39d1428c",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0xf002161681fa924b02ef4cb31529d7ff39b80aa602664dd50b8d15475dc9b60c"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x259e47500394aab24b49B001329f252cf7154A27",
+        "implementations": [
+          {
+            "address_hash": "0x3c48603E551575BE42d65c579Dc68777E00a7E18",
+            "name": "HSKStaking"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x38765ec12cc98aa97aa2a2bafb40ee1d878c93087365a71a6ea0dc204e55b6ea",
+      "block_number": 25898567,
+      "block_timestamp": "2026-08-07T23:11:09.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000000000000a97ccba3952000000000000000000000000000000000000000000000000000000006a76660d",
+      "decoded": {
+        "method_call": "RewardClaimed(address indexed user, uint256 indexed positionId, uint256 amount, uint256 timestamp)",
+        "method_id": "812be816",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "user",
+            "type": "address",
+            "value": "0x2021F6D201e327Bf4638074cD3E74816d4112F09"
+          },
+          {
+            "indexed": true,
+            "name": "positionId",
+            "type": "uint256",
+            "value": "337"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "11647091095890"
+          },
+          {
+            "indexed": false,
+            "name": "timestamp",
+            "type": "uint256",
+            "value": "1786144269"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0x812be816db82c66cd18ca8457005cd84689642d8ac4d38599cc6af444a2dc72a",
+        "0x0000000000000000000000002021f6d201e327bf4638074cd3e74816d4112f09",
+        "0x0000000000000000000000000000000000000000000000000000000000000151",
+        null
+      ],
+      "transaction_hash": "0xf002161681fa924b02ef4cb31529d7ff39b80aa602664dd50b8d15475dc9b60c"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 25898567,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x259e47500394aab24b49B001329f252cf7154A27",
+        "implementations": [
+          {
+            "address_hash": "0x3c48603E551575BE42d65c579Dc68777E00a7E18",
+            "name": "HSKStaking"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "60421",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-08-07T23:11:09.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x3c48603E551575BE42d65c579Dc68777E00a7E18",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HSKStaking",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xf002161681fa924b02ef4cb31529d7ff39b80aa602664dd50b8d15475dc9b60c",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 25898567,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x259e47500394aab24b49B001329f252cf7154A27",
+        "implementations": [
+          {
+            "address_hash": "0x3c48603E551575BE42d65c579Dc68777E00a7E18",
+            "name": "HSKStaking"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "4975",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-08-07T23:11:09.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x2021F6D201e327Bf4638074cD3E74816d4112F09",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xf002161681fa924b02ef4cb31529d7ff39b80aa602664dd50b8d15475dc9b60c",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "11647091095890"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0xf002161681fa924b02ef4cb31529d7ff39b80aa602664dd50b8d15475dc9b60c"
+}

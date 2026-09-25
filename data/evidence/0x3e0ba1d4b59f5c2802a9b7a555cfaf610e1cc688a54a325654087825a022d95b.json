@@ -1,0 +1,265 @@
+{
+  "transaction": {
+    "l1_gas_used": "1700",
+    "priority_fee": "4774410300000",
+    "raw_input": "0xa1671295000000000000000000000000b210d2120d57b758ee163cffb43e73728c471cf1000000000000000000000000e1045155ee02e0997e6bb4509d854a306c50d9140000000000000000000000000000000000000000000000000000000000000bb8",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x3e0ba1d4b59f5c2802a9b7a555cfaf610e1cc688a54a325654087825a022d95b",
+    "max_fee_per_gas": "1100341",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "1098114369",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 18853879,
+    "position": 1,
+    "max_priority_fee_per_gas": "1100000",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x259c1EC355E1C81bF8bF5EC5AdBEb3d60203F592",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "4340373",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x7858546Cda514455514f248C90670994964795C3",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "HyperindexV3Factory",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "41702077394664",
+    "method": "createPool",
+    "fee": {
+      "type": "actual",
+      "value": "46477585809033"
+    },
+    "gas_limit": "13416753",
+    "gas_price": "1100253",
+    "decoded_input": {
+      "method_call": "createPool(address tokenA, address tokenB, uint24 fee)",
+      "method_id": "a1671295",
+      "parameters": [
+        {
+          "name": "tokenA",
+          "type": "address",
+          "value": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1"
+        },
+        {
+          "name": "tokenB",
+          "type": "address",
+          "value": "0xe1045155ee02e0997E6bB4509D854a306c50D914"
+        },
+        {
+          "name": "fee",
+          "type": "uint24",
+          "value": "3000"
+        }
+      ]
+    },
+    "l1_gas_price": "1225823293",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "253",
+    "timestamp": "2025-07-16T06:55:29.000000Z",
+    "nonce": 37507,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 9150897,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x7858546Cda514455514f248C90670994964795C3",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HyperindexV3Factory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x8c28e816378e2974226766d9e8132f38091314f83b1f9a388bd1752bbe3a1b53",
+      "block_number": 9150897,
+      "block_timestamp": "2025-07-16T06:55:29.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000000000000000000003c000000000000000000000000fde4254487626762b3c9829f541576c47263c942",
+      "decoded": {
+        "method_call": "PoolCreated(address indexed token0, address indexed token1, uint24 indexed fee, int24 tickSpacing, address pool)",
+        "method_id": "783cca1c",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "token0",
+            "type": "address",
+            "value": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1"
+          },
+          {
+            "indexed": true,
+            "name": "token1",
+            "type": "address",
+            "value": "0xe1045155ee02e0997E6bB4509D854a306c50D914"
+          },
+          {
+            "indexed": true,
+            "name": "fee",
+            "type": "uint24",
+            "value": "3000"
+          },
+          {
+            "indexed": false,
+            "name": "tickSpacing",
+            "type": "int24",
+            "value": "60"
+          },
+          {
+            "indexed": false,
+            "name": "pool",
+            "type": "address",
+            "value": "0xFDE4254487626762b3C9829F541576c47263c942"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0x783cca1c0412dd0d695e784568c96da2e9c22ff989357a2e8b1d9b2b4e6b7118",
+        "0x000000000000000000000000b210d2120d57b758ee163cffb43e73728c471cf1",
+        "0x000000000000000000000000e1045155ee02e0997e6bb4509d854a306c50d914",
+        "0x0000000000000000000000000000000000000000000000000000000000000bb8"
+      ],
+      "transaction_hash": "0x3e0ba1d4b59f5c2802a9b7a555cfaf610e1cc688a54a325654087825a022d95b"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 9150897,
+      "created_contract": {
+        "ens_domain_name": null,
+        "hash": "0xFDE4254487626762b3C9829F541576c47263c942",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x7858546Cda514455514f248C90670994964795C3",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HyperindexV3Factory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "13072456",
+      "index": 1,
+      "success": true,
+      "timestamp": "2025-07-16T06:55:29.000000Z",
+      "to": null,
+      "transaction_hash": "0x3e0ba1d4b59f5c2802a9b7a555cfaf610e1cc688a54a325654087825a022d95b",
+      "transaction_index": 1,
+      "type": "create2",
+      "value": "0"
+    },
+    {
+      "block_number": 9150897,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xFDE4254487626762b3C9829F541576c47263c942",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "12867918",
+      "index": 2,
+      "success": true,
+      "timestamp": "2025-07-16T06:55:29.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x7858546Cda514455514f248C90670994964795C3",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HyperindexV3Factory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x3e0ba1d4b59f5c2802a9b7a555cfaf610e1cc688a54a325654087825a022d95b",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x3e0ba1d4b59f5c2802a9b7a555cfaf610e1cc688a54a325654087825a022d95b",
+  "contract_address": "0x7858546Cda514455514f248C90670994964795C3",
+  "contract_name": "HyperindexV3Factory",
+  "contract_verified": true,
+  "implementations": []
+}

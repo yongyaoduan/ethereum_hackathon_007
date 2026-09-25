@@ -1,0 +1,306 @@
+{
+  "transaction": {
+    "l1_gas_used": "2450",
+    "priority_fee": "3079834000000",
+    "raw_input": "0x6870aa870000000000000000000000000289d687b9eaef935cdabd77eb41a20e00a5e5ca00000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000056bc75e2d63100000000000000000000000000000000000000000000000000000000000006a53ad720000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002c44454d4f3a20425443206c6966656379636c6520323032362d30372d31325431353a30343a35362e3339315a0000000000000000000000000000000000000000",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x49df1282baf311bf2fd3f015d2a3afa80e8c00bf6c584273a90681d4b9f4a610",
+    "max_fee_per_gas": "1000318",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "776118168",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 3243066,
+    "position": 1,
+    "max_priority_fee_per_gas": "1000000",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x5705aD783f566A51333CC1B218D64Bdfa52e0067",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "3079834",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x308c640a472490f71B6b2E168786826Ce53E0B15",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "HSKPredictFactory",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "9453107247343",
+    "method": "createMarket",
+    "fee": {
+      "type": "actual",
+      "value": "12533717365511"
+    },
+    "gas_limit": "3105444",
+    "gas_price": "1000252",
+    "decoded_input": {
+      "method_call": "createMarket(address collateralToken, string title, int256 sigmaMinMag, uint256 resolvesAt, address chainlinkPriceFeed)",
+      "method_id": "6870aa87",
+      "parameters": [
+        {
+          "name": "collateralToken",
+          "type": "address",
+          "value": "0x0289D687b9EAeF935cdaBd77eB41a20e00A5E5Ca"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "value": "DEMO: BTC lifecycle 2026-07-12T15:04:56.391Z"
+        },
+        {
+          "name": "sigmaMinMag",
+          "type": "int256",
+          "value": "100000000000000000000"
+        },
+        {
+          "name": "resolvesAt",
+          "type": "uint256",
+          "value": "1783868786"
+        },
+        {
+          "name": "chainlinkPriceFeed",
+          "type": "address",
+          "value": "0x0000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "l1_gas_price": "107724913",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-07-12T15:05:01.000000Z",
+    "nonce": 7,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 24760783,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x308c640a472490f71B6b2E168786826Ce53E0B15",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HSKPredictFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x039582b173d81940a745240f910114291aba5980d6773aec3f333ba5f6a4aba9",
+      "block_number": 24760783,
+      "block_timestamp": "2026-07-12T15:05:01.000000Z",
+      "data": "0x000000000000000000000000281c442abc645c6e00f8b6b2e863d83a0ea58d7d0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000002c44454d4f3a20425443206c6966656379636c6520323032362d30372d31325431353a30343a35362e3339315a0000000000000000000000000000000000000000",
+      "decoded": {
+        "method_call": "MarketCreated(uint256 indexed marketId, address market, string title)",
+        "method_id": "b143feb0",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "marketId",
+            "type": "uint256",
+            "value": "2"
+          },
+          {
+            "indexed": false,
+            "name": "market",
+            "type": "address",
+            "value": "0x281c442ABc645C6E00f8b6B2E863D83A0Ea58D7d"
+          },
+          {
+            "indexed": false,
+            "name": "title",
+            "type": "string",
+            "value": "DEMO: BTC lifecycle 2026-07-12T15:04:56.391Z"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xb143feb0c79e12e29a00674ccaf4e7e613c6fbc3b56b99a0e353faee3c0b8f78",
+        "0x0000000000000000000000000000000000000000000000000000000000000002",
+        null,
+        null
+      ],
+      "transaction_hash": "0x49df1282baf311bf2fd3f015d2a3afa80e8c00bf6c584273a90681d4b9f4a610"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 24760783,
+      "created_contract": {
+        "ens_domain_name": null,
+        "hash": "0x281c442ABc645C6E00f8b6B2E863D83A0Ea58D7d",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x308c640a472490f71B6b2E168786826Ce53E0B15",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HSKPredictFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2992615",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-07-12T15:05:01.000000Z",
+      "to": null,
+      "transaction_hash": "0x49df1282baf311bf2fd3f015d2a3afa80e8c00bf6c584273a90681d4b9f4a610",
+      "transaction_index": 1,
+      "type": "create",
+      "value": "0"
+    },
+    {
+      "block_number": 24760783,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x281c442ABc645C6E00f8b6B2E863D83A0Ea58D7d",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "2898453",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-07-12T15:05:01.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0289D687b9EAeF935cdaBd77eB41a20e00A5E5Ca",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "MockUSDC",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x49df1282baf311bf2fd3f015d2a3afa80e8c00bf6c584273a90681d4b9f4a610",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 24760783,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x308c640a472490f71B6b2E168786826Ce53E0B15",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HSKPredictFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "50346",
+      "index": 3,
+      "success": true,
+      "timestamp": "2026-07-12T15:05:01.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xf5E8bDFd08c9b227a7553c9957b892BB579123aD",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Position",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x49df1282baf311bf2fd3f015d2a3afa80e8c00bf6c584273a90681d4b9f4a610",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x49df1282baf311bf2fd3f015d2a3afa80e8c00bf6c584273a90681d4b9f4a610",
+  "contract_address": "0x308c640a472490f71B6b2E168786826Ce53E0B15",
+  "contract_name": "HSKPredictFactory",
+  "contract_verified": true,
+  "implementations": []
+}

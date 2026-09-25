@@ -1,0 +1,1966 @@
+{
+  "transaction": {
+    "l1_gas_used": "2048",
+    "priority_fee": null,
+    "raw_input": "0xf305d719000000000000000000000000efd4bc9afd210517803f293ababd701caeecdfd000000000000000000000000000000000000000000000000000005af3107a400000000000000000000000000000000000000000000000000000005af3107a40000000000000000000000000000000000000000000000000000429d069189e000000000000000000000000000026ac28d33ecbf947951d6b7d8a1e6569ee73d0760000000000000000000000000000000000000000000000000000000067c029bb",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+    "max_fee_per_gas": null,
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": null,
+    "type": 0,
+    "token_transfers_overflow": false,
+    "confirmations": 24854055,
+    "position": 1,
+    "max_priority_fee_per_gas": null,
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "300000000000000000",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x26AC28D33EcBf947951d6B7d8a1e6569eE73d076",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "2210486",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "HuskeyRouter",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "1148768060985221",
+    "method": "addLiquidityETH",
+    "fee": {
+      "type": "actual",
+      "value": "1170872920985221"
+    },
+    "gas_limit": "3403316",
+    "gas_price": "10000000",
+    "decoded_input": {
+      "method_call": "addLiquidityETH(address token, uint256 amountTokenDesired, uint256 amountTokenMin, uint256 amountETHMin, address to, uint256 deadline)",
+      "method_id": "f305d719",
+      "parameters": [
+        {
+          "name": "token",
+          "type": "address",
+          "value": "0xefd4bC9afD210517803f293ABABd701CaeeCdfd0"
+        },
+        {
+          "name": "amountTokenDesired",
+          "type": "uint256",
+          "value": "100000000000000"
+        },
+        {
+          "name": "amountTokenMin",
+          "type": "uint256",
+          "value": "100000000000000"
+        },
+        {
+          "name": "amountETHMin",
+          "type": "uint256",
+          "value": "300000000000000000"
+        },
+        {
+          "name": "to",
+          "type": "address",
+          "value": "0x26AC28D33EcBf947951d6B7d8a1e6569eE73d076"
+        },
+        {
+          "name": "deadline",
+          "type": "uint256",
+          "value": "1740646843"
+        }
+      ]
+    },
+    "l1_gas_price": "644255403",
+    "fhe_operations_count": 0,
+    "token_transfers": [
+      {
+        "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+        "block_number": 3149711,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0x26AC28D33EcBf947951d6B7d8a1e6569eE73d076",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 1,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+          "implementations": [],
+          "is_contract": true,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": "Huskey LPs",
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0xefd4bC9afD210517803f293ABABd701CaeeCdfd0",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "18",
+          "exchange_rate": null,
+          "holders_count": "2473",
+          "icon_url": null,
+          "name": "Wrapped Ether",
+          "reputation": "ok",
+          "symbol": "WETH",
+          "total_supply": "28091332031597333208",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "18",
+          "value": "100000000000000"
+        },
+        "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+        "type": "token_transfer"
+      },
+      {
+        "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+        "block_number": 3149711,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0x0000000000000000000000000000000000000000",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": {
+            "tags": [
+              {
+                "meta": {},
+                "name": "Null: 0x000...000",
+                "ordinal": 10,
+                "slug": "null-0x000000",
+                "tagType": "name"
+              },
+              {
+                "meta": {},
+                "name": "Metamask User",
+                "ordinal": 0,
+                "slug": "metamask-user",
+                "tagType": "generic"
+              },
+              {
+                "meta": {},
+                "name": "Imtoken User",
+                "ordinal": 0,
+                "slug": "imtoken-user",
+                "tagType": "generic"
+              },
+              {
+                "meta": {},
+                "name": "Miner",
+                "ordinal": 0,
+                "slug": "miner",
+                "tagType": "generic"
+              }
+            ]
+          },
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 2,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+          "implementations": [],
+          "is_contract": true,
+          "is_scam": false,
+          "is_verified": true,
+          "metadata": null,
+          "name": "HuskeyRouter",
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "18",
+          "exchange_rate": null,
+          "holders_count": "281",
+          "icon_url": "https://s2.coinmarketcap.com/static/img/coins/64x64/33849.png",
+          "name": "Wrapped HSK",
+          "reputation": "ok",
+          "symbol": "WHSK",
+          "total_supply": "4997560182222561189455686",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "18",
+          "value": "300000000000000000"
+        },
+        "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+        "type": "token_minting"
+      },
+      {
+        "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+        "block_number": 3149711,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+          "implementations": [],
+          "is_contract": true,
+          "is_scam": false,
+          "is_verified": true,
+          "metadata": null,
+          "name": "HuskeyRouter",
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 4,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+          "implementations": [],
+          "is_contract": true,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": "Huskey LPs",
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "18",
+          "exchange_rate": null,
+          "holders_count": "281",
+          "icon_url": "https://s2.coinmarketcap.com/static/img/coins/64x64/33849.png",
+          "name": "Wrapped HSK",
+          "reputation": "ok",
+          "symbol": "WHSK",
+          "total_supply": "4997560182222561189455686",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "18",
+          "value": "300000000000000000"
+        },
+        "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+        "type": "token_transfer"
+      },
+      {
+        "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+        "block_number": 3149711,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0x0000000000000000000000000000000000000000",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": {
+            "tags": [
+              {
+                "meta": {},
+                "name": "Null: 0x000...000",
+                "ordinal": 10,
+                "slug": "null-0x000000",
+                "tagType": "name"
+              },
+              {
+                "meta": {},
+                "name": "Metamask User",
+                "ordinal": 0,
+                "slug": "metamask-user",
+                "tagType": "generic"
+              },
+              {
+                "meta": {},
+                "name": "Imtoken User",
+                "ordinal": 0,
+                "slug": "imtoken-user",
+                "tagType": "generic"
+              },
+              {
+                "meta": {},
+                "name": "Miner",
+                "ordinal": 0,
+                "slug": "miner",
+                "tagType": "generic"
+              }
+            ]
+          },
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 5,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0x0000000000000000000000000000000000000000",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": {
+            "tags": [
+              {
+                "meta": {},
+                "name": "Null: 0x000...000",
+                "ordinal": 10,
+                "slug": "null-0x000000",
+                "tagType": "name"
+              },
+              {
+                "meta": {},
+                "name": "Metamask User",
+                "ordinal": 0,
+                "slug": "metamask-user",
+                "tagType": "generic"
+              },
+              {
+                "meta": {},
+                "name": "Imtoken User",
+                "ordinal": 0,
+                "slug": "imtoken-user",
+                "tagType": "generic"
+              },
+              {
+                "meta": {},
+                "name": "Miner",
+                "ordinal": 0,
+                "slug": "miner",
+                "tagType": "generic"
+              }
+            ]
+          },
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "18",
+          "exchange_rate": null,
+          "holders_count": "1",
+          "icon_url": null,
+          "name": "Huskey LPs",
+          "reputation": "ok",
+          "symbol": "Huskey-LP",
+          "total_supply": "5477225575051661",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "18",
+          "value": "1000"
+        },
+        "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+        "type": "token_spawning"
+      },
+      {
+        "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+        "block_number": 3149711,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0x0000000000000000000000000000000000000000",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": {
+            "tags": [
+              {
+                "meta": {},
+                "name": "Null: 0x000...000",
+                "ordinal": 10,
+                "slug": "null-0x000000",
+                "tagType": "name"
+              },
+              {
+                "meta": {},
+                "name": "Metamask User",
+                "ordinal": 0,
+                "slug": "metamask-user",
+                "tagType": "generic"
+              },
+              {
+                "meta": {},
+                "name": "Imtoken User",
+                "ordinal": 0,
+                "slug": "imtoken-user",
+                "tagType": "generic"
+              },
+              {
+                "meta": {},
+                "name": "Miner",
+                "ordinal": 0,
+                "slug": "miner",
+                "tagType": "generic"
+              }
+            ]
+          },
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 6,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0x26AC28D33EcBf947951d6B7d8a1e6569eE73d076",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "18",
+          "exchange_rate": null,
+          "holders_count": "1",
+          "icon_url": null,
+          "name": "Huskey LPs",
+          "reputation": "ok",
+          "symbol": "Huskey-LP",
+          "total_supply": "5477225575051661",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "18",
+          "value": "5477225575050661"
+        },
+        "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+        "type": "token_minting"
+      }
+    ],
+    "base_fee_per_gas": "252",
+    "timestamp": "2025-02-27T08:55:57.000000Z",
+    "nonce": 7,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "coin_transfer",
+      "contract_call",
+      "token_transfer"
+    ],
+    "exchange_rate": null,
+    "block_number": 3149711,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xd1899eA08Ba0cF5a199706590BCD3FbA3Eb1243E",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "block_timestamp": "2025-02-27T08:55:57.000000Z",
+      "data": "0x000000000000000000000000308c9d1043478f45be92326cf699bb91aa9314fc0000000000000000000000000000000000000000000000000000000000000002",
+      "decoded": {
+        "method_call": "PairCreated(address indexed token0, address indexed token1, address pair, uint256 arg3)",
+        "method_id": "0d3648bd",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "token0",
+            "type": "address",
+            "value": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1"
+          },
+          {
+            "indexed": true,
+            "name": "token1",
+            "type": "address",
+            "value": "0xefd4bC9afD210517803f293ABABd701CaeeCdfd0"
+          },
+          {
+            "indexed": false,
+            "name": "pair",
+            "type": "address",
+            "value": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc"
+          },
+          {
+            "indexed": false,
+            "name": "arg3",
+            "type": "uint256",
+            "value": "2"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0x0d3648bd0f6ba80134a33ba9275ac585d9d315f0ad8355cddefde31afa28d0e9",
+        "0x000000000000000000000000b210d2120d57b758ee163cffb43e73728c471cf1",
+        "0x000000000000000000000000efd4bc9afd210517803f293ababd701caeecdfd0",
+        null
+      ],
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xefd4bC9afD210517803f293ABABd701CaeeCdfd0",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "OptimismMintableERC20",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "block_timestamp": "2025-02-27T08:55:57.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000000000005af3107a4000",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0x26AC28D33EcBf947951d6B7d8a1e6569eE73d076"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "100000000000000"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x00000000000000000000000026ac28d33ecbf947951d6b7d8a1e6569ee73d076",
+        "0x000000000000000000000000308c9d1043478f45be92326cf699bb91aa9314fc",
+        null
+      ],
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "WHSK",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "block_timestamp": "2025-02-27T08:55:57.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000429d069189e0000",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "300000000000000000"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x000000000000000000000000f0c61c14e5e9c3a214e1fd0e6aa8b7b07481e31c",
+        null
+      ],
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "WHSK",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "block_timestamp": "2025-02-27T08:55:57.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000429d069189e0000",
+      "decoded": {
+        "method_call": "Deposit(address indexed dst, uint256 wad)",
+        "method_id": "e1fffcc4",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "dst",
+            "type": "address",
+            "value": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c"
+          },
+          {
+            "indexed": false,
+            "name": "wad",
+            "type": "uint256",
+            "value": "300000000000000000"
+          }
+        ]
+      },
+      "index": 3,
+      "smart_contract": null,
+      "topics": [
+        "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c",
+        "0x000000000000000000000000f0c61c14e5e9c3a214e1fd0e6aa8b7b07481e31c",
+        null,
+        null
+      ],
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "WHSK",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "block_timestamp": "2025-02-27T08:55:57.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000429d069189e0000",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "300000000000000000"
+          }
+        ]
+      },
+      "index": 4,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x000000000000000000000000f0c61c14e5e9c3a214e1fd0e6aa8b7b07481e31c",
+        "0x000000000000000000000000308c9d1043478f45be92326cf699bb91aa9314fc",
+        null
+      ],
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "block_timestamp": "2025-02-27T08:55:57.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000000000000000000003e8",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "1000"
+          }
+        ]
+      },
+      "index": 5,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        null
+      ],
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "block_timestamp": "2025-02-27T08:55:57.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000000000137581f4c16da5",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0x26AC28D33EcBf947951d6B7d8a1e6569eE73d076"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "5477225575050661"
+          }
+        ]
+      },
+      "index": 6,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x00000000000000000000000026ac28d33ecbf947951d6b7d8a1e6569ee73d076",
+        null
+      ],
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "block_timestamp": "2025-02-27T08:55:57.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000429d069189e000000000000000000000000000000000000000000000000000000005af3107a4000",
+      "decoded": {
+        "method_call": "Sync(uint112 reserve0, uint112 reserve1)",
+        "method_id": "1c411e9a",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "reserve0",
+            "type": "uint112",
+            "value": "300000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "reserve1",
+            "type": "uint112",
+            "value": "100000000000000"
+          }
+        ]
+      },
+      "index": 7,
+      "smart_contract": null,
+      "topics": [
+        "0x1c411e9a96e071241c2f21f7726b17ae89e3cab4c78be50e062b03a9fffbbad1",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "block_timestamp": "2025-02-27T08:55:57.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000429d069189e000000000000000000000000000000000000000000000000000000005af3107a4000",
+      "decoded": {
+        "method_call": "Mint(address indexed sender, uint256 amount0, uint256 amount1)",
+        "method_id": "4c209b5f",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "sender",
+            "type": "address",
+            "value": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c"
+          },
+          {
+            "indexed": false,
+            "name": "amount0",
+            "type": "uint256",
+            "value": "300000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "amount1",
+            "type": "uint256",
+            "value": "100000000000000"
+          }
+        ]
+      },
+      "index": 8,
+      "smart_contract": null,
+      "topics": [
+        "0x4c209b5fc8ad50758f13e2e1088ba56a560dff690a1c6fef26394f4c03821c4f",
+        "0x000000000000000000000000f0c61c14e5e9c3a214e1fd0e6aa8b7b07481e31c",
+        null,
+        null
+      ],
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 3149711,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HuskeyRouter",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "3324718",
+      "index": 1,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xd1899eA08Ba0cF5a199706590BCD3FbA3Eb1243E",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 3149711,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HuskeyRouter",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "3321678",
+      "index": 2,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xd1899eA08Ba0cF5a199706590BCD3FbA3Eb1243E",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 3149711,
+      "created_contract": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xd1899eA08Ba0cF5a199706590BCD3FbA3Eb1243E",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "3231075",
+      "index": 3,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": null,
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "create2",
+      "value": "0"
+    },
+    {
+      "block_number": 3149711,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xd1899eA08Ba0cF5a199706590BCD3FbA3Eb1243E",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1429620",
+      "index": 4,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 3149711,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HuskeyRouter",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1366696",
+      "index": 5,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 3149711,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HuskeyRouter",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1359989",
+      "index": 6,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xefd4bC9afD210517803f293ABABd701CaeeCdfd0",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "OptimismMintableERC20",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 3149711,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HuskeyRouter",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1318671",
+      "index": 7,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "WHSK",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "300000000000000000"
+    },
+    {
+      "block_number": 3149711,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HuskeyRouter",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1287935",
+      "index": 8,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "WHSK",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 3149711,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HuskeyRouter",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1262912",
+      "index": 9,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 3149711,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1242019",
+      "index": 10,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "WHSK",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 3149711,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1240910",
+      "index": 11,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xefd4bC9afD210517803f293ABABd701CaeeCdfd0",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "OptimismMintableERC20",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 3149711,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "1239590",
+      "index": 12,
+      "success": true,
+      "timestamp": "2025-02-27T08:55:57.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xd1899eA08Ba0cF5a199706590BCD3FbA3Eb1243E",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [
+    {
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x26AC28D33EcBf947951d6B7d8a1e6569eE73d076",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 1,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0xefd4bC9afD210517803f293ABABd701CaeeCdfd0",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "18",
+        "exchange_rate": null,
+        "holders_count": "2473",
+        "icon_url": null,
+        "name": "Wrapped Ether",
+        "reputation": "ok",
+        "symbol": "WETH",
+        "total_supply": "28091332031597333208",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "18",
+        "value": "100000000000000"
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "type": "token_transfer"
+    },
+    {
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000000",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": {
+          "tags": [
+            {
+              "meta": {},
+              "name": "Null: 0x000...000",
+              "ordinal": 10,
+              "slug": "null-0x000000",
+              "tagType": "name"
+            },
+            {
+              "meta": {},
+              "name": "Metamask User",
+              "ordinal": 0,
+              "slug": "metamask-user",
+              "tagType": "generic"
+            },
+            {
+              "meta": {},
+              "name": "Imtoken User",
+              "ordinal": 0,
+              "slug": "imtoken-user",
+              "tagType": "generic"
+            },
+            {
+              "meta": {},
+              "name": "Miner",
+              "ordinal": 0,
+              "slug": "miner",
+              "tagType": "generic"
+            }
+          ]
+        },
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 2,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HuskeyRouter",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "18",
+        "exchange_rate": null,
+        "holders_count": "281",
+        "icon_url": "https://s2.coinmarketcap.com/static/img/coins/64x64/33849.png",
+        "name": "Wrapped HSK",
+        "reputation": "ok",
+        "symbol": "WHSK",
+        "total_supply": "4997560182222561189455686",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "18",
+        "value": "300000000000000000"
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "type": "token_minting"
+    },
+    {
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "HuskeyRouter",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 4,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": "Huskey LPs",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0xB210D2120d57b758EE163cFfb43e73728c471Cf1",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "18",
+        "exchange_rate": null,
+        "holders_count": "281",
+        "icon_url": "https://s2.coinmarketcap.com/static/img/coins/64x64/33849.png",
+        "name": "Wrapped HSK",
+        "reputation": "ok",
+        "symbol": "WHSK",
+        "total_supply": "4997560182222561189455686",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "18",
+        "value": "300000000000000000"
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "type": "token_transfer"
+    },
+    {
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000000",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": {
+          "tags": [
+            {
+              "meta": {},
+              "name": "Null: 0x000...000",
+              "ordinal": 10,
+              "slug": "null-0x000000",
+              "tagType": "name"
+            },
+            {
+              "meta": {},
+              "name": "Metamask User",
+              "ordinal": 0,
+              "slug": "metamask-user",
+              "tagType": "generic"
+            },
+            {
+              "meta": {},
+              "name": "Imtoken User",
+              "ordinal": 0,
+              "slug": "imtoken-user",
+              "tagType": "generic"
+            },
+            {
+              "meta": {},
+              "name": "Miner",
+              "ordinal": 0,
+              "slug": "miner",
+              "tagType": "generic"
+            }
+          ]
+        },
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 5,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000000",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": {
+          "tags": [
+            {
+              "meta": {},
+              "name": "Null: 0x000...000",
+              "ordinal": 10,
+              "slug": "null-0x000000",
+              "tagType": "name"
+            },
+            {
+              "meta": {},
+              "name": "Metamask User",
+              "ordinal": 0,
+              "slug": "metamask-user",
+              "tagType": "generic"
+            },
+            {
+              "meta": {},
+              "name": "Imtoken User",
+              "ordinal": 0,
+              "slug": "imtoken-user",
+              "tagType": "generic"
+            },
+            {
+              "meta": {},
+              "name": "Miner",
+              "ordinal": 0,
+              "slug": "miner",
+              "tagType": "generic"
+            }
+          ]
+        },
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "18",
+        "exchange_rate": null,
+        "holders_count": "1",
+        "icon_url": null,
+        "name": "Huskey LPs",
+        "reputation": "ok",
+        "symbol": "Huskey-LP",
+        "total_supply": "5477225575051661",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "18",
+        "value": "1000"
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "type": "token_spawning"
+    },
+    {
+      "block_hash": "0xf5510f4cb86cea90f1d6323c2568bfee72e419bb7694b5aa8c3ef4206d4287d5",
+      "block_number": 3149711,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000000",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": {
+          "tags": [
+            {
+              "meta": {},
+              "name": "Null: 0x000...000",
+              "ordinal": 10,
+              "slug": "null-0x000000",
+              "tagType": "name"
+            },
+            {
+              "meta": {},
+              "name": "Metamask User",
+              "ordinal": 0,
+              "slug": "metamask-user",
+              "tagType": "generic"
+            },
+            {
+              "meta": {},
+              "name": "Imtoken User",
+              "ordinal": 0,
+              "slug": "imtoken-user",
+              "tagType": "generic"
+            },
+            {
+              "meta": {},
+              "name": "Miner",
+              "ordinal": 0,
+              "slug": "miner",
+              "tagType": "generic"
+            }
+          ]
+        },
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 6,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x26AC28D33EcBf947951d6B7d8a1e6569eE73d076",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0x308c9D1043478F45bE92326cf699Bb91Aa9314Fc",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "18",
+        "exchange_rate": null,
+        "holders_count": "1",
+        "icon_url": null,
+        "name": "Huskey LPs",
+        "reputation": "ok",
+        "symbol": "Huskey-LP",
+        "total_supply": "5477225575051661",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "18",
+        "value": "5477225575050661"
+      },
+      "transaction_hash": "0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+      "type": "token_minting"
+    }
+  ],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0xdf653dd742237e6ee51b62b625740586393e0d73010d59de8940da6705561740",
+  "contract_address": "0xF0C61c14e5E9C3a214e1fd0E6Aa8B7b07481e31c",
+  "contract_name": "HuskeyRouter",
+  "contract_verified": true,
+  "implementations": []
+}

@@ -1,0 +1,208 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "52469",
+    "raw_input": "0x8bcd4016000000000000000000000000175867caf278eb0610f216f3e0a6e671f2382e22",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x91aa7763fa1bd069b8958dab5dffb429f1a8e7e470aa7ccb9d0e9dcfe2465227",
+    "max_fee_per_gas": "505",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "13222188",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 3507363,
+    "position": 1,
+    "max_priority_fee_per_gas": "1",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x0EcE75f3C36f7Df2136Dac7633165DBff53dE3CD",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "52469",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+      "implementations": [
+        {
+          "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+          "name": "LendingPoolFactory"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "ERC1967Proxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "16875196477119",
+    "method": "setInterestRateModel",
+    "fee": {
+      "type": "actual",
+      "value": "16875209751776"
+    },
+    "gas_limit": "72472",
+    "gas_price": "253",
+    "decoded_input": {
+      "method_call": "setInterestRateModel(address _interestRateModel)",
+      "method_id": "8bcd4016",
+      "parameters": [
+        {
+          "name": "_interestRateModel",
+          "type": "address",
+          "value": "0x175867CAF278eB0610F216F3E0a6E671f2382E22"
+        }
+      ]
+    },
+    "l1_gas_price": "299483930",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2026-07-06T12:20:35.000000Z",
+    "nonce": 39,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 24496650,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x0f3f4df5f987c4041577f3772580f20c6d0c5aa6febf1d3b6df656f53ff5dac4",
+      "block_number": 24496650,
+      "block_timestamp": "2026-07-06T12:20:35.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "InterestRateModelSet(address indexed interestRateModel)",
+        "method_id": "7902cd13",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "interestRateModel",
+            "type": "address",
+            "value": "0x175867CAF278eB0610F216F3E0a6E671f2382E22"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0x7902cd1307c545e3f5782172612372bf997a93698917ced12b2f83d86e347d0c",
+        "0x000000000000000000000000175867caf278eb0610f216f3e0a6e671f2382e22",
+        null,
+        null
+      ],
+      "transaction_hash": "0x91aa7763fa1bd069b8958dab5dffb429f1a8e7e470aa7ccb9d0e9dcfe2465227"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 24496650,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+        "implementations": [
+          {
+            "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+            "name": "LendingPoolFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "45473",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-07-06T12:20:35.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "LendingPoolFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x91aa7763fa1bd069b8958dab5dffb429f1a8e7e470aa7ccb9d0e9dcfe2465227",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x91aa7763fa1bd069b8958dab5dffb429f1a8e7e470aa7ccb9d0e9dcfe2465227",
+  "contract_address": "0xF0D1c69cc148db2437131a5A736d77FD6fa20B47",
+  "contract_name": "ERC1967Proxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0x2879d0A7AD718c096Ed35E338C23e4C79E3601d8",
+      "name": "LendingPoolFactory"
+    }
+  ]
+}

@@ -1,0 +1,685 @@
+{
+  "transaction": {
+    "l1_gas_used": "3601",
+    "priority_fee": "179412",
+    "raw_input": "0xe06248ade0c7a3f8532839b431a9418744551a824b8e5087332f738a3b17f41d8fc31b4900000000000000000000000085bd0233b274e62a75ba7843b68beb749de2582e00000000000000000000000088c730e85e9b536fae2801bcb2059a9f1d1890e90000000000000000000000000000000001a04645a83978b09cf263c2759ba6f31c4f551f517c6fdfac527c7638c29052b7c6ddc15ff2d04fac99dcbb0185d7efdd32e560f82459ec60e3685cd38c12cd91c53ec118d77c8b5a0f39a68b89ff6a0000000000000000000000000000000000000000000000004563918244f4000000000000000000000000000000000000000000000000000014d1120d7b160000",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0",
+    "max_fee_per_gas": "1000000000001",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "89706000000000000",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 922938,
+    "position": 4,
+    "max_priority_fee_per_gas": "1",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x91eFCBf6891E7A7E33ebE8e3D95D7Fb30aB23588",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "179412",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0xa0A6561b58c28ADc4519d5bC7F931C618e7502d1",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "PredictionMarket",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "11117932896873",
+    "method": "confirmMerge",
+    "fee": {
+      "type": "actual",
+      "value": "89717117933076285"
+    },
+    "gas_limit": "191223",
+    "gas_price": "500000000001",
+    "decoded_input": {
+      "method_call": "confirmMerge(bytes32 matchId, address subA, address subB, uint256 eventId, bytes32 outcomeA, bytes32 outcomeB, uint256 shares, uint256 aGetsHSK)",
+      "method_id": "e06248ad",
+      "parameters": [
+        {
+          "name": "matchId",
+          "type": "bytes32",
+          "value": "0xe0c7a3f8532839b431a9418744551a824b8e5087332f738a3b17f41d8fc31b49"
+        },
+        {
+          "name": "subA",
+          "type": "address",
+          "value": "0x85BD0233b274E62A75ba7843b68beB749dE2582e"
+        },
+        {
+          "name": "subB",
+          "type": "address",
+          "value": "0x88C730E85e9B536fAE2801BCB2059a9F1D1890e9"
+        },
+        {
+          "name": "eventId",
+          "type": "uint256",
+          "value": "2161420780628917758255774775235028723"
+        },
+        {
+          "name": "outcomeA",
+          "type": "bytes32",
+          "value": "0x1c4f551f517c6fdfac527c7638c29052b7c6ddc15ff2d04fac99dcbb0185d7ef"
+        },
+        {
+          "name": "outcomeB",
+          "type": "bytes32",
+          "value": "0xdd32e560f82459ec60e3685cd38c12cd91c53ec118d77c8b5a0f39a68b89ff6a"
+        },
+        {
+          "name": "shares",
+          "type": "uint256",
+          "value": "5000000000000000000"
+        },
+        {
+          "name": "aGetsHSK",
+          "type": "uint256",
+          "value": "1500000000000000000"
+        }
+      ]
+    },
+    "l1_gas_price": "88802903",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "500000000000",
+    "timestamp": "2026-09-04T07:51:03.000000Z",
+    "nonce": 18365,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 27080564,
+    "has_error_in_internal_transactions": false,
+    "da_footprint_gas_scalar": "400"
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x85BD0233b274E62A75ba7843b68beB749dE2582e",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x3f87787511172db5aa68f749628eabfd5e84b3710006d7bff24be0f75e4ade6a",
+      "block_number": 27080564,
+      "block_timestamp": "2026-09-04T07:51:03.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000000014d1120d7b160000",
+      "decoded": {
+        "method_call": "NativeReceived(address indexed sender, uint256 amount)",
+        "method_id": "8ac633e5",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "sender",
+            "type": "address",
+            "value": "0xA9936032058F6fd085D670773ddBB2724FA75646"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "1500000000000000000"
+          }
+        ]
+      },
+      "index": 5,
+      "smart_contract": null,
+      "topics": [
+        "0x8ac633e5b094e1150d2a6495df4d0c77f51d293abe99e7733c78870dfbee7660",
+        "0x000000000000000000000000a9936032058f6fd085d670773ddbb2724fa75646",
+        null,
+        null
+      ],
+      "transaction_hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xA9936032058F6fd085D670773ddBB2724FA75646",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Treasury",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x3f87787511172db5aa68f749628eabfd5e84b3710006d7bff24be0f75e4ade6a",
+      "block_number": 27080564,
+      "block_timestamp": "2026-09-04T07:51:03.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000000014d1120d7b1600004d455247450000000000000000000000000000000000000000000000000000008118a8380c8a1a6f1e66c11d5c593eda16c43d97f88e36d8ae9a90505a54c1cb",
+      "decoded": {
+        "method_call": "PaidOut(address indexed subAccount, uint256 amount, bytes32 reason, bytes32 idemKey)",
+        "method_id": "53d6e2f0",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "subAccount",
+            "type": "address",
+            "value": "0x85BD0233b274E62A75ba7843b68beB749dE2582e"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "1500000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "reason",
+            "type": "bytes32",
+            "value": "0x4d45524745000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "idemKey",
+            "type": "bytes32",
+            "value": "0x8118a8380c8a1a6f1e66c11d5c593eda16c43d97f88e36d8ae9a90505a54c1cb"
+          }
+        ]
+      },
+      "index": 6,
+      "smart_contract": null,
+      "topics": [
+        "0x53d6e2f08104218650243d3fe87f3b273075d2a9f4f9c41bf22a8dafa0bc3bf7",
+        "0x00000000000000000000000085bd0233b274e62a75ba7843b68beb749de2582e",
+        null,
+        null
+      ],
+      "transaction_hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x88C730E85e9B536fAE2801BCB2059a9F1D1890e9",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x3f87787511172db5aa68f749628eabfd5e84b3710006d7bff24be0f75e4ade6a",
+      "block_number": 27080564,
+      "block_timestamp": "2026-09-04T07:51:03.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000000030927f74c9de0000",
+      "decoded": {
+        "method_call": "NativeReceived(address indexed sender, uint256 amount)",
+        "method_id": "8ac633e5",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "sender",
+            "type": "address",
+            "value": "0xA9936032058F6fd085D670773ddBB2724FA75646"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "3500000000000000000"
+          }
+        ]
+      },
+      "index": 7,
+      "smart_contract": null,
+      "topics": [
+        "0x8ac633e5b094e1150d2a6495df4d0c77f51d293abe99e7733c78870dfbee7660",
+        "0x000000000000000000000000a9936032058f6fd085d670773ddbb2724fa75646",
+        null,
+        null
+      ],
+      "transaction_hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xA9936032058F6fd085D670773ddBB2724FA75646",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Treasury",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x3f87787511172db5aa68f749628eabfd5e84b3710006d7bff24be0f75e4ade6a",
+      "block_number": 27080564,
+      "block_timestamp": "2026-09-04T07:51:03.000000Z",
+      "data": "0x00000000000000000000000000000000000000000000000030927f74c9de00004d455247450000000000000000000000000000000000000000000000000000005f179ac0b306ca30aa5cc6e6a89bbe39f023f44cfcc6b7d6fdd7ba2c6fbe6ee6",
+      "decoded": {
+        "method_call": "PaidOut(address indexed subAccount, uint256 amount, bytes32 reason, bytes32 idemKey)",
+        "method_id": "53d6e2f0",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "subAccount",
+            "type": "address",
+            "value": "0x88C730E85e9B536fAE2801BCB2059a9F1D1890e9"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "3500000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "reason",
+            "type": "bytes32",
+            "value": "0x4d45524745000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "idemKey",
+            "type": "bytes32",
+            "value": "0x5f179ac0b306ca30aa5cc6e6a89bbe39f023f44cfcc6b7d6fdd7ba2c6fbe6ee6"
+          }
+        ]
+      },
+      "index": 8,
+      "smart_contract": null,
+      "topics": [
+        "0x53d6e2f08104218650243d3fe87f3b273075d2a9f4f9c41bf22a8dafa0bc3bf7",
+        "0x00000000000000000000000088c730e85e9b536fae2801bcb2059a9f1d1890e9",
+        null,
+        null
+      ],
+      "transaction_hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xa0A6561b58c28ADc4519d5bC7F931C618e7502d1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "PredictionMarket",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x3f87787511172db5aa68f749628eabfd5e84b3710006d7bff24be0f75e4ade6a",
+      "block_number": 27080564,
+      "block_timestamp": "2026-09-04T07:51:03.000000Z",
+      "data": "0x0000000000000000000000000000000001a04645a83978b09cf263c2759ba6f30000000000000000000000000000000000000000000000004563918244f4000000000000000000000000000000000000000000000000000014d1120d7b160000",
+      "decoded": {
+        "method_call": "PositionsMerged(bytes32 indexed matchId, address indexed subA, address indexed subB, uint256 eventId, uint256 shares, uint256 aGetsHSK)",
+        "method_id": "ada1fc91",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "matchId",
+            "type": "bytes32",
+            "value": "0xe0c7a3f8532839b431a9418744551a824b8e5087332f738a3b17f41d8fc31b49"
+          },
+          {
+            "indexed": true,
+            "name": "subA",
+            "type": "address",
+            "value": "0x85BD0233b274E62A75ba7843b68beB749dE2582e"
+          },
+          {
+            "indexed": true,
+            "name": "subB",
+            "type": "address",
+            "value": "0x88C730E85e9B536fAE2801BCB2059a9F1D1890e9"
+          },
+          {
+            "indexed": false,
+            "name": "eventId",
+            "type": "uint256",
+            "value": "2161420780628917758255774775235028723"
+          },
+          {
+            "indexed": false,
+            "name": "shares",
+            "type": "uint256",
+            "value": "5000000000000000000"
+          },
+          {
+            "indexed": false,
+            "name": "aGetsHSK",
+            "type": "uint256",
+            "value": "1500000000000000000"
+          }
+        ]
+      },
+      "index": 9,
+      "smart_contract": null,
+      "topics": [
+        "0xada1fc916afdeb22d6b8ee6a361509008232230f995517215186c00dfead498a",
+        "0xe0c7a3f8532839b431a9418744551a824b8e5087332f738a3b17f41d8fc31b49",
+        "0x00000000000000000000000085bd0233b274e62a75ba7843b68beb749de2582e",
+        "0x00000000000000000000000088c730e85e9b536fae2801bcb2059a9f1d1890e9"
+      ],
+      "transaction_hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 27080564,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xa0A6561b58c28ADc4519d5bC7F931C618e7502d1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "PredictionMarket",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "105338",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-09-04T07:51:03.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xA9936032058F6fd085D670773ddBB2724FA75646",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Treasury",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0",
+      "transaction_index": 4,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 27080564,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xA9936032058F6fd085D670773ddBB2724FA75646",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Treasury",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "88979",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-09-04T07:51:03.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x180c3C56D0a53E6ee6A8F4ee1228E78ca977Dc4B",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "SubAccountFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0",
+      "transaction_index": 4,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 27080564,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xA9936032058F6fd085D670773ddBB2724FA75646",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Treasury",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "49664",
+      "index": 3,
+      "success": true,
+      "timestamp": "2026-09-04T07:51:03.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x85BD0233b274E62A75ba7843b68beB749dE2582e",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0",
+      "transaction_index": 4,
+      "type": "call",
+      "value": "1500000000000000000"
+    },
+    {
+      "block_number": 27080564,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xa0A6561b58c28ADc4519d5bC7F931C618e7502d1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "PredictionMarket",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "46873",
+      "index": 4,
+      "success": true,
+      "timestamp": "2026-09-04T07:51:03.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xA9936032058F6fd085D670773ddBB2724FA75646",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Treasury",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0",
+      "transaction_index": 4,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 27080564,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xA9936032058F6fd085D670773ddBB2724FA75646",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Treasury",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "41764",
+      "index": 5,
+      "success": true,
+      "timestamp": "2026-09-04T07:51:03.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x180c3C56D0a53E6ee6A8F4ee1228E78ca977Dc4B",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "SubAccountFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0",
+      "transaction_index": 4,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 27080564,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xA9936032058F6fd085D670773ddBB2724FA75646",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Treasury",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "7173",
+      "index": 6,
+      "success": true,
+      "timestamp": "2026-09-04T07:51:03.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x88C730E85e9B536fAE2801BCB2059a9F1D1890e9",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0",
+      "transaction_index": 4,
+      "type": "call",
+      "value": "3500000000000000000"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x573b5100c93d43fe9b0ad5dce045a881a6790bf1711277a001c02011790ad1a0",
+  "contract_address": "0xa0A6561b58c28ADc4519d5bC7F931C618e7502d1",
+  "contract_name": "PredictionMarket",
+  "contract_verified": true,
+  "implementations": []
+}

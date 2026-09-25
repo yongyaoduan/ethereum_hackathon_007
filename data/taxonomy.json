@@ -1,0 +1,416 @@
+{
+  "version": "1.0",
+  "source": "https://etherscan.io/advanced-filter",
+  "captured_at": "2026-09-26T00:26:00+08:00",
+  "source_entry_count": 46,
+  "unique_label_count": 45,
+  "scope": "Exact visible names only; definitions are our operational interpretation, not official Etherscan specifications.",
+  "labels": [
+    {
+      "id": "add_liquidity",
+      "label": "Add Liquidity",
+      "zh": "添加流动性",
+      "preset_ids": [
+        39
+      ],
+      "definition": "Contribute assets to an AMM liquidity pool and obtain or increase liquidity ownership. Not merely deposit into a vault or transfer tokens."
+    },
+    {
+      "id": "approve",
+      "label": "Approve",
+      "zh": "授权",
+      "preset_ids": [
+        38
+      ],
+      "definition": "Set, increase, decrease or revoke token allowance or NFT operator approval. Require decoded permission operation or approval events; a normal transfer is not approval."
+    },
+    {
+      "id": "bid",
+      "label": "Bid",
+      "zh": "出价",
+      "preset_ids": [
+        41
+      ],
+      "definition": "Place or increase an auction/marketplace bid. Require auction/order context, not a token swap or unconditional purchase."
+    },
+    {
+      "id": "borrow",
+      "label": "Borrow",
+      "zh": "借款",
+      "preset_ids": [
+        16
+      ],
+      "definition": "Receive borrowed assets with a corresponding debt obligation, including flash borrowing if demonstrated. Receiving tokens alone is insufficient."
+    },
+    {
+      "id": "bridge",
+      "label": "Bridge",
+      "zh": "跨链",
+      "preset_ids": [
+        2
+      ],
+      "definition": "Initiate or finalize a cross-chain asset movement supported by a verified bridge contract and bridge/message events. Local token transfer alone is insufficient."
+    },
+    {
+      "id": "burn",
+      "label": "Burn",
+      "zh": "销毁",
+      "preset_ids": [
+        37
+      ],
+      "definition": "Explicitly destroy tokens or NFTs and reduce supply. Exclude receipt/share burning that is only an implementation detail of redemption, withdrawal or unwrapping."
+    },
+    {
+      "id": "cancel",
+      "label": "Cancel",
+      "zh": "取消",
+      "preset_ids": [
+        14
+      ],
+      "definition": "Cancel an order, bid, proposal or commitment. Use Cancel Withdrawal instead for a withdrawal cancellation; no action occurred when a transaction reverted."
+    },
+    {
+      "id": "cancel_withdrawal",
+      "label": "Cancel Withdrawal",
+      "zh": "取消提取",
+      "preset_ids": [
+        47
+      ],
+      "definition": "Cancel a previously requested or queued withdrawal, restoring its prior state. Not execution failure or a completed withdrawal."
+    },
+    {
+      "id": "claim",
+      "label": "Claim",
+      "zh": "领取",
+      "preset_ids": [
+        13
+      ],
+      "definition": "Collect an already-earned reward, distribution, airdrop or matured entitlement. Not receiving an unsolicited transfer; separate from redeeming investment shares."
+    },
+    {
+      "id": "collateralize",
+      "label": "Collateralize",
+      "zh": "设为抵押",
+      "preset_ids": [
+        44
+      ],
+      "definition": "Explicitly enable or add collateral backing a debt. Generic supplying/depositing is insufficient without collateral evidence."
+    },
+    {
+      "id": "commit",
+      "label": "Commit",
+      "zh": "提交承诺",
+      "preset_ids": [
+        26
+      ],
+      "definition": "Record a commitment for a later reveal/registration/auction step. Require commitment semantics, not generic writes or transactions."
+    },
+    {
+      "id": "complete_withdrawal",
+      "label": "Complete Withdrawal",
+      "zh": "完成提取",
+      "preset_ids": [
+        57
+      ],
+      "definition": "Finalize a previously queued or initiated withdrawal after its delay/proof stage. Requires evidence of the staged withdrawal lifecycle."
+    },
+    {
+      "id": "create",
+      "label": "Create",
+      "zh": "创建",
+      "preset_ids": [
+        4
+      ],
+      "definition": "Create a protocol entity such as a pool, market, order or proposal. Pure EVM deployment uses Deploy; token/NFT issuance uses Mint."
+    },
+    {
+      "id": "de_collateralised",
+      "label": "De-collateralised",
+      "zh": "解除抵押",
+      "preset_ids": [
+        45
+      ],
+      "definition": "Explicitly disable collateral or release pledged backing. Not any token withdrawal, and not liquidation."
+    },
+    {
+      "id": "delegate",
+      "label": "Delegate",
+      "zh": "委托",
+      "preset_ids": [
+        5
+      ],
+      "definition": "Delegate governance votes, staking authority or validation stake to a representative/validator. ERC20 spending allowance uses Approve."
+    },
+    {
+      "id": "deploy",
+      "label": "Deploy",
+      "zh": "部署合约",
+      "preset_ids": [
+        8
+      ],
+      "definition": "Successful EVM contract creation, including factory-created contracts proven by creation traces. New protocol records alone use Create."
+    },
+    {
+      "id": "deposit",
+      "label": "Deposit",
+      "zh": "存入 / 充值",
+      "preset_ids": [
+        20,
+        25
+      ],
+      "definition": "Credit assets to a protocol/vault/custody account or a positively identified exchange deposit account. Verified wrapper deposit is allowed alongside Wrap. Ordinary address transfers without destination identity do not qualify. Lending Supply and Stake alone do not automatically imply this broader tag."
+    },
+    {
+      "id": "extend_lock",
+      "label": "Extend Lock",
+      "zh": "延长锁定",
+      "preset_ids": [
+        56
+      ],
+      "definition": "Extend the expiration time of an existing asset lock. Not creating a new lock or increasing its principal."
+    },
+    {
+      "id": "increase_amount",
+      "label": "Increase Amount",
+      "zh": "增加锁定金额",
+      "preset_ids": [
+        55
+      ],
+      "definition": "Increase principal in an existing asset lock. Require locking context; unrelated balance increases or approvals do not qualify."
+    },
+    {
+      "id": "initiate_redemption",
+      "label": "Initiate Redemption",
+      "zh": "申请赎回",
+      "preset_ids": [
+        51
+      ],
+      "definition": "Submit a redemption request to a staged redemption queue; payout not yet completed. Immediate share-to-asset settlement uses Redeem."
+    },
+    {
+      "id": "initiate_withdrawal",
+      "label": "Initiate Withdrawal",
+      "zh": "申请提取",
+      "preset_ids": [
+        46
+      ],
+      "definition": "Start a staged/queued withdrawal or unbonding request, with completion still pending. Immediate withdrawal uses Withdraw."
+    },
+    {
+      "id": "liquidate",
+      "label": "Liquidate",
+      "zh": "清算",
+      "preset_ids": [
+        31
+      ],
+      "definition": "Execute forced debt/collateral liquidation against a borrower. Not voluntary selling, repaying or withdrawing."
+    },
+    {
+      "id": "lock",
+      "label": "Lock",
+      "zh": "锁定",
+      "preset_ids": [
+        6
+      ],
+      "definition": "Establish a new time lock or escrow restricting assets. Do not infer from any contract custody, normal staking or bridge escrow alone."
+    },
+    {
+      "id": "migrate",
+      "label": "Migrate",
+      "zh": "迁移",
+      "preset_ids": [
+        52
+      ],
+      "definition": "Move an existing protocol position or token version into its replacement using a migration mechanism. Generic transfer or swap is insufficient."
+    },
+    {
+      "id": "mint",
+      "label": "Mint",
+      "zh": "铸造",
+      "preset_ids": [
+        34
+      ],
+      "definition": "Issue new tokens or NFTs as the intended operation. Exclude auxiliary receipt/share minting during liquidity provision, wrapping, staking or vault deposits."
+    },
+    {
+      "id": "redeem",
+      "label": "Redeem",
+      "zh": "赎回",
+      "preset_ids": [
+        50
+      ],
+      "definition": "Exchange/burn an existing investment share, voucher or claim token for its underlying assets in a settled redemption. Not just claiming rewards or requesting later redemption."
+    },
+    {
+      "id": "refund",
+      "label": "Refund",
+      "zh": "退款",
+      "preset_ids": [
+        42
+      ],
+      "definition": "Return a prior payment or bid due to refund/cancellation/excess-payment logic. Arbitrary inbound transfer and investment exit do not qualify."
+    },
+    {
+      "id": "register",
+      "label": "Register",
+      "zh": "注册",
+      "preset_ids": [
+        27
+      ],
+      "definition": "Register a domain, identity, name, operator or protocol membership. A commitment before registration uses Commit."
+    },
+    {
+      "id": "remove_liquidity",
+      "label": "Remove Liquidity",
+      "zh": "移除流动性",
+      "preset_ids": [
+        40
+      ],
+      "definition": "Reduce AMM liquidity ownership and receive constituent assets. Not general vault withdrawal or redemption."
+    },
+    {
+      "id": "renew",
+      "label": "Renew",
+      "zh": "续期",
+      "preset_ids": [
+        32
+      ],
+      "definition": "Extend an existing domain/name/service registration term. Time-lock extension uses Extend Lock."
+    },
+    {
+      "id": "repay",
+      "label": "Repay",
+      "zh": "还款",
+      "preset_ids": [
+        17
+      ],
+      "definition": "Pay borrowed principal or interest to reduce an actual debt. Ordinary payment to a contract is insufficient."
+    },
+    {
+      "id": "restake",
+      "label": "Restake",
+      "zh": "再质押",
+      "preset_ids": [
+        48
+      ],
+      "definition": "Use already-staked assets or staking claims to secure an additional restaking service. Repeating an ordinary stake does not qualify."
+    },
+    {
+      "id": "sale",
+      "label": "Sale",
+      "zh": "出售成交",
+      "preset_ids": [
+        12
+      ],
+      "definition": "Settle a marketplace/auction sale with asset ownership exchanged for payment. AMM token trading uses Swap; placing a bid is not a completed sale."
+    },
+    {
+      "id": "short",
+      "label": "Short",
+      "zh": "做空",
+      "preset_ids": [
+        10
+      ],
+      "definition": "Open or increase a short derivatives/margin position with explicit short-side evidence. Selling held tokens does not qualify."
+    },
+    {
+      "id": "stake",
+      "label": "Stake",
+      "zh": "质押",
+      "preset_ids": [
+        11
+      ],
+      "definition": "Commit tokens to a staking system for validation or staking rewards. Plain vault deposits, lending supply and generic locks are insufficient."
+    },
+    {
+      "id": "supply",
+      "label": "Supply",
+      "zh": "提供借贷资金",
+      "preset_ids": [
+        24
+      ],
+      "definition": "Supply assets to a lending money market, crediting the lender account. Different from AMM Add Liquidity and generic vault Deposit."
+    },
+    {
+      "id": "swap",
+      "label": "Swap",
+      "zh": "兑换",
+      "preset_ids": [
+        3
+      ],
+      "definition": "Exchange one asset for another through an exchange or routing protocol. Exclude wrapping/unwrapping of the same underlying asset and simple transfers."
+    },
+    {
+      "id": "undelegate",
+      "label": "Undelegate",
+      "zh": "撤销委托",
+      "preset_ids": [
+        33
+      ],
+      "definition": "Remove or reduce a previous governance/validator delegation. Token spending allowance revocation is Approve."
+    },
+    {
+      "id": "unlock",
+      "label": "Unlock",
+      "zh": "解锁",
+      "preset_ids": [
+        43
+      ],
+      "definition": "Release assets from an existing lock/escrow. Passage of time alone without a transaction is not an action; ordinary Withdraw is not automatically Unlock."
+    },
+    {
+      "id": "unstake",
+      "label": "Unstake",
+      "zh": "解除质押",
+      "preset_ids": [
+        15
+      ],
+      "definition": "Remove tokens from ordinary staking and reduce staked balance. Can coexist with Initiate Withdrawal only if both operations are evidenced."
+    },
+    {
+      "id": "unwrap",
+      "label": "Unwrap",
+      "zh": "解封装",
+      "preset_ids": [
+        23
+      ],
+      "definition": "Convert a wrapped representation back to its underlying asset through the wrapper. Receipt redemption in a vault is Redeem, not Unwrap."
+    },
+    {
+      "id": "update_interest",
+      "label": "Update Interest",
+      "zh": "更新利息",
+      "preset_ids": [
+        35
+      ],
+      "definition": "Execute an interest accrual update or change an interest rate/model. Merely receiving yield or a swap price update does not qualify."
+    },
+    {
+      "id": "vote",
+      "label": "Vote",
+      "zh": "投票",
+      "preset_ids": [
+        30
+      ],
+      "definition": "Cast a governance vote on a proposal. Delegation alone is Delegate; prediction-market betting is not governance voting."
+    },
+    {
+      "id": "withdraw",
+      "label": "Withdraw",
+      "zh": "提取",
+      "preset_ids": [
+        21
+      ],
+      "definition": "Immediately remove credited assets from a protocol/account. Wrapper withdrawal is allowed alongside Unwrap. Prefer Complete Withdrawal for staged completion and Remove Liquidity for AMM exit."
+    },
+    {
+      "id": "wrap",
+      "label": "Wrap",
+      "zh": "封装",
+      "preset_ids": [
+        22
+      ],
+      "definition": "Convert a native/underlying asset to its corresponding wrapped representation through a wrapper. Not a market swap between unrelated assets."
+    }
+  ]
+}

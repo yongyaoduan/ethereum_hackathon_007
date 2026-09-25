@@ -1,0 +1,465 @@
+{
+  "file_path": "src/L2/L1Block.sol",
+  "creation_status": "success",
+  "source_code": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.15;\n\nimport { ISemver } from \"src/universal/interfaces/ISemver.sol\";\nimport { Constants } from \"src/libraries/Constants.sol\";\nimport { GasPayingToken, IGasToken } from \"src/libraries/GasPayingToken.sol\";\nimport \"src/libraries/L1BlockErrors.sol\";\n\n/// @custom:proxied true\n/// @custom:predeploy 0x4200000000000000000000000000000000000015\n/// @title L1Block\n/// @notice The L1Block predeploy gives users access to information about the last known L1 block.\n///         Values within this contract are updated once per epoch (every L1 block) and can only be\n///         set by the \"depositor\" account, a special system address. Depositor account transactions\n///         are created by the protocol whenever we move to a new epoch.\ncontract L1Block is ISemver, IGasToken {\n    /// @notice Event emitted when the gas paying token is set.\n    event GasPayingTokenSet(address indexed token, uint8 indexed decimals, bytes32 name, bytes32 symbol);\n\n    /// @notice Address of the special depositor account.\n    function DEPOSITOR_ACCOUNT() public pure returns (address addr_) {\n        addr_ = Constants.DEPOSITOR_ACCOUNT;\n    }\n\n    /// @notice The latest L1 block number known by the L2 system.\n    uint64 public number;\n\n    /// @notice The latest L1 timestamp known by the L2 system.\n    uint64 public timestamp;\n\n    /// @notice The latest L1 base fee.\n    uint256 public basefee;\n\n    /// @notice The latest L1 blockhash.\n    bytes32 public hash;\n\n    /// @notice The number of L2 blocks in the same epoch.\n    uint64 public sequenceNumber;\n\n    /// @notice The scalar value applied to the L1 blob base fee portion of the blob-capable L1 cost func.\n    uint32 public blobBaseFeeScalar;\n\n    /// @notice The scalar value applied to the L1 base fee portion of the blob-capable L1 cost func.\n    uint32 public baseFeeScalar;\n\n    /// @notice The versioned hash to authenticate the batcher by.\n    bytes32 public batcherHash;\n\n    /// @notice The overhead value applied to the L1 portion of the transaction fee.\n    /// @custom:legacy\n    uint256 public l1FeeOverhead;\n\n    /// @notice The scalar value applied to the L1 portion of the transaction fee.\n    /// @custom:legacy\n    uint256 public l1FeeScalar;\n\n    /// @notice The latest L1 blob base fee.\n    uint256 public blobBaseFee;\n\n    /// @custom:semver 1.5.1-beta.1\n    function version() public pure virtual returns (string memory) {\n        return \"1.5.1-beta.1\";\n    }\n\n    /// @notice Returns the gas paying token, its decimals, name and symbol.\n    ///         If nothing is set in state, then it means ether is used.\n    function gasPayingToken() public view returns (address addr_, uint8 decimals_) {\n        (addr_, decimals_) = GasPayingToken.getToken();\n    }\n\n    /// @notice Returns the gas paying token name.\n    ///         If nothing is set in state, then it means ether is used.\n    function gasPayingTokenName() public view returns (string memory name_) {\n        name_ = GasPayingToken.getName();\n    }\n\n    /// @notice Returns the gas paying token symbol.\n    ///         If nothing is set in state, then it means ether is used.\n    function gasPayingTokenSymbol() public view returns (string memory symbol_) {\n        symbol_ = GasPayingToken.getSymbol();\n    }\n\n    /// @notice Getter for custom gas token paying networks. Returns true if the\n    ///         network uses a custom gas token.\n    function isCustomGasToken() public view returns (bool) {\n        (address token,) = gasPayingToken();\n        return token != Constants.ETHER;\n    }\n\n    /// @custom:legacy\n    /// @notice Updates the L1 block values.\n    /// @param _number         L1 blocknumber.\n    /// @param _timestamp      L1 timestamp.\n    /// @param _basefee        L1 basefee.\n    /// @param _hash           L1 blockhash.\n    /// @param _sequenceNumber Number of L2 blocks since epoch start.\n    /// @param _batcherHash    Versioned hash to authenticate batcher by.\n    /// @param _l1FeeOverhead  L1 fee overhead.\n    /// @param _l1FeeScalar    L1 fee scalar.\n    function setL1BlockValues(\n        uint64 _number,\n        uint64 _timestamp,\n        uint256 _basefee,\n        bytes32 _hash,\n        uint64 _sequenceNumber,\n        bytes32 _batcherHash,\n        uint256 _l1FeeOverhead,\n        uint256 _l1FeeScalar\n    )\n        external\n    {\n        require(msg.sender == DEPOSITOR_ACCOUNT(), \"L1Block: only the depositor account can set L1 block values\");\n\n        number = _number;\n        timestamp = _timestamp;\n        basefee = _basefee;\n        hash = _hash;\n        sequenceNumber = _sequenceNumber;\n        batcherHash = _batcherHash;\n        l1FeeOverhead = _l1FeeOverhead;\n        l1FeeScalar = _l1FeeScalar;\n    }\n\n    /// @notice Updates the L1 block values for an Ecotone upgraded chain.\n    /// Params are packed and passed in as raw msg.data instead of ABI to reduce calldata size.\n    /// Params are expected to be in the following order:\n    ///   1. _baseFeeScalar      L1 base fee scalar\n    ///   2. _blobBaseFeeScalar  L1 blob base fee scalar\n    ///   3. _sequenceNumber     Number of L2 blocks since epoch start.\n    ///   4. _timestamp          L1 timestamp.\n    ///   5. _number             L1 blocknumber.\n    ///   6. _basefee            L1 base fee.\n    ///   7. _blobBaseFee        L1 blob base fee.\n    ///   8. _hash               L1 blockhash.\n    ///   9. _batcherHash        Versioned hash to authenticate batcher by.\n    function setL1BlockValuesEcotone() public {\n        _setL1BlockValuesEcotone();\n    }\n\n    /// @notice Updates the L1 block values for an Ecotone upgraded chain.\n    /// Params are packed and passed in as raw msg.data instead of ABI to reduce calldata size.\n    /// Params are expected to be in the following order:\n    ///   1. _baseFeeScalar      L1 base fee scalar\n    ///   2. _blobBaseFeeScalar  L1 blob base fee scalar\n    ///   3. _sequenceNumber     Number of L2 blocks since epoch start.\n    ///   4. _timestamp          L1 timestamp.\n    ///   5. _number             L1 blocknumber.\n    ///   6. _basefee            L1 base fee.\n    ///   7. _blobBaseFee        L1 blob base fee.\n    ///   8. _hash               L1 blockhash.\n    ///   9. _batcherHash        Versioned hash to authenticate batcher by.\n    function _setL1BlockValuesEcotone() internal {\n        address depositor = DEPOSITOR_ACCOUNT();\n        assembly {\n            // Revert if the caller is not the depositor account.\n            if xor(caller(), depositor) {\n                mstore(0x00, 0x3cc50b45) // 0x3cc50b45 is the 4-byte selector of \"NotDepositor()\"\n                revert(0x1C, 0x04) // returns the stored 4-byte selector from above\n            }\n            // sequencenum (uint64), blobBaseFeeScalar (uint32), baseFeeScalar (uint32)\n            sstore(sequenceNumber.slot, shr(128, calldataload(4)))\n            // number (uint64) and timestamp (uint64)\n            sstore(number.slot, shr(128, calldataload(20)))\n            sstore(basefee.slot, calldataload(36)) // uint256\n            sstore(blobBaseFee.slot, calldataload(68)) // uint256\n            sstore(hash.slot, calldataload(100)) // bytes32\n            sstore(batcherHash.slot, calldataload(132)) // bytes32\n        }\n    }\n\n    /// @notice Sets the gas paying token for the L2 system. Can only be called by the special\n    ///         depositor account. This function is not called on every L2 block but instead\n    ///         only called by specially crafted L1 deposit transactions.\n    function setGasPayingToken(address _token, uint8 _decimals, bytes32 _name, bytes32 _symbol) external {\n        if (msg.sender != DEPOSITOR_ACCOUNT()) revert NotDepositor();\n\n        GasPayingToken.set({ _token: _token, _decimals: _decimals, _name: _name, _symbol: _symbol });\n\n        emit GasPayingTokenSet({ token: _token, decimals: _decimals, name: _name, symbol: _symbol });\n    }\n}\n",
+  "deployed_bytecode": "0x608060405234801561001057600080fd5b506004361061016c5760003560e01c806371cfaa3f116100cd578063c598591811610081578063e591b28211610066578063e591b2821461032a578063e81b2c6d1461034c578063f82061401461035557600080fd5b8063c598591814610302578063d84447151461032257600080fd5b80638b239f73116100b25780638b239f73146102d05780639e8c4966146102d9578063b80777ea146102e257600080fd5b806371cfaa3f146102a95780638381f58a146102bc57600080fd5b806354fd4d50116101245780635cf24969116101095780635cf249691461024257806364ca23ef1461024b57806368d5dca61461027857600080fd5b806354fd4d50146101f8578063550fcdc91461023a57600080fd5b8063213268491161015557806321326849146101a25780634397dfef146101ba578063440a5e20146101f057600080fd5b8063015d8eb91461017157806309bd5a6014610186575b600080fd5b61018461017f36600461093a565b61035e565b005b61018f60025481565b6040519081526020015b60405180910390f35b6101aa61049d565b6040519015158152602001610199565b6101c26104dc565b6040805173ffffffffffffffffffffffffffffffffffffffff909316835260ff909116602083015201610199565b6101846104f0565b60408051808201909152600c81527f312e352e312d626574612e31000000000000000000000000000000000000000060208201525b60405161019991906109ac565b61022d6104fa565b61018f60015481565b60035461025f9067ffffffffffffffff1681565b60405167ffffffffffffffff9091168152602001610199565b6003546102949068010000000000000000900463ffffffff1681565b60405163ffffffff9091168152602001610199565b6101846102b7366004610a1f565b610509565b60005461025f9067ffffffffffffffff1681565b61018f60055481565b61018f60065481565b60005461025f9068010000000000000000900467ffffffffffffffff1681565b600354610294906c01000000000000000000000000900463ffffffff1681565b61022d6105be565b60405173deaddeaddeaddeaddeaddeaddeaddeaddead00018152602001610199565b61018f60045481565b61018f60075481565b3373deaddeaddeaddeaddeaddeaddeaddeaddead000114610405576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152603b60248201527f4c31426c6f636b3a206f6e6c7920746865206465706f7369746f72206163636f60448201527f756e742063616e20736574204c3120626c6f636b2076616c7565730000000000606482015260840160405180910390fd5b6000805467ffffffffffffffff98891668010000000000000000027fffffffffffffffffffffffffffffffff00000000000000000000000000000000909116998916999099179890981790975560019490945560029290925560038054919094167fffffffffffffffffffffffffffffffffffffffffffffffff00000000000000009190911617909255600491909155600555600655565b6000806104a86104dc565b5073ffffffffffffffffffffffffffffffffffffffff1673eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee141592915050565b6000806104e76105c8565b90939092509050565b6104f8610649565b565b60606105046106a0565b905090565b3373deaddeaddeaddeaddeaddeaddeaddeaddead000114610556576040517f3cc50b4500000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b61056284848484610761565b604080518381526020810183905260ff85169173ffffffffffffffffffffffffffffffffffffffff8716917f10e43c4d58f3ef4edae7c1ca2e7f02d46b2cadbcc046737038527ed8486ffeb0910160405180910390a350505050565b6060610504610833565b600080806105fe6105fa60017f04adb1412b2ddc16fcc0d4538d5c8f07cf9c83abecc6b41f6f69037b708fbcec610a84565b5490565b73ffffffffffffffffffffffffffffffffffffffff8116935090508261063d575073eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee92601292509050565b60a081901c9150509091565b73deaddeaddeaddeaddeaddeaddeaddeaddead000133811461067357633cc50b456000526004601cfd5b60043560801c60035560143560801c60005560243560015560443560075560643560025560843560045550565b606060006106ac6105c8565b5090507fffffffffffffffffffffffff111111111111111111111111111111111111111273ffffffffffffffffffffffffffffffffffffffff82160161072557505060408051808201909152600381527f4554480000000000000000000000000000000000000000000000000000000000602082015290565b61075b6107566105fa60017fa48b38a4b44951360fbdcbfaaeae5ed6ae92585412e9841b70ec72ed8cd05764610a84565b6108e9565b91505090565b6107c761078f60017f04adb1412b2ddc16fcc0d4538d5c8f07cf9c83abecc6b41f6f69037b708fbcec610a84565b74ff000000000000000000000000000000000000000060a086901b1673ffffffffffffffffffffffffffffffffffffffff8716179055565b6107fa6107f560017f657c3582c29b3176614e3a33ddd1ec48352696a04e92b3c0566d72010fa8863d610a84565b839055565b61082d61082860017fa48b38a4b44951360fbdcbfaaeae5ed6ae92585412e9841b70ec72ed8cd05764610a84565b829055565b50505050565b6060600061083f6105c8565b5090507fffffffffffffffffffffffff111111111111111111111111111111111111111273ffffffffffffffffffffffffffffffffffffffff8216016108b857505060408051808201909152600581527f4574686572000000000000000000000000000000000000000000000000000000602082015290565b61075b6107566105fa60017f657c3582c29b3176614e3a33ddd1ec48352696a04e92b3c0566d72010fa8863d610a84565b60405160005b82811a156108ff576001016108ef565b80825260208201838152600082820152505060408101604052919050565b803567ffffffffffffffff8116811461093557600080fd5b919050565b600080600080600080600080610100898b03121561095757600080fd5b6109608961091d565b975061096e60208a0161091d565b9650604089013595506060890135945061098a60808a0161091d565b979a969950949793969560a0850135955060c08501359460e001359350915050565b600060208083528351808285015260005b818110156109d9578581018301518582016040015282016109bd565b818111156109eb576000604083870101525b50601f017fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe016929092016040019392505050565b60008060008060808587031215610a3557600080fd5b843573ffffffffffffffffffffffffffffffffffffffff81168114610a5957600080fd5b9350602085013560ff81168114610a6f57600080fd5b93969395505050506040820135916060013590565b600082821015610abd577f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b50039056fea164736f6c634300080f000a",
+  "optimization_enabled": true,
+  "verified_twin_address_hash": null,
+  "is_verified": true,
+  "compiler_settings": {
+    "evmVersion": "london",
+    "libraries": {},
+    "metadata": {
+      "bytecodeHash": "none",
+      "useLiteralContent": false
+    },
+    "optimizer": {
+      "enabled": true,
+      "runs": 999999
+    },
+    "outputSelection": {
+      "*": {
+        "": [
+          "ast"
+        ],
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "storageLayout",
+          "devdoc",
+          "userdoc"
+        ]
+      }
+    },
+    "remappings": [
+      "@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+      "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+      "@openzeppelin/contracts-v5/=lib/openzeppelin-contracts-v5/contracts/",
+      "@rari-capital/solmate/=lib/solmate/",
+      "@lib-keccak/=lib/lib-keccak/contracts/lib/",
+      "@solady/=lib/solady/src/",
+      "forge-std/=lib/forge-std/src/",
+      "ds-test/=lib/forge-std/lib/ds-test/src/",
+      "safe-contracts/=lib/safe-contracts/contracts/",
+      "kontrol-cheatcodes/=lib/kontrol-cheatcodes/src/",
+      "gelato/=lib/automate/contracts/",
+      "@solady-test/=lib/lib-keccak/lib/solady/test/",
+      "automate/=lib/automate/contracts/",
+      "erc4626-tests/=lib/openzeppelin-contracts-v5/lib/erc4626-tests/",
+      "hardhat/=lib/automate/node_modules/hardhat/",
+      "lib-keccak/=lib/lib-keccak/contracts/",
+      "openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+      "openzeppelin-contracts-v5/=lib/openzeppelin-contracts-v5/",
+      "openzeppelin-contracts/=lib/openzeppelin-contracts/",
+      "prb-test/=lib/automate/lib/prb-test/src/",
+      "prb/-est/=lib/automate/lib/prb-test/src/",
+      "solady/=lib/solady/",
+      "solmate/=lib/solmate/src/"
+    ],
+    "viaIR": false
+  },
+  "optimization_runs": 999999,
+  "sourcify_repo_url": null,
+  "decoded_constructor_args": null,
+  "compiler_version": "v0.8.15+commit.e14f2714",
+  "is_verified_via_verifier_alliance": false,
+  "verified_at": "2025-01-06T08:41:21.592781Z",
+  "implementations": [],
+  "proxy_type": null,
+  "external_libraries": [],
+  "creation_bytecode": null,
+  "name": "L1Block",
+  "is_blueprint": false,
+  "license_type": "none",
+  "is_fully_verified": false,
+  "is_verified_via_eth_bytecode_db": true,
+  "language": "solidity",
+  "evm_version": "london",
+  "can_be_visualized_via_sol2uml": true,
+  "is_verified_via_sourcify": false,
+  "additional_sources": [
+    {
+      "file_path": "lib/solady/src/utils/LibString.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\n/// @notice Library for converting numbers into strings and other string operations.\n/// @author Solady (https://github.com/vectorized/solady/blob/main/src/utils/LibString.sol)\n/// @author Modified from Solmate (https://github.com/transmissions11/solmate/blob/main/src/utils/LibString.sol)\n///\n/// Note:\n/// For performance and bytecode compactness, most of the string operations are restricted to\n/// byte strings (7-bit ASCII), except where otherwise specified.\n/// Usage of byte string operations on charsets with runes spanning two or more bytes\n/// can lead to undefined behavior.\nlibrary LibString {\n    /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n    /*                        CUSTOM ERRORS                       */\n    /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n    /// @dev The length of the output is too small to contain all the hex digits.\n    error HexLengthInsufficient();\n\n    /// @dev The length of the string is more than 32 bytes.\n    error TooBigForSmallString();\n\n    /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n    /*                         CONSTANTS                          */\n    /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n    /// @dev The constant returned when the `search` is not found in the string.\n    uint256 internal constant NOT_FOUND = type(uint256).max;\n\n    /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n    /*                     DECIMAL OPERATIONS                     */\n    /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n    /// @dev Returns the base 10 decimal representation of `value`.\n    function toString(uint256 value) internal pure returns (string memory str) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            // The maximum value of a uint256 contains 78 digits (1 byte per digit), but\n            // we allocate 0xa0 bytes to keep the free memory pointer 32-byte word aligned.\n            // We will need 1 word for the trailing zeros padding, 1 word for the length,\n            // and 3 words for a maximum of 78 digits.\n            str := add(mload(0x40), 0x80)\n            // Update the free memory pointer to allocate.\n            mstore(0x40, add(str, 0x20))\n            // Zeroize the slot after the string.\n            mstore(str, 0)\n\n            // Cache the end of the memory to calculate the length later.\n            let end := str\n\n            let w := not(0) // Tsk.\n            // We write the string from rightmost digit to leftmost digit.\n            // The following is essentially a do-while loop that also handles the zero case.\n            for { let temp := value } 1 {} {\n                str := add(str, w) // `sub(str, 1)`.\n                // Write the character to the pointer.\n                // The ASCII index of the '0' character is 48.\n                mstore8(str, add(48, mod(temp, 10)))\n                // Keep dividing `temp` until zero.\n                temp := div(temp, 10)\n                if iszero(temp) { break }\n            }\n\n            let length := sub(end, str)\n            // Move the pointer 32 bytes leftwards to make room for the length.\n            str := sub(str, 0x20)\n            // Store the length.\n            mstore(str, length)\n        }\n    }\n\n    /// @dev Returns the base 10 decimal representation of `value`.\n    function toString(int256 value) internal pure returns (string memory str) {\n        if (value >= 0) {\n            return toString(uint256(value));\n        }\n        unchecked {\n            str = toString(uint256(-value));\n        }\n        /// @solidity memory-safe-assembly\n        assembly {\n            // We still have some spare memory space on the left,\n            // as we have allocated 3 words (96 bytes) for up to 78 digits.\n            let length := mload(str) // Load the string length.\n            mstore(str, 0x2d) // Store the '-' character.\n            str := sub(str, 1) // Move back the string pointer by a byte.\n            mstore(str, add(length, 1)) // Update the string length.\n        }\n    }\n\n    /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n    /*                   HEXADECIMAL OPERATIONS                   */\n    /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n    /// @dev Returns the hexadecimal representation of `value`,\n    /// left-padded to an input length of `length` bytes.\n    /// The output is prefixed with \"0x\" encoded using 2 hexadecimal digits per byte,\n    /// giving a total length of `length * 2 + 2` bytes.\n    /// Reverts if `length` is too small for the output to contain all the digits.\n    function toHexString(uint256 value, uint256 length) internal pure returns (string memory str) {\n        str = toHexStringNoPrefix(value, length);\n        /// @solidity memory-safe-assembly\n        assembly {\n            let strLength := add(mload(str), 2) // Compute the length.\n            mstore(str, 0x3078) // Write the \"0x\" prefix.\n            str := sub(str, 2) // Move the pointer.\n            mstore(str, strLength) // Write the length.\n        }\n    }\n\n    /// @dev Returns the hexadecimal representation of `value`,\n    /// left-padded to an input length of `length` bytes.\n    /// The output is prefixed with \"0x\" encoded using 2 hexadecimal digits per byte,\n    /// giving a total length of `length * 2` bytes.\n    /// Reverts if `length` is too small for the output to contain all the digits.\n    function toHexStringNoPrefix(uint256 value, uint256 length)\n        internal\n        pure\n        returns (string memory str)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            // We need 0x20 bytes for the trailing zeros padding, `length * 2` bytes\n            // for the digits, 0x02 bytes for the prefix, and 0x20 bytes for the length.\n            // We add 0x20 to the total and round down to a multiple of 0x20.\n            // (0x20 + 0x20 + 0x02 + 0x20) = 0x62.\n            str := add(mload(0x40), and(add(shl(1, length), 0x42), not(0x1f)))\n            // Allocate the memory.\n            mstore(0x40, add(str, 0x20))\n            // Zeroize the slot after the string.\n            mstore(str, 0)\n\n            // Cache the end to calculate the length later.\n            let end := str\n            // Store \"0123456789abcdef\" in scratch space.\n            mstore(0x0f, 0x30313233343536373839616263646566)\n\n            let start := sub(str, add(length, length))\n            let w := not(1) // Tsk.\n            let temp := value\n            // We write the string from rightmost digit to leftmost digit.\n            // The following is essentially a do-while loop that also handles the zero case.\n            for {} 1 {} {\n                str := add(str, w) // `sub(str, 2)`.\n                mstore8(add(str, 1), mload(and(temp, 15)))\n                mstore8(str, mload(and(shr(4, temp), 15)))\n                temp := shr(8, temp)\n                if iszero(xor(str, start)) { break }\n            }\n\n            if temp {\n                mstore(0x00, 0x2194895a) // `HexLengthInsufficient()`.\n                revert(0x1c, 0x04)\n            }\n\n            // Compute the string's length.\n            let strLength := sub(end, str)\n            // Move the pointer and write the length.\n            str := sub(str, 0x20)\n            mstore(str, strLength)\n        }\n    }\n\n    /// @dev Returns the hexadecimal representation of `value`.\n    /// The output is prefixed with \"0x\" and encoded using 2 hexadecimal digits per byte.\n    /// As address are 20 bytes long, the output will left-padded to have\n    /// a length of `20 * 2 + 2` bytes.\n    function toHexString(uint256 value) internal pure returns (string memory str) {\n        str = toHexStringNoPrefix(value);\n        /// @solidity memory-safe-assembly\n        assembly {\n            let strLength := add(mload(str), 2) // Compute the length.\n            mstore(str, 0x3078) // Write the \"0x\" prefix.\n            str := sub(str, 2) // Move the pointer.\n            mstore(str, strLength) // Write the length.\n        }\n    }\n\n    /// @dev Returns the hexadecimal representation of `value`.\n    /// The output is prefixed with \"0x\".\n    /// The output excludes leading \"0\" from the `toHexString` output.\n    /// `0x00: \"0x0\", 0x01: \"0x1\", 0x12: \"0x12\", 0x123: \"0x123\"`.\n    function toMinimalHexString(uint256 value) internal pure returns (string memory str) {\n        str = toHexStringNoPrefix(value);\n        /// @solidity memory-safe-assembly\n        assembly {\n            let o := eq(byte(0, mload(add(str, 0x20))), 0x30) // Whether leading zero is present.\n            let strLength := add(mload(str), 2) // Compute the length.\n            mstore(add(str, o), 0x3078) // Write the \"0x\" prefix, accounting for leading zero.\n            str := sub(add(str, o), 2) // Move the pointer, accounting for leading zero.\n            mstore(str, sub(strLength, o)) // Write the length, accounting for leading zero.\n        }\n    }\n\n    /// @dev Returns the hexadecimal representation of `value`.\n    /// The output excludes leading \"0\" from the `toHexStringNoPrefix` output.\n    /// `0x00: \"0\", 0x01: \"1\", 0x12: \"12\", 0x123: \"123\"`.\n    function toMinimalHexStringNoPrefix(uint256 value) internal pure returns (string memory str) {\n        str = toHexStringNoPrefix(value);\n        /// @solidity memory-safe-assembly\n        assembly {\n            let o := eq(byte(0, mload(add(str, 0x20))), 0x30) // Whether leading zero is present.\n            let strLength := mload(str) // Get the length.\n            str := add(str, o) // Move the pointer, accounting for leading zero.\n            mstore(str, sub(strLength, o)) // Write the length, accounting for leading zero.\n        }\n    }\n\n    /// @dev Returns the hexadecimal representation of `value`.\n    /// The output is encoded using 2 hexadecimal digits per byte.\n    /// As address are 20 bytes long, the output will left-padded to have\n    /// a length of `20 * 2` bytes.\n    function toHexStringNoPrefix(uint256 value) internal pure returns (string memory str) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            // We need 0x20 bytes for the trailing zeros padding, 0x20 bytes for the length,\n            // 0x02 bytes for the prefix, and 0x40 bytes for the digits.\n            // The next multiple of 0x20 above (0x20 + 0x20 + 0x02 + 0x40) is 0xa0.\n            str := add(mload(0x40), 0x80)\n            // Allocate the memory.\n            mstore(0x40, add(str, 0x20))\n            // Zeroize the slot after the string.\n            mstore(str, 0)\n\n            // Cache the end to calculate the length later.\n            let end := str\n            // Store \"0123456789abcdef\" in scratch space.\n            mstore(0x0f, 0x30313233343536373839616263646566)\n\n            let w := not(1) // Tsk.\n            // We write the string from rightmost digit to leftmost digit.\n            // The following is essentially a do-while loop that also handles the zero case.\n            for { let temp := value } 1 {} {\n                str := add(str, w) // `sub(str, 2)`.\n                mstore8(add(str, 1), mload(and(temp, 15)))\n                mstore8(str, mload(and(shr(4, temp), 15)))\n                temp := shr(8, temp)\n                if iszero(temp) { break }\n            }\n\n            // Compute the string's length.\n            let strLength := sub(end, str)\n            // Move the pointer and write the length.\n            str := sub(str, 0x20)\n            mstore(str, strLength)\n        }\n    }\n\n    /// @dev Returns the hexadecimal representation of `value`.\n    /// The output is prefixed with \"0x\", encoded using 2 hexadecimal digits per byte,\n    /// and the alphabets are capitalized conditionally according to\n    /// https://eips.ethereum.org/EIPS/eip-55\n    function toHexStringChecksummed(address value) internal pure returns (string memory str) {\n        str = toHexString(value);\n        /// @solidity memory-safe-assembly\n        assembly {\n            let mask := shl(6, div(not(0), 255)) // `0b010000000100000000 ...`\n            let o := add(str, 0x22)\n            let hashed := and(keccak256(o, 40), mul(34, mask)) // `0b10001000 ... `\n            let t := shl(240, 136) // `0b10001000 << 240`\n            for { let i := 0 } 1 {} {\n                mstore(add(i, i), mul(t, byte(i, hashed)))\n                i := add(i, 1)\n                if eq(i, 20) { break }\n            }\n            mstore(o, xor(mload(o), shr(1, and(mload(0x00), and(mload(o), mask)))))\n            o := add(o, 0x20)\n            mstore(o, xor(mload(o), shr(1, and(mload(0x20), and(mload(o), mask)))))\n        }\n    }\n\n    /// @dev Returns the hexadecimal representation of `value`.\n    /// The output is prefixed with \"0x\" and encoded using 2 hexadecimal digits per byte.\n    function toHexString(address value) internal pure returns (string memory str) {\n        str = toHexStringNoPrefix(value);\n        /// @solidity memory-safe-assembly\n        assembly {\n            let strLength := add(mload(str), 2) // Compute the length.\n            mstore(str, 0x3078) // Write the \"0x\" prefix.\n            str := sub(str, 2) // Move the pointer.\n            mstore(str, strLength) // Write the length.\n        }\n    }\n\n    /// @dev Returns the hexadecimal representation of `value`.\n    /// The output is encoded using 2 hexadecimal digits per byte.\n    function toHexStringNoPrefix(address value) internal pure returns (string memory str) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            str := mload(0x40)\n\n            // Allocate the memory.\n            // We need 0x20 bytes for the trailing zeros padding, 0x20 bytes for the length,\n            // 0x02 bytes for the prefix, and 0x28 bytes for the digits.\n            // The next multiple of 0x20 above (0x20 + 0x20 + 0x02 + 0x28) is 0x80.\n            mstore(0x40, add(str, 0x80))\n\n            // Store \"0123456789abcdef\" in scratch space.\n            mstore(0x0f, 0x30313233343536373839616263646566)\n\n            str := add(str, 2)\n            mstore(str, 40)\n\n            let o := add(str, 0x20)\n            mstore(add(o, 40), 0)\n\n            value := shl(96, value)\n\n            // We write the string from rightmost digit to leftmost digit.\n            // The following is essentially a do-while loop that also handles the zero case.\n            for { let i := 0 } 1 {} {\n                let p := add(o, add(i, i))\n                let temp := byte(i, value)\n                mstore8(add(p, 1), mload(and(temp, 15)))\n                mstore8(p, mload(shr(4, temp)))\n                i := add(i, 1)\n                if eq(i, 20) { break }\n            }\n        }\n    }\n\n    /// @dev Returns the hex encoded string from the raw bytes.\n    /// The output is encoded using 2 hexadecimal digits per byte.\n    function toHexString(bytes memory raw) internal pure returns (string memory str) {\n        str = toHexStringNoPrefix(raw);\n        /// @solidity memory-safe-assembly\n        assembly {\n            let strLength := add(mload(str), 2) // Compute the length.\n            mstore(str, 0x3078) // Write the \"0x\" prefix.\n            str := sub(str, 2) // Move the pointer.\n            mstore(str, strLength) // Write the length.\n        }\n    }\n\n    /// @dev Returns the hex encoded string from the raw bytes.\n    /// The output is encoded using 2 hexadecimal digits per byte.\n    function toHexStringNoPrefix(bytes memory raw) internal pure returns (string memory str) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let length := mload(raw)\n            str := add(mload(0x40), 2) // Skip 2 bytes for the optional prefix.\n            mstore(str, add(length, length)) // Store the length of the output.\n\n            // Store \"0123456789abcdef\" in scratch space.\n            mstore(0x0f, 0x30313233343536373839616263646566)\n\n            let o := add(str, 0x20)\n            let end := add(raw, length)\n\n            for {} iszero(eq(raw, end)) {} {\n                raw := add(raw, 1)\n                mstore8(add(o, 1), mload(and(mload(raw), 15)))\n                mstore8(o, mload(and(shr(4, mload(raw)), 15)))\n                o := add(o, 2)\n            }\n            mstore(o, 0) // Zeroize the slot after the string.\n            mstore(0x40, add(o, 0x20)) // Allocate the memory.\n        }\n    }\n\n    /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n    /*                   RUNE STRING OPERATIONS                   */\n    /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n    /// @dev Returns the number of UTF characters in the string.\n    function runeCount(string memory s) internal pure returns (uint256 result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            if mload(s) {\n                mstore(0x00, div(not(0), 255))\n                mstore(0x20, 0x0202020202020202020202020202020202020202020202020303030304040506)\n                let o := add(s, 0x20)\n                let end := add(o, mload(s))\n                for { result := 1 } 1 { result := add(result, 1) } {\n                    o := add(o, byte(0, mload(shr(250, mload(o)))))\n                    if iszero(lt(o, end)) { break }\n                }\n            }\n        }\n    }\n\n    /// @dev Returns if this string is a 7-bit ASCII string.\n    /// (i.e. all characters codes are in [0..127])\n    function is7BitASCII(string memory s) internal pure returns (bool result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let mask := shl(7, div(not(0), 255))\n            result := 1\n            let n := mload(s)\n            if n {\n                let o := add(s, 0x20)\n                let end := add(o, n)\n                let last := mload(end)\n                mstore(end, 0)\n                for {} 1 {} {\n                    if and(mask, mload(o)) {\n                        result := 0\n                        break\n                    }\n                    o := add(o, 0x20)\n                    if iszero(lt(o, end)) { break }\n                }\n                mstore(end, last)\n            }\n        }\n    }\n\n    /*´:°•.°+.*•´.*:˚.°*.˚•´.°:°•.°•.*•´.*:˚.°*.˚•´.°:°•.°+.*•´.*:*/\n    /*                   BYTE STRING OPERATIONS                   */\n    /*.•°:°.´+˚.*°.˚:*.´•*.+°.•°:´*.´•*.•°.•°:°.´:•˚°.*°.˚:*.´+°.•*/\n\n    // For performance and bytecode compactness, byte string operations are restricted\n    // to 7-bit ASCII strings. All offsets are byte offsets, not UTF character offsets.\n    // Usage of byte string operations on charsets with runes spanning two or more bytes\n    // can lead to undefined behavior.\n\n    /// @dev Returns `subject` all occurrences of `search` replaced with `replacement`.\n    function replace(string memory subject, string memory search, string memory replacement)\n        internal\n        pure\n        returns (string memory result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let subjectLength := mload(subject)\n            let searchLength := mload(search)\n            let replacementLength := mload(replacement)\n\n            subject := add(subject, 0x20)\n            search := add(search, 0x20)\n            replacement := add(replacement, 0x20)\n            result := add(mload(0x40), 0x20)\n\n            let subjectEnd := add(subject, subjectLength)\n            if iszero(gt(searchLength, subjectLength)) {\n                let subjectSearchEnd := add(sub(subjectEnd, searchLength), 1)\n                let h := 0\n                if iszero(lt(searchLength, 0x20)) { h := keccak256(search, searchLength) }\n                let m := shl(3, sub(0x20, and(searchLength, 0x1f)))\n                let s := mload(search)\n                for {} 1 {} {\n                    let t := mload(subject)\n                    // Whether the first `searchLength % 32` bytes of\n                    // `subject` and `search` matches.\n                    if iszero(shr(m, xor(t, s))) {\n                        if h {\n                            if iszero(eq(keccak256(subject, searchLength), h)) {\n                                mstore(result, t)\n                                result := add(result, 1)\n                                subject := add(subject, 1)\n                                if iszero(lt(subject, subjectSearchEnd)) { break }\n                                continue\n                            }\n                        }\n                        // Copy the `replacement` one word at a time.\n                        for { let o := 0 } 1 {} {\n                            mstore(add(result, o), mload(add(replacement, o)))\n                            o := add(o, 0x20)\n                            if iszero(lt(o, replacementLength)) { break }\n                        }\n                        result := add(result, replacementLength)\n                        subject := add(subject, searchLength)\n                        if searchLength {\n                            if iszero(lt(subject, subjectSearchEnd)) { break }\n                            continue\n                        }\n                    }\n                    mstore(result, t)\n                    result := add(result, 1)\n                    subject := add(subject, 1)\n                    if iszero(lt(subject, subjectSearchEnd)) { break }\n                }\n            }\n\n            let resultRemainder := result\n            result := add(mload(0x40), 0x20)\n            let k := add(sub(resultRemainder, result), sub(subjectEnd, subject))\n            // Copy the rest of the string one word at a time.\n            for {} lt(subject, subjectEnd) {} {\n                mstore(resultRemainder, mload(subject))\n                resultRemainder := add(resultRemainder, 0x20)\n                subject := add(subject, 0x20)\n            }\n            result := sub(result, 0x20)\n            let last := add(add(result, 0x20), k) // Zeroize the slot after the string.\n            mstore(last, 0)\n            mstore(0x40, add(last, 0x20)) // Allocate the memory.\n            mstore(result, k) // Store the length.\n        }\n    }\n\n    /// @dev Returns the byte index of the first location of `search` in `subject`,\n    /// searching from left to right, starting from `from`.\n    /// Returns `NOT_FOUND` (i.e. `type(uint256).max`) if the `search` is not found.\n    function indexOf(string memory subject, string memory search, uint256 from)\n        internal\n        pure\n        returns (uint256 result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            for { let subjectLength := mload(subject) } 1 {} {\n                if iszero(mload(search)) {\n                    if iszero(gt(from, subjectLength)) {\n                        result := from\n                        break\n                    }\n                    result := subjectLength\n                    break\n                }\n                let searchLength := mload(search)\n                let subjectStart := add(subject, 0x20)\n\n                result := not(0) // Initialize to `NOT_FOUND`.\n\n                subject := add(subjectStart, from)\n                let end := add(sub(add(subjectStart, subjectLength), searchLength), 1)\n\n                let m := shl(3, sub(0x20, and(searchLength, 0x1f)))\n                let s := mload(add(search, 0x20))\n\n                if iszero(and(lt(subject, end), lt(from, subjectLength))) { break }\n\n                if iszero(lt(searchLength, 0x20)) {\n                    for { let h := keccak256(add(search, 0x20), searchLength) } 1 {} {\n                        if iszero(shr(m, xor(mload(subject), s))) {\n                            if eq(keccak256(subject, searchLength), h) {\n                                result := sub(subject, subjectStart)\n                                break\n                            }\n                        }\n                        subject := add(subject, 1)\n                        if iszero(lt(subject, end)) { break }\n                    }\n                    break\n                }\n                for {} 1 {} {\n                    if iszero(shr(m, xor(mload(subject), s))) {\n                        result := sub(subject, subjectStart)\n                        break\n                    }\n                    subject := add(subject, 1)\n                    if iszero(lt(subject, end)) { break }\n                }\n                break\n            }\n        }\n    }\n\n    /// @dev Returns the byte index of the first location of `search` in `subject`,\n    /// searching from left to right.\n    /// Returns `NOT_FOUND` (i.e. `type(uint256).max`) if the `search` is not found.\n    function indexOf(string memory subject, string memory search)\n        internal\n        pure\n        returns (uint256 result)\n    {\n        result = indexOf(subject, search, 0);\n    }\n\n    /// @dev Returns the byte index of the first location of `search` in `subject`,\n    /// searching from right to left, starting from `from`.\n    /// Returns `NOT_FOUND` (i.e. `type(uint256).max`) if the `search` is not found.\n    function lastIndexOf(string memory subject, string memory search, uint256 from)\n        internal\n        pure\n        returns (uint256 result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            for {} 1 {} {\n                result := not(0) // Initialize to `NOT_FOUND`.\n                let searchLength := mload(search)\n                if gt(searchLength, mload(subject)) { break }\n                let w := result\n\n                let fromMax := sub(mload(subject), searchLength)\n                if iszero(gt(fromMax, from)) { from := fromMax }\n\n                let end := add(add(subject, 0x20), w)\n                subject := add(add(subject, 0x20), from)\n                if iszero(gt(subject, end)) { break }\n                // As this function is not too often used,\n                // we shall simply use keccak256 for smaller bytecode size.\n                for { let h := keccak256(add(search, 0x20), searchLength) } 1 {} {\n                    if eq(keccak256(subject, searchLength), h) {\n                        result := sub(subject, add(end, 1))\n                        break\n                    }\n                    subject := add(subject, w) // `sub(subject, 1)`.\n                    if iszero(gt(subject, end)) { break }\n                }\n                break\n            }\n        }\n    }\n\n    /// @dev Returns the byte index of the first location of `search` in `subject`,\n    /// searching from right to left.\n    /// Returns `NOT_FOUND` (i.e. `type(uint256).max`) if the `search` is not found.\n    function lastIndexOf(string memory subject, string memory search)\n        internal\n        pure\n        returns (uint256 result)\n    {\n        result = lastIndexOf(subject, search, uint256(int256(-1)));\n    }\n\n    /// @dev Returns true if `search` is found in `subject`, false otherwise.\n    function contains(string memory subject, string memory search) internal pure returns (bool) {\n        return indexOf(subject, search) != NOT_FOUND;\n    }\n\n    /// @dev Returns whether `subject` starts with `search`.\n    function startsWith(string memory subject, string memory search)\n        internal\n        pure\n        returns (bool result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let searchLength := mload(search)\n            // Just using keccak256 directly is actually cheaper.\n            // forgefmt: disable-next-item\n            result := and(\n                iszero(gt(searchLength, mload(subject))),\n                eq(\n                    keccak256(add(subject, 0x20), searchLength),\n                    keccak256(add(search, 0x20), searchLength)\n                )\n            )\n        }\n    }\n\n    /// @dev Returns whether `subject` ends with `search`.\n    function endsWith(string memory subject, string memory search)\n        internal\n        pure\n        returns (bool result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let searchLength := mload(search)\n            let subjectLength := mload(subject)\n            // Whether `search` is not longer than `subject`.\n            let withinRange := iszero(gt(searchLength, subjectLength))\n            // Just using keccak256 directly is actually cheaper.\n            // forgefmt: disable-next-item\n            result := and(\n                withinRange,\n                eq(\n                    keccak256(\n                        // `subject + 0x20 + max(subjectLength - searchLength, 0)`.\n                        add(add(subject, 0x20), mul(withinRange, sub(subjectLength, searchLength))),\n                        searchLength\n                    ),\n                    keccak256(add(search, 0x20), searchLength)\n                )\n            )\n        }\n    }\n\n    /// @dev Returns `subject` repeated `times`.\n    function repeat(string memory subject, uint256 times)\n        internal\n        pure\n        returns (string memory result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let subjectLength := mload(subject)\n            if iszero(or(iszero(times), iszero(subjectLength))) {\n                subject := add(subject, 0x20)\n                result := mload(0x40)\n                let output := add(result, 0x20)\n                for {} 1 {} {\n                    // Copy the `subject` one word at a time.\n                    for { let o := 0 } 1 {} {\n                        mstore(add(output, o), mload(add(subject, o)))\n                        o := add(o, 0x20)\n                        if iszero(lt(o, subjectLength)) { break }\n                    }\n                    output := add(output, subjectLength)\n                    times := sub(times, 1)\n                    if iszero(times) { break }\n                }\n                mstore(output, 0) // Zeroize the slot after the string.\n                let resultLength := sub(output, add(result, 0x20))\n                mstore(result, resultLength) // Store the length.\n                // Allocate the memory.\n                mstore(0x40, add(result, add(resultLength, 0x20)))\n            }\n        }\n    }\n\n    /// @dev Returns a copy of `subject` sliced from `start` to `end` (exclusive).\n    /// `start` and `end` are byte offsets.\n    function slice(string memory subject, uint256 start, uint256 end)\n        internal\n        pure\n        returns (string memory result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let subjectLength := mload(subject)\n            if iszero(gt(subjectLength, end)) { end := subjectLength }\n            if iszero(gt(subjectLength, start)) { start := subjectLength }\n            if lt(start, end) {\n                result := mload(0x40)\n                let resultLength := sub(end, start)\n                mstore(result, resultLength)\n                subject := add(subject, start)\n                let w := not(0x1f)\n                // Copy the `subject` one word at a time, backwards.\n                for { let o := and(add(resultLength, 0x1f), w) } 1 {} {\n                    mstore(add(result, o), mload(add(subject, o)))\n                    o := add(o, w) // `sub(o, 0x20)`.\n                    if iszero(o) { break }\n                }\n                // Zeroize the slot after the string.\n                mstore(add(add(result, 0x20), resultLength), 0)\n                // Allocate memory for the length and the bytes,\n                // rounded up to a multiple of 32.\n                mstore(0x40, add(result, and(add(resultLength, 0x3f), w)))\n            }\n        }\n    }\n\n    /// @dev Returns a copy of `subject` sliced from `start` to the end of the string.\n    /// `start` is a byte offset.\n    function slice(string memory subject, uint256 start)\n        internal\n        pure\n        returns (string memory result)\n    {\n        result = slice(subject, start, uint256(int256(-1)));\n    }\n\n    /// @dev Returns all the indices of `search` in `subject`.\n    /// The indices are byte offsets.\n    function indicesOf(string memory subject, string memory search)\n        internal\n        pure\n        returns (uint256[] memory result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let subjectLength := mload(subject)\n            let searchLength := mload(search)\n\n            if iszero(gt(searchLength, subjectLength)) {\n                subject := add(subject, 0x20)\n                search := add(search, 0x20)\n                result := add(mload(0x40), 0x20)\n\n                let subjectStart := subject\n                let subjectSearchEnd := add(sub(add(subject, subjectLength), searchLength), 1)\n                let h := 0\n                if iszero(lt(searchLength, 0x20)) { h := keccak256(search, searchLength) }\n                let m := shl(3, sub(0x20, and(searchLength, 0x1f)))\n                let s := mload(search)\n                for {} 1 {} {\n                    let t := mload(subject)\n                    // Whether the first `searchLength % 32` bytes of\n                    // `subject` and `search` matches.\n                    if iszero(shr(m, xor(t, s))) {\n                        if h {\n                            if iszero(eq(keccak256(subject, searchLength), h)) {\n                                subject := add(subject, 1)\n                                if iszero(lt(subject, subjectSearchEnd)) { break }\n                                continue\n                            }\n                        }\n                        // Append to `result`.\n                        mstore(result, sub(subject, subjectStart))\n                        result := add(result, 0x20)\n                        // Advance `subject` by `searchLength`.\n                        subject := add(subject, searchLength)\n                        if searchLength {\n                            if iszero(lt(subject, subjectSearchEnd)) { break }\n                            continue\n                        }\n                    }\n                    subject := add(subject, 1)\n                    if iszero(lt(subject, subjectSearchEnd)) { break }\n                }\n                let resultEnd := result\n                // Assign `result` to the free memory pointer.\n                result := mload(0x40)\n                // Store the length of `result`.\n                mstore(result, shr(5, sub(resultEnd, add(result, 0x20))))\n                // Allocate memory for result.\n                // We allocate one more word, so this array can be recycled for {split}.\n                mstore(0x40, add(resultEnd, 0x20))\n            }\n        }\n    }\n\n    /// @dev Returns a arrays of strings based on the `delimiter` inside of the `subject` string.\n    function split(string memory subject, string memory delimiter)\n        internal\n        pure\n        returns (string[] memory result)\n    {\n        uint256[] memory indices = indicesOf(subject, delimiter);\n        /// @solidity memory-safe-assembly\n        assembly {\n            let w := not(0x1f)\n            let indexPtr := add(indices, 0x20)\n            let indicesEnd := add(indexPtr, shl(5, add(mload(indices), 1)))\n            mstore(add(indicesEnd, w), mload(subject))\n            mstore(indices, add(mload(indices), 1))\n            let prevIndex := 0\n            for {} 1 {} {\n                let index := mload(indexPtr)\n                mstore(indexPtr, 0x60)\n                if iszero(eq(index, prevIndex)) {\n                    let element := mload(0x40)\n                    let elementLength := sub(index, prevIndex)\n                    mstore(element, elementLength)\n                    // Copy the `subject` one word at a time, backwards.\n                    for { let o := and(add(elementLength, 0x1f), w) } 1 {} {\n                        mstore(add(element, o), mload(add(add(subject, prevIndex), o)))\n                        o := add(o, w) // `sub(o, 0x20)`.\n                        if iszero(o) { break }\n                    }\n                    // Zeroize the slot after the string.\n                    mstore(add(add(element, 0x20), elementLength), 0)\n                    // Allocate memory for the length and the bytes,\n                    // rounded up to a multiple of 32.\n                    mstore(0x40, add(element, and(add(elementLength, 0x3f), w)))\n                    // Store the `element` into the array.\n                    mstore(indexPtr, element)\n                }\n                prevIndex := add(index, mload(delimiter))\n                indexPtr := add(indexPtr, 0x20)\n                if iszero(lt(indexPtr, indicesEnd)) { break }\n            }\n            result := indices\n            if iszero(mload(delimiter)) {\n                result := add(indices, 0x20)\n                mstore(result, sub(mload(indices), 2))\n            }\n        }\n    }\n\n    /// @dev Returns a concatenated string of `a` and `b`.\n    /// Cheaper than `string.concat()` and does not de-align the free memory pointer.\n    function concat(string memory a, string memory b)\n        internal\n        pure\n        returns (string memory result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let w := not(0x1f)\n            result := mload(0x40)\n            let aLength := mload(a)\n            // Copy `a` one word at a time, backwards.\n            for { let o := and(add(aLength, 0x20), w) } 1 {} {\n                mstore(add(result, o), mload(add(a, o)))\n                o := add(o, w) // `sub(o, 0x20)`.\n                if iszero(o) { break }\n            }\n            let bLength := mload(b)\n            let output := add(result, aLength)\n            // Copy `b` one word at a time, backwards.\n            for { let o := and(add(bLength, 0x20), w) } 1 {} {\n                mstore(add(output, o), mload(add(b, o)))\n                o := add(o, w) // `sub(o, 0x20)`.\n                if iszero(o) { break }\n            }\n            let totalLength := add(aLength, bLength)\n            let last := add(add(result, 0x20), totalLength)\n            // Zeroize the slot after the string.\n            mstore(last, 0)\n            // Stores the length.\n            mstore(result, totalLength)\n            // Allocate memory for the length and the bytes,\n            // rounded up to a multiple of 32.\n            mstore(0x40, and(add(last, 0x1f), w))\n        }\n    }\n\n    /// @dev Returns a copy of the string in either lowercase or UPPERCASE.\n    /// WARNING! This function is only compatible with 7-bit ASCII strings.\n    function toCase(string memory subject, bool toUpper)\n        internal\n        pure\n        returns (string memory result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let length := mload(subject)\n            if length {\n                result := add(mload(0x40), 0x20)\n                subject := add(subject, 1)\n                let flags := shl(add(70, shl(5, toUpper)), 0x3ffffff)\n                let w := not(0)\n                for { let o := length } 1 {} {\n                    o := add(o, w)\n                    let b := and(0xff, mload(add(subject, o)))\n                    mstore8(add(result, o), xor(b, and(shr(b, flags), 0x20)))\n                    if iszero(o) { break }\n                }\n                result := mload(0x40)\n                mstore(result, length) // Store the length.\n                let last := add(add(result, 0x20), length)\n                mstore(last, 0) // Zeroize the slot after the string.\n                mstore(0x40, add(last, 0x20)) // Allocate the memory.\n            }\n        }\n    }\n\n    /// @dev Returns a string from a small bytes32 string.\n    /// `s` must be null-terminated, or behavior will be undefined.\n    function fromSmallString(bytes32 s) internal pure returns (string memory result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            result := mload(0x40)\n            let n := 0\n            for {} byte(n, s) { n := add(n, 1) } {} // Scan for '\\0'.\n            mstore(result, n)\n            let o := add(result, 0x20)\n            mstore(o, s)\n            mstore(add(o, n), 0)\n            mstore(0x40, add(result, 0x40))\n        }\n    }\n\n    /// @dev Returns the small string, with all bytes after the first null byte zeroized.\n    function normalizeSmallString(bytes32 s) internal pure returns (bytes32 result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            for {} byte(result, s) { result := add(result, 1) } {} // Scan for '\\0'.\n            mstore(0x00, s)\n            mstore(result, 0x00)\n            result := mload(0x00)\n        }\n    }\n\n    /// @dev Returns the string as a normalized null-terminated small string.\n    function toSmallString(string memory s) internal pure returns (bytes32 result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            result := mload(s)\n            if iszero(lt(result, 33)) {\n                mstore(0x00, 0xec92f9a3) // `TooBigForSmallString()`.\n                revert(0x1c, 0x04)\n            }\n            result := shl(shl(3, sub(32, result)), mload(add(s, result)))\n        }\n    }\n\n    /// @dev Returns a lowercased copy of the string.\n    /// WARNING! This function is only compatible with 7-bit ASCII strings.\n    function lower(string memory subject) internal pure returns (string memory result) {\n        result = toCase(subject, false);\n    }\n\n    /// @dev Returns an UPPERCASED copy of the string.\n    /// WARNING! This function is only compatible with 7-bit ASCII strings.\n    function upper(string memory subject) internal pure returns (string memory result) {\n        result = toCase(subject, true);\n    }\n\n    /// @dev Escapes the string to be used within HTML tags.\n    function escapeHTML(string memory s) internal pure returns (string memory result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let end := add(s, mload(s))\n            result := add(mload(0x40), 0x20)\n            // Store the bytes of the packed offsets and strides into the scratch space.\n            // `packed = (stride << 5) | offset`. Max offset is 20. Max stride is 6.\n            mstore(0x1f, 0x900094)\n            mstore(0x08, 0xc0000000a6ab)\n            // Store \"&quot;&amp;&#39;&lt;&gt;\" into the scratch space.\n            mstore(0x00, shl(64, 0x2671756f743b26616d703b262333393b266c743b2667743b))\n            for {} iszero(eq(s, end)) {} {\n                s := add(s, 1)\n                let c := and(mload(s), 0xff)\n                // Not in `[\"\\\"\",\"'\",\"&\",\"<\",\">\"]`.\n                if iszero(and(shl(c, 1), 0x500000c400000000)) {\n                    mstore8(result, c)\n                    result := add(result, 1)\n                    continue\n                }\n                let t := shr(248, mload(c))\n                mstore(result, mload(and(t, 0x1f)))\n                result := add(result, shr(5, t))\n            }\n            let last := result\n            mstore(last, 0) // Zeroize the slot after the string.\n            result := mload(0x40)\n            mstore(result, sub(last, add(result, 0x20))) // Store the length.\n            mstore(0x40, add(last, 0x20)) // Allocate the memory.\n        }\n    }\n\n    /// @dev Escapes the string to be used within double-quotes in a JSON.\n    /// If `addDoubleQuotes` is true, the result will be enclosed in double-quotes.\n    function escapeJSON(string memory s, bool addDoubleQuotes)\n        internal\n        pure\n        returns (string memory result)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let end := add(s, mload(s))\n            result := add(mload(0x40), 0x20)\n            if addDoubleQuotes {\n                mstore8(result, 34)\n                result := add(1, result)\n            }\n            // Store \"\\\\u0000\" in scratch space.\n            // Store \"0123456789abcdef\" in scratch space.\n            // Also, store `{0x08:\"b\", 0x09:\"t\", 0x0a:\"n\", 0x0c:\"f\", 0x0d:\"r\"}`.\n            // into the scratch space.\n            mstore(0x15, 0x5c75303030303031323334353637383961626364656662746e006672)\n            // Bitmask for detecting `[\"\\\"\",\"\\\\\"]`.\n            let e := or(shl(0x22, 1), shl(0x5c, 1))\n            for {} iszero(eq(s, end)) {} {\n                s := add(s, 1)\n                let c := and(mload(s), 0xff)\n                if iszero(lt(c, 0x20)) {\n                    if iszero(and(shl(c, 1), e)) {\n                        // Not in `[\"\\\"\",\"\\\\\"]`.\n                        mstore8(result, c)\n                        result := add(result, 1)\n                        continue\n                    }\n                    mstore8(result, 0x5c) // \"\\\\\".\n                    mstore8(add(result, 1), c)\n                    result := add(result, 2)\n                    continue\n                }\n                if iszero(and(shl(c, 1), 0x3700)) {\n                    // Not in `[\"\\b\",\"\\t\",\"\\n\",\"\\f\",\"\\d\"]`.\n                    mstore8(0x1d, mload(shr(4, c))) // Hex value.\n                    mstore8(0x1e, mload(and(c, 15))) // Hex value.\n                    mstore(result, mload(0x19)) // \"\\\\u00XX\".\n                    result := add(result, 6)\n                    continue\n                }\n                mstore8(result, 0x5c) // \"\\\\\".\n                mstore8(add(result, 1), mload(add(c, 8)))\n                result := add(result, 2)\n            }\n            if addDoubleQuotes {\n                mstore8(result, 34)\n                result := add(1, result)\n            }\n            let last := result\n            mstore(last, 0) // Zeroize the slot after the string.\n            result := mload(0x40)\n            mstore(result, sub(last, add(result, 0x20))) // Store the length.\n            mstore(0x40, add(last, 0x20)) // Allocate the memory.\n        }\n    }\n\n    /// @dev Escapes the string to be used within double-quotes in a JSON.\n    function escapeJSON(string memory s) internal pure returns (string memory result) {\n        result = escapeJSON(s, false);\n    }\n\n    /// @dev Returns whether `a` equals `b`.\n    function eq(string memory a, string memory b) internal pure returns (bool result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            result := eq(keccak256(add(a, 0x20), mload(a)), keccak256(add(b, 0x20), mload(b)))\n        }\n    }\n\n    /// @dev Returns whether `a` equals `b`, where `b` is a null-terminated small string.\n    function eqs(string memory a, bytes32 b) internal pure returns (bool result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            // These should be evaluated on compile time, as far as possible.\n            let m := not(shl(7, div(not(iszero(b)), 255))) // `0x7f7f ...`.\n            let x := not(or(m, or(b, add(m, and(b, m)))))\n            let r := shl(7, iszero(iszero(shr(128, x))))\n            r := or(r, shl(6, iszero(iszero(shr(64, shr(r, x))))))\n            r := or(r, shl(5, lt(0xffffffff, shr(r, x))))\n            r := or(r, shl(4, lt(0xffff, shr(r, x))))\n            r := or(r, shl(3, lt(0xff, shr(r, x))))\n            // forgefmt: disable-next-item\n            result := gt(eq(mload(a), add(iszero(x), xor(31, shr(3, r)))),\n                xor(shr(add(8, r), b), shr(add(8, r), mload(add(a, 0x20)))))\n        }\n    }\n\n    /// @dev Packs a single string with its length into a single word.\n    /// Returns `bytes32(0)` if the length is zero or greater than 31.\n    function packOne(string memory a) internal pure returns (bytes32 result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            // We don't need to zero right pad the string,\n            // since this is our own custom non-standard packing scheme.\n            result :=\n                mul(\n                    // Load the length and the bytes.\n                    mload(add(a, 0x1f)),\n                    // `length != 0 && length < 32`. Abuses underflow.\n                    // Assumes that the length is valid and within the block gas limit.\n                    lt(sub(mload(a), 1), 0x1f)\n                )\n        }\n    }\n\n    /// @dev Unpacks a string packed using {packOne}.\n    /// Returns the empty string if `packed` is `bytes32(0)`.\n    /// If `packed` is not an output of {packOne}, the output behavior is undefined.\n    function unpackOne(bytes32 packed) internal pure returns (string memory result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            // Grab the free memory pointer.\n            result := mload(0x40)\n            // Allocate 2 words (1 for the length, 1 for the bytes).\n            mstore(0x40, add(result, 0x40))\n            // Zeroize the length slot.\n            mstore(result, 0)\n            // Store the length and bytes.\n            mstore(add(result, 0x1f), packed)\n            // Right pad with zeroes.\n            mstore(add(add(result, 0x20), mload(result)), 0)\n        }\n    }\n\n    /// @dev Packs two strings with their lengths into a single word.\n    /// Returns `bytes32(0)` if combined length is zero or greater than 30.\n    function packTwo(string memory a, string memory b) internal pure returns (bytes32 result) {\n        /// @solidity memory-safe-assembly\n        assembly {\n            let aLength := mload(a)\n            // We don't need to zero right pad the strings,\n            // since this is our own custom non-standard packing scheme.\n            result :=\n                mul(\n                    // Load the length and the bytes of `a` and `b`.\n                    or(\n                        shl(shl(3, sub(0x1f, aLength)), mload(add(a, aLength))),\n                        mload(sub(add(b, 0x1e), aLength))\n                    ),\n                    // `totalLength != 0 && totalLength < 31`. Abuses underflow.\n                    // Assumes that the lengths are valid and within the block gas limit.\n                    lt(sub(add(aLength, mload(b)), 1), 0x1e)\n                )\n        }\n    }\n\n    /// @dev Unpacks strings packed using {packTwo}.\n    /// Returns the empty strings if `packed` is `bytes32(0)`.\n    /// If `packed` is not an output of {packTwo}, the output behavior is undefined.\n    function unpackTwo(bytes32 packed)\n        internal\n        pure\n        returns (string memory resultA, string memory resultB)\n    {\n        /// @solidity memory-safe-assembly\n        assembly {\n            // Grab the free memory pointer.\n            resultA := mload(0x40)\n            resultB := add(resultA, 0x40)\n            // Allocate 2 words for each string (1 for the length, 1 for the byte). Total 4 words.\n            mstore(0x40, add(resultB, 0x40))\n            // Zeroize the length slots.\n            mstore(resultA, 0)\n            mstore(resultB, 0)\n            // Store the lengths and bytes.\n            mstore(add(resultA, 0x1f), packed)\n            mstore(add(resultB, 0x1f), mload(add(add(resultA, 0x20), mload(resultA))))\n            // Right pad with zeroes.\n            mstore(add(add(resultA, 0x20), mload(resultA)), 0)\n            mstore(add(add(resultB, 0x20), mload(resultB)), 0)\n        }\n    }\n\n    /// @dev Directly returns `a` without copying.\n    function directReturn(string memory a) internal pure {\n        assembly {\n            // Assumes that the string does not start from the scratch space.\n            let retStart := sub(a, 0x20)\n            let retSize := add(mload(a), 0x40)\n            // Right pad with zeroes. Just in case the string is produced\n            // by a method that doesn't zero right pad.\n            mstore(add(retStart, retSize), 0)\n            // Store the return offset.\n            mstore(retStart, 0x20)\n            // End the transaction, returning the string.\n            return(retStart, retSize)\n        }\n    }\n}\n"
+    },
+    {
+      "file_path": "src/L1/interfaces/IResourceMetering.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IResourceMetering {\n    struct ResourceParams {\n        uint128 prevBaseFee;\n        uint64 prevBoughtGas;\n        uint64 prevBlockNum;\n    }\n\n    struct ResourceConfig {\n        uint32 maxResourceLimit;\n        uint8 elasticityMultiplier;\n        uint8 baseFeeMaxChangeDenominator;\n        uint32 minimumBaseFee;\n        uint32 systemTxMaxGas;\n        uint128 maximumBaseFee;\n    }\n\n    error OutOfGas();\n\n    event Initialized(uint8 version);\n\n    function params() external view returns (uint128 prevBaseFee, uint64 prevBoughtGas, uint64 prevBlockNum);\n}\n"
+    },
+    {
+      "file_path": "src/libraries/Constants.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport { IResourceMetering } from \"src/L1/interfaces/IResourceMetering.sol\";\n\n/// @title Constants\n/// @notice Constants is a library for storing constants. Simple! Don't put everything in here, just\n///         the stuff used in multiple contracts. Constants that only apply to a single contract\n///         should be defined in that contract instead.\nlibrary Constants {\n    /// @notice Special address to be used as the tx origin for gas estimation calls in the\n    ///         OptimismPortal and CrossDomainMessenger calls. You only need to use this address if\n    ///         the minimum gas limit specified by the user is not actually enough to execute the\n    ///         given message and you're attempting to estimate the actual necessary gas limit. We\n    ///         use address(1) because it's the ecrecover precompile and therefore guaranteed to\n    ///         never have any code on any EVM chain.\n    address internal constant ESTIMATION_ADDRESS = address(1);\n\n    /// @notice Value used for the L2 sender storage slot in both the OptimismPortal and the\n    ///         CrossDomainMessenger contracts before an actual sender is set. This value is\n    ///         non-zero to reduce the gas cost of message passing transactions.\n    address internal constant DEFAULT_L2_SENDER = 0x000000000000000000000000000000000000dEaD;\n\n    /// @notice The storage slot that holds the address of a proxy implementation.\n    /// @dev `bytes32(uint256(keccak256('eip1967.proxy.implementation')) - 1)`\n    bytes32 internal constant PROXY_IMPLEMENTATION_ADDRESS =\n        0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc;\n\n    /// @notice The storage slot that holds the address of the owner.\n    /// @dev `bytes32(uint256(keccak256('eip1967.proxy.admin')) - 1)`\n    bytes32 internal constant PROXY_OWNER_ADDRESS = 0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103;\n\n    /// @notice The address that represents ether when dealing with ERC20 token addresses.\n    address internal constant ETHER = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;\n\n    /// @notice The address that represents the system caller responsible for L1 attributes\n    ///         transactions.\n    address internal constant DEPOSITOR_ACCOUNT = 0xDeaDDEaDDeAdDeAdDEAdDEaddeAddEAdDEAd0001;\n\n    /// @notice Returns the default values for the ResourceConfig. These are the recommended values\n    ///         for a production network.\n    function DEFAULT_RESOURCE_CONFIG() internal pure returns (IResourceMetering.ResourceConfig memory) {\n        IResourceMetering.ResourceConfig memory config = IResourceMetering.ResourceConfig({\n            maxResourceLimit: 20_000_000,\n            elasticityMultiplier: 10,\n            baseFeeMaxChangeDenominator: 8,\n            minimumBaseFee: 1 gwei,\n            systemTxMaxGas: 1_000_000,\n            maximumBaseFee: type(uint128).max\n        });\n        return config;\n    }\n}\n"
+    },
+    {
+      "file_path": "src/libraries/GasPayingToken.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport { Storage } from \"src/libraries/Storage.sol\";\nimport { Constants } from \"src/libraries/Constants.sol\";\nimport { LibString } from \"@solady/utils/LibString.sol\";\n\n/// @title IGasToken\n/// @notice Implemented by contracts that are aware of the custom gas token used\n///         by the L2 network.\ninterface IGasToken {\n    /// @notice Getter for the ERC20 token address that is used to pay for gas and its decimals.\n    function gasPayingToken() external view returns (address, uint8);\n    /// @notice Returns the gas token name.\n    function gasPayingTokenName() external view returns (string memory);\n    /// @notice Returns the gas token symbol.\n    function gasPayingTokenSymbol() external view returns (string memory);\n    /// @notice Returns true if the network uses a custom gas token.\n    function isCustomGasToken() external view returns (bool);\n}\n\n/// @title GasPayingToken\n/// @notice Handles reading and writing the custom gas token to storage.\n///         To be used in any place where gas token information is read or\n///         written to state. If multiple contracts use this library, the\n///         values in storage should be kept in sync between them.\nlibrary GasPayingToken {\n    /// @notice The storage slot that contains the address and decimals of the gas paying token\n    bytes32 internal constant GAS_PAYING_TOKEN_SLOT = bytes32(uint256(keccak256(\"opstack.gaspayingtoken\")) - 1);\n\n    /// @notice The storage slot that contains the ERC20 `name()` of the gas paying token\n    bytes32 internal constant GAS_PAYING_TOKEN_NAME_SLOT = bytes32(uint256(keccak256(\"opstack.gaspayingtokenname\")) - 1);\n\n    /// @notice the storage slot that contains the ERC20 `symbol()` of the gas paying token\n    bytes32 internal constant GAS_PAYING_TOKEN_SYMBOL_SLOT =\n        bytes32(uint256(keccak256(\"opstack.gaspayingtokensymbol\")) - 1);\n\n    /// @notice Reads the gas paying token and its decimals from the magic\n    ///         storage slot. If nothing is set in storage, then the ether\n    ///         address is returned instead.\n    function getToken() internal view returns (address addr_, uint8 decimals_) {\n        bytes32 slot = Storage.getBytes32(GAS_PAYING_TOKEN_SLOT);\n        addr_ = address(uint160(uint256(slot) & uint256(type(uint160).max)));\n        if (addr_ == address(0)) {\n            addr_ = Constants.ETHER;\n            decimals_ = 18;\n        } else {\n            decimals_ = uint8(uint256(slot) >> 160);\n        }\n    }\n\n    /// @notice Reads the gas paying token's name from the magic storage slot.\n    ///         If nothing is set in storage, then the ether name, 'Ether', is returned instead.\n    function getName() internal view returns (string memory name_) {\n        (address addr,) = getToken();\n        if (addr == Constants.ETHER) {\n            name_ = \"Ether\";\n        } else {\n            name_ = LibString.fromSmallString(Storage.getBytes32(GAS_PAYING_TOKEN_NAME_SLOT));\n        }\n    }\n\n    /// @notice Reads the gas paying token's symbol from the magic storage slot.\n    ///         If nothing is set in storage, then the ether symbol, 'ETH', is returned instead.\n    function getSymbol() internal view returns (string memory symbol_) {\n        (address addr,) = getToken();\n        if (addr == Constants.ETHER) {\n            symbol_ = \"ETH\";\n        } else {\n            symbol_ = LibString.fromSmallString(Storage.getBytes32(GAS_PAYING_TOKEN_SYMBOL_SLOT));\n        }\n    }\n\n    /// @notice Writes the gas paying token, its decimals, name and symbol to the magic storage slot.\n    function set(address _token, uint8 _decimals, bytes32 _name, bytes32 _symbol) internal {\n        Storage.setBytes32(GAS_PAYING_TOKEN_SLOT, bytes32(uint256(_decimals) << 160 | uint256(uint160(_token))));\n        Storage.setBytes32(GAS_PAYING_TOKEN_NAME_SLOT, _name);\n        Storage.setBytes32(GAS_PAYING_TOKEN_SYMBOL_SLOT, _symbol);\n    }\n\n    /// @notice Maps a string to a normalized null-terminated small string.\n    function sanitize(string memory _str) internal pure returns (bytes32) {\n        require(bytes(_str).length <= 32, \"GasPayingToken: string cannot be greater than 32 bytes\");\n\n        return LibString.toSmallString(_str);\n    }\n}\n"
+    },
+    {
+      "file_path": "src/libraries/L1BlockErrors.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\n/// @notice Error returns when a non-depositor account tries to set L1 block values.\nerror NotDepositor();\n\n/// @notice Error when a non-cross L2 Inbox sender tries to call the `isDeposit()` method.\nerror NotCrossL2Inbox();\n\n/// @notice Error when a chain ID is not in the interop dependency set.\nerror NotDependency();\n\n/// @notice Error when the interop dependency set size is too large.\nerror DependencySetSizeTooLarge();\n\n/// @notice Error when a chain ID already in the interop dependency set is attempted to be added.\nerror AlreadyDependency();\n\n/// @notice Error when the chain's chain ID is attempted to be removed from the interop dependency set.\nerror CantRemovedDependency();\n"
+    },
+    {
+      "file_path": "src/libraries/Storage.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\n/// @title Storage\n/// @notice Storage handles reading and writing to arbitary storage locations\nlibrary Storage {\n    /// @notice Returns an address stored in an arbitrary storage slot.\n    ///         These storage slots decouple the storage layout from\n    ///         solc's automation.\n    /// @param _slot The storage slot to retrieve the address from.\n    function getAddress(bytes32 _slot) internal view returns (address addr_) {\n        assembly {\n            addr_ := sload(_slot)\n        }\n    }\n\n    /// @notice Stores an address in an arbitrary storage slot, `_slot`.\n    /// @param _slot The storage slot to store the address in.\n    /// @param _address The protocol version to store\n    /// @dev WARNING! This function must be used cautiously, as it allows for overwriting addresses\n    ///      in arbitrary storage slots.\n    function setAddress(bytes32 _slot, address _address) internal {\n        assembly {\n            sstore(_slot, _address)\n        }\n    }\n\n    /// @notice Returns a uint256 stored in an arbitrary storage slot.\n    ///         These storage slots decouple the storage layout from\n    ///         solc's automation.\n    /// @param _slot The storage slot to retrieve the address from.\n    function getUint(bytes32 _slot) internal view returns (uint256 value_) {\n        assembly {\n            value_ := sload(_slot)\n        }\n    }\n\n    /// @notice Stores a value in an arbitrary storage slot, `_slot`.\n    /// @param _slot The storage slot to store the address in.\n    /// @param _value The protocol version to store\n    /// @dev WARNING! This function must be used cautiously, as it allows for overwriting values\n    ///      in arbitrary storage slots.\n    function setUint(bytes32 _slot, uint256 _value) internal {\n        assembly {\n            sstore(_slot, _value)\n        }\n    }\n\n    /// @notice Returns a bytes32 stored in an arbitrary storage slot.\n    ///         These storage slots decouple the storage layout from\n    ///         solc's automation.\n    /// @param _slot The storage slot to retrieve the address from.\n    function getBytes32(bytes32 _slot) internal view returns (bytes32 value_) {\n        assembly {\n            value_ := sload(_slot)\n        }\n    }\n\n    /// @notice Stores a bytes32 value in an arbitrary storage slot, `_slot`.\n    /// @param _slot The storage slot to store the address in.\n    /// @param _value The bytes32 value to store.\n    /// @dev WARNING! This function must be used cautiously, as it allows for overwriting values\n    ///      in arbitrary storage slots.\n    function setBytes32(bytes32 _slot, bytes32 _value) internal {\n        assembly {\n            sstore(_slot, _value)\n        }\n    }\n\n    /// @notice Stores a bool value in an arbitrary storage slot, `_slot`.\n    /// @param _slot The storage slot to store the bool in.\n    /// @param _value The bool value to store\n    /// @dev WARNING! This function must be used cautiously, as it allows for overwriting values\n    ///      in arbitrary storage slots.\n    function setBool(bytes32 _slot, bool _value) internal {\n        assembly {\n            sstore(_slot, _value)\n        }\n    }\n\n    /// @notice Returns a bool stored in an arbitrary storage slot.\n    /// @param _slot The storage slot to retrieve the bool from.\n    function getBool(bytes32 _slot) internal view returns (bool value_) {\n        assembly {\n            value_ := sload(_slot)\n        }\n    }\n}\n"
+    },
+    {
+      "file_path": "src/universal/interfaces/ISemver.sol",
+      "source_code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\n/// @title ISemver\n/// @notice ISemver is a simple contract for ensuring that contracts are\n///         versioned using semantic versioning.\ninterface ISemver {\n    /// @notice Getter for the semantic version of the contract. This is not\n    ///         meant to be used onchain but instead meant to be used by offchain\n    ///         tooling.\n    /// @return Semver contract version as a string.\n    function version() external view returns (string memory);\n}\n"
+    }
+  ],
+  "certified": false,
+  "conflicting_implementations": null,
+  "abi": [
+    {
+      "inputs": [],
+      "name": "NotDepositor",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint8",
+          "name": "decimals",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "name",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "symbol",
+          "type": "bytes32"
+        }
+      ],
+      "name": "GasPayingTokenSet",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "DEPOSITOR_ACCOUNT",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "addr_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "baseFeeScalar",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "basefee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "batcherHash",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "blobBaseFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "blobBaseFeeScalar",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gasPayingToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "addr_",
+          "type": "address"
+        },
+        {
+          "internalType": "uint8",
+          "name": "decimals_",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gasPayingTokenName",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "name_",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gasPayingTokenSymbol",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "symbol_",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "hash",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isCustomGasToken",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "l1FeeOverhead",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "l1FeeScalar",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "number",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "sequenceNumber",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_decimals",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_name",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_symbol",
+          "type": "bytes32"
+        }
+      ],
+      "name": "setGasPayingToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "_number",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint64",
+          "name": "_timestamp",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_basefee",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_hash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint64",
+          "name": "_sequenceNumber",
+          "type": "uint64"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_batcherHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_l1FeeOverhead",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_l1FeeScalar",
+          "type": "uint256"
+        }
+      ],
+      "name": "setL1BlockValues",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "setL1BlockValuesEcotone",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "timestamp",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "version",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "is_changed_bytecode": false,
+  "is_partially_verified": true,
+  "constructor_args": null
+}

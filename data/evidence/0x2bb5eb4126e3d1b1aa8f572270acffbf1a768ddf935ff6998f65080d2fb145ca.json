@@ -1,0 +1,621 @@
+{
+  "transaction": {
+    "l1_gas_used": "4672",
+    "priority_fee": "154840000000",
+    "raw_input": "0x5f1d391326cc616f1c33843a2d8f8cb472d714f8df3a45017f6a5844c8e0d10eb825c7d1000000000000000000000000e2fd695cf45b182a12136e8c916c12ba7bf28861000000000000000000000000221b51e050a2fac773331204b1d060e6710fd8f80000000000000000000000000000000000000000000000000000000000989680000000000000000000000000000000000000000000000000000000006aa6acff000000000000000000000000000000000000000000000000000000006aa6a84f0000000000000000000000000000000000000000000000000000000000000160000000000000000000000000000000000000000000000000000000006aa6a84f000000000000000000000000000000000000000000000000000000000000001c211cd081ee38269478aaef1dc4c600f452aaa056134dd0ee8b62e7e9f4c324cf361463ef45b533b0c448d92020c5d910b58e7a45d889c4534c9c6403d204dfc10000000000000000000000000000000000000000000000000000000000000041f386d7eea733c65e56671e4e4329f5f70ed809e9da647aca7e017099f601096116dfaa3c4ee261088882fb3aba15ef293eeb3c2a22c00630206fe7e341850b1b1b00000000000000000000000000000000000000000000000000000000000000",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x2bb5eb4126e3d1b1aa8f572270acffbf1a768ddf935ff6998f65080d2fb145ca",
+    "max_fee_per_gas": "1200001200000",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "77420000000000000",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 524296,
+    "position": 1,
+    "max_priority_fee_per_gas": "1000000",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x526a4a7b566755759457b95aF3bf661d584C2307",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "154840",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x955e09d2D14431f491F8E80A4db3CE82A2b3Dba1",
+      "implementations": [],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "KuskaEscrow",
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "9162743119212",
+    "method": "depositWithPermit",
+    "fee": {
+      "type": "actual",
+      "value": "77429317583119212"
+    },
+    "gas_limit": "180953",
+    "gas_price": "500001000000",
+    "decoded_input": {
+      "method_call": "depositWithPermit(bytes32 orderRef, address buyer, address seller, uint256 amount, uint64 deliveryDeadline, uint256 authDeadline, bytes authSig, uint256 permitDeadline, uint8 v, bytes32 r, bytes32 s)",
+      "method_id": "5f1d3913",
+      "parameters": [
+        {
+          "name": "orderRef",
+          "type": "bytes32",
+          "value": "0x26cc616f1c33843a2d8f8cb472d714f8df3a45017f6a5844c8e0d10eb825c7d1"
+        },
+        {
+          "name": "buyer",
+          "type": "address",
+          "value": "0xe2Fd695cf45b182A12136E8c916c12ba7BF28861"
+        },
+        {
+          "name": "seller",
+          "type": "address",
+          "value": "0x221b51e050a2fAc773331204b1D060e6710fd8f8"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "value": "10000000"
+        },
+        {
+          "name": "deliveryDeadline",
+          "type": "uint64",
+          "value": "1789308159"
+        },
+        {
+          "name": "authDeadline",
+          "type": "uint256",
+          "value": "1789306959"
+        },
+        {
+          "name": "authSig",
+          "type": "bytes",
+          "value": "0xf386d7eea733c65e56671e4e4329f5f70ed809e9da647aca7e017099f601096116dfaa3c4ee261088882fb3aba15ef293eeb3c2a22c00630206fe7e341850b1b1b"
+        },
+        {
+          "name": "permitDeadline",
+          "type": "uint256",
+          "value": "1789306959"
+        },
+        {
+          "name": "v",
+          "type": "uint8",
+          "value": "28"
+        },
+        {
+          "name": "r",
+          "type": "bytes32",
+          "value": "0x211cd081ee38269478aaef1dc4c600f452aaa056134dd0ee8b62e7e9f4c324cf"
+        },
+        {
+          "name": "s",
+          "type": "bytes32",
+          "value": "0x361463ef45b533b0c448d92020c5d910b58e7a45d889c4534c9c6403d204dfc1"
+        }
+      ]
+    },
+    "l1_gas_price": "53677379",
+    "fhe_operations_count": 0,
+    "token_transfers": [
+      {
+        "block_hash": "0x25e63c08a81c202b3353d0b37e103c913683195ba94d805ef3a638d4e9e5cbd0",
+        "block_number": 27479616,
+        "from": {
+          "ens_domain_name": null,
+          "hash": "0xe2Fd695cf45b182A12136E8c916c12ba7BF28861",
+          "implementations": [],
+          "is_contract": false,
+          "is_scam": false,
+          "is_verified": false,
+          "metadata": null,
+          "name": null,
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "log_index": 2,
+        "method": null,
+        "timestamp": null,
+        "to": {
+          "ens_domain_name": null,
+          "hash": "0x955e09d2D14431f491F8E80A4db3CE82A2b3Dba1",
+          "implementations": [],
+          "is_contract": true,
+          "is_scam": false,
+          "is_verified": true,
+          "metadata": null,
+          "name": "KuskaEscrow",
+          "private_tags": [],
+          "proxy_type": null,
+          "public_tags": [],
+          "reputation": "ok",
+          "watchlist_names": []
+        },
+        "token": {
+          "address_hash": "0x1dfAC4096b94Ed6d892223573d289B8165695dB0",
+          "circulating_market_cap": null,
+          "circulating_supply": null,
+          "decimals": "6",
+          "exchange_rate": null,
+          "holders_count": "6",
+          "icon_url": null,
+          "name": "Kuska Demo USD",
+          "reputation": "ok",
+          "symbol": "mUSD",
+          "total_supply": "300000000",
+          "type": "ERC-20",
+          "volume_24h": null
+        },
+        "token_type": "ERC-20",
+        "total": {
+          "decimals": "6",
+          "value": "10000000"
+        },
+        "transaction_hash": "0x2bb5eb4126e3d1b1aa8f572270acffbf1a768ddf935ff6998f65080d2fb145ca",
+        "type": "token_transfer"
+      }
+    ],
+    "base_fee_per_gas": "500000000000",
+    "timestamp": "2026-09-13T13:32:47.000000Z",
+    "nonce": 15,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call",
+      "token_transfer"
+    ],
+    "exchange_rate": null,
+    "block_number": 27479616,
+    "has_error_in_internal_transactions": false,
+    "da_footprint_gas_scalar": "400"
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x955e09d2D14431f491F8E80A4db3CE82A2b3Dba1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "KuskaEscrow",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x25e63c08a81c202b3353d0b37e103c913683195ba94d805ef3a638d4e9e5cbd0",
+      "block_number": 27479616,
+      "block_timestamp": "2026-09-13T13:32:47.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000000000000989680000000000000000000000000000000000000000000000000000000006aa6acff",
+      "decoded": {
+        "method_call": "Deposited(bytes32 indexed orderRef, address indexed buyer, address indexed seller, uint256 amount, uint64 deliveryDeadline)",
+        "method_id": "dd20cc15",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "orderRef",
+            "type": "bytes32",
+            "value": "0x26cc616f1c33843a2d8f8cb472d714f8df3a45017f6a5844c8e0d10eb825c7d1"
+          },
+          {
+            "indexed": true,
+            "name": "buyer",
+            "type": "address",
+            "value": "0xe2Fd695cf45b182A12136E8c916c12ba7BF28861"
+          },
+          {
+            "indexed": true,
+            "name": "seller",
+            "type": "address",
+            "value": "0x221b51e050a2fAc773331204b1D060e6710fd8f8"
+          },
+          {
+            "indexed": false,
+            "name": "amount",
+            "type": "uint256",
+            "value": "10000000"
+          },
+          {
+            "indexed": false,
+            "name": "deliveryDeadline",
+            "type": "uint64",
+            "value": "1789308159"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xdd20cc15c67f5829a47da7d978a86621f81ac129b064ce1d39e9df1b4776ee4c",
+        "0x26cc616f1c33843a2d8f8cb472d714f8df3a45017f6a5844c8e0d10eb825c7d1",
+        "0x000000000000000000000000e2fd695cf45b182a12136e8c916c12ba7bf28861",
+        "0x000000000000000000000000221b51e050a2fac773331204b1d060e6710fd8f8"
+      ],
+      "transaction_hash": "0x2bb5eb4126e3d1b1aa8f572270acffbf1a768ddf935ff6998f65080d2fb145ca"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x1dfAC4096b94Ed6d892223573d289B8165695dB0",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Kuska Demo USD",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x25e63c08a81c202b3353d0b37e103c913683195ba94d805ef3a638d4e9e5cbd0",
+      "block_number": 27479616,
+      "block_timestamp": "2026-09-13T13:32:47.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000000000000989680",
+      "decoded": {
+        "method_call": "Approval(address indexed owner, address indexed spender, uint256 value)",
+        "method_id": "8c5be1e5",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "owner",
+            "type": "address",
+            "value": "0xe2Fd695cf45b182A12136E8c916c12ba7BF28861"
+          },
+          {
+            "indexed": true,
+            "name": "spender",
+            "type": "address",
+            "value": "0x955e09d2D14431f491F8E80A4db3CE82A2b3Dba1"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "10000000"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+        "0x000000000000000000000000e2fd695cf45b182a12136e8c916c12ba7bf28861",
+        "0x000000000000000000000000955e09d2d14431f491f8e80a4db3ce82a2b3dba1",
+        null
+      ],
+      "transaction_hash": "0x2bb5eb4126e3d1b1aa8f572270acffbf1a768ddf935ff6998f65080d2fb145ca"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x1dfAC4096b94Ed6d892223573d289B8165695dB0",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Kuska Demo USD",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0x25e63c08a81c202b3353d0b37e103c913683195ba94d805ef3a638d4e9e5cbd0",
+      "block_number": 27479616,
+      "block_timestamp": "2026-09-13T13:32:47.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000000000000989680",
+      "decoded": {
+        "method_call": "Transfer(address indexed from, address indexed to, uint256 value)",
+        "method_id": "ddf252ad",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "from",
+            "type": "address",
+            "value": "0xe2Fd695cf45b182A12136E8c916c12ba7BF28861"
+          },
+          {
+            "indexed": true,
+            "name": "to",
+            "type": "address",
+            "value": "0x955e09d2D14431f491F8E80A4db3CE82A2b3Dba1"
+          },
+          {
+            "indexed": false,
+            "name": "value",
+            "type": "uint256",
+            "value": "10000000"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x000000000000000000000000e2fd695cf45b182a12136e8c916c12ba7bf28861",
+        "0x000000000000000000000000955e09d2d14431f491f8e80a4db3ce82a2b3dba1",
+        null
+      ],
+      "transaction_hash": "0x2bb5eb4126e3d1b1aa8f572270acffbf1a768ddf935ff6998f65080d2fb145ca"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 27479616,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x955e09d2D14431f491F8E80A4db3CE82A2b3Dba1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "KuskaEscrow",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "140599",
+      "index": 1,
+      "success": true,
+      "timestamp": "2026-09-13T13:32:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x2bb5eb4126e3d1b1aa8f572270acffbf1a768ddf935ff6998f65080d2fb145ca",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 27479616,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x955e09d2D14431f491F8E80A4db3CE82A2b3Dba1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "KuskaEscrow",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "68324",
+      "index": 2,
+      "success": true,
+      "timestamp": "2026-09-13T13:32:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x1dfAC4096b94Ed6d892223573d289B8165695dB0",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Kuska Demo USD",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x2bb5eb4126e3d1b1aa8f572270acffbf1a768ddf935ff6998f65080d2fb145ca",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    },
+    {
+      "block_number": 27479616,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x1dfAC4096b94Ed6d892223573d289B8165695dB0",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Kuska Demo USD",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "60640",
+      "index": 3,
+      "success": true,
+      "timestamp": "2026-09-13T13:32:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x0000000000000000000000000000000000000001",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x2bb5eb4126e3d1b1aa8f572270acffbf1a768ddf935ff6998f65080d2fb145ca",
+      "transaction_index": 1,
+      "type": "staticcall",
+      "value": "0"
+    },
+    {
+      "block_number": 27479616,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x955e09d2D14431f491F8E80A4db3CE82A2b3Dba1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "KuskaEscrow",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "34030",
+      "index": 4,
+      "success": true,
+      "timestamp": "2026-09-13T13:32:47.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x1dfAC4096b94Ed6d892223573d289B8165695dB0",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "Kuska Demo USD",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x2bb5eb4126e3d1b1aa8f572270acffbf1a768ddf935ff6998f65080d2fb145ca",
+      "transaction_index": 1,
+      "type": "call",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [
+    {
+      "block_hash": "0x25e63c08a81c202b3353d0b37e103c913683195ba94d805ef3a638d4e9e5cbd0",
+      "block_number": 27479616,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xe2Fd695cf45b182A12136E8c916c12ba7BF28861",
+        "implementations": [],
+        "is_contract": false,
+        "is_scam": false,
+        "is_verified": false,
+        "metadata": null,
+        "name": null,
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "log_index": 2,
+      "method": null,
+      "timestamp": null,
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0x955e09d2D14431f491F8E80A4db3CE82A2b3Dba1",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "KuskaEscrow",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "token": {
+        "address_hash": "0x1dfAC4096b94Ed6d892223573d289B8165695dB0",
+        "circulating_market_cap": null,
+        "circulating_supply": null,
+        "decimals": "6",
+        "exchange_rate": null,
+        "holders_count": "6",
+        "icon_url": null,
+        "name": "Kuska Demo USD",
+        "reputation": "ok",
+        "symbol": "mUSD",
+        "total_supply": "300000000",
+        "type": "ERC-20",
+        "volume_24h": null
+      },
+      "token_type": "ERC-20",
+      "total": {
+        "decimals": "6",
+        "value": "10000000"
+      },
+      "transaction_hash": "0x2bb5eb4126e3d1b1aa8f572270acffbf1a768ddf935ff6998f65080d2fb145ca",
+      "type": "token_transfer"
+    }
+  ],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x2bb5eb4126e3d1b1aa8f572270acffbf1a768ddf935ff6998f65080d2fb145ca",
+  "contract_address": "0x955e09d2D14431f491F8E80A4db3CE82A2b3Dba1",
+  "contract_name": "KuskaEscrow",
+  "contract_verified": true,
+  "implementations": []
+}

@@ -1,0 +1,485 @@
+{
+  "transaction": {
+    "l1_gas_used": "1600",
+    "priority_fee": "507375000000",
+    "raw_input": "0x67c1f27d000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000009534753434c2d434e4800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009534753434c2d434e480000000000000000000000000000000000000000000000",
+    "is_pending_update": false,
+    "op_withdrawals": [],
+    "result": "success",
+    "hash": "0x01afa9f7d1eace72648e044a9675f744caab36eef35fe66d07230a82e594a020",
+    "max_fee_per_gas": "1000318",
+    "revert_reason": null,
+    "confirmation_duration": [
+      0,
+      2000.0
+    ],
+    "transaction_burnt_fee": "127858500",
+    "type": 2,
+    "token_transfers_overflow": false,
+    "confirmations": 17080546,
+    "position": 1,
+    "max_priority_fee_per_gas": "1000000",
+    "transaction_tag": null,
+    "created_contract": null,
+    "value": "0",
+    "l1_fee_scalar": "0",
+    "from": {
+      "ens_domain_name": null,
+      "hash": "0x5D1F453879817698268944156a41252Ba247cEB0",
+      "implementations": [],
+      "is_contract": false,
+      "is_scam": false,
+      "is_verified": false,
+      "metadata": null,
+      "name": null,
+      "private_tags": [],
+      "proxy_type": null,
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "gas_used": "507375",
+    "status": "ok",
+    "to": {
+      "ens_domain_name": null,
+      "hash": "0x7d023a31BF72b01ddC7183Ff8866DD78427Bf8c7",
+      "implementations": [
+        {
+          "address_hash": "0xA00b062C8C8CeEe714d0C00b8e79740ea2AaB0ce",
+          "name": "ComplianceTokenFactory"
+        }
+      ],
+      "is_contract": true,
+      "is_scam": false,
+      "is_verified": true,
+      "metadata": null,
+      "name": "ERC1967Proxy",
+      "private_tags": [],
+      "proxy_type": "eip1967",
+      "public_tags": [],
+      "reputation": "ok",
+      "watchlist_names": []
+    },
+    "authorization_list": [],
+    "l1_fee": "11278829229496",
+    "method": "createComplianceToken",
+    "fee": {
+      "type": "actual",
+      "value": "11786332087996"
+    },
+    "gas_limit": "517765",
+    "gas_price": "1000252",
+    "decoded_input": {
+      "method_call": "createComplianceToken(string name, string symbol)",
+      "method_id": "67c1f27d",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "value": "SGSCL-CNH"
+        },
+        {
+          "name": "symbol",
+          "type": "string",
+          "value": "SGSCL-CNH"
+        }
+      ]
+    },
+    "l1_gas_price": "352463400",
+    "fhe_operations_count": 0,
+    "token_transfers": [],
+    "base_fee_per_gas": "252",
+    "timestamp": "2025-08-26T07:45:05.000000Z",
+    "nonce": 109,
+    "historic_exchange_rate": null,
+    "transaction_types": [
+      "contract_call"
+    ],
+    "exchange_rate": null,
+    "block_number": 10923585,
+    "has_error_in_internal_transactions": false
+  },
+  "logs": [
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xD1a397E14Ba9689FdDC01e7d7fD2100562FbB6C7",
+        "implementations": [
+          {
+            "address_hash": "0xa6828e13Dd788B899Cd70bAE7986fA187287E530",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xc2f502cd13c835c3683f552e5509a4034c7cee708635fd1b9779a9852605451e",
+      "block_number": 10923585,
+      "block_timestamp": "2025-08-26T07:45:05.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "Upgraded(address indexed implementation)",
+        "method_id": "bc7cd75a",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "implementation",
+            "type": "address",
+            "value": "0xa6828e13Dd788B899Cd70bAE7986fA187287E530"
+          }
+        ]
+      },
+      "index": 0,
+      "smart_contract": null,
+      "topics": [
+        "0xbc7cd75a20ee27fd9adebab32041f755214dbc6bffa90cc0225b39da2e5c2d3b",
+        "0x000000000000000000000000a6828e13dd788b899cd70bae7986fa187287e530",
+        null,
+        null
+      ],
+      "transaction_hash": "0x01afa9f7d1eace72648e044a9675f744caab36eef35fe66d07230a82e594a020"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xD1a397E14Ba9689FdDC01e7d7fD2100562FbB6C7",
+        "implementations": [
+          {
+            "address_hash": "0xa6828e13Dd788B899Cd70bAE7986fA187287E530",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xc2f502cd13c835c3683f552e5509a4034c7cee708635fd1b9779a9852605451e",
+      "block_number": 10923585,
+      "block_timestamp": "2025-08-26T07:45:05.000000Z",
+      "data": "0x",
+      "decoded": {
+        "method_call": "RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)",
+        "method_id": "2f878811",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "role",
+            "type": "bytes32",
+            "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+          },
+          {
+            "indexed": true,
+            "name": "account",
+            "type": "address",
+            "value": "0x5D1F453879817698268944156a41252Ba247cEB0"
+          },
+          {
+            "indexed": true,
+            "name": "sender",
+            "type": "address",
+            "value": "0x7d023a31BF72b01ddC7183Ff8866DD78427Bf8c7"
+          }
+        ]
+      },
+      "index": 1,
+      "smart_contract": null,
+      "topics": [
+        "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "0x0000000000000000000000005d1f453879817698268944156a41252ba247ceb0",
+        "0x0000000000000000000000007d023a31bf72b01ddc7183ff8866dd78427bf8c7"
+      ],
+      "transaction_hash": "0x01afa9f7d1eace72648e044a9675f744caab36eef35fe66d07230a82e594a020"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0xD1a397E14Ba9689FdDC01e7d7fD2100562FbB6C7",
+        "implementations": [
+          {
+            "address_hash": "0xa6828e13Dd788B899Cd70bAE7986fA187287E530",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xc2f502cd13c835c3683f552e5509a4034c7cee708635fd1b9779a9852605451e",
+      "block_number": 10923585,
+      "block_timestamp": "2025-08-26T07:45:05.000000Z",
+      "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+      "decoded": {
+        "method_call": "Initialized(uint64 version)",
+        "method_id": "c7f505b2",
+        "parameters": [
+          {
+            "indexed": false,
+            "name": "version",
+            "type": "uint64",
+            "value": "1"
+          }
+        ]
+      },
+      "index": 2,
+      "smart_contract": null,
+      "topics": [
+        "0xc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2",
+        null,
+        null,
+        null
+      ],
+      "transaction_hash": "0x01afa9f7d1eace72648e044a9675f744caab36eef35fe66d07230a82e594a020"
+    },
+    {
+      "address": {
+        "ens_domain_name": null,
+        "hash": "0x7d023a31BF72b01ddC7183Ff8866DD78427Bf8c7",
+        "implementations": [
+          {
+            "address_hash": "0xA00b062C8C8CeEe714d0C00b8e79740ea2AaB0ce",
+            "name": "ComplianceTokenFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "block_hash": "0xc2f502cd13c835c3683f552e5509a4034c7cee708635fd1b9779a9852605451e",
+      "block_number": 10923585,
+      "block_timestamp": "2025-08-26T07:45:05.000000Z",
+      "data": "0x000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000009534753434c2d434e4800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009534753434c2d434e480000000000000000000000000000000000000000000000",
+      "decoded": {
+        "method_call": "TokenCreated(address indexed token, string name, string symbol, address indexed accessController)",
+        "method_id": "6596c167",
+        "parameters": [
+          {
+            "indexed": true,
+            "name": "token",
+            "type": "address",
+            "value": "0xD1a397E14Ba9689FdDC01e7d7fD2100562FbB6C7"
+          },
+          {
+            "indexed": false,
+            "name": "name",
+            "type": "string",
+            "value": "SGSCL-CNH"
+          },
+          {
+            "indexed": false,
+            "name": "symbol",
+            "type": "string",
+            "value": "SGSCL-CNH"
+          },
+          {
+            "indexed": true,
+            "name": "accessController",
+            "type": "address",
+            "value": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      "index": 3,
+      "smart_contract": null,
+      "topics": [
+        "0x6596c1670eb3390048d23721809c3da5d3f531375ac0e2cab0f77a808ed64331",
+        "0x000000000000000000000000d1a397e14ba9689fddc01e7d7fd2100562fbb6c7",
+        "0x0000000000000000000000000000000000000000000000000000000000000000",
+        null
+      ],
+      "transaction_hash": "0x01afa9f7d1eace72648e044a9675f744caab36eef35fe66d07230a82e594a020"
+    }
+  ],
+  "internal_transactions": [
+    {
+      "block_number": 10923585,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x7d023a31BF72b01ddC7183Ff8866DD78427Bf8c7",
+        "implementations": [
+          {
+            "address_hash": "0xA00b062C8C8CeEe714d0C00b8e79740ea2AaB0ce",
+            "name": "ComplianceTokenFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "483122",
+      "index": 1,
+      "success": true,
+      "timestamp": "2025-08-26T07:45:05.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xA00b062C8C8CeEe714d0C00b8e79740ea2AaB0ce",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ComplianceTokenFactory",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x01afa9f7d1eace72648e044a9675f744caab36eef35fe66d07230a82e594a020",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    },
+    {
+      "block_number": 10923585,
+      "created_contract": {
+        "ens_domain_name": null,
+        "hash": "0xD1a397E14Ba9689FdDC01e7d7fD2100562FbB6C7",
+        "implementations": [
+          {
+            "address_hash": "0xa6828e13Dd788B899Cd70bAE7986fA187287E530",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0x7d023a31BF72b01ddC7183Ff8866DD78427Bf8c7",
+        "implementations": [
+          {
+            "address_hash": "0xA00b062C8C8CeEe714d0C00b8e79740ea2AaB0ce",
+            "name": "ComplianceTokenFactory"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "436976",
+      "index": 2,
+      "success": true,
+      "timestamp": "2025-08-26T07:45:05.000000Z",
+      "to": null,
+      "transaction_hash": "0x01afa9f7d1eace72648e044a9675f744caab36eef35fe66d07230a82e594a020",
+      "transaction_index": 1,
+      "type": "create",
+      "value": "0"
+    },
+    {
+      "block_number": 10923585,
+      "created_contract": null,
+      "error": null,
+      "from": {
+        "ens_domain_name": null,
+        "hash": "0xD1a397E14Ba9689FdDC01e7d7fD2100562FbB6C7",
+        "implementations": [
+          {
+            "address_hash": "0xa6828e13Dd788B899Cd70bAE7986fA187287E530",
+            "name": "ComplianceToken"
+          }
+        ],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ERC1967Proxy",
+        "private_tags": [],
+        "proxy_type": "eip1967",
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "gas_limit": "402580",
+      "index": 3,
+      "success": true,
+      "timestamp": "2025-08-26T07:45:05.000000Z",
+      "to": {
+        "ens_domain_name": null,
+        "hash": "0xa6828e13Dd788B899Cd70bAE7986fA187287E530",
+        "implementations": [],
+        "is_contract": true,
+        "is_scam": false,
+        "is_verified": true,
+        "metadata": null,
+        "name": "ComplianceToken",
+        "private_tags": [],
+        "proxy_type": null,
+        "public_tags": [],
+        "reputation": "ok",
+        "watchlist_names": []
+      },
+      "transaction_hash": "0x01afa9f7d1eace72648e044a9675f744caab36eef35fe66d07230a82e594a020",
+      "transaction_index": 1,
+      "type": "delegatecall",
+      "value": "0"
+    }
+  ],
+  "token_transfers": [],
+  "pagination_complete": true,
+  "source": "https://hsk.blockscout.com/api/v2/transactions/0x01afa9f7d1eace72648e044a9675f744caab36eef35fe66d07230a82e594a020",
+  "contract_address": "0x7d023a31BF72b01ddC7183Ff8866DD78427Bf8c7",
+  "contract_name": "ERC1967Proxy",
+  "contract_verified": true,
+  "implementations": [
+    {
+      "address_hash": "0xA00b062C8C8CeEe714d0C00b8e79740ea2AaB0ce",
+      "name": "ComplianceTokenFactory"
+    }
+  ]
+}
