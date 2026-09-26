@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>HSK · 合成攻击演示</title>
+  <style>
+    :root{--bg:#f4f5ed;--paper:#fffef9;--ink:#20342b;--muted:#657269;--line:#dde3d6;--green:#285943;--lime:#dafa82;--soft:#edf3e5;--warn:#8b452e;--warm:#fff0e5;--radius:18px}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+    button,input,textarea{font:inherit}button,a,input,textarea,summary{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #789b33;outline-offset:3px}a{color:var(--green);text-underline-offset:3px}button{border:1px solid var(--line);color:var(--ink);background:var(--paper);border-radius:10px;padding:10px 15px}button:hover{border-color:#a1b08b}button.primary{background:var(--green);border-color:var(--green);color:white}button.subtle{background:transparent}button.small{padding:7px 11px;font-size:13px}
+    .shell{width:min(1240px,calc(100% - 48px));margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;padding:24px 0;border-bottom:1px solid var(--line);gap:16px}.brand{display:flex;align-items:center;gap:14px}.brand-mark{font-size:25px;letter-spacing:-2px;font-weight:850;background:var(--lime);padding:5px 13px;border-radius:12px}.brand-name{font-size:12px;letter-spacing:2px;font-weight:750}.brand-sub{font-size:12px;color:var(--muted);letter-spacing:1px}.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;font-size:12px;border:1px solid var(--line);border-radius:30px;background:var(--paper);white-space:nowrap}.dot{width:6px;height:6px;border-radius:100%;background:#8a9c72}
+    main{padding:32px 0 24px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;color:var(--green);margin:0 0 7px}h1{font-size:clamp(28px,4vw,42px);line-height:1.22;margin:0 0 12px;letter-spacing:-1.2px}h2{font-size:19px;line-height:1.4;margin:0}h3{font-size:15px;margin:0}.intro{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}.intro p{margin:0;color:var(--muted)}.count{font-size:13px;color:var(--muted);white-space:nowrap}.count strong{color:var(--ink);font-size:23px;padding-right:4px}
+    .notice{display:flex;align-items:flex-start;gap:14px;padding:15px 18px;background:var(--soft);border:1px solid #d9e5ca;border-radius:12px;margin:23px 0}.notice strong{white-space:nowrap}.notice p{margin:0;font-size:13px}.notice .caption{margin-top:3px;color:var(--muted)}
+    .groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}.group-button{text-align:left;display:flex;align-items:center;gap:13px;padding:17px}.group-button .number{font-size:13px;color:var(--muted);border:1px solid var(--line);width:31px;height:31px;border-radius:10px;display:grid;place-items:center;flex-shrink:0}.group-button strong{display:block;font-size:15px}.group-button small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.group-button[aria-pressed="true"]{border-color:var(--green);background:var(--green);color:#fff}.group-button[aria-pressed="true"] small,.group-button[aria-pressed="true"] .number{color:#e1eccf}.group-button[aria-pressed="true"] .number{border-color:#63816a;background:#385f47}
+    .workspace{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;align-items:start}.stack{display:grid;gap:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;min-width:0}.card-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}.muted{color:var(--muted)}.caption{font-size:12px}.variant-switch{display:flex;gap:5px;padding:4px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}.variant-switch button{font-size:12px;border-color:transparent;padding:7px 10px;background:transparent}.variant-switch button[aria-pressed="true"]{background:var(--paper);box-shadow:0 1px 3px #20342b12;border-color:var(--line)}.variant-switch button[data-variant="attack"][aria-pressed="true"]{background:var(--warm);border-color:#e5c8b6;color:var(--warn)}
+    #case-summary{margin:0 0 19px;color:var(--muted)}.case-heading{margin:0 0 5px}.case-id{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;color:var(--muted);overflow-wrap:anywhere}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin:20px 0}.metric{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px}.metric .label{font-size:11px;color:var(--muted)}.metric .value{font-size:22px;font-weight:700;letter-spacing:-.6px;line-height:1.4;overflow-wrap:anywhere}.metric .unit{font-size:11px;color:var(--muted);margin-left:5px;font-weight:400;letter-spacing:0}.accounting-note{font-size:12px;border-left:3px solid #d5a878;padding:8px 12px;background:#fff8ec;margin:12px 0 22px;color:#745837}
+    .section-heading{display:flex;align-items:center;justify-content:space-between;margin:23px 0 14px}.timeline{list-style:none;padding:0;margin:0}.step{display:flex;gap:13px;padding:0 0 21px;position:relative}.step:last-child{padding-bottom:0}.step:not(:last-child):before{content:"";position:absolute;left:14px;top:28px;bottom:0;width:1px;background:var(--line)}.step-num{display:grid;place-items:center;background:var(--soft);border:1px solid var(--line);border-radius:50%;width:29px;height:29px;flex:0 0 29px;font-size:12px;font-weight:700;z-index:1}.step-title{font-size:14px;font-weight:650;line-height:1.5;padding-top:3px}.step-detail{font-size:13px;color:var(--muted);margin:4px 0 0;overflow-wrap:anywhere}.step-kind{font-size:10px;color:var(--muted);border:1px solid var(--line);padding:1px 6px;border-radius:5px;margin-left:8px;font-weight:400;white-space:nowrap}
+    .table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;text-align:left;white-space:nowrap;font-size:12px}th{font-weight:500;color:var(--muted);font-size:11px;border-bottom:1px solid var(--line);padding:9px 10px}td{padding:11px 10px;border-bottom:1px solid #ecede5}td:first-child,th:first-child{padding-left:0}td:last-child,th:last-child{padding-right:0;text-align:right}td.num{font-variant-numeric:tabular-nums;text-align:right}.positive{color:#3e7250}.negative{color:#9b583e}.source-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:17px 0}.source-grid small{color:var(--muted);display:block;font-size:11px}.source-grid span{font-size:13px;overflow-wrap:anywhere}.hash{display:block;overflow-wrap:anywhere;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px}.source-hint{font-size:12px;color:var(--muted);margin:10px 0 0}
+    .label-card{position:sticky;top:20px}.tag-list{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0}.tag{background:var(--warm);border:1px solid #ead6c4;color:var(--warn);border-radius:7px;font-size:12px;padding:4px 9px}.tag.empty{color:var(--green);background:var(--soft);border-color:#dbe5ce}.reference-reason{font-size:13px;line-height:1.7;margin:12px 0;color:var(--muted)}.separator{height:1px;background:var(--line);margin:23px 0}.model-status{display:flex;align-items:center;justify-content:space-between;gap:10px}.model-status strong{font-size:14px}.model-status .pill{background:var(--bg)}.label-editor{border:0;margin:0;padding:0}.label-editor legend{font-size:15px;font-weight:700;padding:0 0 11px}.check-row{display:flex;align-items:flex-start;gap:10px;padding:10px 11px;border:1px solid var(--line);border-radius:10px;margin:7px 0;background:white;cursor:pointer}.check-row input{margin:5px 0 0;accent-color:var(--green);width:15px;height:15px}.check-row span{font-size:13px}.check-row small{display:block;font-size:10px;color:var(--muted);line-height:1.4}.notes-label{font-size:12px;display:block;margin-top:16px}.notes{resize:vertical;width:100%;min-height:78px;border:1px solid var(--line);border-radius:10px;background:white;color:var(--ink);padding:10px;margin-top:6px;font-size:13px}.editor-actions{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:10px 0 18px}.editor-state{font-size:11px;color:var(--muted)}.export-labels{width:100%}.edit-warning{font-size:11px;margin:9px 0 0;color:var(--muted)}
+    details{border-top:1px solid var(--line);margin-top:18px;padding-top:14px}summary{cursor:pointer;font-size:13px;color:var(--green)}.change-list{font-size:12px;color:var(--muted);padding-left:19px;margin-bottom:0}.change-list li{margin:7px 0}pre{font:11px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;background:#f3f4ed;padding:15px;border-radius:10px;overflow:auto;max-height:360px;white-space:pre-wrap;overflow-wrap:anywhere}.detail-actions{margin-top:13px}.status{font-size:12px;min-height:20px;color:var(--green);margin-top:10px}.footer{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 0;color:var(--muted);font-size:11px;border-top:1px solid var(--line);margin-top:26px}.footer a{color:var(--muted)}[hidden]{display:none!important}
+    @media(max-width:980px){.workspace{grid-template-columns:minmax(0,1fr) 290px}.card{padding:19px}.card-top{align-items:flex-start;flex-direction:column;gap:12px}.group-button{padding:13px;gap:9px}.group-button small{font-size:10px}}
+    @media(max-width:740px){.shell{width:calc(100% - 28px)}.brand-name{font-size:10px;letter-spacing:1px}.brand-sub{font-size:10px}.topbar{padding:17px 0}.intro{align-items:flex-start;flex-direction:column;gap:14px}.count strong{font-size:18px}.notice{flex-direction:column;gap:4px}.groups{gap:7px}.group-button{display:block;padding:11px}.group-button .number{margin-bottom:8px;width:24px;height:24px;border-radius:7px}.group-button strong{font-size:13px}.group-button small{display:none}.workspace{grid-template-columns:1fr}.label-card{position:static}.card-top{flex-direction:row;align-items:center}.source-grid{grid-template-columns:1fr 1fr}.footer{align-items:flex-start;flex-direction:column;gap:7px}}
+    @media(max-width:420px){.card-top{flex-direction:column;align-items:flex-start}.topbar>.pill{display:none}.metrics{grid-template-columns:1fr}.metric{display:flex;align-items:center;justify-content:space-between;gap:10px}.metric .value{font-size:20px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">HSK</div><div><div class="brand-name">ACTION OBSERVATORY</div><div class="brand-sub">SECURITY PATTERN LAB</div></div></div>
+      <span class="pill"><span class="dot"></span>概念演示 · 离线数据</span>
+    </header>
+    <main id="attack-demo">
+      <div class="intro"><div><p class="eyebrow">FROM TRANSACTIONS TO SECURITY CONTEXT</p><h1>让攻击模式，变得可读。</h1><p>从真实交易操作出发，对照正常流程与注入的攻击行为。</p></div><div class="count"><strong>3</strong> 类模式 &nbsp; / &nbsp; <strong>6</strong> 个模拟样本</div></div>
+      <section class="notice" aria-label="数据来源说明"><strong>合成攻击演示</strong><div><p>真实来源仅作模板，不表示原交易存在攻击。</p><p id="global-disclaimer" class="caption"></p></div></section>
+      <nav class="groups" id="scenario-groups" aria-label="攻击场景"></nav>
+      <div class="workspace">
+        <div class="stack">
+          <section class="card" aria-labelledby="case-title">
+            <div class="card-top"><div><p class="eyebrow" id="scenario-type"></p><h2 class="case-heading" id="case-title"></h2><div id="case-id" class="case-id"></div></div><div class="variant-switch" aria-label="场景变体"><button type="button" data-variant="benign" aria-pressed="false">正常对照</button><button type="button" data-variant="attack" aria-pressed="true">攻击变体</button></div></div>
+            <p id="case-summary"></p>
+            <div class="metrics" id="case-metrics" aria-label="模拟结果"></div>
+            <p class="accounting-note" id="price-note" hidden>闪借归还后剩余现金不等于净利润；30,000 USDT 债务仍未偿还。此处未模拟违约或清算。</p>
+            <div class="section-heading"><h3>模拟交易路径</h3><span class="caption muted">假设步骤 · 非真实执行轨迹</span></div>
+            <ol class="timeline" id="case-steps"></ol>
+            <div class="section-heading"><h3>资金变化</h3><span class="caption muted">中性角色别名 · 模拟余额</span></div>
+            <div class="table-wrap"><table><thead><tr><th scope="col">角色</th><th scope="col">资产</th><th scope="col">之前</th><th scope="col">之后</th><th scope="col">变化</th></tr></thead><tbody id="case-balances"></tbody></table></div>
+            <details><summary>相对真实模板，模拟了哪些内容？</summary><ul class="change-list" id="case-changes"></ul></details>
+            <details id="model-input-details"><summary>查看本样本的模拟输入</summary><p class="caption muted">仅包含模拟状态与事件；预设标签和真实来源快照不在此输入中。</p><pre id="model-input-json"></pre><div class="detail-actions"><button type="button" class="small" id="export-model-input">导出当前模拟输入</button></div></details>
+          </section>
+          <section class="card" aria-labelledby="source-title">
+            <div class="source-head"><h2 id="source-title">真实来源</h2><span class="pill">非攻击证据</span></div>
+            <div class="source-grid"><div><small>网络</small><span id="source-network"></span></div><div><small>操作模板</small><span id="source-method"></span></div><div><small>区块</small><span id="source-block"></span></div></div>
+            <a class="hash" id="source-link" target="_blank" rel="noopener noreferrer"></a><p class="source-hint" id="source-time"></p><p class="source-hint">上方资金、调用与攻击标签属于独立构造的模拟场景，不对应此交易的真实行为。</p>
+            <details><summary>查看保留的真实来源快照</summary><pre id="source-state-json"></pre></details>
+          </section>
+        </div>
+        <aside class="card label-card" aria-labelledby="annotation-title">
+          <p class="eyebrow">ANNOTATION WORKSPACE</p><h2 id="annotation-title">预设参考标签</h2><div class="tag-list" id="reference-labels"></div><p id="reference-rationale" class="reference-reason"></p><p class="caption muted">按场景构造预设，作者为 assistant scenario author；未经过真人复核。</p>
+          <div class="separator"></div><div class="model-status"><strong>模型结果</strong><span class="pill" id="model-status">Jev 未运行</span></div><p class="caption muted">当前标签来自场景设定，尚无模型检测结果。</p>
+          <div class="separator"></div>
+          <fieldset class="label-editor"><legend>编辑演示标签</legend><div id="label-options"></div></fieldset>
+          <label class="notes-label" for="annotation-notes">备注</label><textarea class="notes" id="annotation-notes" placeholder="记录你对这个样本的标注说明…"></textarea>
+          <div class="editor-actions"><span class="editor-state" id="edit-state"></span><button type="button" class="small subtle" id="reset-annotation">恢复本例预设</button></div>
+          <button type="button" class="primary export-labels" id="export-annotations">导出全部 6 条标注</button><p class="edit-warning">切换场景会保留本页编辑；刷新前请导出。原始参考标签始终保留在导出文件中。</p><div class="status" id="action-status" role="status" aria-live="polite"></div>
+        </aside>
+      </div>
+    </main>
+    <footer class="footer"><span>HSK ACTION OBSERVATORY · 可扩展安全标签概念演示</span><a href="https://arxiv.org/html/2305.14046v1" target="_blank" rel="noopener noreferrer">场景类别参考 Clue v1 §5.3–5.5 ↗</a></footer>
+  </div>
+  <script type="application/json" id="demo-data">__ATTACK_DEMO_DATA__</script>
+  <script>
+    (() => {
+      'use strict';
+      const dataset = JSON.parse(document.getElementById('demo-data').textContent);
+      const labels = [
+        {id:'reentrancy', name:'重入攻击'},
+        {id:'faulty_access_control', name:'访问控制缺陷'},
+        {id:'price_manipulation', name:'价格操纵'}
+      ];
+      const kindNames = {read:'读取',write:'写入',call:'调用',check:'检查',transfer:'转账',state:'状态'};
+      const labelName = id => (labels.find(label => label.id === id) || {name:id}).name;
+      const byId = id => document.getElementById(id);
+      const create = (tag, className, content) => {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (content !== undefined) node.textContent = String(content);
+        return node;
+      };
+      const setText = (id, content) => { byId(id).textContent = String(content); };
+      const json = value => JSON.stringify(value, null, 2);
+      const formatAmount = amount => {
+        const [integer, fraction] = String(amount).split('.');
+        return integer.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (fraction === undefined ? '' : '.' + fraction);
+      };
+      const edits = new Map();
+      dataset.groups.forEach(group => group.variants.forEach(sample => {
+        edits.set(sample.id, {attack_labels:[...sample.reference_annotation.attack_labels],notes:''});
+      }));
+      let groupId = dataset.groups[0].id;
+      let variantName = 'attack';
+      const current = () => {
+        const group = dataset.groups.find(item => item.id === groupId);
+        return {group, sample:group.variants.find(item => item.variant === variantName)};
+      };
+      const isEdited = sample => {
+        const draft = edits.get(sample.id);
+        return draft.notes !== '' || json([...draft.attack_labels].sort()) !== json([...sample.reference_annotation.attack_labels].sort());
+      };
+      function updateEditStatus() {
+        const {sample} = current();
+        setText('edit-state', isEdited(sample) ? '本例已编辑' : '与预设一致');
+      }
+      function download(filename, value) {
+        const blob = new Blob([json(value) + '\n'], {type:'application/json;charset=utf-8'});
+        const url = URL.createObjectURL(blob);
+        const anchor = create('a');
+        anchor.href = url;
+        anchor.download = filename;
+        anchor.hidden = true;
+        document.body.append(anchor);
+        anchor.click();
+        anchor.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        setText('action-status', '已导出 ' + filename);
+      }
+      dataset.groups.forEach((group, index) => {
+        const button = create('button', 'group-button');
+        button.type = 'button';
+        button.dataset.group = group.id;
+        button.setAttribute('aria-pressed', 'false');
+        button.append(create('span', 'number', String(index + 1).padStart(2, '0')));
+        const text = create('span');
+        text.append(create('strong', '', group.title_zh), create('small', '', labelName(group.attack_type)));
+        button.append(text);
+        button.addEventListener('click', () => { groupId = group.id; render(); });
+        byId('scenario-groups').append(button);
+      });
+      document.querySelectorAll('[data-variant]').forEach(button => {
+        button.addEventListener('click', () => { variantName = button.dataset.variant; render(); });
+      });
+      labels.forEach(label => {
+        const row = create('label', 'check-row');
+        const checkbox = create('input');
+        checkbox.type = 'checkbox';
+        checkbox.dataset.label = label.id;
+        checkbox.id = 'label-' + label.id;
+        checkbox.addEventListener('change', () => {
+          const draft = edits.get(current().sample.id);
+          draft.attack_labels = labels.filter(item => byId('label-' + item.id).checked).map(item => item.id);
+          updateEditStatus();
+          setText('action-status', '已更新本页演示标注；尚未导出。');
+        });
+        const text = create('span', '', label.name);
+        text.append(create('small', '', label.id));
+        row.append(checkbox, text);
+        byId('label-options').append(row);
+      });
+      byId('annotation-notes').addEventListener('input', event => {
+        edits.get(current().sample.id).notes = event.target.value;
+        updateEditStatus();
+      });
+      byId('reset-annotation').addEventListener('click', () => {
+        const {sample} = current();
+        edits.set(sample.id, {attack_labels:[...sample.reference_annotation.attack_labels],notes:''});
+        render();
+        setText('action-status', '已恢复本例预设。');
+      });
+      byId('export-annotations').addEventListener('click', () => {
+        const output = {
+          schema_version:dataset.schema_version,
+          origin:'synthetic_counterfactual',
+          exported_at:new Date().toISOString(),
+          disclaimer:dataset.disclaimer_zh,
+          annotation_policy:'Reference annotations are preset by construction. Edited annotations are page edits, not evidence of human validation or model predictions.',
+          cases:dataset.groups.flatMap(group => group.variants.map(sample => ({
+            id:sample.id,
+            group_id:group.id,
+            variant:sample.variant,
+            origin:sample.origin,
+            source_transaction_hash:group.source_transaction.hash,
+            reference_annotation:sample.reference_annotation,
+            edited_annotation:{...edits.get(sample.id),author:'page_editor',edited:isEdited(sample)},
+            model_result:sample.model_result
+          })))
+        };
+        download('hsk-attack-demo-labels.json', output);
+      });
+      byId('export-model-input').addEventListener('click', () => {
+        const {sample} = current();
+        download(sample.id + '-input.json', sample.model_input);
+      });
+      function render() {
+        const {group, sample} = current();
+        const source = group.source_transaction;
+        const draft = edits.get(sample.id);
+        byId('attack-demo').dataset.case = sample.id;
+        document.querySelectorAll('[data-group]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.group === group.id)));
+        document.querySelectorAll('[data-variant]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.variant === sample.variant)));
+        setText('scenario-type', labelName(group.attack_type));
+        setText('case-title', sample.title_zh);
+        setText('case-id', sample.id + ' · 合成样本');
+        setText('case-summary', sample.summary);
+        setText('global-disclaimer', dataset.disclaimer_zh);
+        byId('case-metrics').replaceChildren(...sample.display.metrics.map(metric => {
+          const tile = create('div', 'metric');
+          const value = create('div', 'value', formatAmount(metric.value));
+          value.append(create('span', 'unit', metric.unit));
+          tile.append(create('div', 'label', metric.label), value);
+          return tile;
+        }));
+        byId('price-note').hidden = !(group.id === 'price_manipulation' && sample.variant === 'attack');
+        byId('case-steps').replaceChildren(...sample.display.steps.map(step => {
+          const row = create('li', 'step');
+          row.dataset.step = String(step.order);
+          const body = create('div');
+          const title = create('div', 'step-title', step.title);
+          title.append(create('span', 'step-kind', kindNames[step.kind] || step.kind));
+          body.append(title, create('p', 'step-detail', step.detail));
+          row.append(create('span', 'step-num', step.order), body);
+          return row;
+        }));
+        byId('case-balances').replaceChildren(...sample.display.balances_before_after.map(balance => {
+          const row = create('tr');
+          const isNegative = String(balance.delta).startsWith('-');
+          const isZero = Number(balance.delta) === 0;
+          const delta = (isNegative || isZero ? '' : '+') + formatAmount(balance.delta);
+          row.append(create('td', '', balance.actor), create('td', '', balance.asset), create('td', 'num', formatAmount(balance.before)), create('td', 'num', formatAmount(balance.after)), create('td', 'num ' + (isZero ? '' : isNegative ? 'negative' : 'positive'), delta));
+          return row;
+        }));
+        byId('case-changes').replaceChildren(...sample.changed_fields.map(change => create('li', '', change)));
+        const tags = sample.reference_annotation.attack_labels;
+        byId('reference-labels').replaceChildren(...(tags.length ? tags.map(label => create('span', 'tag', labelName(label))) : [create('span', 'tag empty', '无攻击标签')]));
+        setText('reference-rationale', sample.reference_annotation.rationale);
+        setText('model-status', sample.model_result === null ? 'Jev 未运行' : '存在模型结果，待单独核验');
+        labels.forEach(label => { byId('label-' + label.id).checked = draft.attack_labels.includes(label.id); });
+        byId('annotation-notes').value = draft.notes;
+        updateEditStatus();
+        setText('action-status', '');
+        setText('source-network', 'HSK · Chain ' + source.chain_id);
+        setText('source-method', source.method);
+        setText('source-block', formatAmount(source.block));
+        setText('source-link', source.hash + ' ↗');
+        const explorerURL = new URL(source.explorer_url);
+        if (explorerURL.protocol === 'https:' && explorerURL.hostname === 'hashkey.blockscout.com') byId('source-link').href = explorerURL.href;
+        else byId('source-link').removeAttribute('href');
+        setText('source-time', '来源时间：' + source.timestamp + ' · UTC');
+        setText('source-state-json', json(source.original_state));
+        setText('model-input-json', json(sample.model_input));
+      }
+      render();
+    })();
+  </script>
+</body>
+</html>
