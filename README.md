@@ -11,8 +11,7 @@ The labeling pipeline is designed for fast, low-cost classification: one request
 | Page | What it shows | What you can do |
 | --- | --- | --- |
 | **Activity** | A moving activity field and transaction details | Choose up to six action lanes; filter the transaction table by date, action, status or address; inspect transfers and copy addresses. |
-| **Explore** | The action vocabulary, frequency ranking and transaction distribution | Select an action to see matching transactions and related actions. |
-| **Connections** | Actions that appear together, exact combinations and contract concentration | Compare relationships and open the transactions behind each connection. |
+| **Analysis** | Action frequencies, transaction distribution, co-occurring actions and contract concentration | Explore labels and relationships in one view, then open the matching transactions. |
 | **Evaluation** | Label-level agreement with Astra references across the expanded collection | Inspect class results, assessed examples and labels that remain unvalidated. |
 | **Security** | A temporal view of reentrancy, access-control and price-manipulation scenarios | Open a case to inspect its mechanism, transfers, balance changes and original HSK source template. |
 
@@ -35,7 +34,7 @@ The current [expanded collection](data/hackathon-scale) contains 1,000 unique re
 
 Against the saved Astra reference judgments, 999 valid Jev outputs achieve **91.3% macro balanced accuracy across 32 evaluable classes** and **82.2% exact label-set agreement on 870 fully assessed transactions**. One input exceeded the model limit and remains recorded as a failure. References have not been reviewed by humans, and 13 labels lack the positive or negative references needed for scoring. See [`EVALUATION.md`](EVALUATION.md) for the method and reproducible results.
 
-Activity, Explore and Connections retain the selected action-coverage collection. Evaluation uses the expanded 1,000-transaction collection independently; the chart selection does not change its metrics.
+Activity and Analysis retain the selected action-coverage collection. Evaluation uses the expanded 1,000-transaction collection independently; the chart selection does not change its metrics.
 
 ## How tags are produced
 
