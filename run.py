@@ -26,7 +26,7 @@ def classify(state,questions,key):
     return result
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('dataset');p.add_argument('--questions',default=str(ROOT/'data/questions-v1.json'));p.add_argument('--name',required=True);p.add_argument('--threshold',type=float,default=.75);p.add_argument('--compact',action='store_true');args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('dataset');p.add_argument('--questions',default=str(ROOT/'data/questions-v7.json'));p.add_argument('--name',required=True);p.add_argument('--threshold',type=float,default=.75);p.add_argument('--compact',action='store_true');args=p.parse_args()
     if not 0<args.threshold<1:raise SystemExit('Invalid threshold')
     out=ROOT/'runs'/args.name
     if out.exists():raise SystemExit('Use a new run name; never overwrite previous measurements')
