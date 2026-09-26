@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "chain": "HashKey Chain",
+  "chain_id": 177,
+  "transaction_count": 1000,
+  "unique_transaction_count": 1000,
+  "classification_status_counts": {
+    "classified": 999,
+    "input_too_long": 1
+  },
+  "reused_successful_outputs": 407,
+  "new_successful_outputs": 592,
+  "astra_judgment_count": 1000,
+  "cohort_counts": {
+    "original_fresh_coverage": 67,
+    "original_retired_regression": 140,
+    "demo_unassessed": 593,
+    "original_fresh_random": 200
+  },
+  "classifier": {
+    "model_requested": "typesafe/jev-1.13",
+    "questions": "data/questions-v7.json",
+    "label_count": 45,
+    "threshold": 0.75
+  },
+  "failed_transaction_ids": [
+    "0xd5b364e51c3ef9ce8a74dda91470ad0ea533e1b918b1a76d6fda9e8bbcef87f6"
+  ],
+  "files": {
+    "transactions.json": {
+      "bytes": 18885620,
+      "sha256": "5a3d6f733a38eabfb118ba686cc477239fe01ee7a55aeac8404f9d14db20bacb"
+    }
+  },
+  "scope": "Saved real HSK transaction data with Jev predictions, cohort provenance and Astra reference judgments. The pool includes earlier study cohorts; it is not a new independent random sample."
+}
