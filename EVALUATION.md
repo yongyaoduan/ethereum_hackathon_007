@@ -1,20 +1,33 @@
 # Label evaluation
 
-## Scope
+## Current results
 
-The action vocabulary contains the unique display names captured from Etherscan's **By Actions** presets. Each transaction is evaluated against every action independently. Multiple labels and empty label sets are valid outputs. Execution status is metadata; a failed attempt is not a completed action.
+The Evaluation page uses the published [1,000-transaction collection](data/hackathon-scale), Jev predictions and the Astra judgments stored in each record’s `llm_judgment`. Results are recomputed from these records, not copied from an earlier run.
 
-## Sampling and separation
+| Measure | Result | Scope |
+| --- | ---: | --- |
+| Valid model outputs | 999 / 1,000 | One input exceeded the model limit |
+| Macro balanced accuracy | 91.3% | 32 labels with assessed positive and negative references |
+| Exact label-set agreement | 82.2% | 870 fully assessed, valid outputs |
+| Unvalidated labels | 13 / 45 | Not included in the macro score |
 
-Random sampling starts with a seeded selection of blocks from a fixed historical range. Every transaction in each selected block is retrieved with complete pagination, then hashes are deduplicated and a transaction sample is frozen. This produces a block-cluster sample. Class-coverage sampling separately retrieves candidates from protocol histories, methods and events.
+These are agreement results against Astra LLM references. No human review was performed. Full precision, confusion matrices and per-label counts are in [metrics.json](data/hackathon-scale/metrics.json). The manifest records the source file’s SHA-256.
 
-Frozen manifests record transaction IDs, seeds, file hashes and split membership. Records used for prompt development are excluded from held-out scores. Some protocol families and block clusters overlap between splits, so the assessment does not establish unseen-protocol generalization.
+## Sampling and provenance
 
-## Reference annotations
+The expanded pool contains 200 records from the original random cohort, 67 from action coverage, 140 development/regression records and 593 additional historical records. It includes 407 reused valid predictions and 592 new valid predictions.
 
-Reference decisions use receipts, asset movements, event logs, internal calls and available contract semantics under the [reference policy](REFERENCE_POLICY.md). Method names retrieve candidates but do not establish labels by themselves. These annotations are project references, not official Etherscan labels or a human-reviewed gold standard.
+The original random sampling selected blocks using a fixed seed, retrieved their transactions with full pagination, deduplicated hashes and froze the transaction list. This is a block-cluster sample, not a uniform sample of all HSK transactions. Action-coverage and additional records came from preserved chain evidence, protocol discovery and method/event searches. Each record retains `cohort` and `selection_origin`.
 
-Unresolved decisions are marked `unassessed` per label and excluded from that label's score. They are never silently converted to negatives or removed from the original random sample. Labels without assessed positive examples remain unvalidated.
+The expanded pool deliberately includes development records and reused predictions. Its aggregate is not a fresh independent held-out test. Protocol and block clustering also limit generalization to broader chain traffic. The transaction exploration pages continue to show the selected coverage collection; their filters do not alter Evaluation.
+
+## Labels and references
+
+The vocabulary contains 45 unique action names captured from Etherscan’s **By Actions** presets. The project defines an independent question for each action in [questions-v7.json](data/questions-v7.json). Jev evaluates all 45 in one request, using `typesafe/jev-1.13` and a 0.75 threshold. Multiple labels and empty label sets are valid outputs; execution status is separate metadata.
+
+Current reference decisions use `llm_judgment.expected`, `llm_judgment.unassessed` and the evidence-based explanation in `llm_judgment.basis`. The older `reference` field is retained for provenance but does not determine current scores. These are neither official Etherscan annotations nor a human-reviewed gold standard.
+
+Unassessed decisions are excluded per label, never converted to negatives. One failed model output has null predictions and is excluded from label scores rather than counted as a successful empty-label response. It remains in the original 1,000-record collection and in the export’s failure list.
 
 ## Metrics
 
@@ -27,14 +40,16 @@ Balanced accuracy = (Sensitivity + Specificity) / 2
 Macro balanced accuracy = mean balanced accuracy across evaluable labels
 ```
 
-Exact-set agreement measures whether every label matches on a fully assessed transaction. Per-label confusion matrices and sample counts accompany the aggregate metrics. The Evaluation page provides the current saved results and supporting examples.
+Exact-set agreement requires every predicted label to match on a fully assessed transaction. Of the 999 valid outputs, 870 have all reference decisions assessed; 715 of these match exactly. The other 129 valid outputs have at least one unassessed reference decision. A high macro score over 32 classes does not validate the remaining 13. Sparse classes and shared protocols also make population accuracy uncertain.
 
-A high aggregate score over evaluable labels does not validate the entire vocabulary. Small samples and shared protocol/block clusters also limit what can be inferred about wider network accuracy.
+## Reproduce
 
-## Reproducibility
+```sh
+python3 export_evaluation.py
+```
 
-`evaluate.py` computes metrics from saved predictions and reference annotations. The retained run directories hold the raw model responses, timing, usage and manifests used by the current app export. The regression run is development evidence and is excluded from held-out aggregates.
+This verifies the source manifest and recomputes [metrics.json](data/hackathon-scale/metrics.json), `site/dist/evaluation.json` and `site/dist/evaluation-evidence.json`. `evaluate.py` implements the metrics. `export_site.py` also invokes this exporter after rebuilding the separate transaction-view snapshot. Neither command calls a model or collects new chain data.
 
-`export_site.py` rebuilds `site/dist/data.json` from those records. The export includes provenance for the historical collection; it does not collect new chain data or call a model.
+Evaluation loads its current scores and case index separately from the transaction views. Full chain evidence is loaded when a related transaction is opened. The downloadable results contain the source hash, cohort counts, per-class confusion matrices, reference judgments and failed-output IDs.
 
-Security scenarios are evaluated separately. Their labels are authored with synthetic cases; no security-model accuracy or detection of a real HSK attack is established by them.
+Security scenarios are assessed separately. Their labels are authored with synthetic cases; these action-label results do not establish attack-detection performance.

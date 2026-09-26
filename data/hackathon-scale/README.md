@@ -43,3 +43,7 @@ const classified = transactions.filter(tx => tx.classification_status === 'class
 ```
 
 This is the complete data export for the expanded collection. The existing `site/dist/data.json` is a separate product export with its own schema and selected display cohort.
+
+## Evaluation export
+
+Run `python3 export_evaluation.py` from the repository root to reproduce [metrics.json](metrics.json) and the Evaluation page’s data. Current results use `llm_judgment` as the reference; the older `reference` field is preserved only as provenance.

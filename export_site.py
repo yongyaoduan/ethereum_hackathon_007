@@ -21,3 +21,6 @@ explanations=json.loads((ROOT/'data/explanations-zh.json').read_text())
 for label in payload['taxonomy']['labels']:label['explanation_zh']=explanations[label['id']]
 (ROOT/'site/dist/data.json').write_text(json.dumps(payload,ensure_ascii=False))
 print('Exported',len(all_rows),'real results; phase',payload['phase'])
+
+from export_evaluation import export_evaluation
+export_evaluation()

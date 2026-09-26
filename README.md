@@ -13,7 +13,7 @@ The labeling pipeline is designed for fast, low-cost classification: one request
 | **Activity** | A moving activity field and transaction details | Choose up to six action lanes; filter the transaction table by date, action, status or address; inspect transfers and copy addresses. |
 | **Explore** | The action vocabulary, frequency ranking and transaction distribution | Select an action to see matching transactions and related actions. |
 | **Connections** | Actions that appear together, exact combinations and contract concentration | Compare relationships and open the transactions behind each connection. |
-| **Evaluation** | Label-level agreement with reference annotations and evidence coverage | Inspect class results, assessed examples and labels that remain unvalidated. |
+| **Evaluation** | Label-level agreement with Astra references across the expanded collection | Inspect class results, assessed examples and labels that remain unvalidated. |
 | **Security** | A temporal view of reentrancy, access-control and price-manipulation scenarios | Open a case to inspect its mechanism, transfers, balance changes and original HSK source template. |
 
 The transaction pages use captured HSK records and saved model predictions. Activity animates those historical records. Security uses explicitly marked synthetic scenarios, generated timestamps and example addresses; its linked HSK transactions provide operation templates, not evidence of actual attacks.
@@ -26,12 +26,16 @@ The transaction pages use captured HSK records and saved model predictions. Acti
 
 ## Sampling
 
-Two complementary samples support the transaction labeling work:
+The original study used two complementary sampling methods:
 
 - **Random sample:** select blocks within a fixed historical range using a recorded seed, retrieve every transaction in each selected block with full pagination, deduplicate by hash, then freeze the selected transaction IDs. System transactions, failures and transactions without matching actions are retained. This is a block-cluster sample, not a uniform sample of all HSK activity.
 - **Action coverage sample:** find candidates through protocol histories, methods and events, then inspect complete transaction evidence. This broadens action coverage; its label frequencies do not represent network-wide activity.
 
-Development and held-out records are tracked separately. Frozen sample manifests preserve the selections and provenance. Protocol overlap and unassessed references remain explicit; a missing positive example is not evidence that an action never occurs on HSK. See [`EVALUATION.md`](EVALUATION.md) for the assessment method.
+The current [expanded collection](data/hackathon-scale) contains 1,000 unique real HSK transactions: 200 from the original random cohort, 67 from action coverage, 140 development/regression records and 593 additional historical records. Each record retains its source cohort and selection origin. The expanded assessment includes development records; it is not a fresh independent random test.
+
+Against the saved Astra reference judgments, 999 valid Jev outputs achieve **91.3% macro balanced accuracy across 32 evaluable classes** and **82.2% exact label-set agreement on 870 fully assessed transactions**. One input exceeded the model limit and remains recorded as a failure. References have not been reviewed by humans, and 13 labels lack the positive or negative references needed for scoring. See [`EVALUATION.md`](EVALUATION.md) for the method and reproducible results.
+
+Activity, Explore and Connections retain the selected action-coverage collection. Evaluation uses the expanded 1,000-transaction collection independently; the chart selection does not change its metrics.
 
 ## How tags are produced
 
@@ -41,7 +45,7 @@ Development and held-out records are tracked separately. Frozen sample manifests
 4. Convert the returned scores into labels using the configured threshold. A transaction may have multiple labels or none.
 5. Keep the labels connected to the source transaction so users can inspect the underlying evidence.
 
-The implementation uses `typesafe/jev-1.13`; the current questions are in [`data/questions-v7.json`](data/questions-v7.json), and inference is implemented in [`run.py`](run.py). The label meanings are this project's operational definitions, not Etherscan's private classification rules. Reference annotations follow [`REFERENCE_POLICY.md`](REFERENCE_POLICY.md); they are distinct from model predictions.
+The implementation uses `typesafe/jev-1.13`; the current questions are in [`data/questions-v7.json`](data/questions-v7.json), and inference is implemented in [`run.py`](run.py). The label meanings are this project's operational definitions, not Etherscan's private classification rules. The original reference policy is documented in [`REFERENCE_POLICY.md`](REFERENCE_POLICY.md). Current evaluation references come from each expanded record’s `llm_judgment`; they are distinct from Jev predictions.
 
 ## Run locally
 
@@ -71,7 +75,7 @@ A new model run accepts `OPENROUTER_API_KEY` from the environment or asks for it
 | [`demo/attack-lab`](demo/attack-lab) | Synthetic security scenarios and their generator |
 | `collect.py`, `enrich.py`, `sample.py` | Data collection, evidence enrichment and sampling |
 | `compact.py`, `run.py`, `evaluate.py` | Model-state encoding, Jev inference and label evaluation |
-| `export_site.py` | Rebuild the saved data snapshot used by the app |
+| `export_site.py`, `export_evaluation.py` | Rebuild the product snapshot and the expanded Astra-reference evaluation |
 
 ## Direction
 
