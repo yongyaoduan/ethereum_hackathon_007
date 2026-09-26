@@ -7,7 +7,7 @@ function syncFieldPicker(){
  $('#field-selection-count').textContent=`${count} / 6`;
  document.querySelectorAll('[data-field-action]').forEach(input=>{input.checked=fieldActions.includes(input.dataset.fieldAction);input.disabled=count===6&&!input.checked});
  $('#field-picker-limit').textContent=count===6?'6 selected · Maximum reached':`${count} selected · Choose up to 6`;
- $('#field-legend').innerHTML=fieldActions.map((id,i)=>`<span class="field-lane"><span class="lane-number">${i+1}</span>${id?`<button class="action-tag" style="--tag:${actionColor(id)}" data-action="${id}">${esc(name(id))}</button>`:'<span class="unused-lane">Unassigned</span>'}</span>`).join('');
+ $('#field-legend').innerHTML=fieldActions.map((id,i)=>id?`<button class="field-key-item" style="--key-color:${actionColor(id)}" data-action="${id}" aria-label="View ${esc(name(id))} transactions, lane ${i+1}"><span class="field-key-swatch" aria-hidden="true"></span><span class="field-key-name">${esc(name(id))}</span><span class="field-key-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span></button>`:`<div class="field-key-item field-key-unused"><span class="field-key-swatch" aria-hidden="true"></span><span class="field-key-name">Unassigned</span><span class="field-key-number">${String(i+1).padStart(2,'0')}</span></div>`).join('');
 }
 function initFieldPicker(){
  if($('#field-options').childElementCount)return;
@@ -39,7 +39,7 @@ function drawField(now){requestAnimationFrame(drawField);if(view!=='activity'||d
  const shadow=ctx.createRadialGradient(W*.5,H*.67,20,W*.5,H*.67,W*.48);shadow.addColorStop(0,'rgba(91,113,146,.09)');shadow.addColorStop(1,'rgba(91,113,146,0)');ctx.fillStyle=shadow;ctx.fillRect(0,0,W,H);polygon(ctx,[P(0,0),P(C,0),P(C,R),P(0,R)],'#f5f7fa','#e3e8ef');
  ctx.lineWidth=.6;ctx.strokeStyle='#dce4ed';for(let x=0;x<=C;x++){const a=P(Math.max(0,x-phase),0),b=P(Math.max(0,x-phase),R);ctx.beginPath();ctx.moveTo(...a);ctx.lineTo(...b);ctx.stroke()}for(let z=0;z<=R;z++){ctx.beginPath();ctx.moveTo(...P(0,z));ctx.lineTo(...P(C,z));ctx.stroke()}
 
- for(let z=0;z<6;z++){const id=fieldActions[z],p=P(0,z+.5);ctx.textAlign='left';ctx.font=`${narrow?10:12}px "DM Sans",sans-serif`;ctx.fillStyle=id?actionColor(id):'#b9c2cd';ctx.fillText(narrow?String(z+1):`${z+1}  ${id?name(id):'Unassigned'}`,24,p[1]+4)}
+
 
  const blocks=[];for(let c=0;c<=C;c++){const bin=fieldBins[(tick+c)%fieldBins.length],sample=bin.records;for(let z=0;z<R;z++){const id=fieldActions[z];if(!id)continue;const n=sample.filter(t=>chosen(t).includes(id)).length;if(n)blocks.push({x:c-phase,z,n,id,sample,date:bin.date})}}blocks.sort((a,b)=>(a.x+a.z)-(b.x+b.z));fieldHits=[];
  for(const b of blocks){if(b.x<-.2||b.x>C-.2)continue;const fade=Math.min(1,Math.max(0,b.x+.2)*2,Math.max(0,C-b.x)*1.6);ctx.globalAlpha=fade;const x=b.x+.06,z=b.z+.06,w=.88,h=b.n*heightScale,base=[P(x,z),P(x+w,z),P(x+w,z+w),P(x,z+w)],top=[P(x,z,h),P(x+w,z,h),P(x+w,z+w,h),P(x,z+w,h)],color=actionColor(b.id);
